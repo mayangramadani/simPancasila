@@ -13,8 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('siswas', function (Blueprint $table) {
+        Schema::create('siswa', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("kelas_id")->nullable()->constrained("data_kelas")->onDelete("cascade")->onUpdate("cascade");
+            $table->string('nis');
+            $table->string('nama_siswa');
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
+            $table->string('jenis_kelamin');
+            $table->text('alamat')->nullable();
+            $table->string('agama');
+            $table->string('no_hp');
+            $table->string('foto')->nullable();
+            $table->string('ayah');
+            $table->string('ibu');
             $table->timestamps();
         });
     }
@@ -26,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('siswas');
+        Schema::dropIfExists('siswa');
     }
 };

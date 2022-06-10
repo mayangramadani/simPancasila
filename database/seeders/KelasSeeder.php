@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DataKelas;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,13 @@ class KelasSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DataKelas::create([
+            'nama_kelas' => 'VII A',
+            'tingkatan_kelas' => 'Kelas 7'
+        ]);
+        DataKelas::create([
+            'nama_kelas' => 'VIII B',
+            'tingkatan_kelas' => 'Kelas 8'
+        ]);
     }
 }

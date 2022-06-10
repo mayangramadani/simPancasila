@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PembayaranSiswaController;
+use App\Http\Controllers\KonfirmasiController;
+use App\Http\Controllers\DataSiswaController;
+use App\Http\Controllers\DataKelasController;
+use App\Http\Controllers\KeuanganController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +22,65 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return redirect()->route('login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
+    Route::get('/datakeuangan', function () {
+        return view('datakeuangan');
+    });
+    Route::get('/laporansemester', function () {
+        return view('laporansemester');
+    });
+    Route::get('/laporantahunan', function () {
+        return view('laporantahunan');
+    });
+    Route::get('/histori', function () {
+        return view('histori');
+    });
+    Route::get('/tagihansiswa', function () {
+        return view('tagihansiswa');
+    });
+    Route::get('/informasisekolah', function () {
+        return view('informasisekolah');
+    });
+
+
+    // pembayaran
+    Route::get('/pembayaransiswa', [PembayaranSiswaController::class, 'index'])->name('pembayaran');
+    Route::get('/pembayaran/{id}', [PembayaranSiswaController::class, 'pembayaran'])->name('detailpembayaran');
+    Route::get('/pembayaransiswa/{id}/tampilkan', [PembayaranSiswaController::class, 'tampilkan'])->name('tampilkan');
+    Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi');
+
+    // datasiswa
+    Route::get('/datasiswa', [DataSiswaController::class, 'index'])->name('datasiswa');
+    Route::get('/data-siswa/{id}', [DataSiswaController::class, 'getsiswa'])->name('getsiswa');
+    Route::get('/datasiswa/create', [DataSiswaController::class, 'create'])->name('create');
+    Route::post('/datasiswa/add', [DataSiswaController::class, 'store']);
+    Route::delete('/datasiswa/{id}', [DataSiswaController::class, 'hapus']);
+    Route::put('/datasiswa/{id}', [DataSiswaController::class, 'update']);
+    Route::get('/datasiswa/{id}/edit', [DataSiswaController::class, 'edit']);
+    Route::get('/datasiswa/{id}/detail', [DataSiswaController::class, 'detail']);
+
+    // datakelas
+    Route::get('/datakelas', [DataKelasController::class, 'index'])->name('datakelas');
+    Route::post('/datakelas/add', [DataKelasController::class, 'add']);
+    Route::delete('/datakelas/{id}', [DataKelasController::class, 'hapus']);
+    Route::put('/datakelas/{id}', [DataKelasController::class, 'update']);
+    Route::get('/datakelas/{id}/edit', [DataKelasController::class, 'edit']);
+
+    // datakeuangan
+    Route::get('/datakeuangan', [KeuanganController::class, 'index'])->name('index');
+    Route::get('/datakeuangan/create', [KeuanganController::class, 'create'])->name('create');
+    Route::post('/datakeuangan/add', [KeuanganController::class, 'add'])->name('add');
+    Route::get('/datakeuangan/{id}/detail', [KeuanganController::class, 'detail'])->name('detail');
+    Route::get('/datakeuangan/{id}/edit', [KeuanganController::class, 'edit']);
+    Route::delete('/datakeuangan/{id}', [KeuanganController::class, 'hapus']);
+    Route::put('/datakeuangan/{id}', [KeuanganController::class, 'update']);
 });
 
-Route::get('/datasiswa', function () {
-    return view('datasiswa');
-});
-
-Route::get('/pembayaran', function () {
-    return view('pembayaran');
-});
-
-Route::get('/datakelas', function () {
-    return view('datakelas');
-});
+require __DIR__ . '/auth.php';

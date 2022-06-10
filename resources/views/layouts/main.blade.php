@@ -12,14 +12,15 @@
     <title>SMP Sinar Pancasila - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{!! asset('asset/vendor/fontawesome-free/css/all.min.css') !!}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="asset/css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="{!! asset('asset/css/sb-admin-2.min.css') !!}" rel="stylesheet">
+    <link href="{!! asset('asset/css/style.css') !!}" rel="stylesheet">
 
     <!-- CSS Bootstrap Datepicker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
@@ -28,9 +29,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
     <!-- Javascript Bootstrap Datepicker -->
-    <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js">
     </script>
+    
 
 </head>
 
@@ -43,22 +44,46 @@
         <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            {{-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon logo-brand">
                     <img src="{!! asset('asset/img/logo.png') !!}" alt="">
                 </div>
-                <div class="sidebar-brand-text mx-3">Sistem Informasi Pembayaran</div>
+                <div class="sidebar-brand-text text-start fw-semibold titel">Sistem Informasi Pembayaran SPP</div>
+            </a> --}}
+            
+            <a class="sidebar-brand d-flex flex-column align-items-center justify-content-center p-3" href="/dashboard">
+                <div class="sidebar-brand-icon logo-brand">
+                    <img src="{!! asset('asset/img/logo.png') !!}" alt="">
+                </div>
+                <div class="sidebar-brand-text fw-semibold">Sistem Informasi Administrasi Pembayaran Sekolah</div>
             </a>
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link fw-semibold" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+
+                 <!-- Divider -->
+                 <hr class="sidebar-divider">
+
+                 <!-- Heading -->
+                 <div class="sidebar-heading">
+                     Sekolah
+                 </div>
+     
+                 <!-- Nav Item - Charts -->
+                 <li class="nav-item">
+                     <a class="nav-link" href="/informasisekolah">
+                         <i class="fas fa-fw fa-chart-area"></i>
+                         <span> Informasi Sekolah</span></a>
+                 </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -70,19 +95,9 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link" href="/datakelas">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Data Kelas</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Daftar Angkatan:</h6>
-                        <a class="collapse-item" href="/datakelas">Kelas 7</a>
-                        <a class="collapse-item" href="cards.html">Kelas 8</a>
-                        <a class="collapse-item" href="cards.html">Kelas 9</a>
-                    </div>
-                </div>
+                    <span>Data Kelas</span></a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -97,9 +112,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item"  href="/datasiswa">Siswa</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <a class="collapse-item" href="/tagihansiswa">Tagihan Siswa</a>
+                        <a class="collapse-item" href="utilities-animation.html">xx</a>
+                        <a class="collapse-item" href="utilities-other.html">xx</a>
                     </div>
                 </div>
             </li>
@@ -114,57 +129,44 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="/datakeuangan">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Keuangan</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/pembayaransiswa">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Pembayaran Siswa</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="/histori">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Histori Pembayaran</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
+                    aria-expanded="true" aria-controls="collapseLap">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Laporan Keuangan</span>
+                </a>
+                <div id="collapseLap" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="#">Pemasukan</a>
-                        <a class="collapse-item" href="#">Pengeluaran</a>
-                        <a class="collapse-item" href="#">Laporan Keuangan</a>
+                        <h6 class="collapse-header">--Keuangan--</h6>
+                        <a class="collapse-item" href="/laporansemester">Laporan Semester</a>
+                        <a class="collapse-item" href="/laporantahunan">Laporan Tahunan</a>
+                        <a class="collapse-item" href="#">Data Pembayaran</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">xx</h6>
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/pembayaran">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Pembayaran</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Histori Pembayaran</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Laporan Keuangan</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Dana Bantuan
-            </div>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Bantuan Pemkot</span></a>
-            </li>
+       
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -298,7 +300,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="asset/img/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="{!! asset('asset/img/undraw_profile_1.svg') !!}"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -310,7 +312,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="asset/img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="{!! asset('asset/img/undraw_profile_2.svg') !!}"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -322,7 +324,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="asset/img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="{!! asset('asset/img/undraw_profile_3.svg') !!}"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -354,9 +356,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mayang Ramadani</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="asset/img/undraw_profile.svg">
+                                    src="{!! asset('asset/img/undraw_profile.svg') !!}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -414,28 +416,31 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
     <!-- Bootstrap core JavaScript-->
-    <script src="asset/vendor/jquery/jquery.min.js"></script>
-    <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{!! asset('asset/vendor/jquery/jquery.min.js') !!}"></script>
+    <script src="{!! asset('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="asset/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{!! asset('asset/vendor/jquery-easing/jquery.easing.min.js') !!}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="asset/js/sb-admin-2.min.js"></script>
+    <script src="{!! asset('asset/js/sb-admin-2.min.js') !!}"></script>
 
     <!-- Page level plugins -->
-    <script src="asset/vendor/chart.js/Chart.min.js"></script>
+    <script src="{!! asset('asset/vendor/chart.js/Chart.min.js') !!}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="asset/js/demo/chart-area-demo.js"></script>
-    <script src="asset/js/demo/chart-pie-demo.js"></script>
+    <script src="{!! asset('asset/js/demo/chart-area-demo.js') !!}"></script>
+    <script src="{!! asset('asset/js/demo/chart-pie-demo.js') !!}"></script>
 
 </body>
 

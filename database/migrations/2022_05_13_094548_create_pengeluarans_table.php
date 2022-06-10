@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pengeluarans', function (Blueprint $table) {
+        Schema::create('pengeluaran', function (Blueprint $table) {
             $table->id();
+            $table->string('jenis_pengeluaran');
+            $table->date('tanggal_pengeluaran');
+            $table->string('saldo_keuangan');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengeluarans');
+        Schema::dropIfExists('pengeluaran');
     }
 };

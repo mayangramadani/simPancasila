@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('histori_pembayarans', function (Blueprint $table) {
+        Schema::create('histori_pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("dokumen_id")->constrained("dokumen")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId("siswa_id")->constrained("siswa")->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("user_id")->constrained("users")->onDelete("cascade")->onUpdate("cascade");
-            $table->date('tgl_kembali');
-            $table->date('tgl_pengembalian');            
-            $table->integer('denda');                         
+            $table->enum('jenis_pembayaran',['Pembayaran SPP','Pembayaran Buku','Pembayaran Seragam']);
+            $table->date('tanggal_pembayaran');                    
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('histori_pembayarans');
+        Schema::dropIfExists('histori_pembayaran');
     }
 };

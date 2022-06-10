@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('pembayaran_siswas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("siswa_id");
+            $table->string('Jenis_pembayaran');
+            $table->string('jumlah_pembayaran');
+            $table->string('tanggal_pembayaran');
             $table->timestamps();
         });
     }

@@ -1,8 +1,9 @@
 @extends('layouts.main')
 @section('container')
+    
      <!-- Begin Page Content -->
      <div class="container-fluid">
-
+        {{-- {{ Breadcrumbs::render('dashboard') }} --}}
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
@@ -10,13 +11,13 @@
                     class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
         </div>
 
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <div class="d-sm-flex align-items-center justify-content-between mb-5">
             <h6 class="d-sm-mb-0 text-gray-500">Selamat Datang di Halaman, Dashboard</h6>
         </div>
 
 
         <!-- Content Row -->
-        <div class="row">
+        <div class="row mb-4">
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4 mr-3">
@@ -88,68 +89,75 @@
                     <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">History</h6>
-                        <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            
-                            {{-- <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div> --}}
-                        </div>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <div class="chart-area">
-                            {{-- <canvas id="myAreaChart"></canvas> --}}
-                            <table class="table align-middle">
-                                <thead class="table-primary">
-                                  <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Jenis</th>
-                                    <th scope="col">Jumlah</th>
-                                    <th scope="col">Tanggal</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Pembayaran SPP</td>
-                                    <td>Rp 1.250.000</td>
-                                    <td>23/12/2021</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>perbaikan Printer</td>
-                                    <td>Rp 200.000</td>
-                                    <td>01/02/2022</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Pembayaran Buku</td>
-                                    <td>Rp 1.050.000</td>
-                                    <td>09/01/2022</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="example1" class="table table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="example1_info">
+                                    <thead>
+                                        <tr class="box bg-teal" role="row">
+                                            <th width="5%" class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">No.</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">No. Transaksi</th>
+                                            <th width="25%" class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Jenis Pembayaran</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Jumlah</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Tanggal</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>                                      
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">1</td>
+                                            <td>12345678</td>
+                                            <td>Pembayaran SPP</td>
+                                            <td>Rp150.000</td>															
+                                            <td>21/05/2022</td>															
+                                            <td class="d-flex justify-content-center">	
+                                                <a href="javascript:void(0)" id="2" class="detail">
+                                                    <button class="btn text-bg-info" type="button">
+                                                        <i class="fa fa-eye"></i>                                                                          Detail                
+                                                    </button>                                           
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">2</td>
+                                            <td>12345678</td>
+                                            <td>Pembayaran SPP</td>
+                                            <td>Rp150.000</td>															
+                                            <td>21/05/2022</td>															
+                                            <td class="d-flex justify-content-center">	
+                                                <a href="javascript:void(0)" id="2" class="detail">
+                                                    <button class="btn text-bg-info" type="button">
+                                                        <i class="fa fa-eye"></i>                                                                          Detail                
+                                                    </button>                                           
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">3</td>
+                                            <td>12345678</td>
+                                            <td>Pembayaran SPP</td>
+                                            <td>Rp150.000</td>															
+                                            <td>21/05/2022</td>															
+                                            <td class="d-flex justify-content-center">	
+                                                <a href="javascript:void(0)" id="2" class="detail">
+                                                    <button class="btn text-bg-info" type="button">
+                                                        <i class="fa fa-eye"></i>                                                                          Detail                
+                                                    </button>                                           
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-    <!-- /.container-fluid -->
 
-</div>
-<!-- End of Main Content -->
 
 
 @endsection
