@@ -11,7 +11,17 @@ class DataKelasController extends Controller
     public function index()
     {
         $datakelas = DataKelas::get();
-        return view('datakelas', compact('datakelas'));
+        return view('datakelas.index', compact('datakelas'));
+    }
+    public function getIndex(){
+        $data['page_title'] = 'Data Kelas';
+        $data['data'] = DataKelas::all();
+
+        foreach ($data['data'] as $key => $row) {
+        	$row->total = Datakelas::where('rombels_id', $row->id)->count();
+        }
+
+        return view('rombels.index', $data);
     }
     public function add(Request $request)
     {
@@ -29,10 +39,10 @@ class DataKelasController extends Controller
         $datakelas = DataKelas::find($id);
         return view('datakelas.edit', compact('datakelas'));
     }
-    public function update($id, Request $request) {
-        $datakelas=DataKelas::find($id);
+    public function update($id, Request $request)
+    {
+        $datakelas = DataKelas::find($id);
         $datakelas->update($request->except(['_token', 'submit']));
         return redirect('/datakelas');
-    } 
+    }
 }
-

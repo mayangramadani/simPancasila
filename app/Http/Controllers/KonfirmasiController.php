@@ -9,6 +9,6 @@ class KonfirmasiController extends Controller
     //
     public function index(){
         $konfirmasi=Konfirmasi::get();
-        return view('konfirmasi',compact('konfirmasi'));
+        return view('transaksi.konfirmasi',compact('konfirmasi'));
     }
 }

@@ -49,8 +49,8 @@
                             <div class="mb-3 row">
                                 <label for="jumlahPembayaran" class="col-sm-2 col-form-label">Kelas</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Kelas"
-                                        disabled>
+                                    <input type="text" class="form-control" id="kelas" name="kelas"
+                                        placeholder="Kelas" disabled>
                                 </div>
                             </div>
 
@@ -80,6 +80,7 @@
                 success: function(response) {
                     console.log(id);
                     $('#namaLengkap').val(response.nama_siswa);
+                    $('#kelas').val(response.kelas_id);
                 },
             });
         });

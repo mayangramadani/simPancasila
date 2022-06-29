@@ -18,20 +18,21 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="{!! asset('asset/css/sb-admin-2.min.css') !!}" rel="stylesheet">
     <link href="{!! asset('asset/css/style.css') !!}" rel="stylesheet">
 
     <!-- CSS Bootstrap Datepicker -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
     <!-- Javascript Bootstrap Datepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js">
-    </script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+
 
 </head>
 
@@ -50,7 +51,7 @@
                 </div>
                 <div class="sidebar-brand-text text-start fw-semibold titel">Sistem Informasi Pembayaran SPP</div>
             </a> --}}
-            
+
             <a class="sidebar-brand d-flex flex-column align-items-center justify-content-center p-3" href="/dashboard">
                 <div class="sidebar-brand-icon logo-brand">
                     <img src="{!! asset('asset/img/logo.png') !!}" alt="">
@@ -70,20 +71,20 @@
                     <span>Dashboard</span></a>
             </li>
 
-                 <!-- Divider -->
-                 <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                 <!-- Heading -->
-                 <div class="sidebar-heading">
-                     Sekolah
-                 </div>
-     
-                 <!-- Nav Item - Charts -->
-                 <li class="nav-item">
-                     <a class="nav-link" href="/informasisekolah">
-                         <i class="fas fa-fw fa-chart-area"></i>
-                         <span> Informasi Sekolah</span></a>
-                 </li>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Sekolah
+            </div>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="/informasisekolah">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span> Informasi Sekolah</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -111,7 +112,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item"  href="/datasiswa">Siswa</a>
+                        <a class="collapse-item" href="/datasiswa">Siswa</a>
                         <a class="collapse-item" href="/tagihansiswa">Tagihan Siswa</a>
                         <a class="collapse-item" href="utilities-animation.html">xx</a>
                         <a class="collapse-item" href="utilities-other.html">xx</a>
@@ -136,9 +137,21 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/pembayaransiswa">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Pembayaran Siswa</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pembayaran"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Transaksi</span>
+                </a>
+                <div id="pembayaran" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pilih Pembayaran:</h6>
+                        <a class="collapse-item" href="/transaksi">Transaksi</a>
+                        <a class="collapse-item" href="/pembayaransiswa">Pembayaransiswa</a>
+                        <a class="collapse-item" href="/transaksi/datatransaksi">Data Transaksi</a>
+                        <a class="collapse-item" href="utilities-other.html">xx</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -148,17 +161,19 @@
                     <span>Histori Pembayaran</span></a>
             </li>
 
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
                     aria-expanded="true" aria-controls="collapseLap">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Laporan Keuangan</span>
                 </a>
-                <div id="collapseLap" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapseLap" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">--Keuangan--</h6>
-                        <a class="collapse-item" href="/laporansemester">Laporan Semester</a>
-                        <a class="collapse-item" href="/laporantahunan">Laporan Tahunan</a>
+                        <a class="collapse-item" href="/datalaporan/laporansemester">Laporan Semester</a>
+                        <a class="collapse-item" href="/datalaporan/laporantahunan">Laporan Tahunan</a>
                         <a class="collapse-item" href="#">Data Pembayaran</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">xx</h6>
@@ -166,7 +181,7 @@
                 </div>
             </li>
 
-       
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -196,8 +211,8 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -255,7 +270,8 @@
                                     </div>
                                     <div>
                                         <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        <span class="font-weight-bold">A new monthly report is ready to
+                                            download!</span>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -280,7 +296,8 @@
                                         Spending Alert: We've noticed unusually high spending for your account.
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All
+                                    Alerts</a>
                             </div>
                         </li>
 
@@ -300,8 +317,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{!! asset('asset/img/undraw_profile_1.svg') !!}"
-                                            alt="...">
+                                        <img class="rounded-circle" src="{!! asset('asset/img/undraw_profile_1.svg') !!}" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -312,8 +328,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{!! asset('asset/img/undraw_profile_2.svg') !!}"
-                                            alt="...">
+                                        <img class="rounded-circle" src="{!! asset('asset/img/undraw_profile_2.svg') !!}" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -324,20 +339,20 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{!! asset('asset/img/undraw_profile_3.svg') !!}"
-                                            alt="...">
+                                        <img class="rounded-circle" src="{!! asset('asset/img/undraw_profile_3.svg') !!}" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                        <div class="text-truncate">Last month's report looks great, I am very happy
+                                            with
                                             the progress so far, keep up the good work!</div>
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
+                                        <img class="rounded-circle"
+                                            src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div>
@@ -346,7 +361,8 @@
                                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More
+                                    Messages</a>
                             </div>
                         </li>
 
@@ -356,9 +372,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{!! asset('asset/img/undraw_profile.svg') !!}">
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                                <img class="img-profile rounded-circle" src="{!! asset('asset/img/undraw_profile.svg') !!}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -376,7 +392,8 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                    data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -388,60 +405,62 @@
                 </nav>
                 <!-- End of Topbar -->
 
-               
-            @yield('container')
+
+                @yield('container')
+
+            </div>
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/logout">Logout</a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="/logout">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+        </script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{!! asset('asset/vendor/jquery/jquery.min.js') !!}"></script>
-    <script src="{!! asset('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="{!! asset('asset/vendor/jquery/jquery.min.js') !!}"></script>
+        <script src="{!! asset('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="{!! asset('asset/vendor/jquery-easing/jquery.easing.min.js') !!}"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="{!! asset('asset/vendor/jquery-easing/jquery.easing.min.js') !!}"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="{!! asset('asset/js/sb-admin-2.min.js') !!}"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="{!! asset('asset/js/sb-admin-2.min.js') !!}"></script>
 
-    <!-- Page level plugins -->
-    <script src="{!! asset('asset/vendor/chart.js/Chart.min.js') !!}"></script>
+        <!-- Page level plugins -->
+        <script src="{!! asset('asset/vendor/chart.js/Chart.min.js') !!}"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="{!! asset('asset/js/demo/chart-area-demo.js') !!}"></script>
-    <script src="{!! asset('asset/js/demo/chart-pie-demo.js') !!}"></script>
-
+        <!-- Page level custom scripts -->
+        <script src="{!! asset('asset/js/demo/chart-area-demo.js') !!}"></script>
+        <script src="{!! asset('asset/js/demo/chart-pie-demo.js') !!}"></script>
+        @stack('scripts')
 </body>
 
 </html>

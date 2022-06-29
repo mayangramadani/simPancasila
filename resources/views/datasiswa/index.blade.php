@@ -8,31 +8,38 @@
             <h1 class="h3 mb-0 text-gray-800">Data Siswa</h1>
         </div>
         {{-- {{ $siswa->DataKelas->nama_kelas }} --}}
-        <div class="mb-4 row g-3">
-            <label>Search:
-                <input type="search" class="form-control input-sm col-xl-3" placeholder="" aria-controls="example1">
-            </label>
-            <div class="col-sm-10">
-                {{-- <select class="form-select form-select-lg form-control" aria-label="Default select example">
-                    <option selected>Daftar Kelas 7</option>
-                    <option value="1">Kelas 7.1</option>
-                    <option value="2">Kelas 7.2</option>
-                    <option value="3">Kelas 7.3</option>
-                </select> --}}
-                <select class="form-select form-select-lg form-control" aria-label="Default select example" name="nama_kelas"
-                    required>
-                    <option selected disabled value="">Pilih..</option>
-                    @foreach ($siswa as $item)
-                        <option value="{{ $item->id }}">{{ $item->nis }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-auto">
-                <a href="/datasiswa/create"><button class="btn btn-primary" type="button"><i class="fa fa-plus"></i>
-                        Tambah Siswa</button></a>
-            </div>
+        <div class="d-flex">
+            <select class="form-select form-select-lg form-control col-lg-4" aria-label="Default select example"
+                name="nama_kelas" required>
+                <option selected disabled value="">Pilih..</option>
+                @foreach ($siswa as $item)
+                    <option value="{{ $item->id }}">{{ $item->nis }}</option>
+                @endforeach
+            </select>
 
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="dataTables_length mb-3 row" id="datatable-basic_length">
+                        <label class="col-sm-5 col-form-label"> Show</label>
+                            <select name="datatable-basic_length" aria-controls="datatable-basic" class="form-select form-select-lg form-control col-lg-6">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div id="datatable-basic_filter" class="dataTables_filter">
+                        <label class="col-sm-10 col-form-label">Search:</label>
+                            <input type="search"
+                                class="form-control form-control-sm mb-3" placeholder="" aria-controls="datatable-basic">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
+       
 
         <div class="row">
 
@@ -43,7 +50,11 @@
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Data Siswa</h6>
                         <div class="d-flex">
-                            <a href="#" id="2" class="edit me-2">
+
+                            <a href="/datasiswa/create"><button class="btn btn-primary" type="button"><i
+                                        class="fa fa-plus"></i>
+                                    Add Siswa</button></a>
+                            <a href="#" id="2" class="edit me-2 mb-2">
                                 <button class="btn btn-outline-danger" type="button">
                                     Import Excell
                                 </button>

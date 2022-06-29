@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PembayaranSiswaController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\KeuanganController;
+use App\Http\Controllers\DatatransaksiController;
 
 
 
@@ -33,11 +34,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datakeuangan', function () {
         return view('datakeuangan');
     });
-    Route::get('/laporansemester', function () {
-        return view('laporansemester');
+    Route::get('/datalaporan/laporansemester', function () {
+        return view('datalaporan.laporansemester');
     });
-    Route::get('/laporantahunan', function () {
-        return view('laporantahunan');
+    Route::get('/datalaporan/laporantahunan', function () {
+        return view('datalaporan.laporantahunan');
     });
     Route::get('/histori', function () {
         return view('histori');
@@ -48,13 +49,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/informasisekolah', function () {
         return view('informasisekolah');
     });
+    Route::get('/transaksi/datatransaksi', function () {
+        return view('/transaksi/datatransaksi');
+    });
+
 
 
     // pembayaran
-    Route::get('/pembayaransiswa', [PembayaranSiswaController::class, 'index'])->name('pembayaran');
-    Route::get('/pembayaran/{id}', [PembayaranSiswaController::class, 'pembayaran'])->name('detailpembayaran');
-    Route::get('/pembayaransiswa/{id}/tampilkan', [PembayaranSiswaController::class, 'tampilkan'])->name('tampilkan');
-    Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi');
+    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
+    Route::get('/transaksi/{id}', [TransaksiController::class, 'transaksi'])->name('detailtransaksi');
+    Route::get('/transaksi/{id}/tampilkan', [TransaksiController::class, 'tampilkan'])->name('tampilkan');
+    Route::get('/transaksi/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi');
+
 
     // datasiswa
     Route::get('/datasiswa', [DataSiswaController::class, 'index'])->name('datasiswa');
@@ -81,6 +87,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datakeuangan/{id}/edit', [KeuanganController::class, 'edit']);
     Route::delete('/datakeuangan/{id}', [KeuanganController::class, 'hapus']);
     Route::put('/datakeuangan/{id}', [KeuanganController::class, 'update']);
+    Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
+
+    // spp
+    Route::get('/transaksi/datatransaksi', [DatatransaksiController::class, 'getIndex'])->name('transaksi');
 });
 
 require __DIR__ . '/auth.php';
