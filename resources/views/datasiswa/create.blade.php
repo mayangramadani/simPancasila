@@ -42,17 +42,18 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="namaLengkap" class="col-sm-2 col-form-label">Kelas</label>
+                                    <label for="namaSekolah" class="col-sm-2 col-form-label">Sekolah</label>
                                     <div class="col-sm-10">
-                                        <select class="form-select form-select-lg form-control" name="kelas_id">
-                                            <option>=== Pilih Kelas ===</option>
-                                            @foreach ($datakelas as $ni)
-                                                <option value="{{ $ni->id }}">{{ $ni->nama_kelas }}
+                                        <select class="form-select form-select-lg form-control" name="sekolah_id">
+                                            <option>=== Pilih Sekolah ===</option>
+                                            @foreach ($sekolah as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
                                                 </option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
+                               
                                 <div class="mb-3 row">
                                     <label for="namaLengkap" class="col-sm-2 col-form-label">Tempat Lahir</label>
                                     <div class="col-sm-10">

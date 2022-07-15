@@ -203,6 +203,7 @@
     <script src="{{ asset('assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
     <script>
         $("#nis").click(function() {
             console.log("Erza");
@@ -216,7 +217,7 @@
                 success: function(response) {
                     console.log(id);
                     $('#namaLengkap').val(response.nama_siswa);
-                    $('#kelas').val(response.kelas_id);
+                    $('#rombel').val(response.nama_kelas);
                 },
             });
         });

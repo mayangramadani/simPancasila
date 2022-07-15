@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\SiswaImport;
 use App\Models\Siswa;
-use App\Models\DataKelas;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DataSiswaController extends Controller
 {
@@ -14,8 +16,13 @@ class DataSiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::get();
-        $datakelas = DataKelas::get();
-        return view('datasiswa.index', compact('siswa', 'datakelas'));
+        $sekolah = Sekolah::get();
+        return view('datasiswa.index', compact('siswa', 'sekolah'));
+    }
+    public function importSiswa(Request $request)
+    {
+        Excel::import(new SiswaImport, $request->file('file'));
+        return back();
     }
     public function store(Request $request)
     {
@@ -48,13 +55,14 @@ class DataSiswaController extends Controller
     public function create()
     {
         $siswa = Siswa::get();
-        $datakelas = DataKelas::get();
-        return view('datasiswa.create', compact('siswa', 'datakelas'));
+        $sekolah = Sekolah::get();
+        return view('datasiswa.create', compact('siswa', 'sekolah'));
     }
 
     public function getsiswa($id)
     {
-        $siswa = Siswa::find($id);
+        $siswa = Siswa::leftjoin('data_kelas','data_kelas.id','siswa.kelas_id')
+        ->where('siswa.id',$id)->select('siswa.*','data_kelas.nama_kelas')->first();
         return $siswa;
     }
 

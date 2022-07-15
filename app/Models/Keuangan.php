@@ -9,5 +9,12 @@ class Keuangan extends Model
 {
     use HasFactory;
     protected $table = 'keuangan';
-    protected $guarded = [];
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'saldo_id', 'jenis_keuangan_id', 'user_id', 'nama_keuangan', 'jenis_keuangan', 'jumlah', 'tanggal', 'deskripsi', 'bukti'
+    ];
+    public function Saldo()
+    {
+        return $this->belongsTo(Saldo::class, 'saldo_id', 'id');
+    }
 }

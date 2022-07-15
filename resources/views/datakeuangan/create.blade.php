@@ -23,6 +23,17 @@
                             <form action="/datakeuangan/add" method="POST">
                                 @csrf
                             <div class="mb-3 row">
+                                <label for="namaSaldo" class="col-sm-2 col-form-label">Saldo</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select form-select-lg form-control" name="saldo_id">
+                                        <option>=== Pilih Saldo ===</option>
+                                        @foreach ($saldo as $item)
+                                            <option value="{{ $item->id }}">{{ $item->saldo }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                                 <label for="transaksi" class="col-sm-2 col-form-label">Jenis Transaksi</label>
                                 <div class="col-sm-10">
                                     <select class="form-select form-select-lg form-control" aria-label="Default select example" name="jenis_transaksi">

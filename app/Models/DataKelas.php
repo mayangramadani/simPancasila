@@ -9,10 +9,13 @@ class DataKelas extends Model
 {
     use HasFactory;
     protected $table = 'data_kelas';
-    protected $guarded = [];
     protected $primaryKey = 'id';
-    public function siswa() {
-        return $this->hasMany(Siswa::class);
+    protected $fillable = [
+        'sekolah_id', 'nama_kelas', 'tingkatan_kelas', 'kuota'
+    ];
+    public function Siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'siswa_id','id');
     }
-    // protected $foreignKey = 'data_kelas_id';
+    
 }

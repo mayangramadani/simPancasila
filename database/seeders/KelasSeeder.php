@@ -17,11 +17,13 @@ class KelasSeeder extends Seeder
     {
         DataKelas::create([
             'nama_kelas' => 'VII A',
-            'tingkatan_kelas' => 'Kelas 7'
+            'tingkatan_kelas' => 'Kelas 7',
+            'kuota' => '40'
         ]);
         DataKelas::create([
             'nama_kelas' => 'VIII B',
-            'tingkatan_kelas' => 'Kelas 8'
+            'tingkatan_kelas' => 'Kelas 8',
+            'kuota' => '40'
         ]);
     }
 }

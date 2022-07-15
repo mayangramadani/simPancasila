@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataKelas;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 
 class DataKelasController extends Controller
@@ -10,8 +11,9 @@ class DataKelasController extends Controller
     //
     public function index()
     {
-        $datakelas = DataKelas::get();
-        return view('datakelas.index', compact('datakelas'));
+        $datakelas = DataKelas::get();  
+        $datasekolah = Sekolah::all();
+        return view('datakelas.index', compact('datakelas','datasekolah'));
     }
     public function getIndex(){
         $data['page_title'] = 'Data Kelas';
@@ -37,7 +39,8 @@ class DataKelasController extends Controller
     public function edit($id)
     {
         $datakelas = DataKelas::find($id);
-        return view('datakelas.edit', compact('datakelas'));
+        $datasekolah = Sekolah::all();
+        return view('datakelas.edit', compact('datakelas', 'datasekolah'));
     }
     public function update($id, Request $request)
     {

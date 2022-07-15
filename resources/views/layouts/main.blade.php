@@ -23,12 +23,9 @@
     <link href="{!! asset('asset/css/sb-admin-2.min.css') !!}" rel="stylesheet">
     <link href="{!! asset('asset/css/style.css') !!}" rel="stylesheet">
 
-    <!-- CSS Bootstrap Datepicker -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> --}}
 
     <!-- Javascript Bootstrap Datepicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
@@ -44,22 +41,12 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            {{-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon logo-brand">
-                    <img src="{!! asset('asset/img/logo.png') !!}" alt="">
-                </div>
-                <div class="sidebar-brand-text text-start fw-semibold titel">Sistem Informasi Pembayaran SPP</div>
-            </a> --}}
-
             <a class="sidebar-brand d-flex flex-column align-items-center justify-content-center p-3" href="/dashboard">
                 <div class="sidebar-brand-icon logo-brand">
                     <img src="{!! asset('asset/img/logo.png') !!}" alt="">
                 </div>
                 <div class="sidebar-brand-text fw-semibold">Sistem Informasi Administrasi Pembayaran Sekolah</div>
             </a>
-
-
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -76,23 +63,15 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Sekolah
-            </div>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/informasisekolah">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span> Informasi Sekolah</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
                 Master Data
             </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="/sekolah">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Sekolah</span></a>
+            </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -103,21 +82,18 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link" href="/datasiswa">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Data Siswa</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="/datasiswa">Siswa</a>
-                        <a class="collapse-item" href="/tagihansiswa">Tagihan Siswa</a>
-                        <a class="collapse-item" href="utilities-animation.html">xx</a>
-                        <a class="collapse-item" href="utilities-other.html">xx</a>
-                    </div>
-                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="/akseskelas">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Akses Kelas</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -136,22 +112,25 @@
                 </a>
             </li>
 
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pembayaran"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Transaksi</span>
+                <a class="nav-link collapsed" href="/saldo">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Saldo</span>
                 </a>
-                <div id="pembayaran" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Pilih Pembayaran:</h6>
-                        <a class="collapse-item" href="/transaksi">Transaksi</a>
-                        <a class="collapse-item" href="/pembayaransiswa">Pembayaransiswa</a>
-                        <a class="collapse-item" href="/transaksi/datatransaksi">Data Transaksi</a>
-                        <a class="collapse-item" href="utilities-other.html">xx</a>
-                    </div>
-                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/kategoripembayaran">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Kategori Pembayaran</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/transaksi">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Transaksi Pembayaran</span>
+                </a>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -161,26 +140,20 @@
                     <span>Histori Pembayaran</span></a>
             </li>
 
-
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
                     aria-expanded="true" aria-controls="collapseLap">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Laporan Keuangan</span>
                 </a>
-                <div id="collapseLap" class="collapse" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
+                <div id="collapseLap" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">--Keuangan--</h6>
                         <a class="collapse-item" href="/datalaporan/laporansemester">Laporan Semester</a>
                         <a class="collapse-item" href="/datalaporan/laporantahunan">Laporan Tahunan</a>
-                        <a class="collapse-item" href="#">Data Pembayaran</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">xx</h6>
                     </div>
                 </div>
             </li>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -447,7 +420,9 @@
         <!-- Bootstrap core JavaScript-->
         <script src="{!! asset('asset/vendor/jquery/jquery.min.js') !!}"></script>
         <script src="{!! asset('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
         <!-- Core plugin JavaScript-->
         <script src="{!! asset('asset/vendor/jquery-easing/jquery.easing.min.js') !!}"></script>
 

@@ -29,6 +29,18 @@
                         <div class="modal-body">
                             <form action="/datakeuangan/add" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                
+                                <div class="mb-3">
+                                    <label for="saldo" class="form-label">Saldo</label>
+                                    <select class="form-select form-select-lg form-control" name="saldo_id">
+                                        <option>=== Pilih Saldo ===</option>
+                                        @foreach ($saldo as $item)
+                                            <option value="{{ $item->id }}">{{ $item->saldo }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
                                 <div class="mb-3">
                                     <label for="transaksi" class="form-label">Jenis Transaksi</label>
                                     <select class="form-select form-select-lg form-control"
@@ -91,6 +103,8 @@
                                             <th width="5%" class="sorting_asc" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1" aria-sort="ascending">No.</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                rowspan="1" colspan="1">Saldo</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Tanggal</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1">Jenis Transaksi</th>
@@ -113,6 +127,7 @@
                                             <tr role="row" class="odd">
 
                                                 <td>{{ $no }}</td>
+                                                <td>{{ $dku->saldo }}</td>
                                                 <td>{{ $dku->tanggal }}</td>
                                                 <td>{{ $dku->jenis_transaksi }}</td>
                                                 <td>{{ $dku->jumlah_transaksi }}</td>

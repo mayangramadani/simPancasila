@@ -8,38 +8,8 @@
             <h1 class="h3 mb-0 text-gray-800">Data Siswa</h1>
         </div>
         {{-- {{ $siswa->DataKelas->nama_kelas }} --}}
-        <div class="d-flex">
-            <select class="form-select form-select-lg form-control col-lg-4" aria-label="Default select example"
-                name="nama_kelas" required>
-                <option selected disabled value="">Pilih..</option>
-                @foreach ($siswa as $item)
-                    <option value="{{ $item->id }}">{{ $item->nis }}</option>
-                @endforeach
-            </select>
 
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <div class="dataTables_length mb-3 row" id="datatable-basic_length">
-                        <label class="col-sm-5 col-form-label"> Show</label>
-                            <select name="datatable-basic_length" aria-controls="datatable-basic" class="form-select form-select-lg form-control col-lg-6">
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div id="datatable-basic_filter" class="dataTables_filter">
-                        <label class="col-sm-10 col-form-label">Search:</label>
-                            <input type="search"
-                                class="form-control form-control-sm mb-3" placeholder="" aria-controls="datatable-basic">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-       
+
 
         <div class="row">
 
@@ -51,21 +21,52 @@
                         <h6 class="m-0 font-weight-bold text-primary">Data Siswa</h6>
                         <div class="d-flex">
 
-                            <a href="/datasiswa/create"><button class="btn btn-primary" type="button"><i
+                            <a href="/datasiswa/create"><button class="btn btn-info" type="button"><i
                                         class="fa fa-plus"></i>
                                     Add Siswa</button></a>
-                            <a href="#" id="2" class="edit me-2 mb-2">
-                                <button class="btn btn-outline-danger" type="button">
-                                    Import Excell
-                                </button>
-                            </a>
+                            <button type="button" class="btn btn-warning mb-3" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Import Excell
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Button trigger modal -->
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Import Excell</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <form action="{{ route('importSiswa') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="modal-body">
+                                        <label for="cemail" class="control-label">Import</label>
+                                        <input class="form-control" type="file" id="formFile" name="file">
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <input class="btn btn-primary" type="submit" value="Submit" name="submit">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table id="example1" class="table table-bordered table-hover dataTable no-footer"
+                                <table id="table1" class="table table-bordered table-hover dataTable no-footer"
                                     role="grid" aria-describedby="example1_info">
                                     <thead>
                                         <tr class="box bg-teal" role="row">
@@ -108,4 +109,11 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $('#table1').DataTable();
+            });
+        </script>
+    @endpush
 @endsection
