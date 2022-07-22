@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('sekolah', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_sekolah');
-            $table->string('derajat');
-            $table->string('lokasi');
-            $table->string('spp');
+            $table->string('nama_sekolah')->nullable();
+            $table->string('derajat')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->string('spp')->nullable();
             $table->timestamps();
         });
     }

@@ -18,17 +18,17 @@ return new class extends Migration
             $table->foreignId("kelas_id")->nullable()->constrained("data_kelas")->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("sekolah_id")->nullable()->constrained("sekolah")->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("users_id")->nullable()->constrained("users")->onDelete("cascade")->onUpdate("cascade");
-            $table->string('nama_siswa');
-            $table->string('nis');
-            $table->string('tempat_lahir');
-            $table->date('tanggal_lahir');
-            $table->string('jenis_kelamin');
+            $table->string('nama_siswa')->nullable();
+            $table->string('nis')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('jenis_kelamin')->nullable();
             $table->text('alamat')->nullable();
-            $table->string('agama');
-            $table->string('no_hp');
+            $table->string('agama')->nullable();
+            $table->string('no_hp')->nullable();
             $table->string('foto')->nullable();
-            $table->string('ayah');
-            $table->string('ibu');
+            $table->string('ayah')->nullable();
+            $table->string('ibu')->nullable();
             $table->timestamps();
         });
     }

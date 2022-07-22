@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('saldo', function (Blueprint $table) {
             $table->id();
             $table->foreignId("sekolah_id")->nullable()->constrained("sekolah")->onDelete("cascade")->onUpdate("cascade");
-            $table->string('debit');
-            $table->string('kredit');
-            $table->string('saldo');
+            $table->string('debit')->nullable();
+            $table->string('kredit')->nullable();
+            $table->string('saldo')->nullable();
             $table->timestamps();
         });
     }

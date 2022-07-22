@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pengeluaran', function (Blueprint $table) {
+        Schema::create('kategori_pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("JenisPengeluaranid")->nullable()->constrained("jenis_pengeluaran")->onDelete("cascade")->onUpdate("cascade");
-            $table->string('jenis_pengeluaran');
-            $table->date('tanggal_pengeluaran');
-            $table->string('jumlah_pengeluaran');
-            $table->string('bukti_pengeluaran');
+            $table->string('nama_pembayaran')->nullable();
+            $table->string('deskripsi_pembayaran')->nullable();
+            $table->string('harga')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengeluaran');
+        Schema::dropIfExists('kategori_pembayaran');
     }
 };

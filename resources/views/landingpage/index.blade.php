@@ -137,8 +137,8 @@
 
                     <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
                         data-aos="fade-left">
-                        <h3>SMP Sinar Pancasila</h3>
-                        <p>SMP Sinar Pancasila Balikpapan adalah Sekolah Swasta yang berdiri sejak tahun 1972. Dibawah
+                        <h3>Yayasan Sinar Pancasila</h3>
+                        <p>Yayasan Sinar Pancasila Balikpapan adalah Sekolah Swasta yang berdiri sejak tahun 1972. Dibawah
                             naungan Yayasan Pendidikan 17 Agustus 1945. Terlelak di tengah perkotaan perkampungan
                             pelajar Gn.Pasir dan merupakan salah satu sekolah swasta yang faporit di Balikpapan Kota.
                             Sampai saat ini masih dipercaya oleh masyarakat Balikpapan didalam menyelenggarakan
@@ -321,21 +321,26 @@
                         <img src="asset/img/details-1.png" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-8 pt-4" data-aos="fade-up">
-                        <h3>SMAS Sinar Pancasila</h3>
-                        <p>
-                            SMAS SINAR PANCASILA adalah salah satu satuan pendidikan dengan jenjang SMA di Klandasan
-                            Ilir, Kec. Balikpapan Kota, Kota Balikpapan, Kalimantan Timur. Dalam menjalankan
-                            kegiatannya, SMAS SINAR PANCASILA berada di bawah naungan Kementerian Pendidikan dan
-                            Kebudayaan.
+                        <h3>SMPS Sinar Pancasila</h3>
+                        <p> SMP Sinar Pancasila Balikpapan adalah Sekolah Swasta yang berdiri sejak tahun 1972. Dibawah
+                            naungan Yayasan Pendidikan 17 Agustus 1945. Terlelak di tengah perkotaan perkampungan
+                            pelajar Gn.Pasir dan merupakan salah satu sekolah swasta yang faporit di Balikpapan Kota.
+                            Sampai saat ini masih dipercaya oleh masyarakat Balikpapan didalam menyelenggarakan
+                            Pendidikan. Selain sekolah yang berakreditasi A, sekolah ini juga memiliki lulusan-lulusan
+                            terbaik yang mampu bersaing di sekolah lanjutan atas.
                         </p>
                         <ul>
-                            <li><i class="bi bi-check"></i> SMAS SINAR PANCASILA memiliki akreditasi B, berdasarkan sertifikat 458/BAN-SM/SK/2020.
+                            <li><i class="bi bi-check"></i> SMAS SINAR PANCASILA memiliki akreditasi B, berdasarkan
+                                sertifikat 458/BAN-SM/SK/2020.
                             </li>
-                            <li><i class="bi bi-check"></i> SMAS SINAR PANCASILA menyediakan listrik untuk membantu kegiatan belajar mengajar.
+                            <li><i class="bi bi-check"></i> SMAS SINAR PANCASILA menyediakan listrik untuk membantu
+                                kegiatan belajar mengajar.
                             </li>
-                            <li><i class="bi bi-check"></i> SMAS SINAR PANCASILA menyediakan akses internet yang dapat digunakan untuk mendukung kegiatan belajar mengajar menjadi lebih mudah.
+                            <li><i class="bi bi-check"></i> SMAS SINAR PANCASILA menyediakan akses internet yang dapat
+                                digunakan untuk mendukung kegiatan belajar mengajar menjadi lebih mudah.
                             </li>
-                            <li><i class="bi bi-check"></i> Provider yang digunakan SMAS SINAR PANCASILA untuk sambungan internetnya adalah Telkom Speedy.</li>
+                            <li><i class="bi bi-check"></i> Provider yang digunakan SMAS SINAR PANCASILA untuk
+                                sambungan internetnya adalah Telkom Speedy.</li>
 
                         </ul>
                         <p>
@@ -377,24 +382,32 @@
                         <img src="asset/img/details-3.png" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-8 pt-5" data-aos="fade-up">
-                        <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3>
-                        <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe
-                            odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+                        <h3>SMAS Sinar Pancasila</h3>
+                        <p>SMAS SINAR PANCASILA adalah salah satu satuan pendidikan dengan jenjang SMA di Klandasan
+                            Ilir, Kec. Balikpapan Kota, Kota Balikpapan, Kalimantan Timur. Dalam menjalankan
+                            kegiatannya, SMAS SINAR PANCASILA berada di bawah naungan Kementerian Pendidikan dan
+                            Kebudayaan.</p>
                         <ul>
-                            <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <li><i class="bi bi-check"></i> SMAS SINAR PANCASILA memiliki akreditasi B, berdasarkan
+                                sertifikat 458/BAN-SM/SK/2020.
                             </li>
-                            <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.
+                            <li><i class="bi bi-check"></i> SMAS SINAR PANCASILA menyediakan listrik untuk membantu
+                                kegiatan belajar mengajar.
                             </li>
-                            <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.
+                            <li><i class="bi bi-check"></i> SMAS SINAR PANCASILA menyediakan akses internet yang dapat
+                                digunakan untuk mendukung kegiatan belajar mengajar menjadi lebih mudah.
                             </li>
+                            <li><i class="bi bi-check"></i> Provider yang digunakan SMAS SINAR PANCASILA untuk
+                                sambungan internetnya adalah Telkom Speedy.</li>
+
                         </ul>
                         <p>
-                            Qui consequatur temporibus. Enim et corporis sit sunt harum praesentium suscipit ut
-                            voluptatem. Et nihil magni debitis consequatur est.
+                            SMAS SINAR PANCASILA menyediakan listrik untuk membantu kegiatan belajar mengajar. Sumber
+                            listrik yang digunakan oleh SMAS SINAR PANCASILA berasal dari PLN. SMAS SINAR PANCASILA
+                            menyediakan akses internet yang dapat digunakan untuk mendukung kegiatan belajar mengajar
+                            menjadi lebih mudah. Provider yang digunakan SMAS SINAR PANCASILA untuk sambungan
+                            internetnya adalah Telkom Speedy.
                         </p>
-                        <p>
-                            Suscipit enim et. Ut optio esse quidem quam reiciendis esse odit excepturi. Vel dolores
-                            rerum soluta explicabo vel fugiat eum non.
                         </p>
                     </div>
                 </div>
@@ -637,8 +650,8 @@
                             <div class="pic"><img src="asset/img/team/team-2.jpg" class="img-fluid"
                                     alt=""></div>
                             <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
-                                <span>Product Manager</span>
+                                <h4>Yudi Witono</h4>
+                                <span>Operator Sekolah</span>
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>

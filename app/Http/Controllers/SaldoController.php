@@ -24,6 +24,14 @@ class SaldoController extends Controller
     {
         saldo::create($request->except(['_token', 'submit']));
         return redirect('/saldo');
+
+        Saldo::create([
+            'sekolah_id' => $request->sekolah_id,
+            'debit' => $request->debit,
+            'kredit' => $request->kredit,
+            'saldo' => $request->saldo,
+        ]);
+        return redirect('/datakeuangan');
     }
     public function hapus($id)
     {

@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AksesKelas extends Model
+class TransaksiPembayaran extends Model
 {
     use HasFactory;
-    protected $table = 'siswa_kelas';
+    protected $table = 'transaksi_pembayaran';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'siswa_id', 'kelas_id', 'tahun'
+        'siswa_id', 'kategori_pembayaran_id', 'tahun', 'bulan_pembayaran', 'jumlah_pembayaran', 'bukti_pembayaran'
     ];
     public function Siswa()
     {
         return $this->belongsTo(Siswa::class, 'siswa_id','id');
     }
-    public function DataKelas()
+    public function KategoriPembayaran()
     {
-        return $this->belongsTo(DataKelas::class, 'kelas_id','id');
+        return $this->belongsTo(KategoriPembayaran::class, 'kategori_pembayaran_id','id');
     }
 }

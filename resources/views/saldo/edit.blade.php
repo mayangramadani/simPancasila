@@ -12,25 +12,22 @@
                 <form action="/saldo/{{ $saldo->id }}" method="POST">
                     @method('put')
                     @csrf
-                    <label for="cemail" class="control-label">Sekolah</label>
-                    <select class="form-select form-select-lg form-control" name="sekolah_id">
-                        <option>=== Pilih Sekolah ===</option>
-                        @foreach ($sekolah as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
-                            </option>
+                    <label for="cemail" class="control-label">Nama Sekolah</label>
+                    <select class="form-select form-select-lg mb-3 form-control" name="sekolah_id">
+                        @foreach ($datasekolah as $item)
+                            <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
                         @endforeach
                     </select>
 
-
                     <label for="cemail" class="control-label">Debit</label>
-                    <input class="form-control mb-3" type="number" name="debit" placeholder="Debit">
-
+                    <input class="form-control mb-3" type="number" name="debit" placeholder="Debit"
+                        value="{{ $saldo->debit }}">
                     <label for="cemail" class="control-label">Kredit</label>
-                    <input class="form-control mb-3" type="number" name="kredit" placeholder="Kredit">
-
+                    <input class="form-control mb-3" type="number" name="kredit" placeholder="kredit"
+                        value="{{ $saldo->kredit }}">
                     <label for="cemail" class="control-label">Saldo</label>
-                    <input class="form-control mb-3" type="number" min="0" name="saldo"
-                        placeholder="Saldo">
+                    <input class="form-control mb-3" type="number" name="saldo" placeholder="saldo"
+                        value="{{ $saldo->saldo }}">
 
                     <input class="btn btn-primary" type="submit" value="Submit" name="submit">
 

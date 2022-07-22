@@ -11,7 +11,7 @@ class Keuangan extends Model
     protected $table = 'keuangan';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'saldo_id', 'jenis_keuangan_id', 'user_id', 'nama_keuangan', 'jenis_keuangan', 'jumlah', 'tanggal', 'deskripsi', 'bukti'
+        'saldo_id', 'jenis_keuangan_id', 'users_id', 'nama_keuangan', 'jumlah', 'tanggal', 'deskripsi', 'bukti'
     ];
     public function Saldo()
     {

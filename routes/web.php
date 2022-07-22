@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\SppController;
 use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DataKelasController;
@@ -11,6 +11,9 @@ use App\Http\Controllers\KategoriPembayaranController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\AksesKelasController;
 use App\Http\Controllers\SaldoController;
+use App\Http\Controllers\KategoriKeuanganController;
+use App\Http\Controllers\TransaksiPembayaranController;
+
 
 
 
@@ -26,7 +29,7 @@ use App\Http\Controllers\SaldoController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('landingpage.index');
 });
 // Route::get('/', function () {
 //     return redirect()->route('login');
@@ -64,12 +67,12 @@ Route::middleware(['auth'])->group(function () {
     // Landing Page
 
 
-    // pembayaran
-    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
+    // transaksi pembayaran
+    Route::get('/spp', [SppController::class, 'index'])->name('spp');
     Route::post('/import-siswa', [DataSiswaController::class, 'importSiswa'])->name('importSiswa');
-    Route::get('/transaksi/{id}', [TransaksiController::class, 'transaksi'])->name('detailtransaksi');
-    Route::get('/transaksi/{id}/tampilkan', [TransaksiController::class, 'tampilkan'])->name('tampilkan');
-    Route::get('/transaksi/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi');
+    Route::get('/spp/{id}', [SppController::class, 'spp'])->name('detailspp');
+    Route::get('/spp/{id}/tampilkan', [SppController::class, 'tampilkan'])->name('tampilkan');
+    Route::get('/spp/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi');
 
 
     // datasiswa
@@ -107,7 +110,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
 
     // spp
-    Route::get('/transaksi/datatransaksi', [DatatransaksiController::class, 'getIndex'])->name('transaksi');
+
 
     // sekolah
     Route::get('/sekolah', [SekolahController::class, 'index'])->name('sekolah');
@@ -129,6 +132,16 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/saldo/{id}', [SaldoController::class, 'hapus']);
     Route::put('/saldo/{id}', [SaldoController::class, 'update']);
     Route::get('/saldo/{id}/edit', [SaldoController::class, 'edit']);
+
+    // kategori keuangan
+    Route::get('/kategorikeuangan', [KategoriKeuanganController::class, 'index'])->name('kategorikeuangan');
+    Route::post('/kategorikeuangan/add', [KategoriKeuanganController::class, 'add']);
+    Route::delete('/kategorikeuangan/{id}', [KategoriKeuanganController::class, 'hapus']);
+    Route::put('/kategorikeuangan/{id}', [KategoriKeuanganController::class, 'update']);
+    Route::get('/kategorikeuangan/{id}/edit', [KategoriKeuanganController::class, 'edit']);
+
+    // Transaksi Pembayaran
+    Route::get('/transaksipembayaran', [TransaksiPembayaranController::class, 'index'])->name('transaksipembayaran');
 });
 
 require __DIR__ . '/auth.php';

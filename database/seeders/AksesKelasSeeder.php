@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\AksesKelas;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SiswaKelasSeeder extends Seeder
+class AksesKelasSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,10 @@ class SiswaKelasSeeder extends Seeder
      */
     public function run()
     {
-        //
+        AksesKelas::create([
+            'siswa_id' => '1',
+            'kelas_id' => '1',
+            'tahun' => '2022'
+        ]);
     }
 }

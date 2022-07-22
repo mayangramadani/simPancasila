@@ -106,11 +106,20 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+                <a class="nav-link collapsed" href="/kategorikeuangan">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Kategori Keuangan</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="/datakeuangan">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Keuangan</span>
                 </a>
             </li>
+
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -119,6 +128,7 @@
                     <span>Saldo</span>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/kategoripembayaran">
                     <i class="fas fa-fw fa-folder"></i>
@@ -127,9 +137,16 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/transaksi">
-                    <i class="fas fa-fw fa-wrench"></i>
+                <a class="nav-link collapsed" href="/transaksipembayaran">
+                    <i class="fas fa-fw fa-folder"></i>
                     <span>Transaksi Pembayaran</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/spp">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Spp</span>
                 </a>
             </li>
 

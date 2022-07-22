@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jenis_pengeluaran', function (Blueprint $table) {
+        Schema::create('kategori_keuangan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pengeluaran');
-            $table->string('keterangan');
+            $table->string('nama_keuangan')->nullable();
+            $table->enum('kategori_keuangan',['pemasukan','pengeluaran'])->nullable();
+            $table->string('deskripsi')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jenis_pengeluaran');
+        Schema::dropIfExists('kategori_keuangan');
     }
 };

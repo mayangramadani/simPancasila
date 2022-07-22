@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transaksi', function (Blueprint $table) {
+        Schema::create('spp', function (Blueprint $table) {
             $table->id();
             $table->foreignId('siswa_id');
-            $table->foreignId('transaksi_id');
             $table->string('payment_method');
             $table->decimal('amount', 11, 2);
             $table->decimal('amount_verify', 11, 2)->nullable();
@@ -39,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaksi');
+        Schema::dropIfExists('spp');
     }
 };

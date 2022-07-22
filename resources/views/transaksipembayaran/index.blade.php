@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Pembayaran</h1>
+            <h1 class="h3 mb-0 text-gray-800">Transaksi Pembayaran</h1>
         </div>
         <div class="row">
 
@@ -14,7 +14,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Detail Pembayaran</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Transaksi Pembayaran</h6>
                     </div>
 
                     <div class="card">
@@ -56,44 +56,38 @@
 
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
-                                        <label class="form-control-label fw-semibold" for="username">NIS *</label>
-
-                                        <select id="nis" class="form-select" name="nis">
-                                            <option selected>== Pilih NIS Siswa ==</option>
+                                        <label class="form-control-label fw-semibold" for="username">Nama Siswa *</label>
+                                        <select id="nama_siswa" class="form-select" name="nama_siswa">
+                                            <option selected>== Pilih Nama Siswa ==</option>
                                             @foreach ($siswa as $ni)
-                                                <option value="{{ $ni->id }}">{{ $ni->nis }} |
-                                                    {{ $ni->nama_siswa }}</option>
+                                                <option value="{{ $ni->id }}">{{ $ni->nama_siswa }} |
+                                                    {{ $ni->nama_kelas }}</option>
                                             @endforeach
                                         </select>
-                                        {{-- <div class="mb-3 row">
-                                                <label for="nis" class="col-sm-2 col-form-label">NIS <span
-                                                        class="text-danger">*</span></label>
-                                                <div class="col-sm-10">
-                                                    <select id="nis" class="form-select" name="nis">
-                                                        <option selected>=== Pilih NIS Siswa ===</option>
-                                                        @foreach ($siswa as $ni)
-                                                            <option value="{{ $ni->id }}">{{ $ni->nis }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div> --}}
 
                                         <div class="invalid-feedback">
                                             Silahkan Isi Form NIS Terlebih Dahulu
                                         </div>
                                     </div>
+                               
                                     <div class="col-md-4 mb-3">
-                                        <label class="form-control-label fw-semibold" for="namaLengkap">Nama Lengkap
-                                            *</label>
-                                        <input type="text" class="form-control" id="namaLengkap"
-                                            placeholder="Nama Lengkap" disabled>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label class="form-control-label fw-semibold" for="name">Kelas *</label>
-                                        <input type="text" class="form-control" id="rombel" placeholder="Kelas"
+                                        <label class="form-control-label fw-semibold" for="kelas">Kelas *</label>
+                                        <input type="text" class="form-control" id="kelas" placeholder="Kelas"
                                             required autocomplete="off" readonly>
                                     </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="transaksi" class="form-control-label fw-semibold">Kategori
+                                            Pembayaran</label>
+                                        <select class="form-select form-select-lg form-control"
+                                            aria-label="Default select example" name="jenis_transaksi">
+                                            <option selected disabled>Jenis</option>
+                                            @foreach ($kategoripembayaran as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama_pembayaran }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
+                                
                                 <div class="form-row" id="form-spp">
                                     <div class="col-md-6 mb-3">
                                         <div class="form-row">
@@ -118,7 +112,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-control-label fw-semibold" for="detail_transaksi">Rincian SPP
+                                        <label class="form-control-label fw-semibold text-primary" for="detail_transaksi">Rincian SPP
                                             *</label>
                                         <div class="card-deck" id="detail_transaksi">
                                             <div class="card bg-gradient-default">

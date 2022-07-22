@@ -29,6 +29,16 @@ class DataKelasController extends Controller
     {
         DataKelas::create($request->except(['_token', 'submit']));
         return redirect('/datakelas');
+
+        DataKelas::create([
+            'sekolah_id' => $request->sekolah_id,
+            'tingkatan_kelas_id' => $request->tingkatan_kelas_id,
+            'nama_kelas' => $request->nama_kelas,
+            'kuota' => $request->kuota,
+          
+        ]);
+        return redirect('datakelas');
+        
     }
     public function hapus($id)
     {

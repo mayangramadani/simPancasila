@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('data_kelas', function (Blueprint $table) {
             $table->id();
             $table->foreignId("sekolah_id")->nullable()->constrained("sekolah")->onDelete("cascade")->onUpdate("cascade");
-            $table->string('nama_kelas');
-            $table->string('tingkatan_kelas');
-            $table->string('kuota');
+            $table->string('nama_kelas')->nullable();
+            $table->string('tingkatan_kelas')->nullable();
+            $table->string('kuota')->nullable();
             $table->timestamps();
         });
     }

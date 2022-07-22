@@ -11,7 +11,7 @@ class KategoriPembayaranController extends Controller
     public function index()
     {
         $kategoripembayaran = KategoriPembayaran::get();
-        return view('kategoripembayaran', compact('kategoripembayaran'));
+        return view('kategoripembayaran.index', compact('kategoripembayaran'));
     }
     public function getIndex()
     {
@@ -28,6 +28,14 @@ class KategoriPembayaranController extends Controller
     {
         KategoriPembayaran::create($request->except(['_token', 'submit']));
         return redirect('/kategoripembayaran');
+
+        KategoriPembayaran::create([
+            'nama_pembayaran' => $request->nama_pembayaran,
+            'deskripsi_pembayaran' => $request->deskripsi_pembayaran,
+            'harga' => $request->harga,
+      
+        ]);
+        return redirect('kategoripembayaran');
     }
     public function hapus($id)
     {

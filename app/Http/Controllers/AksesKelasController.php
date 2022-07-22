@@ -20,6 +20,11 @@ class AksesKelasController extends Controller
     {
         AksesKelas::create($request->except(['_token', 'submit']));
         return redirect('/akseskelas');
+        AksesKelas::create([
+            
+          
+        ]);
+        return redirect('/datakeuangan');
     }
     public function edit($id)
     {

@@ -15,15 +15,14 @@ return new class extends Migration
     {
         Schema::create('keuangan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("JenisKeuanganid")->nullable()->constrained("jenis_keuangan")->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("Saldoid")->nullable()->constrained("saldo")->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("Usersid")->nullable()->constrained("Users")->onDelete("cascade")->onUpdate("cascade");
-            $table->string('nama_keuangan');
-            $table->string('jenis_keuangan');
-            $table->string('jumlah');
-            $table->string('tanggal');
-            $table->string('deskripsi');
-            $table->string('bukti');
+            $table->foreignId("kategori_keuangan_id")->nullable()->constrained("kategori_keuangan")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId("saldo_id")->nullable()->constrained("saldo")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId("users_id")->nullable()->constrained("users")->onDelete("cascade")->onUpdate("cascade");
+            $table->string('nama_keuangan')->nullable();
+            $table->string('jumlah')->nullable();
+            $table->string('tanggal')->nullable();
+            $table->string('deskripsi')->nullable();
+            $table->string('bukti')->nullable();
             $table->timestamps();
         });
     }

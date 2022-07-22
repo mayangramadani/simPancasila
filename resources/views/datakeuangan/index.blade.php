@@ -29,13 +29,13 @@
                         <div class="modal-body">
                             <form action="/datakeuangan/add" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                
+
                                 <div class="mb-3">
-                                    <label for="saldo" class="form-label">Saldo</label>
+                                    <label for="saldo" class="form-label">Sekolah</label>
                                     <select class="form-select form-select-lg form-control" name="saldo_id">
-                                        <option>=== Pilih Saldo ===</option>
+                                        <option disabled>=== Pilih Sekolah ===</option>
                                         @foreach ($saldo as $item)
-                                            <option value="{{ $item->id }}">{{ $item->saldo }}
+                                            <option value="{{ $item->id }}">{{ $item->Sekolah->nama_sekolah }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -45,15 +45,21 @@
                                     <label for="transaksi" class="form-label">Jenis Transaksi</label>
                                     <select class="form-select form-select-lg form-control"
                                         aria-label="Default select example" name="jenis_transaksi">
-                                        <option selected>Jenis</option>
-                                        <option value="Pemasukan">Pemasukan</option>
-                                        <option value="Pengeluaran">Pengeluaran</option>
+                                        <option selected disabled>Jenis</option>
+                                        @foreach ($KategoriKeuangan as $item)
+                                            <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
                                 <div class="mb-3">
+                                    <label for="namaKeuangan" class="form-label">Nama Keuangan</label>
+                                    <input type="text" class="form-control" id="namaKeuangan" name="nama_keuangan"
+                                        placeholder="Nama Keuangan">
+                                </div>
+                                <div class="mb-3">
                                     <label for="namaLengkap" class="form-label">Jumlah Transaksi</label>
-                                    <input type="text" class="form-control" id="jumlahTransaksi" name="jumlah_transaksi"
+                                    <input type="text" class="form-control" id="jumlahTransaksi" name="jumlah"
                                         placeholder="Cth: 100000">
                                 </div>
 
@@ -62,6 +68,11 @@
                                     <input type="date" class="form-control" name="tanggal">
                                 </div>
 
+                                <div class="mb-3">
+                                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                                    <input type="text" class="form-control" id="deskripsi" name="deskripsi"
+                                        placeholder="Deskripsi">
+                                </div>
                                 <div class="mb-3">
                                     <label for="nis" class="form-label">Keterangan</label>
                                     <input type="text" class="form-control" id="keterangan" name="keterangan"
@@ -100,20 +111,27 @@
                                     role="grid" aria-describedby="example1_info">
                                     <thead>
                                         <tr class="box bg-teal" role="row">
-                                            <th width="5%" class="sorting_asc" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1" aria-sort="ascending">No.</th>
+                                            <th width="5%" class="sorting_asc" tabindex="0"
+                                                aria-controls="example1" rowspan="1" colspan="1"
+                                                aria-sort="ascending">No.</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Saldo</th>
+                                                rowspan="1" colspan="1">Nama Keuangan</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                rowspan="1" colspan="1">Jumlah</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                rowspan="1" colspan="1">Deskripsi</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Tanggal</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1">Jenis Transaksi</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Jumlah Transaksi</th>
-                                            {{-- <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Saldo</th> --}}
+                                                rowspan="1" colspan="1">Bukti</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Detail</th>
+                                                rowspan="1" colspan="1">Nama User</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                rowspan="1" colspan="1">Jenis Kuangan</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                rowspan="1" colspan="1">Sekolah</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                rowspan="1" colspan="1">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -127,10 +145,15 @@
                                             <tr role="row" class="odd">
 
                                                 <td>{{ $no }}</td>
-                                                <td>{{ $dku->saldo }}</td>
+                                                <td>{{ $dku->nama_keuangan }}</td>
+                                                <td>{{ $dku->jumlah }}</td>
                                                 <td>{{ $dku->tanggal }}</td>
-                                                <td>{{ $dku->jenis_transaksi }}</td>
-                                                <td>{{ $dku->jumlah_transaksi }}</td>
+                                                <td>{{ $dku->deskripsi }}</td>
+                                                <td>{{ $dku->bukti }}</td>
+                                                <td>{{ $dku->users_id }}</td>
+                                                <td>{{ $dku->jenis_keuangan_id }}</td>
+                                                <td>{{ $dku->Saldo->Sekolah->nama_sekolah }}</td>
+
                                                 {{-- <td>{{ $dku->saldo }}</td> --}}
                                                 <td class="d-felx">
                                                     <a href="/datakeuangan/{{ $dku->id }}/detail" id="2"

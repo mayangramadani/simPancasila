@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaksi extends Model
+class Spp extends Model
 {
     use HasFactory;
-    protected $table = 'transaksi';
+    protected $table = 'spp';
     protected $guarded = [];
 
     public function siswa(){

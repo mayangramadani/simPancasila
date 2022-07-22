@@ -11,23 +11,23 @@ class SekolahController extends Controller
     public function index()
     {
         $sekolah = Sekolah::get();
-        return view('sekolah', compact('sekolah'));
+        return view('sekolah.index', compact('sekolah'));
     }
-    public function getIndex()
-    {
-        $data['page_title'] = 'Sekolah';
-        $data['sekolah'] = Sekolah::all();
 
-        foreach ($data['data'] as $key => $row) {
-            $row->total = Sekolah::where('', $row->id)->count();
-        }
-
-        return view('', $data);
-    }
+    
     public function add(Request $request)
     {
         Sekolah::create($request->except(['_token', 'submit']));
         return redirect('/sekolah');
+
+        Sekolah::create([
+            'nama_sekolah' => $request->nama_sekolah,
+            'derajat' => $request->derajat,
+            'lokasi' => $request->lokasi,
+            'spp' => $request->spp,
+    
+        ]);
+        return redirect('sekolah');
     }
     public function hapus($id)
     {
