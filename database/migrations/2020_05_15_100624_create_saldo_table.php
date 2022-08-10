@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('debit')->nullable();
             $table->string('kredit')->nullable();
             $table->string('saldo')->nullable();
+            $table->foreignId("keuangan_id")->nullable()->constrained("keuangan")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@
                         <div class="modal-body">
                             <label for="cemail" class="control-label">Nama Sekolah</label>
                             <select class="form-select form-select-lg mb-3 form-control" name="sekolah_id">
-                                @foreach ($datasekolah as $item)
+                                @foreach ($sekolah as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
                                 @endforeach
                             </select>
@@ -34,14 +34,12 @@
                             <label for="cemail" class="control-label">Nama Kelas</label>
                             <input class="form-control mb-3" type="text" name="nama_kelas" placeholder="Nama Kelas">
 
-                            <label for="cemail" class="control-label">Tingkatan Kelas</label>
-                            <select class="form-select form-select-lg mb-3 form-control" name="tingkatan_kelas">
-                                <option value="Kelas 7">Kelas 7</option>
-                                <option value="Kelas 8">Kelas 8</option>
-                                <option value="Kelas 9">Kelas 9</option>
-                                <option value="Ekstrakurikuler">Ekstrakurikuler</option>
-                                <option value="Bimbel">Bimbel</option>
-                            </select>
+                            {{-- <label for="cemail" class="control-label">Tingkatan Kelas</label>
+                            <select class="form-select form-select-lg mb-3 form-control" name="tingkatan_kelas_id">
+                                @foreach ($tingkatankelas as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama_tingkatan }}</option>
+                                @endforeach
+                            </select> --}}
 
                             <label for="cemail" class="control-label">kuota</label>
                             <input class="form-control mb-3" type="number" min="0" name="kuota"
@@ -83,13 +81,17 @@
                                                         aria-label="No.: activate to sort column descending">No.</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example1"
                                                         rowspan="1" colspan="1"
+                                                        aria-label="Nama Sekolah: activate to sort column ascending">
+                                                        Nama Sekolah</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1"
+                                                        rowspan="1" colspan="1"
                                                         aria-label="Kelas/Rombel: activate to sort column ascending">
-                                                        Kelas/Rombel</th>
-                                                    <th width="25%" class="sorting" tabindex="0"
+                                                        Kelas</th>
+                                                    {{-- <th width="25%" class="sorting" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Tingkat Kelas: activate to sort column ascending">
                                                         Tingkat
-                                                        Kelas</th>
+                                                        Kelas</th> --}}
                                                     <th width="20%" class="sorting" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">Jumlah Siswa
@@ -110,8 +112,9 @@
                                                     @endphp
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1">{{ $no }}</td>
+                                                        <td>{{ $dk->sekolah->nama_sekolah }}</td>
                                                         <td>{{ $dk->nama_kelas }}</td>
-                                                        <td>{{ $dk->tingkatan_kelas }}</td>
+                                                        {{-- <td>{{ $dk->tingkatan_kelas }}</td> --}}
                                                         <td>{{ $dk->kuota }}</td>
                                                         <td class="d-flex">
                                                             <a href="/datakelas/{{ $dk->id }}/edit" id="2"
@@ -120,12 +123,22 @@
                                                                     Edit
                                                                 </button>
                                                             </a>
-                                                            <form action="/datakelas/{{ $dk->id }}" method='post'>
+                                                            <form action="/datakelas/{{ $dk->id }}" method='post'
+                                                                class="me-2">
                                                                 @csrf
                                                                 @method('delete')
                                                                 <input class="btn btn-outline-danger" type="submit"
                                                                     value="Hapus">
                                                             </form>
+
+                                                            <a href="/datakelas/{{ $dk->id }}/detail"
+                                                                id="2" class="detail me-2">
+                                                                <button class="btn btn-outline-primary" type="button">
+                                                                    Add
+                                                                </button>
+                                                            </a>
+
+
                                                         </td>
                                                     </tr>
                                                 @endforeach

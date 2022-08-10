@@ -15,7 +15,7 @@ class DataSiswaController extends Controller
     //
     public function index()
     {
-        $siswa = Siswa::get();
+        $siswa = Siswa::latest()->get();
         $sekolah = Sekolah::get();
         return view('datasiswa.index', compact('siswa', 'sekolah'));
     }
@@ -61,8 +61,8 @@ class DataSiswaController extends Controller
 
     public function getsiswa($id)
     {
-        $siswa = Siswa::leftjoin('data_kelas','data_kelas.id','siswa.kelas_id')
-        ->where('siswa.id',$id)->select('siswa.*','data_kelas.nama_kelas')->first();
+        $siswa = Siswa::leftjoin('data_kelas', 'data_kelas.id', 'siswa.kelas_id')
+            ->where('siswa.id', $id)->select('siswa.*', 'data_kelas.nama_kelas')->first();
         return $siswa;
     }
 

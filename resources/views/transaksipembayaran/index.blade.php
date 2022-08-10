@@ -20,32 +20,6 @@
                     <div class="card">
                         <!-- Card header -->
 
-                        {{-- <h3 class="mb-0">{{ $page_title }}</h3> --}}
-                        @if (Session::has('message'))
-                            <div class="alert alert-{{ Session::get('message_type') }} alert-dismissible fade show mt-3"
-                                role="alert">
-                                <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                <span class="alert-text"><strong>{{ ucwords(Session::get('message_type')) }}!</strong>
-                                    {{ Session::get('message') }}</span>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        @endif
-                        @if ($errors->any())
-                            @foreach ($errors->all() as $error)
-                                <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                    <span class="alert-text"><strong>Error!</strong>
-                                        {{ $error }}</span>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            @endforeach
-                        @endif
-
-
                         <div class="card-body">
                             <form class="validation" novalidate method="POST" action="{{ url('transaksi/add') }}">
                                 @csrf
@@ -56,20 +30,16 @@
 
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
-                                        <label class="form-control-label fw-semibold" for="username">Nama Siswa *</label>
-                                        <select id="nama_siswa" class="form-select" name="nama_siswa">
-                                            <option selected>== Pilih Nama Siswa ==</option>
+                                        <label class="form-control-label fw-semibold" for="nama">Nama Siswa *</label>
+                                        <select class="form-control selectpicker" id="select-country"
+                                            data-live-search="true">
                                             @foreach ($siswa as $ni)
-                                                <option value="{{ $ni->id }}">{{ $ni->nama_siswa }} |
-                                                    {{ $ni->nama_kelas }}</option>
+                                                <option value="{{ $ni->id }}" data-tokens="{{ $ni->nama_siswa }}">
+                                                    {{ $ni->nama_siswa }}</option>
                                             @endforeach
                                         </select>
-
-                                        <div class="invalid-feedback">
-                                            Silahkan Isi Form NIS Terlebih Dahulu
-                                        </div>
                                     </div>
-                               
+
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold" for="kelas">Kelas *</label>
                                         <input type="text" class="form-control" id="kelas" placeholder="Kelas"
@@ -87,99 +57,35 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-row" id="form-spp">
                                     <div class="col-md-6 mb-3">
                                         <div class="form-row">
                                             <div class="col-md-12 mb-3">
-                                                <label class="form-control-label fw-semibold" for="name">Pembayaran
-                                                    Bulan Terakhir *</label>
-                                                <input type="text" class="form-control" id="last_month"
-                                                    placeholder="Nama Lengkap" required autocomplete="off" value="-"
-                                                    readonly>
-                                                <input type="number" id="last_month_int" hidden>
-                                            </div>
-                                            <div class="col-md-12 mb-3">
-                                                <label class="form-control-label fw-semibold" for="for_month">Bayar Sampai
-                                                    Bulan *</label>
-                                                <select class="form-control" name="for_month" id="for_month" required>
+                                                <label class="form-control-label fw-semibold" for="bulan_pembayaran">Bulan Pembayaran *</label>
+                                                <select class="form-control" name="bulan_pembayaran" id="bulan_pembayaran" required>
                                                     <option selected disabled>== PILIH ==</option>
                                                 </select>
-                                                <div class="invalid-feedback">
-                                                    Pilih Jenis Kelamin Terlebih Dahulu.
+                                            </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label class="form-control-label fw-semibold" for="name">Jumlah Pembayaran *</label>
+                                                    <input type="text" class="form-control" id="jumlah_pembayaran"
+                                                        placeholder="Jumlah Pembayaran" name= >
                                                 </div>
+
+                                            <div class="col-md-12 mb-3">
+                                                <label for="foto" class="form-control-label fw-semibold">Bukti</label>
+                                                <input class="form-control" type="file" id="formFile"
+                                                    name="bukti_pembayaran">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="form-control-label fw-semibold text-primary" for="detail_transaksi">Rincian SPP
-                                            *</label>
-                                        <div class="card-deck" id="detail_transaksi">
-                                            <div class="card bg-gradient-default">
-                                                <div class="card-body">
-                                                    <div class="mb-2">
-                                                        <sup class="text-dark">Rp</sup> <span id="total_transaksi_display"
-                                                            class="h2 text-dark">0</span>
-                                                        <div class="text-dark mt-2 text-sm">Biaya SPP 1 Bulan
-                                                        </div>
-                                                        <div>
-                                                            <span class="text-success font-weight-600">Rp <span
-                                                                    id="amount_transaksi_display"
-                                                                    class="text-success">0</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <button class="btn btn-primary" id="btn-submit" type="submit">Submit</button>
                             </form>
                         </div>
                     </div>
-
-
-                    {{-- <div class="modal fade" id="studentsModal" tabindex="-1" role="dialog"
-                        aria-labelledby="studentsModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="studentsModalLabel">Pilih Siswa</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="table-responsive">
-                                        <table class="table" id="data-students">
-
-                                            <thead>
-                                                <tr>
-                                                    <th>NIS</th>
-                                                    <th>Nama</th>
-                                                    <th>Rombel</th>
-                                                </tr>
-                                            </thead>
-                                            @foreach ($siswa as $ni)
-                                                <tbody>
-                                                    <tr>
-                                                        <th>{{ $ni->nis }}</th>
-                                                        <th>{{ $ni->nama_siswa }}</th>
-                                                        <th>{{ $ni->DataKelas->nama_kelas }}</th>
-                                                    </tr>
-                                                </tbody>
-                                            @endforeach
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
 
                 </div>
             </div>
@@ -187,7 +93,13 @@
     </div>
 @endsection
 @push('scripts')
-    <!-- Optional JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css"
+        rel="stylesheet" />
+
     <script src="{{ asset('assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
@@ -198,6 +110,11 @@
     <script src="{{ asset('assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script>
+        $(function() {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
     <script>
         $("#nis").click(function() {
             console.log("Erza");

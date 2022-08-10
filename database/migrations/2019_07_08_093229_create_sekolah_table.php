@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('derajat')->nullable();
             $table->string('lokasi')->nullable();
             $table->string('spp')->nullable();
+            $table->string('tingkatan_kelas')->nullable();
             $table->timestamps();
         });
     }

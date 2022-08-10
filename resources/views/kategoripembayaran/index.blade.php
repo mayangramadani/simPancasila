@@ -33,7 +33,7 @@
                                 placeholder="Deskripsi Pembayaran">
 
                             <label for="cemail" class="control-label">Harga</label>
-                            <input class="form-control mb-3" type="text" name="harga" placeholder="Harga">
+                            <input class="form-control mb-3" type="text" name="harga" placeholder="Harga" id="dengan-rupiah">
 
                         </div>
                         <div class="modal-footer">
@@ -100,7 +100,7 @@
                                                         <td class="sorting_1">{{ $no }}</td>
                                                         <td>{{ $kp->nama_pembayaran }}</td>
                                                         <td>{{ $kp->deskripsi_pembayaran }}</td>
-                                                        <td>{{ $kp->harga }}</td>
+                                                        <td>{{ 'Rp ' . number_format($kp->harga, 0, '.', '.') }}</td>                                                     
                                                         <td class="d-flex">
                                                             <a href="/kategoripembayaran/{{ $kp->id }}/edit"
                                                                 id="2" class="edit me-2">
@@ -131,4 +131,37 @@
         </div>
     </div>
     </div>
+
+    @push('scripts')
+    <script>
+        $(document).ready(function() {
+            console.log('asdas');
+            $('#table1').DataTable();
+
+            /* Dengan Rupiah */
+            var dengan_rupiah = document.getElementById('dengan-rupiah');
+            dengan_rupiah.addEventListener('keyup', function(e) {
+                dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+            });
+
+            /* Fungsi */
+            function formatRupiah(angka, prefix) {
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                    split = number_string.split(','),
+                    sisa = split[0].length % 3,
+                    rupiah = split[0].substr(0, sisa),
+                    ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                if (ribuan) {
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+            }
+        });
+    </script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script> --}}
+@endpush
 @endsection

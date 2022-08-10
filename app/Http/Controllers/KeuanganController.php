@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\KategoriKeuangan;
 use App\Models\Keuangan;
 use App\Models\Saldo;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,42 +17,55 @@ class KeuanganController extends Controller
     {
         $keuangan = Keuangan::get();
         $saldo = Saldo::all();
-        $KategoriKeuangan = KategoriKeuangan::all();
-        return view('datakeuangan.index', compact('keuangan', 'saldo', 'KategoriKeuangan'));
+        $sekolah = Sekolah::all();
+        $kategorikeuangan = KategoriKeuangan::all();
+        return view('datakeuangan.index', compact('keuangan', 'saldo', 'kategorikeuangan', 'sekolah'));
     }
     public function add(Request $request)
     {
+
         if ($request->bukti_transaksi != null) {
             $file = $request->bukti_transaksi;
-            // dd($file);
             $extension = $file->extension();
             $date = date("his");
-            // dd($extension);
             $file_name1 = "Foto_$date.$extension";
             $path = $request->file('bukti_transaksi')->storeAs('public/Keuangan/bukti', $file_name1);
         } else {
             $file_name1 = null;
         }
-        $KategoriKeuangan = KategoriKeuangan::find($request->kategori_keuangan_id);
-        $Saldo = Saldo::find($request->saldo_id);
-        dd($request->saldo_id);
-        if ($KategoriKeuangan->kategori_keuangan == 'pemasukan') {
-            Saldo::create([
-                'debit' => $request->jumlah,
-                'saldo' => $Saldo->saldo + $request->jumlah
-            ]);
-        }
-        Keuangan::create([
+        $kategorikeuangan = KategoriKeuangan::find($request->kategori_keuangan_id);
+        $Saldo = Saldo::where('sekolah_id', $request->sekolah_id)->latest()->first();
+
+        $Keuangans = Keuangan::create([
             'nama_keuangan' => $request->nama_keuangan,
-            'saldo_id' => $request->saldo_id,
             'kategori_keuangan_id' => $request->kategori_keuangan_id,
-            'jumlah' => $request->jumlah,
+            'jumlah' => $this->convertRP($request->jumlah),
             'tanggal' => $request->tanggal,
             'deskripsi' => $request->deskripsi,
             'users_id' => Auth::user()->id,
             'bukti' => $file_name1,
 
         ]);
+        if ($Saldo != null) {
+            $cekSaldo = $Saldo->saldo;
+        } else {
+            $cekSaldo = 0;
+        }
+        if ($kategorikeuangan->kategori_keuangan == 'pemasukan') {
+            Saldo::create([
+                'debit' => $this->convertRP($request->jumlah),
+                'saldo' =>(int)$cekSaldo + (int)$this->convertRP($request->jumlah),
+                'sekolah_id' => $request->sekolah_id,
+                'keuangan_id' => $Keuangans->id
+            ]);
+        } else {
+            Saldo::create([
+                'kredit' => $request->jumlah,
+                'saldo' => (int)$cekSaldo - (int)$this->convertRP($request->jumlah),
+                'sekolah_id' => $request->sekolah_id,
+                'keuangan_id' => $Keuangans->id
+            ]);
+        }
         return redirect('/datakeuangan');
     }
 

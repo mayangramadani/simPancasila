@@ -11,10 +11,10 @@ class Keuangan extends Model
     protected $table = 'keuangan';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'saldo_id', 'jenis_keuangan_id', 'users_id', 'nama_keuangan', 'jumlah', 'tanggal', 'deskripsi', 'bukti'
+        'kategori_keuangan_id', 'users_id', 'nama_keuangan', 'jumlah', 'tanggal', 'deskripsi', 'bukti'
     ];
-    public function Saldo()
+    public function KategoriKeuangan()
     {
-        return $this->belongsTo(Saldo::class, 'saldo_id', 'id');
+        return $this->belongsTo(KategoriKeuangan::class, 'kategori_keuangan_id', 'id');
     }
 }

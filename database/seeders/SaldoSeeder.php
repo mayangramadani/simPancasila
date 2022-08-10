@@ -15,11 +15,6 @@ class SaldoSeeder extends Seeder
      */
     public function run()
     {
-        Saldo::create([
-            // 'sekolah_id' => '',
-            'debit' => '120000',
-            'kredit' => '210000',
-            'saldo' => '10000'
-        ]);
+        
     }
 }

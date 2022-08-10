@@ -11,7 +11,7 @@ class Saldo extends Model
     protected $table = 'saldo';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'sekolah_id', 'debit', 'kredit', 'saldo'
+        'sekolah_id', 'debit', 'kredit', 'saldo','keuangan_id'
     ];
     public function Sekolah()
     {

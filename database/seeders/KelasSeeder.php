@@ -16,11 +16,13 @@ class KelasSeeder extends Seeder
     public function run()
     {
         DataKelas::create([
+            'sekolah_id' => '1',
             'nama_kelas' => 'VII A',
             'tingkatan_kelas' => 'Kelas 7',
             'kuota' => '40'
         ]);
         DataKelas::create([
+            'sekolah_id' => '1',
             'nama_kelas' => 'VIII B',
             'tingkatan_kelas' => 'Kelas 8',
             'kuota' => '40'

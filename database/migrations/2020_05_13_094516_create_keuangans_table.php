@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('keuangan', function (Blueprint $table) {
             $table->id();
             $table->foreignId("kategori_keuangan_id")->nullable()->constrained("kategori_keuangan")->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("saldo_id")->nullable()->constrained("saldo")->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("users_id")->nullable()->constrained("users")->onDelete("cascade")->onUpdate("cascade");
             $table->string('nama_keuangan')->nullable();
             $table->string('jumlah')->nullable();

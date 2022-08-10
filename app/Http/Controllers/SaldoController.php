@@ -17,21 +17,27 @@ class SaldoController extends Controller
     }
     public function getIndex()
     {
-        $data['page_title'] = 'Saldo';
-        $data['data'] = saldo::all();
+        $saldo['saldo'] = saldo::all();
+
+        foreach ($saldo['saldo'] as $key => $row) {
+            $row->saldo = 'Rp' . number_format($row->saldo, 2);
+        }
+
+        return view('saldo.index', $saldo);
     }
     public function add(Request $request)
     {
+       
         saldo::create($request->except(['_token', 'submit']));
         return redirect('/saldo');
 
         Saldo::create([
             'sekolah_id' => $request->sekolah_id,
-            'debit' => $request->debit,
-            'kredit' => $request->kredit,
-            'saldo' => $request->saldo,
+            'debit' => $this->convertRP($request->debit),
+            'kredit' => $this->convertRP($request->kredit),
+            'saldo' => $this->convertRP($request->saldo),
         ]);
-        return redirect('/datakeuangan');
+        return redirect('/saldo');
     }
     public function hapus($id)
     {

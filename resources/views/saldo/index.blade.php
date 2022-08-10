@@ -35,14 +35,15 @@
                             </select>
 
                             <label for="cemail" class="control-label">Debit</label>
-                            <input class="form-control mb-3" type="number" name="debit" placeholder="Debit">
+                            <input class="form-control mb-3" type="text" name="debit" placeholder="Debit"
+                                id="dengan-rupiah">
 
                             <label for="cemail" class="control-label">Kredit</label>
-                            <input class="form-control mb-3" type="number" name="kredit" placeholder="Kredit">
+                            <input class="form-control mb-3" type="text" name="kredit" placeholder="Kredit"
+                                id="dengan-rupiah">
 
                             <label for="cemail" class="control-label">Saldo</label>
-                            <input class="form-control mb-3" type="number" min="0" name="saldo"
-                                placeholder="Saldo">
+                            <input class="form-control mb-3" type="text" name="saldo" id="dengan-rupiah" />
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -80,7 +81,7 @@
                                                         aria-label="No.: activate to sort column descending">No.</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example1"
                                                         rowspan="1" colspan="1"
-                                                        aria-label="sekolah: activate to sort column ascending">
+                                                        aria-label="Sekolah: activate to sort column ascending">
                                                         Sekolah</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example1"
                                                         rowspan="1" colspan="1"
@@ -110,10 +111,10 @@
                                                     @endphp
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1">{{ $no }}</td>
-                                                        <td>{{ $s->sekolah }}</td>
-                                                        <td>{{ $s->debit }}</td>
-                                                        <td>{{ $s->kredit }}</td>
-                                                        <td>{{ $s->saldo }}</td>
+                                                        <td>{{ $s->sekolah->nama_sekolah }}</td>
+                                                        <td>{{ 'Rp ' . number_format($s->debit, 0, '.', '.') }}</td>
+                                                        <td>{{ 'Rp ' . number_format($s->kredit, 0, '.', '.') }}</td>
+                                                        <td>{{ 'Rp ' . number_format($s->saldo, 0, '.', '.') }}</td>
                                                         <td class="d-flex">
                                                             <a href="/saldo/{{ $s->id }}/edit" id="2"
                                                                 class="edit me-2">
@@ -146,7 +147,51 @@
             $(document).ready(function() {
                 console.log('asdas');
                 $('#table1').DataTable();
+
+                /* Dengan Rupiah */
+                var dengan_rupiah = document.getElementById('dengan-rupiah');
+                dengan_rupiah.addEventListener('keyup', function(e) {
+                    dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                /* Fungsi */
+                function formatRupiah(angka, prefix) {
+                    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                        split = number_string.split(','),
+                        sisa = split[0].length % 3,
+                        rupiah = split[0].substr(0, sisa),
+                        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                    if (ribuan) {
+                        separator = sisa ? '.' : '';
+                        rupiah += separator + ribuan.join('.');
+                    }
+
+                    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+                }
+
+                //coba jquery
+                // document.querySelectorAll('input[type-currency="IDR"]').forEach((element) => {
+                //     element.addEventListener('keyup', function(e) {
+                //         let cursorPostion = this.selectionStart;
+                //         let value = parseInt(this.value.replace(/[^,\d]/g, ''));
+                //         let originalLenght = this.value.length;
+                //         if (isNaN(value)) {
+                //             this.value = "";
+                //         } else {
+                //             this.value = value.toLocaleString('id-ID', {
+                //                 currency: 'IDR',
+                //                 style: 'currency',
+                //                 minimumFractionDigits: 0
+                //             });
+                //             cursorPostion = this.value.length - originalLenght + cursorPostion;
+                //             this.setSelectionRange(cursorPostion, cursorPostion);
+                //         }
+                //     });
+                // });
             });
         </script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script> --}}
     @endpush
 @endsection

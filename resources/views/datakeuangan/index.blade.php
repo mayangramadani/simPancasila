@@ -14,7 +14,7 @@
 
 
         <div class="container-fluid mb-3">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Input Data Keuangan
             </button>
 
@@ -31,63 +31,60 @@
                                 @csrf
 
                                 <div class="mb-3">
-                                    <label for="saldo" class="form-label">Sekolah</label>
-                                    <select class="form-select form-select-lg form-control" name="saldo_id">
+                                    <label for="sekolah" class="form-label">Sekolah</label>
+                                    <select class="form-select form-select-lg form-control" name="sekolah_id">
                                         <option disabled>=== Pilih Sekolah ===</option>
-                                        @foreach ($saldo as $item)
-                                            <option value="{{ $item->id }}">{{ $item->Sekolah->nama_sekolah }}
+                                        @foreach ($sekolah as $item)
+                                            <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
                                             </option>
                                         @endforeach
                                     </select>
+                                    <div class="mb-3">
+                                        <label for="transaksi" class="form-label">Kategori Keuangan</label>
+                                        <select class="form-select form-select-lg form-control"
+                                            aria-label="Default select example" name="kategori_keuangan_id">
+                                            <option selected disabled>=== Kategori Keuangan ===</option>
+                                            @foreach ($kategorikeuangan as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
+                                            @endforeach
+                                        </select>
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="namaKeuangan" class="form-label">Nama Keuangan</label>
+                                        <input type="text" class="form-control" id="namaKeuangan" name="nama_keuangan"
+                                            placeholder="Nama Keuangan">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cemail" class="control-label">Jumlah</label>
+                                        <input class="form-control mb-3" type="text" name="jumlah" id="dengan-rupiah" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="tanggal" class="form-label">Tanggal Transaksi</label>
+                                        <input type="date" class="form-control" name="tanggal">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                                        <input type="text" class="form-control" id="deskripsi" name="deskripsi"
+                                            placeholder="Deskripsi">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nis" class="form-label">Keterangan</label>
+                                        <input type="text" class="form-control" id="keterangan" name="keterangan"
+                                            placeholder="Keterangan">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="foto" class="form-label">Bukti</label>
+                                        <input class="form-control" type="file" id="formFile" name="bukti_transaksi">
+                                    </div>
 
                                 </div>
-                                <div class="mb-3">
-                                    <label for="transaksi" class="form-label">Jenis Transaksi</label>
-                                    <select class="form-select form-select-lg form-control"
-                                        aria-label="Default select example" name="jenis_transaksi">
-                                        <option selected disabled>Jenis</option>
-                                        @foreach ($KategoriKeuangan as $item)
-                                            <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                                <div class="mb-3">
-                                    <label for="namaKeuangan" class="form-label">Nama Keuangan</label>
-                                    <input type="text" class="form-control" id="namaKeuangan" name="nama_keuangan"
-                                        placeholder="Nama Keuangan">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="namaLengkap" class="form-label">Jumlah Transaksi</label>
-                                    <input type="text" class="form-control" id="jumlahTransaksi" name="jumlah"
-                                        placeholder="Cth: 100000">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="tanggal" class="form-label">Tanggal Transaksi</label>
-                                    <input type="date" class="form-control" name="tanggal">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="deskripsi" class="form-label">Deskripsi</label>
-                                    <input type="text" class="form-control" id="deskripsi" name="deskripsi"
-                                        placeholder="Deskripsi">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="nis" class="form-label">Keterangan</label>
-                                    <input type="text" class="form-control" id="keterangan" name="keterangan"
-                                        placeholder="Keterangan">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="foto" class="form-label">Bukti</label>
-                                    <input class="form-control" type="file" id="formFile" name="bukti_transaksi">
-                                </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <input class="btn btn-primary" type="submit" value="Submit" name="submit">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <input class="btn btn-primary" type="submit" value="Submit" name="submit">
                             </form>
                         </div>
                     </div>
@@ -101,7 +98,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Data Keuangan</h6>
+                        <h6 class="m-1 font-weight-bold text-primary">Data Keuangan</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -115,6 +112,8 @@
                                                 aria-controls="example1" rowspan="1" colspan="1"
                                                 aria-sort="ascending">No.</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                rowspan="1" colspan="1">Kategori Keuangan</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Nama Keuangan</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Jumlah</th>
@@ -126,10 +125,6 @@
                                                 rowspan="1" colspan="1">Bukti</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Nama User</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Jenis Kuangan</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Sekolah</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Aksi</th>
                                         </tr>
@@ -145,14 +140,14 @@
                                             <tr role="row" class="odd">
 
                                                 <td>{{ $no }}</td>
+                                                <td>{{ $dku->KategoriKeuangan->nama_keuangan }}</td>
                                                 <td>{{ $dku->nama_keuangan }}</td>
-                                                <td>{{ $dku->jumlah }}</td>
+                                                <td>{{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
                                                 <td>{{ $dku->tanggal }}</td>
                                                 <td>{{ $dku->deskripsi }}</td>
                                                 <td>{{ $dku->bukti }}</td>
                                                 <td>{{ $dku->users_id }}</td>
-                                                <td>{{ $dku->jenis_keuangan_id }}</td>
-                                                <td>{{ $dku->Saldo->Sekolah->nama_sekolah }}</td>
+                                                {{-- <td>{{ $dku->Saldo->Sekolah->nama_sekolah }}</td> --}}
 
                                                 {{-- <td>{{ $dku->saldo }}</td> --}}
                                                 <td class="d-felx">
@@ -176,4 +171,39 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                console.log('asdas');
+                $('#table1').DataTable();
+                //coba jquery
+                // $('#saldo').inputmask()
+
+                /* Dengan Rupiah */
+                var dengan_rupiah = document.getElementById('dengan-rupiah');
+                dengan_rupiah.addEventListener('keyup', function(e) {
+                    dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                /* Fungsi */
+                function formatRupiah(angka, prefix) {
+                    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                        split = number_string.split(','),
+                        sisa = split[0].length % 3,
+                        rupiah = split[0].substr(0, sisa),
+                        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                    if (ribuan) {
+                        separator = sisa ? '.' : '';
+                        rupiah += separator + ribuan.join('.');
+                    }
+
+                    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+                }
+
+            });
+        </script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script> --}}
+    @endpush
 @endsection

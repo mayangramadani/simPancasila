@@ -50,22 +50,6 @@
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="namaLengkap" name="kelas"
                                             placeholder="Nama Lengkap" value="{{ $siswa->DataKelas->nama_kelas }}">
-                                        {{-- @php $idkel = $siswa->kelas_id @endphp
-                                        <select class="form-select form-select-lg form-control" name="kelas_id">
-
-                                            @foreach ($siswa as $ni)
-                                                @if ($idkel == $ni->DataKelas->id)
-                                                    <option value="{{ $ni->DataKelas->id }}" selected>
-                                                        {{ $ni->DataKelas->nama_kelas }}
-                                                    </option>
-                                                @else
-                                                    <option value="{{ $ni->DataKelas->id }}">
-                                                        {{ $ni->DataKelas->nama_kelas }}
-                                                    </option>
-                                                @endif
-                                            @endforeach
-
-                                        </select> --}}
                                     </div>
                                 </div>
                                 <div class="mb-3 row">

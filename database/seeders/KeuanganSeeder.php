@@ -15,15 +15,14 @@ class KeuanganSeeder extends Seeder
      */
     public function run()
     {
-        Keuangan::create([
-            'kategori_keuangan_id' => '1',
-            'saldo_id' => '1',
-            'nama_keuangan' => 'apaaaa',
-            'jumlah' => '100000',
-            'tanggal' => '2022-07-22 11:13:24.000000',
-            'deskripsi' => 'asad',
-            'bukti' => '',
+        // Keuangan::create([
+        //     'kategori_keuangan_id' => '1',
+        //     'nama_keuangan' => 'apaaaa',
+        //     'jumlah' => '100000',
+        //     'tanggal' => '2022-07-22 11:13:24.000000',
+        //     'deskripsi' => 'asad',
+        //     'bukti' => '',
 
-        ]);
+        // ]);
     }
 }
