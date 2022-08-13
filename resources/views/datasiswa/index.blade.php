@@ -86,7 +86,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $ds->nis }}</td>
                                                 <td>{{ $ds->nama_siswa }}</td>
-                                                {{-- <td>{{ $ds->DataKelas->nama_kelas }}</td> --}}
+                                               
                                                 <td class="d-flex">
                                                     <a href="/datasiswa/{{ $ds->id }}/detail" id="2"
                                                         class="detail me-2">

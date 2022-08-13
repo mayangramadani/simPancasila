@@ -35,6 +35,7 @@
                                 </form>
                             </div>
                     </div>
+                    
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="p-3">
@@ -47,11 +48,6 @@
                                     Lengkap</label>
                                 <label for="namaLengkap" class="col-sm-2 col-form-label">:
                                     {{ $siswa->nama_siswa }}</label>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="namaLengkap" class="col-sm-2 col-form-label fw-semibold text-dark">Kelas</label>
-                                <label for="namaLengkap" class="col-sm-2 col-form-label">:
-                                    {{ $siswa->DataKelas->nama_kelas }}</label>
                             </div>
                             <div class="mb-3 row">
                                 <label for="namaLengkap" class="col-sm-2 col-form-label fw-semibold text-dark">Tempat
@@ -86,7 +82,8 @@
                                 <label for="foto" class="col-sm-2 col-form-label">: {{ $siswa->foto }}</label>
                             </div>
                             <div class="mb-3 row">
-                                <label for="nis" class="col-sm-2 col-form-label fw-semibold text-dark">Nama Ayah</label>
+                                <label for="nis" class="col-sm-2 col-form-label fw-semibold text-dark">Nama
+                                    Ayah</label>
                                 <label for="nis" class="col-sm-2 col-form-label">: {{ $siswa->ayah }}</label>
                             </div>
                             <div class="mb-3 row">

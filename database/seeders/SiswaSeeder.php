@@ -16,7 +16,6 @@ class SiswaSeeder extends Seeder
     public function run()
     {
         Siswa::create([
-            'kelas_id' => '2',
             'nis' => '12365344',
             'nama_siswa' => 'Budi',
             'tempat_lahir' => 'Jalan Kenangan',
@@ -25,10 +24,10 @@ class SiswaSeeder extends Seeder
             'agama' => 'Islam',
             'no_hp' => '0821888888',
             'ayah' => 'Kuncoro',
-            'ibu' => 'Susanti'
+            'ibu' => 'Susanti',
+            'sekolah_id' => '1',
         ]);
         Siswa::create([
-            'kelas_id' => '1',
             'nis' => '3235344',
             'nama_siswa' => 'Bambang',
             'tempat_lahir' => 'Jalan Kenangan',
@@ -37,10 +36,10 @@ class SiswaSeeder extends Seeder
             'agama' => 'Hindu',
             'no_hp' => '0821888888',
             'ayah' => 'Budi',
-            'ibu' => 'Astuti'
+            'ibu' => 'Astuti',
+            'sekolah_id' => '2',
         ]);
         Siswa::create([
-            'kelas_id' => '1',
             'nis' => '3235344',
             'nama_siswa' => 'Menik',
             'tempat_lahir' => 'Jalan Kenangan',
@@ -49,10 +48,10 @@ class SiswaSeeder extends Seeder
             'agama' => 'Islam',
             'no_hp' => '0821888888',
             'ayah' => 'Budi',
-            'ibu' => 'Astuti'
+            'ibu' => 'Astuti',
+            'sekolah_id' => '3',
         ]);
         Siswa::create([
-            'kelas_id' => '1',
             'nis' => '3235344',
             'nama_siswa' => 'Santos',
             'tempat_lahir' => 'Jalan Kenangan',
@@ -61,7 +60,8 @@ class SiswaSeeder extends Seeder
             'agama' => 'Hindu',
             'no_hp' => '0821888888',
             'ayah' => 'Budi',
-            'ibu' => 'Astuti'
+            'ibu' => 'Astuti',
+            'sekolah_id' => '1'
         ]);
     }
 }

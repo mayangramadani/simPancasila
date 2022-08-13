@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriKeuangan;
 use App\Models\KategoriPembayaran;
+use App\Models\Keuangan;
 use App\Models\Siswa;
 use App\Models\TransaksiSiswa;
 use App\Models\User;
@@ -13,9 +15,10 @@ class TransaksiSiswaController extends Controller
 {
     public function index()
     {
-        $transaksisiswa = TransaksiSiswa::get();
+        $transaksisiswa = Keuangan::where('users_id', Auth::user()->id)->get();
+        // dd($transaksisiswa);
         $siswa = Siswa::all();
-        $kategoripembayaran = KategoriPembayaran::all();
+        $kategoripembayaran = KategoriKeuangan::all();
         $user = User::where('role', 'siswa')->get();
         // dd($user);
         $dataSiswa = [];

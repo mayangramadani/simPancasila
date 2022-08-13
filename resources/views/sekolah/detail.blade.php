@@ -8,10 +8,9 @@
             <h1 class="h3 mb-0 text-gray-800">Sekolah</h1>
         </div>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Sekolah
-        </button>
+        <div class="mb-3">
+            <a href="/sekolah">Kembali</a>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -34,8 +33,7 @@
                             <input class="form-control mb-3" type="text" name="lokasi" placeholder="Lokasi">
 
                             <label for="cemail" class="control-label">SPP</label>
-                            <input class="form-control mb-3" type="text" name="spp" placeholder="spp"
-                                id="dengan-rupiah">
+                            <input class="form-control mb-3" type="number" name="spp" placeholder="spp">
 
                             <label for="cemail" class="control-label">Tingkatan Kelas</label>
                             <input class="form-control mb-3" type="text" name="tingkatan_kelas"
@@ -75,15 +73,14 @@
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                     colspan="1" name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                    Nama Sekolah</th>
+                                                    Nama Siswa</th>
                                                 <th width="8%" class="sorting" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="derajat"
                                                     aria-label="Derajat: activate to sort column ascending">
                                                     Derajat</th>
-                                                <th width="25%" class="sorting" tabindex="0"
-                                                    aria-controls="example1" rowspan="1" colspan="1"
-                                                    name="lokasi" aria-label="Lokasi: activate to sort column ascending">
-                                                    Lokasi
+                                                <th width="25%" class="sorting" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1" name="lokasi"
+                                                    aria-label="Lokasi: activate to sort column ascending">Lokasi
                                                 </th>
                                                 <th width="10%" class="sorting" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
@@ -95,9 +92,6 @@
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
                                                     Tingkat Kelas
                                                 </th>
-                                                <th width="10%" class="sorting" tabindex="0"
-                                                    aria-controls="example1" rowspan="1" colspan="1"
-                                                    aria-label="Action: activate to sort column ascending">Action</th>
 
                                             </tr>
                                         </thead>
@@ -106,19 +100,19 @@
                                             @php
                                                 $no = 0;
                                             @endphp
-                                            @foreach ($sekolah as $s)
+                                            @foreach ($siswa as $s)
                                                 @php
                                                     $no++;
                                                 @endphp
                                                 <tr role="row" class="odd">
                                                     <td class="sorting_1">{{ $no }}</td>
-                                                    <td>{{ $s->nama_sekolah }}</td>
-                                                    <td>{{ $s->derajat }}</td>
-                                                    <td>{{ $s->lokasi }}</td>
-                                                    <td>{{ 'Rp ' . number_format($s->spp, 0, '.', '.') }}</td>
+                                                    <td>{{ $s->nama_siswa }}</td>
+                                                    <td>{{ $s->nis }}</td>
+                                                    <td>{{ $s->tempat_lahir }}</td>
+                                                    <td>{{ $s->tanggal_lahir }}</td>
                                                     <td>{{ $s->tingkatan_kelas }}</td>
-                                                    <td class="d-flex">
-                                                        <a href="/sekolah/{{ $s->id }}/edit" id="2"
+                                                    {{-- <td class="d-flex">
+                                                        {{-- <a href="/sekolah/{{ $s->id }}/edit" id="2"
                                                             class="edit me-2">
                                                             <button class="btn btn-outline-info" type="button">
                                                                 Edit
@@ -137,7 +131,7 @@
                                                             <button class="btn btn-outline-primary" type="button">
                                                                 Show
                                                             </button>
-                                                        </a>
+                                                        </a> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -159,30 +153,6 @@
             $(document).ready(function() {
                 console.log('asdas');
                 $('#table1').DataTable();
-
-                /* Dengan Rupiah */
-                var dengan_rupiah = document.getElementById('dengan-rupiah');
-                dengan_rupiah.addEventListener('keyup', function(e) {
-                    dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
-                });
-
-                /* Fungsi */
-                function formatRupiah(angka, prefix) {
-                    var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                        split = number_string.split(','),
-                        sisa = split[0].length % 3,
-                        rupiah = split[0].substr(0, sisa),
-                        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-                    if (ribuan) {
-                        separator = sisa ? '.' : '';
-                        rupiah += separator + ribuan.join('.');
-                    }
-
-                    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-                    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-                }
-
             });
         </script>
     @endpush

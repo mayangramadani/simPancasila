@@ -7,6 +7,9 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Detail Transaksi Keuangan</h1>
         </div>
+        <div class="mb-3">
+            <a href="/datakeuangan">Kembali</a>
+        </div>
 
         <div class="row">
 
@@ -33,25 +36,31 @@
                     <div class="card-body">
                         <div class="p-3">
                             <div class="mb-3 row">
-                                <label for="transaksi" class="col-sm-2 col-form-label fw-semibold">Jenis Transaksi</label>
-                                <label for="transaksi" class="col-sm-2 col-form-label">:
-                                    {{ $keuangan->jenis_transaksi }}</label>
-
+                                <label for="kategorikeuangan" class="col-sm-2 col-form-label fw-semibold">Kategori
+                                    Keuangan</label>
+                                <label for="kategorikeuangan" class="col-sm-2 col-form-label">:
+                                    {{ $keuangan->KategoriKeuangan->nama_keuangan }}</label>
                             </div>
                             <div class="mb-3 row">
-                                <label for="namaLengkap" class="col-sm-2 col-form-label fw-semibold">Jumlah
+                                <label for="namakeuangan" class="col-sm-2 col-form-label fw-semibold">Nama
+                                    Keuangan</label>
+                                <label for="namakeuangan" class="col-sm-2 col-form-label">:
+                                    {{ $keuangan->nama_keuangan }}</label>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="jumlahtransaksi" class="col-sm-2 col-form-label fw-semibold">Jumlah
                                     Transaksi</label>
-                                <label for="namaLengkap" class="col-sm-2 col-form-label">:
-                                    {{ $keuangan->jumlah_transaksi }}</label>
+                                <label for="jumlahtransaksi" class="col-sm-2 col-form-label" id="dengan-rupiah">:
+                                    {{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}</label>
                             </div>
                             <div class="mb-3 row">
                                 <label for="tanggal" class="col-sm-2 col-form-label fw-semibold">Tanggal Transaksi</label>
                                 <label for="tanggal" class="col-sm-2 col-form-label">: {{ $keuangan->tanggal }}</label>
                             </div>
                             <div class="mb-3 row">
-                                <label for="nis" class="col-sm-2 col-form-label fw-semibold">Keterangan</label>
-                                <label for="nis" class="col-sm-2 col-form-label">:
-                                    {{ $keuangan->keterangan }}</label>
+                                <label for="Deskripsi" class="col-sm-2 col-form-label fw-semibold">Deskripsi</label>
+                                <label for="Deskripsi" class="col-sm-2 col-form-label">:
+                                    {{ $keuangan->deskripsi }}</label>
                             </div>
                             <div class="mb-3 row">
                                 <label for="foto" class="col-sm-2 col-form-label fw-semibold">Bukti</label>
@@ -60,7 +69,7 @@
                                         alt="Profile"></label>
                             </div>
 
-                            <input class="btn btn-primary" type="submit" value="Submit" name="submit">
+                            {{-- <input class="btn btn-primary" type="submit" value="Submit" name="submit"> --}}
                         </div>
                     </div>
                 </div>
@@ -68,4 +77,39 @@
 
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                console.log('asdas');
+                $('#table1').DataTable();
+                //coba jquery
+                // $('#saldo').inputmask()
+
+                /* Dengan Rupiah */
+                var dengan_rupiah = document.getElementById('dengan-rupiah');
+                dengan_rupiah.addEventListener('keyup', function(e) {
+                    dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                /* Fungsi */
+                function formatRupiah(angka, prefix) {
+                    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                        split = number_string.split(','),
+                        sisa = split[0].length % 3,
+                        rupiah = split[0].substr(0, sisa),
+                        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                    if (ribuan) {
+                        separator = sisa ? '.' : '';
+                        rupiah += separator + ribuan.join('.');
+                    }
+
+                    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+                }
+
+            });
+        </script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script> --}}
+    @endpush
 @endsection

@@ -39,7 +39,7 @@
                             </select>
                             <label for="cemail" class="control-label">Tahun</label>
                             <input class="form-control mb-3" type="number" name="tahun" placeholder="Tahun">
-                        
+
                         </div>
 
                         <div class="modal-footer">
@@ -92,7 +92,7 @@
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">
                                                         Action</th>
-                                                    
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -108,15 +108,15 @@
                                                         <td class="sorting_1">{{ $no }}</td>
                                                         <td>{{ $ak->Siswa->nama_siswa }}</td>
                                                         <td>{{ $ak->DataKelas->nama_kelas }}</td>
-                                                        <td>{{ $ak->Tahun }}</td>
+                                                        <td>{{ $ak->tahun }}</td>
                                                         <td class="d-flex">
-                                                            <a href="/datakelas/{{ $ak->id }}/edit" id="2"
+                                                            <a href="/akseskelas/{{ $ak->id }}/edit" id="2"
                                                                 class="edit me-2">
                                                                 <button class="btn btn-outline-info" type="button">
                                                                     Edit
                                                                 </button>
                                                             </a>
-                                                            <form action="/datakelas/{{ $ak->id }}" method='post'>
+                                                            <form action="/akseskelas/{{ $ak->id }}" method='post'>
                                                                 @csrf
                                                                 @method('delete')
                                                                 <input class="btn btn-outline-danger" type="submit"

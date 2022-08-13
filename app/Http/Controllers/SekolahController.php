@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Sekolah;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class SekolahController extends Controller
@@ -14,7 +15,7 @@ class SekolahController extends Controller
         return view('sekolah.index', compact('sekolah'));
     }
 
-    
+
     public function add(Request $request)
     {
         Sekolah::create($request->except(['_token', 'submit']));
@@ -25,7 +26,7 @@ class SekolahController extends Controller
             'derajat' => $request->derajat,
             'lokasi' => $request->lokasi,
             'spp' => $request->spp,
-    
+
         ]);
         return redirect('sekolah');
     }
@@ -39,6 +40,13 @@ class SekolahController extends Controller
     {
         $sekolah = Sekolah::find($id);
         return view('sekolah.edit', compact('sekolah'));
+    }
+    public function detail($id)
+    {
+        $sekolah = Sekolah::find($id);
+        $siswa = Siswa::where('sekolah_id', $sekolah->id)->get();
+        // dd($siswa);
+        return view('sekolah.detail', compact('sekolah', 'siswa'));
     }
     public function update($id, Request $request)
     {

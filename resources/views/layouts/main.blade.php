@@ -163,6 +163,15 @@
             </li>
             @endif
 
+            @if (Auth::user()->role == 'admin')
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/invoicepembayaran">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Invoice Pembayaran</span>
+                </a>
+            </li>
+            @endif
+
             @if (Auth::user()->role == 'siswa')
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="/transaksisiswa">

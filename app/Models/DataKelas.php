@@ -13,6 +13,7 @@ class DataKelas extends Model
     protected $fillable = [
         'sekolah_id', 'nama_kelas',  'kuota'
     ];
+    
     public function Sekolah()
     {
         return $this->belongsTo(Sekolah::class, 'sekolah_id', 'id');

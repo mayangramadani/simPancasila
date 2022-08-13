@@ -15,6 +15,6 @@ class KategoriPembayaran extends Model
     ];
     public function PembayaranSiswa()
     {
-        return $this->belongsTo(PembayaranSiswaa::class, 'pembayaransiswa_id', 'id');
+        return $this->belongsTo(PembayaranSiswa::class, 'pembayaransiswa_id', 'id');
     }
 }

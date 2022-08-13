@@ -28,7 +28,7 @@
                             <input class="form-control mb-3" type="text" name="nama_keuangan" placeholder="Nama Keuangan">
 
                             <label for="cemail" class="control-label">Kategori Keuangan</label>
-                            <select class="form-select form-select-lg form-control" name="kategori_keuangan" id="kategori_keuangan">
+                            <select class="form-select form-select-lg form-control mb-3" name="kategori_keuangan" id="kategori_keuangan">
                                 <option value="pemasukan">Pemasukan</option>
                                 <option value="pengeluaran">Pengeluaran</option>
                             </select>

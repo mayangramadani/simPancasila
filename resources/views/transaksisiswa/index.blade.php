@@ -10,6 +10,7 @@
 
         <div class="row">
 
+            <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
@@ -55,7 +56,9 @@
                                         <label class="form-control-label fw-semibold" for="bulan_pembayaran">Bulan
                                             Pembayaran *</label>
                                         <select class="form-control" name="bulan_pembayaran" id="bulan_pembayaran" required>
-                                            <option selected disabled>== PILIH ==</option>
+                                            @foreach ($transaksisiswa as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
@@ -127,7 +130,7 @@
                                             </thead>
                                             <tbody>
 
-                                                @php
+                                                {{-- @php
                                                     $no = 0;
                                                 @endphp
                                                 @foreach ($transaksisiswa as $ts)
@@ -157,7 +160,7 @@
                                                             </form>
                                                         </td>
                                                     </tr>
-                                                @endforeach
+                                                @endforeach --}}
                                             </tbody>
                                         </table>
                                     </div>
@@ -172,10 +175,7 @@
         </div>
 
     </div>
-    </div>
 
-    </div>
-    </div>
     @push('scripts')
         <script>
             $(function() {

@@ -14,12 +14,10 @@
                     @csrf
                     <label for="cemail" class="control-label">Nama Siswa</label>
                     <select class="form-select form-select-lg mb-3 form-control" name="siswa_id">
-                        @foreach ($datasiswa as $ni)
+                        @foreach ($siswa as $ni)
                             <option value="{{ $ni->id }}">{{ $ni->nama_siswa }}</option>
                         @endforeach
                     </select>
-
-
                     <label for="cemail" class="control-label">Nama Kelas</label>
                     <input class="form-control mb-3" type="text" name="nama_kelas" placeholder="Nama Kelas"
                         value="{{ $datakelas->nama_kelas }}">

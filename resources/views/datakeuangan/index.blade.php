@@ -17,7 +17,12 @@
             <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Input Data Keuangan
             </button>
-
+            <form action="{{ route('bayar') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-primary mb-4">
+                    Keuangan
+                </button>
+            </form>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
