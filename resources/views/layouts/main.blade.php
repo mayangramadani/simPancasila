@@ -74,8 +74,14 @@
             @endif
             <!-- Nav Item - Pages Collapse Menu -->
 
-
-
+            <!-- Nav Item - Pages Collapse Menu -->
+            @if (Auth::user()->role == 'admin')
+                <li class="nav-item">
+                    <a class="nav-link" href="/tingkatankelas">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Tingkatan Kelas</span></a>
+                </li>
+            @endif
 
             <!-- Nav Item - Pages Collapse Menu -->
             @if (Auth::user()->role == 'admin')
@@ -88,22 +94,22 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link" href="/datasiswa">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Siswa</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/datasiswa">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Data Siswa</span>
+                    </a>
+                </li>
             @endif
 
             <!-- Nav Item - Utilities Collapse Menu -->
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link" href="/akseskelas">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Akses Kelas</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/akseskelas">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Akses Kelas</span>
+                    </a>
+                </li>
             @endif
 
             <!-- Divider -->
@@ -116,60 +122,60 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/kategorikeuangan">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Kategori Keuangan</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/kategorikeuangan">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Kategori Keuangan</span>
+                    </a>
+                </li>
             @endif
 
             <!-- Nav Item - Pages Collapse Menu -->
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/datakeuangan">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Keuangan</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/datakeuangan">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Keuangan</span>
+                    </a>
+                </li>
             @endif
 
 
             <!-- Nav Item - Pages Collapse Menu -->
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/saldo">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Saldo</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/saldo">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Saldo</span>
+                    </a>
+                </li>
             @endif
 
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/kategoripembayaran">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Kategori Pembayaran</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/kategoripembayaran">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Kategori Pembayaran</span>
+                    </a>
+                </li>
             @endif
 
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/transaksipembayaran">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Transaksi Pembayaran</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/transaksipembayaran">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Transaksi Pembayaran</span>
+                    </a>
+                </li>
             @endif
 
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/invoicepembayaran">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Invoice Pembayaran</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/invoicepembayaran">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Invoice Pembayaran</span>
+                    </a>
+                </li>
             @endif
 
             @if (Auth::user()->role == 'siswa')
@@ -183,29 +189,29 @@
 
             <!-- Nav Item - Tables -->
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link" href="/histori">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Histori Pembayaran</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/histori">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Histori Pembayaran</span></a>
+                </li>
             @endif
 
             @if (Auth::user()->role == 'admin')
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
-                    aria-expanded="true" aria-controls="collapseLap">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Laporan Keuangan</span>
-                </a>
-                <div id="collapseLap" class="collapse" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">--Keuangan--</h6>
-                        <a class="collapse-item" href="/datalaporan/laporansemester">Laporan Semester</a>
-                        <a class="collapse-item" href="/datalaporan/laporantahunan">Laporan Tahunan</a>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
+                        aria-expanded="true" aria-controls="collapseLap">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Laporan Keuangan</span>
+                    </a>
+                    <div id="collapseLap" class="collapse" aria-labelledby="headingPages"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">--Keuangan--</h6>
+                            <a class="collapse-item" href="/datalaporan/laporansemester">Laporan Semester</a>
+                            <a class="collapse-item" href="/datalaporan/laporantahunan">Laporan Tahunan</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
             @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

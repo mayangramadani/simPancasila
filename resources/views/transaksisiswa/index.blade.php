@@ -42,7 +42,7 @@
                                         <label for="transaksi" class="form-control-label fw-semibold">Kategori
                                             Pembayaran</label>
                                         <select class="form-select form-select-lg form-control"
-                                            aria-label="Default select example" name="jenis_transaksi">
+                                            aria-label="Default select example" name="jenis_transaksi" readonly>
                                             <option selected disabled>Jenis</option>
                                             @foreach ($kategoripembayaran as $item)
                                                 <option value="{{ $item->id }}">{{ $item->nama_pembayaran }}</option>
@@ -53,7 +53,7 @@
 
                                 <div class="form-row">
                                     <div class="col-md-4 mb-10">
-                                        <label class="form-control-label fw-semibold" for="bulan_pembayaran">Bulan
+                                        <label class="form-control-label fw-semibold" for="bulan_pembayaran">
                                             Pembayaran *</label>
                                         <select class="form-control" name="bulan_pembayaran" id="bulan_pembayaran" required>
                                             @foreach ($transaksisiswa as $item)
@@ -65,7 +65,7 @@
                                         <label class="form-control-label fw-semibold" for="name">Jumlah
                                             Pembayaran *</label>
                                         <input type="text" class="form-control" id="dengan-rupiah"
-                                            placeholder="Jumlah Pembayaran" name='jumlah_pembayaran'>
+                                            placeholder="Jumlah Pembayaran" name='jumlah_pembayaran' readonly>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="foto" class="form-control-label fw-semibold">Bukti</label>
@@ -189,22 +189,30 @@
             });
         </script>
         <script>
-            $("#nis").click(function() {
-                console.log("Erza");
-                var id = $('#nis').val();
-                $.ajax({
-                    url: 'data-siswa/' + id,
-                    type: 'get',
-                    data: {
-                        id: id
-                    },
-                    success: function(response) {
-                        console.log(id);
-                        $('#namaLengkap').val(response.nama_siswa);
-                        $('#rombel').val(response.nama_kelas);
-                    },
-                });
+            $('#bulan_pembayaran').change(function() {
+                var id = $(this).val();
+                console.log('bulan_pembayaran', id)
+                if (id) {
+                    $.ajax({
+                        type: "GET",
+                        url: "getPembayaran?id=" + id,
+                        dataType: 'JSON',
+                        success: function(res) {
+                            console.log(res);
+                            if (res) {
+                                $("#tingkatan_kelas").empty();
+                                $("#dengan-rupiah").val(res.jumlah);
+                            } else {
+                                $("#tingkatan_kelas").empty();
+                            }
+                        }
+                    });
+                } else {
+                    $("#kelurahan").empty();
+                }
             });
+        </script>
+        <script>
             /* Dengan Rupiah */
             var dengan_rupiah = document.getElementById('dengan-rupiah');
             dengan_rupiah.addEventListener('keyup', function(e) {

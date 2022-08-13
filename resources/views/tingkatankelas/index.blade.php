@@ -5,12 +5,12 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Sekolah</h1>
+            <h1 class="h3 mb-0 text-gray-800">Tingkatan Kelas</h1>
         </div>
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Sekolah
+            Tingkatan Kelas
         </button>
 
         <!-- Modal -->
@@ -18,24 +18,26 @@
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sekolah</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tingkatan Kelas</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="/sekolah/add" method="POST">
+                    <form action="/tingkatankelas/add" method="POST">
                         @csrf
                         <div class="modal-body">
-                            <label for="cemail" class="control-label">Nama Sekolah</label>
-                            <input class="form-control mb-3" type="text" name="nama_sekolah" placeholder="Nama Sekolah">
+                            <label for="cemail" class="control-label">Sekolah</label>
+                            <select class="form-select form-select-lg form- mb-3" name="sekolah_id">
+                                <option>=== Pilih Sekolah ===</option>
+                                @foreach ($sekolah as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <label for="cemail" class="control-label">Tingkatan Kelas</label>
+                            <input class="form-control mb-3" type="text" name="tingkatan_kelas"
+                                placeholder="Tingkatan Kelas">
 
-                            <label for="cemail" class="control-label">Derajat</label>
-                            <input class="form-control mb-3" type="text" name="derajat" placeholder="Derajat">
-
-                            <label for="cemail" class="control-label">Lokasi</label>
-                            <input class="form-control mb-3" type="text" name="lokasi" placeholder="Lokasi">
-
-                            <label for="cemail" class="control-label">SPP</label>
-                            <input class="form-control mb-3" type="text" name="spp" placeholder="spp"
-                                id="dengan-rupiah">
+                            <label for="cemail" class="control-label">Deskripsi</label>
+                            <input class="form-control mb-3" type="text" name="deskripsi" placeholder="deskripsi">
 
                         </div>
                         <div class="modal-footer">
@@ -72,21 +74,18 @@
                                                     colspan="1" name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
                                                     Nama Sekolah</th>
-                                                <th width="8%" class="sorting" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1" name="derajat"
-                                                    aria-label="Derajat: activate to sort column ascending">
-                                                    Derajat</th>
-                                                <th width="25%" class="sorting" tabindex="0"
-                                                    aria-controls="example1" rowspan="1" colspan="1"
-                                                    name="lokasi" aria-label="Lokasi: activate to sort column ascending">
-                                                    Lokasi
+                                                <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1" name="tingkatan_kelas"
+                                                    aria-label="tingkatan_kelas: activate to sort column ascending">
+                                                    Tingkat Kelas
                                                 </th>
-                                                <th width="10%" class="sorting" tabindex="0"
-                                                    aria-controls="example1" rowspan="1" colspan="1"
-                                                    name="spp" aria-label="spp: activate to sort column ascending">SPP
-                                                </th>                                             
-                                                <th width="10%" class="sorting" tabindex="0"
-                                                    aria-controls="example1" rowspan="1" colspan="1"
+                                                <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1" name="deskripsi"
+                                                    aria-label="tingkatan_kelas: activate to sort column ascending">
+                                                    Deskripsi
+                                                </th>
+                                                <th width="10%" class="sorting" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending">Action</th>
 
                                             </tr>
@@ -96,24 +95,23 @@
                                             @php
                                                 $no = 0;
                                             @endphp
-                                            @foreach ($sekolah as $s)
+                                            @foreach ($tingkatankelas as $tk)
                                                 @php
                                                     $no++;
                                                 @endphp
                                                 <tr role="row" class="odd">
                                                     <td class="sorting_1">{{ $no }}</td>
-                                                    <td>{{ $s->nama_sekolah }}</td>
-                                                    <td>{{ $s->derajat }}</td>
-                                                    <td>{{ $s->lokasi }}</td>
-                                                    <td>{{ 'Rp ' . number_format($s->spp, 0, '.', '.') }}</td>
+                                                    <td>{{ $tk->Sekolah->nama_sekolah }}</td>
+                                                    <td>{{ $tk->tingkatan_kelas }}</td>
+                                                    <td>{{ $tk->deskripsi }}</td>
                                                     <td class="d-flex">
-                                                        <a href="/sekolah/{{ $s->id }}/edit" id="2"
+                                                        <a href="/tingkatankelas/{{ $tk->id }}/edit" id="2"
                                                             class="edit me-2">
                                                             <button class="btn btn-outline-info" type="button">
                                                                 Edit
                                                             </button>
                                                         </a>
-                                                        <form action="/sekolah/{{ $s->id }}" method='post'
+                                                        <form action="/tingkatankelas/{{ $tk->id }}" method='post'
                                                             class="me-2">
                                                             @csrf
                                                             @method('delete')
@@ -121,8 +119,8 @@
                                                                 value="Hapus">
                                                         </form>
 
-                                                        <a href="/sekolah/{{ $s->id }}/detail" id="2"
-                                                            class="detail me-2">
+                                                        <a href="/tingkatankelas/{{ $tk->id }}/detail"
+                                                            id="2" class="detail me-2">
                                                             <button class="btn btn-outline-primary" type="button">
                                                                 Show
                                                             </button>

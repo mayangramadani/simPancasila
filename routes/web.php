@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SppController;
-use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\KeuanganController;
@@ -148,6 +146,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/tingkatankelas', [TingkatanKelasController::class, 'index'])->name('tingkatankelas');
         Route::post('/tingkatankelas/add', [TingkatanKelasController::class, 'add']);
+        Route::delete('/tingkatankelas/{id}', [TingkatanKelasController::class, 'hapus']);
     });
 
     // invoice pembayaran
@@ -155,6 +154,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/invoicepembayaran', [InvoicePembayaranController::class, 'index'])->name('invoicepembayaran');
         Route::post('/invoicepembayaran/add', [InvoicePembayaranController::class, 'add']);
     });
+
+
+    Route::GET('getTingkatanKelas', [TingkatanKelasController::class, 'getKelas'])->name('getKota');
+    Route::GET('getPembayaran', [TransaksiSiswaController::class, 'getPembayaran'])->name('getPembayaran');
 });
 
 require __DIR__ . '/auth.php';

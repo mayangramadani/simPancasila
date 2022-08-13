@@ -24,13 +24,18 @@
                     <form action="/datakelas/add" method="POST">
                         @csrf
                         <div class="modal-body">
-                            <label for="cemail" class="control-label">Nama Sekolah</label>
-                            <select class="form-select form-select-lg mb-3 form-control" name="sekolah_id">
+                            <label for="cemail" class="control-label">Sekolah</label>
+                            <select class="form-select form-select-lg mb-3 form-control" id="nama_sekolah"
+                                name="nama_sekolah">
                                 @foreach ($sekolah as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
                                 @endforeach
                             </select>
+                            <label for="cemail" class="control-label">Tingkatan Kelas</label>
+                            <select class="form-select form-select-lg mb-3 form-control" id="tingkatan_kelas"
+                                name="tingkatan_kelas">
 
+                            </select>
                             <label for="cemail" class="control-label">Nama Kelas</label>
                             <input class="form-control mb-3" type="text" name="nama_kelas" placeholder="Nama Kelas">
 
@@ -82,7 +87,7 @@
                                                     <th class="sorting" tabindex="0" aria-controls="example1"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Nama Sekolah: activate to sort column ascending">
-                                                        Nama Sekolah</th>
+                                                        Tingkatan kelas</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example1"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Kelas/Rombel: activate to sort column ascending">
@@ -112,9 +117,8 @@
                                                     @endphp
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1">{{ $no }}</td>
-                                                        <td>{{ $dk->sekolah->nama_sekolah }}</td>
+                                                        <td>{{ $dk->TingkatanKelas->tingkatan_kelas  }}</td>
                                                         <td>{{ $dk->nama_kelas }}</td>
-                                                        {{-- <td>{{ $dk->tingkatan_kelas }}</td> --}}
                                                         <td>{{ $dk->kuota }}</td>
                                                         <td class="d-flex">
                                                             <a href="/datakelas/{{ $dk->id }}/edit" id="2"
@@ -131,8 +135,8 @@
                                                                     value="Hapus">
                                                             </form>
 
-                                                            <a href="/datakelas/{{ $dk->id }}/detail"
-                                                                id="2" class="detail me-2">
+                                                            <a href="/datakelas/{{ $dk->id }}/detail" id="2"
+                                                                class="detail me-2">
                                                                 <button class="btn btn-outline-primary" type="button">
                                                                     Add
                                                                 </button>
@@ -154,6 +158,38 @@
         </div>
     </div>
     @push('scripts')
+        <script>
+            $('#nama_sekolah').change(function() {
+                var id = $(this).val();
+                console.log('nama_sekolah', id)
+                if (id) {
+                    $.ajax({
+                        type: "GET",
+                        url: "getTingkatanKelas?kelas=" + id,
+                        dataType: 'JSON',
+                        success: function(res) {
+                            console.log(res);
+                            if (res) {
+                                $("#tingkatan_kelas").empty();
+                                $("#tingkatan_kelas").append(
+                                    '<option>---Pilih tingkatan_kelas---</option>');
+                                $.each(res, function(nama, kode) {
+                                    console.log(kode)
+                                    $("#tingkatan_kelas").append('<option value="' + kode.id +
+                                        '">' + kode
+                                        .tingkatan_kelas +
+                                        '</option>');
+                                });
+                            } else {
+                                $("#tingkatan_kelas").empty();
+                            }
+                        }
+                    });
+                } else {
+                    $("#kelurahan").empty();
+                }
+            });
+        </script>
         <script>
             $(document).ready(function() {
                 console.log('asdas');

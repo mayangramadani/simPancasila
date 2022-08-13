@@ -19,6 +19,7 @@ class TransaksiPembayaranController extends Controller
         $kategoripembayaran = KategoriKeuangan::all();
         return view('transaksipembayaran.index', compact('transaksipembayaran', 'siswa', 'kategoripembayaran'));
     }
+
     public function bayar()
     {
         // dd("woi");

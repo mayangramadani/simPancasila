@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('tanggal')->nullable();
             $table->string('deskripsi')->nullable();
             $table->string('bukti')->nullable();
+            $table->enum('status_pembayaran',['Lunas','Belum Lunas','Tolak','Proses'])->nullable()->default('Belum Lunas');
             $table->timestamps();
         });
     }

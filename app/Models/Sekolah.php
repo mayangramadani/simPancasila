@@ -11,7 +11,7 @@ class Sekolah extends Model
     protected $table = 'sekolah';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'nama_sekolah', 'derajat', 'lokasi', 'spp', 'tingkatan_kelas'
+        'nama_sekolah', 'derajat', 'lokasi', 'spp'
     ];
     public function Siswa()
     {

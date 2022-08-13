@@ -19,22 +19,20 @@ class SekolahSeeder extends Seeder
             'nama_sekolah' => 'SMPS Sinar Pancasila',
             'derajat' => 'SMP',
             'lokasi' => 'Jl. Telaga Sari No.13, RT.31, Telaga Sari, Kec. Balikpapan Kota, Kota Balikpapan, Kalimantan Timur 76112',
-            'spp' => '150000',
-            'tingkatan_kelas' => 'Kelas VII'
+            'spp' => '150000'
         ]);
         Sekolah::create([
             'nama_sekolah' => 'SMAS Sinar Pancasila',
             'derajat' => 'SMA',
             'lokasi' => 'Jl. Telaga Sari No.13, RT.31, Telaga Sari, Kec. Balikpapan Kota, Kota Balikpapan, Kalimantan Timur 76112',
-            'spp' => '200000', 
-            'tingkatan_kelas' => 'Kelas X'
+            'spp' => '200000'
         ]);
         Sekolah::create([
             'nama_sekolah' => 'SMKS Sinar Pancasila',
             'derajat' => 'SMK',
             'lokasi' => 'Jl. Telaga Sari No.13, RT.31, Telaga Sari, Kec. Balikpapan Kota, Kota Balikpapan, Kalimantan Timur 76112',
-            'spp' => '200000',
-            'tingkatan_kelas' => 'Kelas IX'
+            'spp' => '200000'
+
         ]);
     }
 }

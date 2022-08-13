@@ -11,6 +11,10 @@ class TingkatanKelas extends Model
     protected $table = 'tingkatan_kelas';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'nama_tingkatan', 'deskripsi'
+        'sekolah_id', 'tingkatan_kelas', 'deskripsi'
     ];
+    public function Sekolah()
+    {
+        return $this->belongsTo(Sekolah::class, 'sekolah_id', 'id');
+    }
 }

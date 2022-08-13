@@ -26,6 +26,8 @@ class SiswaSeeder extends Seeder
             'ayah' => 'Kuncoro',
             'ibu' => 'Susanti',
             'sekolah_id' => '1',
+            'users_id' => '2',
+            'isActive' => '0'
         ]);
         Siswa::create([
             'nis' => '3235344',
@@ -38,6 +40,8 @@ class SiswaSeeder extends Seeder
             'ayah' => 'Budi',
             'ibu' => 'Astuti',
             'sekolah_id' => '2',
+            'users_id' => '3',
+            'isActive' => '1'
         ]);
         Siswa::create([
             'nis' => '3235344',
@@ -50,18 +54,9 @@ class SiswaSeeder extends Seeder
             'ayah' => 'Budi',
             'ibu' => 'Astuti',
             'sekolah_id' => '3',
+            'users_id' => '4',
+            'isActive' => '1'
         ]);
-        Siswa::create([
-            'nis' => '3235344',
-            'nama_siswa' => 'Santos',
-            'tempat_lahir' => 'Jalan Kenangan',
-            'tanggal_lahir' => '2002-02-21',
-            'jenis_kelamin' => 'Laki-laki',
-            'agama' => 'Hindu',
-            'no_hp' => '0821888888',
-            'ayah' => 'Budi',
-            'ibu' => 'Astuti',
-            'sekolah_id' => '1'
-        ]);
+
     }
 }

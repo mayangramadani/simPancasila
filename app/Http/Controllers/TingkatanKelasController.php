@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sekolah;
 use App\Models\TingkatanKelas;
 use Illuminate\Http\Request;
 
@@ -9,15 +10,22 @@ class TingkatanKelasController extends Controller
 {
     public function index()
     {
-        $tingkatankelas = TingkatanKelas::get();  
-        return view('tingkatankelas.index', compact('tingkatankelas'));
+        $tingkatankelas = TingkatanKelas::get();
+        $sekolah = Sekolah::get();
+        return view('tingkatankelas.index', compact('tingkatankelas', 'sekolah'));
     }
-    public function getIndex(){
+    public function getKelas(Request $request)
+    {
+        $kelas = TingkatanKelas::where('sekolah_id', $request->kelas)->get();
+        return $kelas;
+    }
+    public function getIndex()
+    {
         $data['page_title'] = 'Tingkatan Kelas';
         $data['data'] = TingkatanKelas::all();
 
         foreach ($data['data'] as $key => $row) {
-        	$row->total = TingkatanKelas::where('rombels_id', $row->id)->count();
+            $row->total = TingkatanKelas::where('rombels_id', $row->id)->count();
         }
 
         return view('rombels.index', $data);
@@ -28,12 +36,12 @@ class TingkatanKelasController extends Controller
         return redirect('/tingkatankelas');
 
         TingkatanKelas::create([
-            'nama_tingkatan' => $request->tingkatan_kelas,
-            'deskripsi' => $request->deskripsi, 
-          
+            'sekolah_id' => $request->sekolah_id,
+            'tingkatan_kelas' => $request->tingkatan_kelas,
+            'deskripsi' => $request->deskripsi,
+
         ]);
         return redirect('tingkatankelas');
-        
     }
     public function hapus($id)
     {

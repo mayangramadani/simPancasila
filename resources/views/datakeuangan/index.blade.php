@@ -86,6 +86,18 @@
                                         <input class="form-control" type="file" id="formFile" name="bukti_transaksi">
                                     </div>
 
+                                    <div class="mb-3">
+                                        <label for="foto" class="form-label">Status Pembayaran</label>
+                                        <select class="form-select form-select-lg form-control"
+                                            aria-label="Default select example" name="status_pembayaran">
+                                            <option selected disabled>=== Status Pembayaran ===</option>
+                                            <option value="Lunas" selected>Lunas</option>
+                                            <option value="Belum Lunas" selected>Belum Lunas</option>
+                                            <option value="Tolak" selected>Tolak</option>
+                                            <option value="Proses" selected>Proses</option>
+                                        </select>
+                                    </div>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -129,6 +141,8 @@
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Bukti</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                rowspan="1" colspan="1">Status Pembayaran</th>
+                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Nama User</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Aksi</th>
@@ -151,10 +165,8 @@
                                                 <td>{{ $dku->tanggal }}</td>
                                                 <td>{{ $dku->deskripsi }}</td>
                                                 <td>{{ $dku->bukti }}</td>
+                                                <td>{{ $dku->status_pembayaran }}</td>
                                                 <td>{{ $dku->users_id }}</td>
-                                                {{-- <td>{{ $dku->Saldo->Sekolah->nama_sekolah }}</td> --}}
-
-                                                {{-- <td>{{ $dku->saldo }}</td> --}}
                                                 <td class="d-felx">
                                                     <a href="/datakeuangan/{{ $dku->id }}/detail" id="2"
                                                         class="detail me-2">

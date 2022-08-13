@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sekolah', function (Blueprint $table) {
+        Schema::create('tingkatan_kelas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_sekolah')->nullable();
-            $table->string('derajat')->nullable();
-            $table->string('lokasi')->nullable();
-            $table->string('spp')->nullable();
+            $table->foreignId("sekolah_id")->nullable()->constrained("sekolah")->onDelete("cascade")->onUpdate("cascade");
+            $table->string('tingkatan_kelas')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sekolah');
+        Schema::dropIfExists('tingkatan_kelas');
     }
 };

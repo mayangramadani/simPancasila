@@ -14,8 +14,9 @@ class DataKelasController extends Controller
     public function index()
     {
         $datakelas = DataKelas::latest()->get();
+        $tingkatankelas = TingkatanKelas::all();
         $sekolah = Sekolah::all();
-        return view('datakelas.index', compact('datakelas', 'sekolah',));
+        return view('datakelas.index', compact('datakelas', 'tingkatankelas', 'sekolah'));
     }
 
     public function getIndex()
@@ -35,7 +36,6 @@ class DataKelasController extends Controller
         return redirect('/datakelas');
 
         DataKelas::create([
-            'sekolah_id' => $request->sekolah_id,
             'tingkatan_kelas_id' => $request->tingkatan_kelas_id,
             'nama_kelas' => $request->nama_kelas,
             'kuota' => $request->kuota,

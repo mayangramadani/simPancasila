@@ -11,13 +11,11 @@ class DataKelas extends Model
     protected $table = 'data_kelas';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'sekolah_id', 'nama_kelas',  'kuota'
+        'tingkatan_kelas_id', 'nama_kelas',  'kuota'
     ];
-    
-    public function Sekolah()
-    {
-        return $this->belongsTo(Sekolah::class, 'sekolah_id', 'id');
-    }
 
-    
+    public function TingkatanKelas()
+    {
+        return $this->belongsTo(TingkatanKelas::class, 'tingkatan_kelas_id', 'id');
+    }
 }

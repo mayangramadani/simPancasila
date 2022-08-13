@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             KategoriKeuanganSeeder::class,
             KeuanganSeeder::class,
             SekolahSeeder::class,
+            TingkatanKelasSeeder::class,
             KelasSeeder::class,
             SiswaSeeder::class,
             AksesKelasSeeder::class,
