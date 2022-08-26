@@ -18,10 +18,9 @@ class AksesKelasController extends Controller
     }
     public function add(Request $request)
     {
-        AksesKelas::create($request->except(['_token', 'submit']));
-        return redirect('/akseskelas');
-        AksesKelas::create([]);
-        return redirect('/datakeuangan');
+        // dd($request->all());
+        AksesKelas::create(array_merge($request->except(['_token', 'submit']), ['tahun' => date("Y")]));
+        return back();
     }
     public function edit($id)
     {

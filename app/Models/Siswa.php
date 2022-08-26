@@ -13,4 +13,8 @@ class Siswa extends Model
     protected $fillable = [
         'nis', 'nama_siswa', 'users_id', 'tempat_lahir', 'isActive', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agama', 'no_hp', 'foto', 'ayah', 'ibu'
     ];
+    public function akses_kelas()
+    {
+        return $this->hasMany(AksesKelas::class, 'kelas_id');
+    }
 }

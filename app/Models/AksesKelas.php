@@ -15,10 +15,10 @@ class AksesKelas extends Model
     ];
     public function Siswa()
     {
-        return $this->belongsTo(Siswa::class, 'siswa_id','id');
+        return $this->belongsTo(Siswa::class, 'siswa_id', 'id');
     }
     public function DataKelas()
     {
-        return $this->belongsTo(DataKelas::class, 'kelas_id','id');
+        return $this->belongsTo(DataKelas::class, 'kelas_id', 'id');
     }
 }

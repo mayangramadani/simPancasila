@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AksesKelas;
 use App\Models\DataKelas;
 use App\Models\Sekolah;
 use App\Models\Siswa;
 use App\Models\TingkatanKelas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DataKelasController extends Controller
 {
@@ -64,8 +66,30 @@ class DataKelasController extends Controller
     }
     public function detail($id)
     {
+        // $siswa = Siswa::find(Auth::user()->id);
         $datakelas = DataKelas::find($id);
-        $siswa = Siswa::where('sekolah_id', $datakelas->sekolah_id)->get();
-        return view('datakelas.detail', compact('datakelas', 'siswa'));
+        // $akseskelas = AksesKelas::where('kelas_id', '!=', $id)->where('siswa_id', '!=', $siswa->id)->get();
+        $siswa = Siswa::all();
+        // dd($siswa);
+        $dataku = null;
+        foreach ($siswa as $item) {
+            // dd($item->id);
+            // $akseskelas = AksesKelas::where([
+            //     'siswa_id' => $item->id,
+            //     'kelas_id' => $id,
+            // ])->exists();
+            $akseskelas = AksesKelas::where('siswa_id', $item->id)->where('tahun', date("Y"))->exists();
+            if ($akseskelas == False) {
+                $dataku[] = [
+                    'id' => $item->id,
+                    'nis' => $item->nis,
+                    'nama_siswa' => $item->nama_siswa,
+                ];
+            }
+        }
+
+
+        // dd($akseskelas);
+        return view('datakelas.detail', compact('datakelas', 'siswa', 'akseskelas', 'dataku'));
     }
 }
