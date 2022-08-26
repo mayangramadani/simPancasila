@@ -22,7 +22,8 @@
                         <!-- Card header -->
 
                         <div class="card-body">
-                            <form class="validation" novalidate method="POST" action="{{ url('transaksi/add') }}">
+                            <form class="validation" novalidate method="POST" action="{{ url('transaksisiswa/add') }}"
+                                enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-row">
@@ -41,13 +42,8 @@
                                     <div class="col-md-4 mb-3">
                                         <label for="transaksi" class="form-control-label fw-semibold">Kategori
                                             Pembayaran</label>
-                                        <select class="form-select form-select-lg form-control"
-                                            aria-label="Default select example" name="nama_keuangan" readonly>
-                                            <option selected disabled>Jenis</option>
-                                            @foreach ($kategorikeuangan as $item)
-                                                <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" class="form-control" id="kategori_pembayaran"
+                                            name="nama_keuangan" readonly>
                                     </div>
                                 </div>
 
@@ -56,11 +52,12 @@
                                         <label class="form-control-label fw-semibold" for="bulan_pembayaran">Bulan
                                             Pembayaran *</label>
                                         <select class="form-control" name="bulan_pembayaran" id="bulan_pembayaran" required>
-                                            @foreach ($transaksisiswa as $item)
-                                                <option selected disabled>==PILIH==</option>
+                                            <option selected disabled>==PILIH==</option>
+                                            @foreach ($transaksisiswa->where('status_pembayaran', '!=', 'Proses')->where('status_pembayaran', '!=', 'Lunas') as $item)
                                                 <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
                                             @endforeach
                                         </select>
+
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold" for="name">Jumlah
@@ -108,20 +105,28 @@
                                                     <th class="sorting" tabindex="0" aria-contr ols="example1"
                                                         rowspan="1" colspan="1" name="nama_siswa"
                                                         aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                        Nama siswa</th>
+                                                        Nama Keuangan</th>
+                                                    <th class="sorting" tabindex="0" aria-contr ols="example1"
+                                                        rowspan="1" colspan="1" name="nama_siswa"
+                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                        Jumlah</th>
+                                                    <th class="sorting" tabindex="0" aria-contr ols="example1"
+                                                        rowspan="1" colspan="1" name="nama_siswa"
+                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                        Tanggal</th>
+                                                    <th class="sorting" tabindex="0" aria-contr ols="example1"
+                                                        rowspan="1" colspan="1" name="nama_siswa"
+                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                        Deskripsi</th>
                                                     <th width="10%" class="sorting" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
-                                                        name="xxx" aria-label="xxx: activate to sort column ascending">
-                                                        xxx</th>
-                                                    <th width="40%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
                                                         name="xxx"
-                                                        aria-label="xxx: activate to sort column ascending">xxx
-                                                    </th>
+                                                        aria-label="xxx: activate to sort column ascending">
+                                                        Bukti</th>
                                                     <th width="15%" class="sorting" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         name="xx" aria-label="xx: activate to sort column ascending">
-                                                        xx
+                                                        Status
                                                     </th>
                                                     <th width="10%" class="sorting" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
@@ -130,21 +135,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-
-                                                {{-- @php
-                                                    $no = 0;
-                                                @endphp
-                                                @foreach ($transaksisiswa as $ts)
-                                                    @php
-                                                        $no++;
-                                                    @endphp
+                                                @foreach ($transaksisiswa->where('status_pembayaran', '!=', 'Tolak')->where('status_pembayaran', '!=', 'Belum Lunas') as $ts)
                                                     <tr role="row" class="odd">
-                                                        <td class="sorting_1">{{ $no }}</td>
-                                                        <td>{{ $ts->nama_siswa }}</td>
-                                                        <td>{{ 'Rp ' . number_format($s->jumlah_pembayaran, 0, '.', '.') }}
+                                                        <td class="sorting_1">{{ $loop->iteration }}</td>
+                                                        <td>{{ $ts->nama_keuangan }}</td>
+                                                        <td>{{ 'Rp ' . number_format($ts->jumlah, 0, '.', '.') }}
                                                         </td>
-                                                        <td>{{ $ts->lokasi }}</td>
-                                                        <td>{{ $ts->spp }}</td>
+                                                        <td>{{ $ts->tanggal }}</td>
+                                                        <td>{{ $ts->deskripsi }}</td>
+                                                        <td>{{ $ts->bukti }}</td>
+                                                        <td>{{ $ts->status_pembayaran }}</td>
                                                         <td class="d-flex">
                                                             <a href="/transaksisiswa/{{ $ts->id }}/edit"
                                                                 id="2" class="edit me-2">
@@ -161,7 +161,7 @@
                                                             </form>
                                                         </td>
                                                     </tr>
-                                                @endforeach --}}
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -178,11 +178,6 @@
     </div>
 
     @push('scripts')
-        <script>
-            $(function() {
-                $('.selectpicker').selectpicker();
-            });
-        </script>
         <script>
             $(document).ready(function() {
                 console.log('asdas');
@@ -201,15 +196,13 @@
                         success: function(res) {
                             console.log(res);
                             if (res) {
-                                $("#tingkatan_kelas").empty();
                                 $("#dengan-rupiah").val(res.jumlah);
+                                $("#kategori_pembayaran").val(res.nama_keuangan);
                             } else {
-                                $("#tingkatan_kelas").empty();
+                                // $("#tingkatan_kelas").empty();
                             }
                         }
                     });
-                } else {
-                    $("#kelurahan").empty();
                 }
             });
         </script>
