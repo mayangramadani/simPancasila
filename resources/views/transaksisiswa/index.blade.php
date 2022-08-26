@@ -196,7 +196,7 @@
                         success: function(res) {
                             console.log(res);
                             if (res) {
-                                $("#dengan-rupiah").val(res.jumlah);
+                                $("#dengan-rupiah").val(formatRupiah(res.jumlah, 'Rp. '));
                                 $("#kategori_pembayaran").val(res.nama_keuangan);
                             } else {
                                 // $("#tingkatan_kelas").empty();
