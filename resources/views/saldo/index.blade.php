@@ -7,7 +7,7 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Saldo</h1>
         </div>
-
+{{-- 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Tambah Saldo
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-
+ --}}
 
 
 
@@ -113,7 +113,8 @@
                                                         <td class="sorting_1">{{ $no }}</td>
                                                         <td>{{ $s->sekolah->nama_sekolah }}</td>
                                                         <td>{{ 'Rp ' . number_format($s->debit, 0, '.', '.') }}</td>
-                                                        <td>{{ 'Rp ' . number_format($s->kredit, 0, '.', '.') }}</td>
+                                                        <td>{{ $s->kredit }}</td>
+                                                        {{-- <td>{{ 'Rp ' . number_format($s->kredit, 0, '.', '.') }}</td> --}}
                                                         <td>{{ 'Rp ' . number_format($s->saldo, 0, '.', '.') }}</td>
                                                         <td class="d-flex">
                                                             <a href="/saldo/{{ $s->id }}/edit" id="2"

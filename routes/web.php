@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityLogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DataKelasController;
@@ -158,6 +159,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::GET('getTingkatanKelas', [TingkatanKelasController::class, 'getKelas'])->name('getKota');
     Route::GET('getPembayaran', [TransaksiSiswaController::class, 'getPembayaran'])->name('getPembayaran');
+
+    //ActivityLog
+    //  Route::resource('Akun', UserController::class);
+    Route::get('/activitylog', [ActivityLogController::class, 'index'])->name('Aktivitas');
 });
 
 require __DIR__ . '/auth.php';

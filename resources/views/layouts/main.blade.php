@@ -151,14 +151,14 @@
                 </li>
             @endif
 
-            @if (Auth::user()->role == 'admin')
+            {{-- @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="/kategoripembayaran">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Kategori Pembayaran</span>
                     </a>
                 </li>
-            @endif
+            @endif --}}
 
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
@@ -418,7 +418,7 @@
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="/activitylog">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
                                 </a>

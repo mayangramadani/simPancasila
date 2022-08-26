@@ -17,12 +17,17 @@ class KategoriKeuanganSeeder extends Seeder
     {
         KategoriKeuangan::create([
             'nama_keuangan' => 'SPP',
-            'deskripsi' => 'Pemasukan',
+            'deskripsi' => 'SPP',
             'kategori_keuangan' => 'pemasukan'
         ]);
         KategoriKeuangan::create([
-            'nama_keuangan' => 'Sarana dan Prasarana',
-            'deskripsi' => 'Pengeluaran',
+            'nama_keuangan' => 'Pemasukan',
+            'deskripsi' => 'Dana Bantuan',
+            'kategori_keuangan' => 'pemasukan'
+        ]);
+        KategoriKeuangan::create([
+            'nama_keuangan' => 'Pengeluaran',
+            'deskripsi' => 'Beli Barang',
             'kategori_keuangan' => 'pengeluaran'
         ]);
     }

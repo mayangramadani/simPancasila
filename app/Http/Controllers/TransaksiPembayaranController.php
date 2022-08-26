@@ -15,11 +15,13 @@ class TransaksiPembayaranController extends Controller
     public function index()
     {
         $transaksipembayaran = Keuangan::where('users_id', Auth::user()->id)->get();
+        
         $siswa = Siswa::get();
-        $kategoripembayaran = KategoriKeuangan::all();
-        return view('transaksipembayaran.index', compact('transaksipembayaran', 'siswa', 'kategoripembayaran'));
+        $kategorikeuangan = KategoriKeuangan::all();
+        return view('transaksipembayaran.index', compact('transaksipembayaran', 'siswa', 'kategorikeuangan'));
     }
 
+    
     public function bayar()
     {
         // dd("woi");

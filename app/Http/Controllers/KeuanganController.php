@@ -54,7 +54,7 @@ class KeuanganController extends Controller
         if ($kategorikeuangan->kategori_keuangan == 'pemasukan') {
             Saldo::create([
                 'debit' => $this->convertRP($request->jumlah),
-                'saldo' =>(int)$cekSaldo + (int)$this->convertRP($request->jumlah),
+                'saldo' => (int)$cekSaldo + (int)$this->convertRP($request->jumlah),
                 'sekolah_id' => $request->sekolah_id,
                 'keuangan_id' => $Keuangans->id
             ]);

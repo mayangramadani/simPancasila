@@ -42,10 +42,10 @@
                                         <label for="transaksi" class="form-control-label fw-semibold">Kategori
                                             Pembayaran</label>
                                         <select class="form-select form-select-lg form-control"
-                                            aria-label="Default select example" name="jenis_transaksi" readonly>
+                                            aria-label="Default select example" name="nama_keuangan" readonly>
                                             <option selected disabled>Jenis</option>
-                                            @foreach ($kategoripembayaran as $item)
-                                                <option value="{{ $item->id }}">{{ $item->nama_pembayaran }}</option>
+                                            @foreach ($kategorikeuangan as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -53,10 +53,11 @@
 
                                 <div class="form-row">
                                     <div class="col-md-4 mb-10">
-                                        <label class="form-control-label fw-semibold" for="bulan_pembayaran">
+                                        <label class="form-control-label fw-semibold" for="bulan_pembayaran">Bulan
                                             Pembayaran *</label>
                                         <select class="form-control" name="bulan_pembayaran" id="bulan_pembayaran" required>
                                             @foreach ($transaksisiswa as $item)
+                                                <option selected disabled>==PILIH==</option>
                                                 <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
                                             @endforeach
                                         </select>

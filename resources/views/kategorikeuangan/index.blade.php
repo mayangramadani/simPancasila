@@ -25,17 +25,19 @@
                         @csrf
                         <div class="modal-body">
                             <label for="cemail" class="control-label">Nama Keuangan</label>
-                            <input class="form-control mb-3" type="text" name="nama_keuangan" placeholder="Nama Keuangan">
+                            <input class="form-control mb-3" type="text" name="nama_keuangan"
+                                placeholder="Nama Keuangan">
 
                             <label for="cemail" class="control-label">Kategori Keuangan</label>
-                            <select class="form-select form-select-lg form-control mb-3" name="kategori_keuangan" id="kategori_keuangan">
+                            <select class="form-select form-select-lg form-control mb-3" name="kategori_keuangan"
+                                id="kategori_keuangan">
                                 <option value="pemasukan">Pemasukan</option>
                                 <option value="pengeluaran">Pengeluaran</option>
                             </select>
 
                             <label for="cemail" class="control-label">Deskripsi</label>
                             <input class="form-control mb-3" type="text" name="deskripsi" placeholder="Deskripsi">
-                           
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -57,75 +59,74 @@
                         <h6 class="m-0 font-weight-bold text-primary">Sekolah</h6>
                     </div>
                     <div class="card-body">
-                        <div class="chart-area">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="table-responsive">
-                                        <table id="table1" class="table datatable table-bordered table-hover no-footer">
-                                            <thead>
-                                                <tr class="box bg-teal" role="row">
-                                                    <th width="4%" class="sorting_asc" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="No.: activate to sort column descending">No.</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1"
-                                                        rowspan="1" colspan="1" name="nama_keuangan"
-                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                        Nama Keuangan</th>
-                                                    <th width="10%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        name="kategori_keuangan"
-                                                        aria-label="Kategori Keuangan: activate to sort column ascending">
-                                                        Kategori Keuangan</th>
-                                                    <th width="40%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        name="deskripsi"
-                                                        aria-label="Deskripsi: activate to sort column ascending">Deskripsi
-                                                    </th>
-                                                    
-                                                    <th width="10%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Action: activate to sort column ascending">Action</th>
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="table-responsive">
+                                    <table id="table1" class="table datatable table-bordered table-hover no-footer">
+                                        <thead>
+                                            <tr class="box bg-teal" role="row">
+                                                <th width="4%" class="sorting_asc" tabindex="0"
+                                                    aria-controls="example1" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
+                                                    aria-label="No.: activate to sort column descending">No.</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                    colspan="1" name="nama_keuangan"
+                                                    aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                    Nama Keuangan</th>
+                                                <th width="20%" class="sorting" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1" name="kategori_keuangan"
+                                                    aria-label="Kategori Keuangan: activate to sort column ascending">
+                                                    Kategori Keuangan</th>
+                                                <th width="30%" class="sorting" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1" name="deskripsi"
+                                                    aria-label="Deskripsi: activate to sort column ascending">Deskripsi
+                                                </th>
 
+                                                <th width="10%" class="sorting" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Action: activate to sort column ascending">Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @php
+                                                $no = 0;
+                                            @endphp
+                                            @foreach ($kategorikeuangan as $kk)
                                                 @php
-                                                    $no = 0;
+                                                    $no++;
                                                 @endphp
-                                                @foreach ($kategorikeuangan as $kk)
-                                                    @php
-                                                        $no++;
-                                                    @endphp
-                                                    <tr role="row" class="odd">
-                                                        <td class="sorting_1">{{ $no }}</td>
-                                                        <td>{{ $kk->nama_keuangan }}</td>
-                                                        <td>{{ $kk->kategori_keuangan }}</td>
-                                                        <td>{{ $kk->deskripsi }}</td>
-                                                        
-                                                        <td class="d-flex">
-                                                            <a href="/kategorikeuangan/{{ $kk->id }}/edit" id="2"
-                                                                class="edit me-2">
-                                                                <button class="btn btn-outline-info" type="button">
-                                                                    Edit
-                                                                </button>
-                                                            </a>
-                                                            <form action="/ketegorikeuangan/{{ $kk->id }}" method='post'>
-                                                                @csrf
-                                                                @method('delete')
-                                                                <input class="btn btn-outline-danger" type="submit"
-                                                                    value="Hapus">
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1">{{ $no }}</td>
+                                                    <td>{{ $kk->nama_keuangan }}</td>
+                                                    <td>{{ $kk->kategori_keuangan }}</td>
+                                                    <td>{{ $kk->deskripsi }}</td>
+
+                                                    <td class="d-flex">
+                                                        <a href="/kategorikeuangan/{{ $kk->id }}/edit"
+                                                            id="2" class="edit me-2">
+                                                            <button class="btn btn-outline-info" type="button">
+                                                                Edit
+                                                            </button>
+                                                        </a>
+                                                        <form action="/ketegorikeuangan/{{ $kk->id }}"
+                                                            method='post'>
+                                                            @csrf
+                                                            @method('delete')
+                                                            <input class="btn btn-outline-danger" type="submit"
+                                                                value="Hapus">
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                 </div>
@@ -133,4 +134,13 @@
         </div>
     </div>
     </div>
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                console.log('asdas');
+                $('#table1').DataTable();
+
+            });
+        </script>
+    @endpush
 @endsection

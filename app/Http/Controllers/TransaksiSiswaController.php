@@ -16,10 +16,10 @@ class TransaksiSiswaController extends Controller
     public function index()
     {
         $transaksisiswa = Keuangan::where('users_id', Auth::user()->id)
-            ->where('status_pembayaran', 'Belum Lunas')->get();
+            ->where('status_pembayaran', '!=', 'Proses')->where('status_pembayaran', '!=', 'Lunas')->get();
         // dd($transaksisiswa);
         $siswa = Siswa::all();
-        $kategoripembayaran = KategoriKeuangan::all();
+        $kategorikeuangan = KategoriKeuangan::all();
         $user = User::where('role', 'siswa')->get();
         // dd($user);
         $dataSiswa = [];
@@ -27,7 +27,7 @@ class TransaksiSiswaController extends Controller
             $dataSiswa['nama_siswa'][$item->id] = $item->name;
         }
         // dd($dataSiswa);
-        return view('transaksisiswa.index', compact('transaksisiswa', 'siswa', 'kategoripembayaran'));
+        return view('transaksisiswa.index', compact('transaksisiswa', 'siswa', 'kategorikeuangan'));
     }
 
     public function getPembayaran(Request $request)
@@ -53,7 +53,7 @@ class TransaksiSiswaController extends Controller
 
         TransaksiSiswa::create([
             'siswa_id' => $request->siswa_id,
-            'kategori_pembayaran_id' => $request->kategori_pembayaran_id,
+            'kategori_keuangan_id' => $request->kategori_keuangan_id,
             'jumlah_pembayaran' => $request->jumlah_pembayaran,
             'users_id' => Auth::user()->id,
             'bukti' => $file_name1,
