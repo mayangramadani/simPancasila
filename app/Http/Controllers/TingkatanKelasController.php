@@ -52,7 +52,8 @@ class TingkatanKelasController extends Controller
     public function edit($id)
     {
         $tingkatankelas = TingkatanKelas::find($id);
-        return view('tingkatankelas.edit', compact('tingkatankelas'));
+        $sekolah = Sekolah::get();
+        return view('tingkatankelas.edit', compact('tingkatankelas', 'sekolah'));
     }
     public function update($id, Request $request)
     {

@@ -34,6 +34,9 @@
                             <label for="cemail" class="control-label">Tingkatan Kelas</label>
                             <select class="form-select form-select-lg mb-3 form-control" id="tingkatan_kelas"
                                 name="tingkatan_kelas">
+                                @foreach ($tingkatankelas as $item)
+                                    <option value="{{ $item->id }}">{{ $item->tingkatan_kelas }}</option>
+                                @endforeach
 
                             </select>
                             <label for="cemail" class="control-label">Nama Kelas</label>
@@ -117,7 +120,7 @@
                                                     @endphp
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1">{{ $no }}</td>
-                                                        <td>{{ $dk->TingkatanKelas->tingkatan_kelas  }}</td>
+                                                        <td>{{ $dk->tingkatan_kelas }}</td>
                                                         <td>{{ $dk->nama_kelas }}</td>
                                                         <td>{{ $dk->kuota }}</td>
                                                         <td class="d-flex">
@@ -135,8 +138,8 @@
                                                                     value="Hapus">
                                                             </form>
 
-                                                            <a href="/datakelas/{{ $dk->id }}/detail" id="2"
-                                                                class="detail me-2">
+                                                            <a href="/datakelas/{{ $dk->id }}/detail"
+                                                                id="2" class="detail me-2">
                                                                 <button class="btn btn-outline-primary" type="button">
                                                                     Add
                                                                 </button>

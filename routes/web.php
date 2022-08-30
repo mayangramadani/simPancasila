@@ -47,6 +47,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/histori', function () {
         return view('histori');
     });
+    Route::get('/datakeuangan/anggaran', function () {
+        return view('datakeuangan.anggaran');
+    });
 
     // datasiswa
     Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -90,6 +93,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/datakeuangan/{id}', [KeuanganController::class, 'hapus']);
         Route::put('/datakeuangan/{id}', [KeuanganController::class, 'update']);
         Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
+        // Route::get('/datakeuangan/{id}/anggaran', [KeuanganController::class, 'anggaran'])->name('anggaran');
     });
 
     // sekolah
@@ -147,6 +151,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/tingkatankelas', [TingkatanKelasController::class, 'index'])->name('tingkatankelas');
         Route::post('/tingkatankelas/add', [TingkatanKelasController::class, 'add']);
+        Route::put('/tingkatankelas/{id}', [TingkatanKelasController::class, 'update']);
+        Route::get('/tingkatankelas/{id}/edit', [TingkatanKelasController::class, 'edit']);
         Route::delete('/tingkatankelas/{id}', [TingkatanKelasController::class, 'hapus']);
     });
 

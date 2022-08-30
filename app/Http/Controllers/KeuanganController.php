@@ -72,8 +72,15 @@ class KeuanganController extends Controller
     public function detail($id)
     {
         $keuangan = Keuangan::find($id);
-        return view('datakeuangan.detail', compact('keuangan'));
+        $sekolah = Sekolah::get();
+        return view('datakeuangan.detail', compact('keuangan', 'sekolah'));
     }
+
+    // public function anggaran($id)
+    // {
+    //     $keuangan = Keuangan::find($id);
+    //     return view('datakeuangan.anggaran', compact('keuangan'));
+    // }
     public function edit($id)
     {
         $keuangan = Keuangan::find($id);
@@ -118,4 +125,5 @@ class KeuanganController extends Controller
         $keuangan = Keuangan::find($id);
         return $keuangan;
     }
+
 }

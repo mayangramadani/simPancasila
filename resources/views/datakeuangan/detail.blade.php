@@ -5,20 +5,20 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Detail Transaksi Keuangan</h1>
+            <h1 class="h3 mb-0 text-gray-800">Detail Data Keuangan</h1>
         </div>
-        <div class="mb-3">
-            <a href="/datakeuangan">Kembali</a>
-        </div>
-
+        
         <div class="row">
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h5 class="m-0 font-weight-bold text-primary">Detail Data Keuangan</h5>
+                    <div class="card-header d-flex flex-row align-items-center justify-content-between">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/datakeuangan">Kembali</a></li>
+                                <li class="breadcrumb-item font-weight-bold"><a href="#">Detail Keuangan</a></li>
+                            </ol>
                         <div class="d-flex">
                             <a href="/datakeuangan/{{ $keuangan->id }}/edit" id="2" class="edit me-2">
                                 <button class="btn btn-outline-info" type="button">
@@ -36,34 +36,39 @@
                     <div class="card-body">
                         <div class="p-3">
                             <div class="mb-3 row">
-                                <label for="kategorikeuangan" class="col-sm-2 col-form-label fw-semibold">Kategori
+                            <label for="sekolah" class="col-sm-3 col-form-label fw-semibold">Sekolah</label>
+                            <label for="sekolah" class="col-sm-2 col-form-label">:
+                                {{ $keuangan->nama_sekolah }}</label>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="kategorikeuangan" class="col-sm-3 col-form-label fw-semibold">Kategori
                                     Keuangan</label>
                                 <label for="kategorikeuangan" class="col-sm-2 col-form-label">:
                                     {{ $keuangan->KategoriKeuangan->nama_keuangan }}</label>
                             </div>
                             <div class="mb-3 row">
-                                <label for="namakeuangan" class="col-sm-2 col-form-label fw-semibold">Nama
+                                <label for="namakeuangan" class="col-sm-3 col-form-label fw-semibold">Nama
                                     Keuangan</label>
                                 <label for="namakeuangan" class="col-sm-2 col-form-label">:
                                     {{ $keuangan->nama_keuangan }}</label>
                             </div>
                             <div class="mb-3 row">
-                                <label for="jumlahtransaksi" class="col-sm-2 col-form-label fw-semibold">Jumlah
+                                <label for="jumlahtransaksi" class="col-sm-3 col-form-label fw-semibold">Jumlah
                                     Transaksi</label>
                                 <label for="jumlahtransaksi" class="col-sm-2 col-form-label" id="dengan-rupiah">:
                                     {{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}</label>
                             </div>
                             <div class="mb-3 row">
-                                <label for="tanggal" class="col-sm-2 col-form-label fw-semibold">Tanggal Transaksi</label>
+                                <label for="tanggal" class="col-sm-3 col-form-label fw-semibold">Tanggal Transaksi</label>
                                 <label for="tanggal" class="col-sm-2 col-form-label">: {{ $keuangan->tanggal }}</label>
                             </div>
                             <div class="mb-3 row">
-                                <label for="Deskripsi" class="col-sm-2 col-form-label fw-semibold">Deskripsi</label>
+                                <label for="Deskripsi" class="col-sm-3 col-form-label fw-semibold">Deskripsi</label>
                                 <label for="Deskripsi" class="col-sm-2 col-form-label">:
                                     {{ $keuangan->deskripsi }}</label>
                             </div>
                             <div class="mb-3 row">
-                                <label for="foto" class="col-sm-2 col-form-label fw-semibold">Bukti</label>
+                                <label for="foto" class="col-sm-3 col-form-label fw-semibold">Bukti</label>
                                 <label for="foto" class="col-sm-2 col-form-label">: <img width="100"
                                         src="{{ asset('storage/Keuangan/bukti/' . $keuangan->bukti_transaksi) }}"
                                         alt="Profile"></label>

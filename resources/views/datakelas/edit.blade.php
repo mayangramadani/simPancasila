@@ -14,7 +14,7 @@
                     @csrf
                     <label for="cemail" class="control-label">Nama Sekolah</label>
                     <select class="form-select form-select-lg mb-3 form-control" name="sekolah_id">
-                        @foreach ($datasekolah as $item)
+                        @foreach ($sekolah as $item)
                             <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
                         @endforeach
                     </select>

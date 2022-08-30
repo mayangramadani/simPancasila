@@ -8,11 +8,9 @@
             <h1 class="h3 mb-0 text-gray-800">Edit Siswa</h1>
         </div>
 
-
         <div class="mb-3">
             <a href="/datasiswa/{{ $siswa->id }}/detail">Kembali</a>
         </div>
-
 
         <div class="row">
 
@@ -32,26 +30,24 @@
                                 <div class="mb-3 row">
                                     <label for="nis" class="col-sm-2 col-form-label">NIS</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="nis" placeholder="NIS" name="nis"
-                                            value="{{ $siswa->nis }}">
+                                        <input type="text" class="form-control" id="nis" placeholder="NIS"
+                                            name="nis" value="{{ $siswa->nis }}">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="namaLengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="nis" placeholder="Nama Lengkap"
-                                            name="nama_siswa" value="{{ $siswa->nama }}">
+                                        <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap"
+                                            name="nama_siswa" value="{{ $siswa->nama_siswa }}">
                                     </div>
-
-
                                 </div>
-                                <div class="mb-3 row">
+                                {{-- <div class="mb-3 row">
                                     <label for="namaLengkap" class="col-sm-2 col-form-label">Kelas</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="namaLengkap" name="kelas"
                                             placeholder="Nama Lengkap" value="{{ $siswa->DataKelas->nama_kelas }}">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="mb-3 row">
                                     <label for="namaLengkap" class="col-sm-2 col-form-label">Tempat Lahir</label>
                                     <div class="col-sm-10">

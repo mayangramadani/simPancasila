@@ -35,7 +35,7 @@
                                 </form>
                             </div>
                     </div>
-                    
+
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="p-3">
@@ -71,7 +71,7 @@
                             </div>
                             <div class="mb-3 row">
                                 <label for="alamat" class="col-sm-2 col-form-label fw-semibold text-dark">Alamat</label>
-                                <label for="alamat" class="col-sm-2 col-form-label">: {{ $siswa->alamat }}</label>
+                                <label for="alamat" class="col-sm-5 col-form-label">: {{ $siswa->alamat }}</label>
                             </div>
                             <div class="mb-3 row">
                                 <label for="noHP" class="col-sm-2 col-form-label fw-semibold text-dark">No. HP</label>

@@ -15,14 +15,35 @@ class KeuanganSeeder extends Seeder
      */
     public function run()
     {
-        // Keuangan::create([
-        //     'kategori_keuangan_id' => '1',
-        //     'nama_keuangan' => 'apaaaa',
-        //     'jumlah' => '100000',
-        //     'tanggal' => '2022-07-22 11:13:24.000000',
-        //     'deskripsi' => 'asad',
-        //     'bukti' => '',
-
-        // ]);
+        Keuangan::create([
+            'kategori_keuangan_id' => '1',
+            'users_id' => '2',
+            'nama_keuangan' => 'apaaaa',
+            'jumlah' => '100000',
+            'deskripsi' => 'asad',
+            'tanggal' => '2022-07-22 11:13:24.000000',
+            'bukti' => '',
+            'status_pembayaran' => 'Belum Lunas'
+        ]);
+        Keuangan::create([
+            'kategori_keuangan_id' => '1',
+            'users_id' => '3',
+            'nama_keuangan' => 'Bayar SPP',
+            'jumlah' => '150000',
+            'deskripsi' => 'uhuhuh',
+            'tanggal' => '2022-07-22 11:13:24.000000',
+            'bukti' => '',
+            'status_pembayaran' => 'Belum Lunas'
+        ]);
+        Keuangan::create([
+            'kategori_keuangan_id' => '1',
+            'users_id' => '2',
+            'nama_keuangan' => 'Bayar SPP',
+            'jumlah' => '120000',
+            'deskripsi' => 'hehehhe',
+            'tanggal' => '2022-07-22 11:13:24.000000',
+            'bukti' => '',
+            'status_pembayaran' => 'Belum Lunas'
+        ]);
     }
 }

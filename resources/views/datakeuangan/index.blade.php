@@ -4,124 +4,128 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Data Keuangan</h1>
-        </div>
-
-        {{-- <div class="mb-5">
-            {{ Breadcrumbs::render('datasiswa') }}
         </div> --}}
 
-
-        <div class="container-fluid mb-3">
-            <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Input Data Keuangan
-            </button>
-            <form action="{{ route('bayar') }}" method="post">
-                @csrf
-                <button type="submit" class="btn btn-primary mb-4">
-                    Keuangan
+        <nav>
+            <ol class="breadcrumb">
+                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Input Keuangan
                 </button>
-            </form>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Tambah Data Keuangan</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="/datakeuangan/add" method="POST" enctype="multipart/form-data">
-                                @csrf
+                <form action="{{ route('bayar') }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">
+                        Buka Pembayaran
+                    </button>
+                </form>
+            </ol>
+        </nav>
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Keuangan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/datakeuangan/add" method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="mb-3">
+                                <label for="sekolah" class="form-label">Sekolah</label>
+                                <select class="form-select form-select-lg form-control" name="sekolah_id">
+                                    <option disabled>=== Pilih Sekolah ===</option>
+                                    @foreach ($sekolah as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 <div class="mb-3">
-                                    <label for="sekolah" class="form-label">Sekolah</label>
-                                    <select class="form-select form-select-lg form-control" name="sekolah_id">
-                                        <option disabled>=== Pilih Sekolah ===</option>
-                                        @foreach ($sekolah as $item)
-                                            <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
-                                            </option>
+                                    <label for="transaksi" class="form-label">Kategori Keuangan</label>
+                                    <select class="form-select form-select-lg form-control"
+                                        aria-label="Default select example" name="kategori_keuangan_id">
+                                        <option selected disabled>=== Kategori Keuangan ===</option>
+                                        @foreach ($kategorikeuangan as $item)
+                                            <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
                                         @endforeach
                                     </select>
-                                    <div class="mb-3">
-                                        <label for="transaksi" class="form-label">Kategori Keuangan</label>
-                                        <select class="form-select form-select-lg form-control"
-                                            aria-label="Default select example" name="kategori_keuangan_id">
-                                            <option selected disabled>=== Kategori Keuangan ===</option>
-                                            @foreach ($kategorikeuangan as $item)
-                                                <option value="{{ $item->id }}">{{ $item->nama_keuangan }}</option>
-                                            @endforeach
-                                        </select>
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="namaKeuangan" class="form-label">Nama Keuangan</label>
-                                        <input type="text" class="form-control" id="namaKeuangan" name="nama_keuangan"
-                                            placeholder="Nama Keuangan">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="cemail" class="control-label">Jumlah</label>
-                                        <input class="form-control mb-3" type="text" name="jumlah" id="dengan-rupiah" />
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="tanggal" class="form-label">Tanggal Transaksi</label>
-                                        <input type="date" class="form-control" name="tanggal">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="deskripsi" class="form-label">Deskripsi</label>
-                                        <input type="text" class="form-control" id="deskripsi" name="deskripsi"
-                                            placeholder="Deskripsi">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="nis" class="form-label">Keterangan</label>
-                                        <input type="text" class="form-control" id="keterangan" name="keterangan"
-                                            placeholder="Keterangan">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="foto" class="form-label">Bukti</label>
-                                        <input class="form-control" type="file" id="formFile" name="bukti_transaksi">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="foto" class="form-label">Status Pembayaran</label>
-                                        <select class="form-select form-select-lg form-control"
-                                            aria-label="Default select example" name="status_pembayaran">
-                                            <option selected disabled>=== Status Pembayaran ===</option>
-                                            <option value="Lunas" selected>Lunas</option>
-                                            <option value="Belum Lunas" selected>Belum Lunas</option>
-                                            <option value="Tolak" selected>Tolak</option>
-                                            <option value="Proses" selected>Proses</option>
-                                        </select>
-                                    </div>
 
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <input class="btn btn-primary" type="submit" value="Submit" name="submit">
-                            </form>
-                        </div>
+                                <div class="mb-3">
+                                    <label for="namaKeuangan" class="form-label">Nama Keuangan</label>
+                                    <input type="text" class="form-control" id="namaKeuangan" name="nama_keuangan"
+                                        placeholder="Nama Keuangan">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cemail" class="control-label">Jumlah</label>
+                                    <input class="form-control mb-3" type="text" name="jumlah" id="dengan-rupiah" />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="tanggal" class="form-label">Tanggal Transaksi</label>
+                                    <input type="date" class="form-control" name="tanggal">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                                    <input type="text" class="form-control" id="deskripsi" name="deskripsi"
+                                        placeholder="Deskripsi">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="foto" class="form-label">Bukti</label>
+                                    <input class="form-control" type="file" id="formFile" name="bukti_transaksi">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="foto" class="form-label">Status Pembayaran</label>
+                                    <select class="form-select form-select-lg form-control"
+                                        aria-label="Default select example" name="status_pembayaran">
+                                        <option selected disabled>=== Status Pembayaran ===</option>
+                                        <option value="Lunas" selected>Lunas</option>
+                                        <option value="Belum Lunas" selected>Belum Lunas</option>
+                                        <option value="Tolak" selected>Tolak</option>
+                                        <option value="Proses" selected>Proses</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Submit" name="submit">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+    </div>
+    <div class="row">
 
-            <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-1 font-weight-bold text-primary">Data Keuangan</h6>
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Data Keuangan</h6>
+                    <div class="d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/datakeuangan/anggaran">Anggaran</a></li>
+                            <li class="breadcrumb-item"><a href="#">Penatausahaan</a></li>
+                            <li class="breadcrumb-item"><a href="#">Arsip</a></li>
+                        </ol>
                     </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <table id="example1" class="table table-bordered table-hover dataTable no-footer"
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table id="table1" class="table table-bordered table-hover dataTable no-footer"
                                     role="grid" aria-describedby="example1_info">
                                     <thead>
                                         <tr class="box bg-teal" role="row">
@@ -129,9 +133,11 @@
                                                 aria-controls="example1" rowspan="1" colspan="1"
                                                 aria-sort="ascending">No.</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Kategori Keuangan</th>
+                                                rowspan="1" colspan="1">Kategori
+                                                Keuangan</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Nama Keuangan</th>
+                                                rowspan="1" colspan="1">Nama Keuangan
+                                            </th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Jumlah</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
@@ -141,7 +147,8 @@
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Bukti</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Status Pembayaran</th>
+                                                rowspan="1" colspan="1">Status
+                                                Pembayaran</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Nama User</th>
                                             <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
@@ -162,8 +169,8 @@
                                                 <td>{{ $dku->KategoriKeuangan->nama_keuangan }}</td>
                                                 <td>{{ $dku->nama_keuangan }}</td>
                                                 <td>{{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
-                                                <td>{{ $dku->tanggal }}</td>
                                                 <td>{{ $dku->deskripsi }}</td>
+                                                <td>{{ $dku->tanggal }}</td>
                                                 <td>{{ $dku->bukti }}</td>
                                                 <td>{{ $dku->status_pembayaran }}</td>
                                                 <td>{{ $dku->users_id }}</td>
@@ -187,6 +194,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     @push('scripts')
         <script>

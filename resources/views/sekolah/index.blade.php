@@ -4,14 +4,22 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Sekolah</h1>
-        </div>
+        </div> --}}
+
+        <nav>
+            <ol class="breadcrumb">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Tambah Sekolah
+                </button>
+            </ol>
+        </nav>
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        {{-- <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Sekolah
-        </button>
+        </button> --}}
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -76,15 +84,15 @@
                                                     rowspan="1" colspan="1" name="derajat"
                                                     aria-label="Derajat: activate to sort column ascending">
                                                     Derajat</th>
-                                                <th width="25%" class="sorting" tabindex="0"
-                                                    aria-controls="example1" rowspan="1" colspan="1"
-                                                    name="lokasi" aria-label="Lokasi: activate to sort column ascending">
+                                                <th width="25%" class="sorting" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1" name="lokasi"
+                                                    aria-label="Lokasi: activate to sort column ascending">
                                                     Lokasi
                                                 </th>
                                                 <th width="10%" class="sorting" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="spp" aria-label="spp: activate to sort column ascending">SPP
-                                                </th>                                             
+                                                </th>
                                                 <th width="10%" class="sorting" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending">Action</th>

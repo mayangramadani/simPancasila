@@ -9,21 +9,19 @@
         </div>
         {{-- {{ $siswa->DataKelas->nama_kelas }} --}}
 
-
         <div class="row">
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Data Siswa</h6>
                         <div class="d-flex">
-
-                            <a href="/datasiswa/create"><button class="btn btn-info" type="button"><i
+                            <a href="/datasiswa/create"><button class="btn btn-info me-2" type="button"><i
                                         class="fa fa-plus"></i>
                                     Add Siswa</button></a>
-                            <button type="button" class="btn btn-warning mb-3" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
                                 Import Excell
                             </button>
@@ -33,7 +31,6 @@
                     </div>
 
                     <!-- Button trigger modal -->
-
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -82,11 +79,9 @@
                                     <tbody>
                                         @foreach ($siswa as $ds)
                                             <tr role="row" class="odd">
-
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $ds->nis }}</td>
-                                                <td>{{ $ds->nama_siswa }}</td>
-                                               
+                                                <td>{{ $ds->nama_siswa }}</td>                                              
                                                 <td class="d-flex">
                                                     <a href="/datasiswa/{{ $ds->id }}/detail" id="2"
                                                         class="detail me-2">
@@ -94,9 +89,7 @@
                                                             Detail
                                                         </button>
                                                     </a>
-
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>
