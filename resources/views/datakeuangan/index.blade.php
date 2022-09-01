@@ -3,11 +3,6 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        <!-- Page Heading -->
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data Keuangan</h1>
-        </div> --}}
-
         <nav>
             <ol class="breadcrumb">
                 <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -21,7 +16,6 @@
                 </form>
             </ol>
         </nav>
-
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -109,93 +103,107 @@
         <div class="col-xl-12 col-lg-7">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Keuangan</h6>
-                    <div class="d-flex">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/datakeuangan/anggaran">Anggaran</a></li>
-                            <li class="breadcrumb-item"><a href="#">Penatausahaan</a></li>
-                            <li class="breadcrumb-item"><a href="#">Arsip</a></li>
-                        </ol>
+                {{-- <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between"> --}}
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                            type="button" role="tab" aria-controls="home" aria-selected="true">RKAS</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                            type="button" role="tab" aria-controls="profile"
+                            aria-selected="false">Penatausahaan</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                            type="button" role="tab" aria-controls="contact" aria-selected="false">Arsip</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...
                     </div>
-                </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="card-body">
+                                <div class="col-sm-12">
+                                    <div class="table-responsive">
+                                        <table id="table1" class="table table-bordered table-hover dataTable no-footer"
+                                            role="grid" aria-describedby="example1_info">
+                                            <thead>
+                                                <tr class="box bg-teal" role="row">
+                                                    <th width="5%" class="sorting_asc" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-sort="ascending">No.</th>
+                                                    <th width="15%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Kategori
+                                                        Keuangan</th>
+                                                    <th width="15%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Nama
+                                                        Keuangan
+                                                    </th>
+                                                    <th width="15%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Jumlah
+                                                    </th>
+                                                    <th width="15%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Deskripsi
+                                                    </th>
+                                                    <th width="15%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Tanggal
+                                                    </th>
+                                                    <th width="15%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Bukti</th>
+                                                    <th width="15%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Status
+                                                        Pembayaran</th>
+                                                    <th width="15%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Nama User
+                                                    </th>
+                                                    <th width="15%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @php
+                                                    $no = 0;
+                                                @endphp
+                                                @foreach ($keuangan as $dku)
+                                                    @php
+                                                        $no++;
+                                                    @endphp
+                                                    <tr role="row" class="odd">
 
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="table-responsive">
-                                <table id="table1" class="table table-bordered table-hover dataTable no-footer"
-                                    role="grid" aria-describedby="example1_info">
-                                    <thead>
-                                        <tr class="box bg-teal" role="row">
-                                            <th width="5%" class="sorting_asc" tabindex="0"
-                                                aria-controls="example1" rowspan="1" colspan="1"
-                                                aria-sort="ascending">No.</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Kategori
-                                                Keuangan</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Nama Keuangan
-                                            </th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Jumlah</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Deskripsi</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Tanggal</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Bukti</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Status
-                                                Pembayaran</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Nama User</th>
-                                            <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $no = 0;
-                                        @endphp
-                                        @foreach ($keuangan as $dku)
-                                            @php
-                                                $no++;
-                                            @endphp
-                                            <tr role="row" class="odd">
-
-                                                <td>{{ $no }}</td>
-                                                <td>{{ $dku->KategoriKeuangan->nama_keuangan }}</td>
-                                                <td>{{ $dku->nama_keuangan }}</td>
-                                                <td>{{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
-                                                <td>{{ $dku->deskripsi }}</td>
-                                                <td>{{ $dku->tanggal }}</td>
-                                                <td>{{ $dku->bukti }}</td>
-                                                <td>{{ $dku->status_pembayaran }}</td>
-                                                <td>{{ $dku->users_id }}</td>
-                                                <td class="d-felx">
-                                                    <a href="/datakeuangan/{{ $dku->id }}/detail" id="2"
-                                                        class="detail me-2">
-                                                        <button class="btn btn-outline-info" type="button">
-                                                            Detail
-                                                        </button>
-                                                    </a>
-
-                                                </td>
-
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                                        <td>{{ $no }}</td>
+                                                        <td>{{ $dku->KategoriKeuangan->nama_keuangan }}</td>
+                                                        <td>{{ $dku->nama_keuangan }}</td>
+                                                        <td>{{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
+                                                        <td>{{ $dku->deskripsi }}</td>
+                                                        <td>{{ $dku->tanggal }}</td>
+                                                        <td>{{ $dku->bukti }}</td>
+                                                        <td>{{ $dku->status_pembayaran }}</td>
+                                                        <td>{{ $dku->users_id }}</td>
+                                                        <td class="d-felx">
+                                                            <a href="/datakeuangan/{{ $dku->id }}/detail"
+                                                                id="2" class="detail me-2">
+                                                                <button class="btn btn-outline-info" type="button">
+                                                                    Detail
+                                                                </button>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+
     @push('scripts')
         <script>
             $(document).ready(function() {

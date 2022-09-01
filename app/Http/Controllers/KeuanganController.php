@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\KategoriKeuangan;
 use App\Models\Keuangan;
 use App\Models\Saldo;
@@ -37,6 +38,7 @@ class KeuanganController extends Controller
         $Saldo = Saldo::where('sekolah_id', $request->sekolah_id)->latest()->first();
 
         $Keuangans = Keuangan::create([
+            'no_transaksi' => Str::random(9),
             'nama_keuangan' => $request->nama_keuangan,
             'kategori_keuangan_id' => $request->kategori_keuangan_id,
             'jumlah' => $this->convertRP($request->jumlah),
@@ -125,5 +127,4 @@ class KeuanganController extends Controller
         $keuangan = Keuangan::find($id);
         return $keuangan;
     }
-
 }

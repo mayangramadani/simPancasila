@@ -9,7 +9,7 @@ use App\Http\Controllers\TransaksiSiswaController;
 use App\Http\Controllers\KategoriPembayaranController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\AksesKelasController;
-use App\Http\Controllers\InvoicePembayaranController;
+use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\KategoriKeuanganController;
 use App\Http\Controllers\TransaksiPembayaranController;
@@ -50,6 +50,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datakeuangan/anggaran', function () {
         return view('datakeuangan.anggaran');
     });
+    Route::get('/datakeuangan/rkas', function () {
+        return view('datakeuangan.rkas');
+    });
+    Route::get('/transaksisiswa/historisiswa', function () {
+        return view('transaksisiswa.historisiswa');
+    });
 
     // datasiswa
     Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -72,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/datakelas/{id}', [DataKelasController::class, 'update']);
         Route::get('/datakelas/{id}/edit', [DataKelasController::class, 'edit']);
         Route::get('/datakelas/{id}/detail', [DataKelasController::class, 'detail']);
+        Route::get('/datakelas/{id}/show', [DataKelasController::class, 'show']);
     });
 
     // Kategori Pembayaran
@@ -93,7 +100,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/datakeuangan/{id}', [KeuanganController::class, 'hapus']);
         Route::put('/datakeuangan/{id}', [KeuanganController::class, 'update']);
         Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
-        // Route::get('/datakeuangan/{id}/anggaran', [KeuanganController::class, 'anggaran'])->name('anggaran');
     });
 
     // sekolah
@@ -146,6 +152,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/transaksisiswa/{id}', [TransaksiSiswaController::class, 'update']);
         Route::get('/transaksisiswa/{id}/edit', [TransaksiSiswaController::class, 'edit']);
         Route::get('/transaksisiswa/{id}/detail', [TransaksiSiswaController::class, 'detail']);
+        Route::get('/transaksisiswa/{id}/historisiswa', [TransaksiSiswaController::class, 'historisiswa']);
     });
     // tingkatan kelas
     Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -158,8 +165,8 @@ Route::middleware(['auth'])->group(function () {
 
     // invoice pembayaran
     Route::middleware(['auth', 'role:admin'])->group(function () {
-        Route::get('/invoicepembayaran', [InvoicePembayaranController::class, 'index'])->name('invoicepembayaran');
-        Route::post('/invoicepembayaran/add', [InvoicePembayaranController::class, 'add']);
+        Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi');
+        Route::post('/konfirmasi/add', [KonfirmasiController::class, 'add']);
     });
 
 

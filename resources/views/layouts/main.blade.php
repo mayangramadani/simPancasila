@@ -72,25 +72,43 @@
                         <span>Sekolah</span></a>
                 </li>
             @endif
-            <!-- Nav Item - Pages Collapse Menu -->
 
             <!-- Nav Item - Pages Collapse Menu -->
-            @if (Auth::user()->role == 'admin')
+            {{-- @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link" href="/tingkatankelas">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Tingkatan Kelas</span></a>
                 </li>
+            @endif --}}
+
+            @if (Auth::user()->role == 'admin')
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
+                        aria-expanded="true" aria-controls="collapseLap">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Data Kelas</span>
+                    </a>
+                    <div id="collapseLap" class="collapse" aria-labelledby="headingPages"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">--Pembayaran--</h6>
+                            <a class="collapse-item" href="/datakelas">Data kelas</a>
+                            <a class="collapse-item" href="/tingkatankelas">Tingkatan Kelas</a>
+                            <a class="collapse-item" href="/akseskelas">Akses Kelas</a>
+                        </div>
+                    </div>
+                </li>
             @endif
 
             <!-- Nav Item - Pages Collapse Menu -->
-            @if (Auth::user()->role == 'admin')
+            {{-- @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link" href="/datakelas">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Data Kelas</span></a>
                 </li>
-            @endif
+            @endif --}}
 
             <!-- Nav Item - Utilities Collapse Menu -->
             @if (Auth::user()->role == 'admin')
@@ -102,7 +120,7 @@
                 </li>
             @endif
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            {{-- <!-- Nav Item - Utilities Collapse Menu -->
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link" href="/akseskelas">
@@ -110,7 +128,7 @@
                         <span>Akses Kelas</span>
                     </a>
                 </li>
-            @endif
+            @endif --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -151,30 +169,22 @@
                 </li>
             @endif
 
-            {{-- @if (Auth::user()->role == 'admin')
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="/kategoripembayaran">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Kategori Pembayaran</span>
-                    </a>
-                </li>
-            @endif --}}
-
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/transaksipembayaran">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
+                        aria-expanded="true" aria-controls="collapseLap">
                         <i class="fas fa-fw fa-folder"></i>
-                        <span>Transaksi Pembayaran</span>
+                        <span>Pembayaran</span>
                     </a>
-                </li>
-            @endif
-
-            @if (Auth::user()->role == 'admin')
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="/invoicepembayaran">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Invoice Pembayaran</span>
-                    </a>
+                    <div id="collapseLap" class="collapse" aria-labelledby="headingPages"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">--Pembayaran--</h6>
+                            <a class="collapse-item" href="/transaksipembayaran">Transaksi Pembayaran</a>
+                            <a class="collapse-item" href="/konfirmasi">Konfirmasi Pembayaran</a>
+                            <a class="collapse-item" href="/histori">Histori Pembayaran</a>
+                        </div>
+                    </div>
                 </li>
             @endif
 
@@ -187,12 +197,12 @@
                 </li>
             @endif
 
-            <!-- Nav Item - Tables -->
-            @if (Auth::user()->role == 'admin')
+            @if (Auth::user()->role == 'siswa')
                 <li class="nav-item">
-                    <a class="nav-link" href="/histori">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Histori Pembayaran</span></a>
+                    <a class="nav-link collapsed" href="/transaksisiswa/historisiswa">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Histori Siswa</span>
+                    </a>
                 </li>
             @endif
 

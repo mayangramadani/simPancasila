@@ -15,8 +15,7 @@
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <img src="{!! asset('asset/img/kertaskerja.png') !!}" alt="">
-                        <h3 class="h3 mb-0 text-gray-800">Aktivitas Kertas Kerja</h3>
-                        
+                        <a class="h3" href="/rkas">Rencana Kerja dan Anggaran</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +23,7 @@
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <img src="{!! asset('asset/img/aktivitas.png') !!}" alt="">
-                        <h3 class="h3 mb-0 text-gray-800">Aktivitas Sebelumnya</h3>
+                        <a class="h3" href="#">Anggaran Terealisasi</a>
                     </div>
                 </div>
             </div>

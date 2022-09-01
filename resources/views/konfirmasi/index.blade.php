@@ -5,21 +5,34 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Invoice Pembayaran</h1>
+            <h1 class="h3 mb-0 text-gray-800">Konfirmasi Pembayaran</h1>
         </div>
 
-        <div class="row">
+    </div>
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
 
-            <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Detail Pembayaran Siswa</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <div class="row">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                            type="button" role="tab" aria-controls="home" aria-selected="true">Status</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                            type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                            type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="card-body">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
                                         <table id="table1" class="table datatable table-bordered table-hover no-footer">
@@ -47,6 +60,10 @@
                                                     <th width="16%" class="sorting" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="xxx: activate to sort column ascending">
+                                                        Status Pembayaran</th>
+                                                    <th width="16%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-label="xxx: activate to sort column ascending">
                                                         Bukti Pembayaran</th>
                                                     <th width="10%" class="sorting" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
@@ -56,21 +73,34 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-
+                                                @foreach ($konfirmasi as $item)
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->no_transaksi }}</td>
+                                                    <td>{{ $item->User->name }}</td>
+                                                    <td>{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
+                                                    <td>{{ $item->status_pembayaran }}</td>
+                                                    <td>{{ $item->bukti_pembayaran }}</td>
+                                                    <td class="d-flex">
+                                                        <a href="/konfirmasi/{{ $item->id }}/detail"
+                                                            id="2" class="detail me-2">
+                                                            <button class="btn btn-outline-info" type="button">
+                                                                Proses
+                                                            </button>
+                                                        </a>
+                                                    </td>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-danger" id="btn-submit" type="submit">Verifikasi</button>
                     </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">... </div>
                 </div>
             </div>
-
         </div>
-
-
     </div>
 
     @push('scripts')

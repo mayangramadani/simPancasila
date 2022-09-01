@@ -18,4 +18,8 @@ class DataKelas extends Model
     {
         return $this->belongsTo(TingkatanKelas::class, 'tingkatan_kelas_id', 'id');
     }
+    // public function Siswa()
+    // {
+    //     return $this->belongsTo(Siswa::class, 'siswa_id', 'id');
+    // }
 }

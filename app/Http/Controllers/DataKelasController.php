@@ -87,9 +87,14 @@ class DataKelasController extends Controller
                 ];
             }
         }
-
-
         // dd($akseskelas);
         return view('datakelas.detail', compact('datakelas', 'siswa', 'akseskelas', 'dataku'));
+    }
+    public function show($id)
+    {
+        $AksesKelas = AksesKelas::where('kelas_id', $id)->where('tahun', Date("Y"))->get();
+        // $siswa = Siswa::where('datakelas_id', $datakelas->id)->get();
+        // dd($siswa);
+        return view('datakelas.show', compact('AksesKelas'));
     }
 }

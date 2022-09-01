@@ -120,7 +120,7 @@
                                                     @endphp
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1">{{ $no }}</td>
-                                                        <td>{{ $dk->tingkatan_kelas }}</td>
+                                                        <td>{{ $dk->TingkatanKelas->tingkatan_kelas }}</td>
                                                         <td>{{ $dk->nama_kelas }}</td>
                                                         <td>{{ $dk->kuota }}</td>
                                                         <td class="d-flex">
@@ -142,6 +142,12 @@
                                                                 id="2" class="detail me-2">
                                                                 <button class="btn btn-outline-primary" type="button">
                                                                     Add
+                                                                </button>
+                                                            </a>
+                                                            <a href="/datakelas/{{ $dk->id }}/show"
+                                                                id="2" class="me-2">
+                                                                <button class="btn btn-outline-primary" type="button">
+                                                                    Show
                                                                 </button>
                                                             </a>
 
