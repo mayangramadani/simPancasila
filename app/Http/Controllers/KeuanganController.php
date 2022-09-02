@@ -120,7 +120,7 @@ class KeuanganController extends Controller
     {
         $keuangan = Keuangan::find($id);
         $keuangan->delete();
-        return redirect('/datakeuangan');
+        return redirect('/datakeuangan')->with('success', 'Data Berhasil Dihapus');;
     }
     public function getkeuangan($id)
     {

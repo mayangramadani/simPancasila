@@ -19,7 +19,7 @@ class SekolahController extends Controller
     public function add(Request $request)
     {
         Sekolah::create($request->except(['_token', 'submit']));
-        return redirect('/sekolah');
+        return redirect('/sekolah')->with('success', 'Data Berhasil Terkirim');
 
         Sekolah::create([
             'nama_sekolah' => $request->nama_sekolah,
@@ -34,7 +34,7 @@ class SekolahController extends Controller
     {
         $sekolah = Sekolah::find($id);
         $sekolah->delete();
-        return redirect('/sekolah');
+        return redirect('sekolah')->with('success', 'Data Berhasil Dihapus');
     }
     public function edit($id)
     {

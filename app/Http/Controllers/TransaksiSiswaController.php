@@ -51,7 +51,7 @@ class TransaksiSiswaController extends Controller
         $keuangan->status_pembayaran = 'Proses';
         $keuangan->save();
 
-        return redirect('transaksisiswa');
+        return redirect('transaksisiswa')->with('success', 'Data Berhasil Terkirim');
     }
     public function hapus($id)
     {

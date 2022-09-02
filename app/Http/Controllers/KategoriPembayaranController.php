@@ -41,7 +41,7 @@ class KategoriPembayaranController extends Controller
     {
         $KategoriPembayaran = KategoriPembayaran::find($id);
         $KategoriPembayaran->delete();
-        return redirect('/kategoripembayaran');
+        return redirect('/kategoripembayaran')->with('success', 'Data Berhasil Dihapus');;
     }
     public function edit($id)
     {

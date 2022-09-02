@@ -43,7 +43,7 @@ class SaldoController extends Controller
     {
         $saldo = saldo::find($id);
         $saldo->delete();
-        return redirect('/saldo');
+        return redirect('/saldo')->with('success', 'Data Berhasil Dihapus');;
     }
     public function edit($id)
     {

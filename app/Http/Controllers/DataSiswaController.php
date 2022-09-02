@@ -70,7 +70,7 @@ class DataSiswaController extends Controller
     {
         $siswa = Siswa::find($id);
         $siswa->delete();
-        return redirect('/datasiswa');
+        return redirect('/datasiswa')->with('success', 'Data Berhasil Dihapus');;
     }
     public function edit($id)
     {
@@ -107,7 +107,7 @@ class DataSiswaController extends Controller
             $siswa->foto = $file_name1;
         }
         $siswa->save();
-        return redirect('/datasiswa');
+        return redirect('/datasiswa')->with('success', 'Data Berhasil Terkirim');
     }
     public function detail($id)
     {

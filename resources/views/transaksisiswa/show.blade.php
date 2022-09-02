@@ -24,8 +24,8 @@
                             <!-- Start .row -->
                             <div class="col-lg-6">
                                 <!-- col-lg-6 start here -->
-                                <div><img src="{{ asset('asset/img/Logo.png') }}"
-                                        class="img-fluid" alt="">
+                                <div class="sidebar-brand-icon logo-brand">
+                                    <img src="{!! asset('asset/img/logo.png') !!}" alt="">
                                 </div>
                             </div>
                             <!-- col-lg-6 end here -->

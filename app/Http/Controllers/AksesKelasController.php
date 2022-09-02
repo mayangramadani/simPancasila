@@ -20,7 +20,7 @@ class AksesKelasController extends Controller
     {
         // dd($request->all());
         AksesKelas::create(array_merge($request->except(['_token', 'submit']), ['tahun' => date("Y")]));
-        return back();
+        return back()->with('success', 'Data Berhasil Terkirim');
     }
     public function edit($id)
     {

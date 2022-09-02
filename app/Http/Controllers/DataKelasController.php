@@ -35,7 +35,7 @@ class DataKelasController extends Controller
     public function add(Request $request)
     {
         DataKelas::create($request->except(['_token', 'submit']));
-        return redirect('/datakelas');
+        return redirect('/datakelas')->with('success', 'Data Berhasil Terkirim');
 
         DataKelas::create([
             'tingkatan_kelas_id' => $request->tingkatan_kelas_id,
@@ -49,7 +49,7 @@ class DataKelasController extends Controller
     {
         $datakelas = DataKelas::find($id);
         $datakelas->delete();
-        return redirect('/datakelas');
+        return redirect('/datakelas')->with('success', 'Data Berhasil Dihapus');;
     }
     public function edit($id)
     {

@@ -11,31 +11,32 @@ class KategoriKeuanganController extends Controller
     //
     public function index()
     {
-        $kategorikeuangan = KategoriKeuangan::get();  
+        $kategorikeuangan = KategoriKeuangan::get();
         $datakeuangan = Keuangan::all();
-        return view('kategorikeuangan.index', compact('kategorikeuangan','datakeuangan'));
+        return view('kategorikeuangan.index', compact('kategorikeuangan', 'datakeuangan'));
     }
-    public function getIndex(){
+    public function getIndex()
+    {
         $data['page_title'] = 'Kategori Keuangan';
         $data['data'] = KategoriKeuangan::all();
     }
     public function add(Request $request)
     {
-        KategoriKeuangan::create($request->except(['_token', 'submit']));
-        return redirect('/kategorikeuangan');
+        // KategoriKeuangan::create($request->except(['_token', 'submit']));
+        // return redirect('/kategorikeuangan');
 
         KategoriKeuangan::create([
             'nama_keuangan' => $request->nama_keuangan,
             'deskripsi' => $request->deskripsi,
             'kategori_keuangan' => $request->kategori_keuangan,
         ]);
-        return redirect('kategorikeuangan');
+        return back()->with('success', 'Data Berhasil Ditambah');
     }
     public function hapus($id)
     {
         $kategorikeuangan = KategoriKeuangan::find($id);
         $kategorikeuangan->delete();
-        return redirect('/kategorikeuangan');
+        return redirect('/kategorikeuangan')->with('success', 'Data Berhasil Dihapus');;
     }
     public function edit($id)
     {
@@ -50,4 +51,3 @@ class KategoriKeuanganController extends Controller
         return redirect('/kategorikeuangan');
     }
 }
-

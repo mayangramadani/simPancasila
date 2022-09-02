@@ -33,7 +33,7 @@ class TingkatanKelasController extends Controller
     public function add(Request $request)
     {
         TingkatanKelas::create($request->except(['_token', 'submit']));
-        return redirect('/tingkatankelas');
+        return redirect('/tingkatankelas')->with('success', 'Data Berhasil Terkirim');
 
         TingkatanKelas::create([
             'sekolah_id' => $request->sekolah_id,
@@ -47,7 +47,7 @@ class TingkatanKelasController extends Controller
     {
         $tingkatankelas = TingkatanKelas::find($id);
         $tingkatankelas->delete();
-        return redirect('/tingkatankelas');
+        return redirect('/tingkatankelas')->with('success', 'Data Berhasil Dihapus');;
     }
     public function edit($id)
     {

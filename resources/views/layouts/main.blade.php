@@ -34,7 +34,7 @@
 </head>
 
 <body id="page-top">
-    
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -45,7 +45,8 @@
                 <div class="sidebar-brand-icon logo-brand">
                     <img src="{!! asset('asset/img/logo.png') !!}" alt="">
                 </div>
-                <div class="sidebar-brand-text fw-semibold">Sistem Informasi Administrasi Pembayaran Sekolah</div>
+                <h6 class="nav-link fw-bold text-gray-500">Sistem Informasi</h6>
+                <h4 class="sidebar-brand-text fw-semibold">Administrasi Sekolah</h4>
             </a>
 
             <!-- Divider -->
@@ -211,7 +212,7 @@
 
             <!-- Main Content -->
             <div id="content">
-
+                @include('sweetalert::alert')
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
