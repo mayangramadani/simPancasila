@@ -22,7 +22,7 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                            type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+                            type="button" role="tab" aria-controls="profile" aria-selected="false">History</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
@@ -74,20 +74,22 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($konfirmasi as $item)
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->no_transaksi }}</td>
-                                                    <td>{{ $item->User->name }}</td>
-                                                    <td>{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
-                                                    <td>{{ $item->status_pembayaran }}</td>
-                                                    <td>{{ $item->bukti_pembayaran }}</td>
-                                                    <td class="d-flex">
-                                                        <a href="/konfirmasi/{{ $item->id }}/detail"
-                                                            id="2" class="detail me-2">
-                                                            <button class="btn btn-outline-info" type="button">
-                                                                Proses
-                                                            </button>
-                                                        </a>
-                                                    </td>
+                                                    <tr role="row" class="odd">
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $item->no_transaksi }}</td>
+                                                        <td>{{ $item->User->name }}</td>
+                                                        <td>{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
+                                                        <td>{{ $item->status_pembayaran }}</td>
+                                                        <td>{{ $item->bukti_pembayaran }}</td>
+                                                        <td class="d-flex">
+                                                            <a href="/konfirmasi/{{ $item->id }}/show"
+                                                                id="2" class=" me-2">
+                                                                <button class="btn btn-outline-info" type="button">
+                                                                    Show
+                                                                </button>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
@@ -96,7 +98,76 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                        <div class="row">
+                            <div class="card-body">
+                                <div class="col-sm-12">
+                                    <div class="table-responsive">
+                                        <table id="table1" class="table datatable table-bordered table-hover no-footer">
+                                            <thead>
+                                                <tr class="box bg-teal" role="row">
+                                                    <th width="4%" class="sorting_asc" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="No.: activate to sort column descending">
+                                                        No.</th>
+                                                    <th width="15%" class="sorting_asc" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="No.: activate to sort column descending">
+                                                        No. Transaksi</th>
+                                                    <th class="sorting" tabindex="0" aria-contr ols="example1"
+                                                        rowspan="1" colspan="1" name="nama_siswa"
+                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                        Nama siswa</th>
+                                                    <th width="10%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        id="dengan-rupiah"
+                                                        aria-label="xxx: activate to sort column ascending">
+                                                        Nominal</th>
+                                                    <th width="16%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-label="xxx: activate to sort column ascending">
+                                                        Status Pembayaran</th>
+                                                    <th width="16%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-label="xxx: activate to sort column ascending">
+                                                        Bukti Pembayaran</th>
+                                                    {{-- <th width="10%" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-label="Action: activate to sort column ascending">
+                                                        Action</th> --}}
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($history as $item)
+                                                    <tr role="row" class="odd">
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $item->no_transaksi }}</td>
+                                                        <td>{{ $item->User->name }}</td>
+                                                        <td>{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
+                                                        <td>{{ $item->status_pembayaran }}</td>
+                                                        <td>{{ $item->bukti_pembayaran }}</td>
+                                                        {{-- <td class="d-flex">
+                                                            <a href="/konfirmasi/{{ $item->id }}/show"
+                                                                id="2" class=" me-2">
+                                                                <button class="btn btn-outline-info" type="button">
+                                                                    Show
+                                                                </button>
+                                                            </a>
+                                                        </td> --}}
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">... </div>
                 </div>
             </div>

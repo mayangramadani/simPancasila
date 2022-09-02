@@ -34,7 +34,7 @@
 </head>
 
 <body id="page-top">
-
+    
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -73,15 +73,6 @@
                 </li>
             @endif
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            {{-- @if (Auth::user()->role == 'admin')
-                <li class="nav-item">
-                    <a class="nav-link" href="/tingkatankelas">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Tingkatan Kelas</span></a>
-                </li>
-            @endif --}}
-
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
@@ -101,15 +92,6 @@
                 </li>
             @endif
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            {{-- @if (Auth::user()->role == 'admin')
-                <li class="nav-item">
-                    <a class="nav-link" href="/datakelas">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Data Kelas</span></a>
-                </li>
-            @endif --}}
-
             <!-- Nav Item - Utilities Collapse Menu -->
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
@@ -120,26 +102,16 @@
                 </li>
             @endif
 
-            {{-- <!-- Nav Item - Utilities Collapse Menu -->
-            @if (Auth::user()->role == 'admin')
-                <li class="nav-item">
-                    <a class="nav-link" href="/akseskelas">
-                        <i class="fas fa-fw fa-wrench"></i>
-                        <span>Akses Kelas</span>
-                    </a>
-                </li>
-            @endif --}}
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Keuangan
-            </div>
-
             <!-- Nav Item - Pages Collapse Menu -->
             @if (Auth::user()->role == 'admin')
+                <div class="sidebar-heading">
+                    Keuangan
+                </div>
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="/kategorikeuangan">
                         <i class="fas fa-fw fa-folder"></i>
@@ -197,14 +169,14 @@
                 </li>
             @endif
 
-            @if (Auth::user()->role == 'siswa')
+            {{-- @if (Auth::user()->role == 'siswa')
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="/transaksisiswa/historisiswa">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Histori Siswa</span>
                     </a>
                 </li>
-            @endif
+            @endif --}}
 
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">

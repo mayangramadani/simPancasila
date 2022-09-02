@@ -153,6 +153,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/transaksisiswa/{id}/edit', [TransaksiSiswaController::class, 'edit']);
         Route::get('/transaksisiswa/{id}/detail', [TransaksiSiswaController::class, 'detail']);
         Route::get('/transaksisiswa/{id}/historisiswa', [TransaksiSiswaController::class, 'historisiswa']);
+        Route::get('/transaksisiswa/{id}/show', [TransaksiSiswaController::class, 'show']);
     });
     // tingkatan kelas
     Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -163,10 +164,12 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/tingkatankelas/{id}', [TingkatanKelasController::class, 'hapus']);
     });
 
-    // invoice pembayaran
+    // Konfirmasi pembayaran
     Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi');
         Route::post('/konfirmasi/add', [KonfirmasiController::class, 'add']);
+        Route::get('/konfirmasi/{id}/show', [KonfirmasiController::class, 'show']);
+        Route::put('/konfirmasi/{id}', [KonfirmasiController::class, 'update']);
     });
 
 

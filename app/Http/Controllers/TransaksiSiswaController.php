@@ -80,5 +80,10 @@ class TransaksiSiswaController extends Controller
         $transaksisiswa = TransaksiSiswa::find($id);
         return view('transaksisiswa.histrosiswa', compact('transaksisiswa'));
     }
-    
+
+    public function show($id)
+    {
+        $transaksisiswa = TransaksiSiswa::find($id);
+        return view('transaksisiswa.show', compact('transaksisiswa'));
+    }
 }
