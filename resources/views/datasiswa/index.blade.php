@@ -4,9 +4,9 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-primary font-weight-bold">Data Siswa</h1>
-        </div>
+        </div> --}}
         {{-- {{ $siswa->DataKelas->nama_kelas }} --}}
 
         <div class="row">
@@ -16,7 +16,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Data Siswa</h6>
+                        <h4 class="m-0 font-weight-bold text-primary">Data Siswa</h4>
                         <div class="d-flex">
                             <a href="/datasiswa/create"><button class="btn btn-info me-2" type="button"><i
                                         class="fa fa-plus"></i>
@@ -62,30 +62,30 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table id="table1" class="table table-bordered table-hover dataTable no-footer"
+                                <table id="table1" class="table-bordered"
                                     role="grid" aria-describedby="example1_info">
                                     <thead>
                                         <tr class="box bg-teal" role="row">
-                                            <th width="5%" class="sorting_asc" tabindex="0" aria-controls="example1"
+                                            <th width="5%" class="sorting_asc text-center text-primary" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1" aria-sort="ascending">No.</th>
-                                            <th width="25%" class="sorting" tabindex="0" aria-controls="example1"
+                                            <th width="25%" class="text-center text-primary" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">NIS</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                            <th class="text-center text-primary" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1">Nama Lengkap</th>
-                                            <th width="20%" class="sorting" tabindex="0" aria-controls="example1"
+                                            <th width="20%" class="text-center text-primary" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($siswa as $ds)
                                             <tr role="row" class="odd">
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $ds->nis }}</td>
-                                                <td>{{ $ds->nama_siswa }}</td>                                              
+                                                <td class="text-center">{{ $loop->iteration }}</td>
+                                                <td class="text-center">{{ $ds->nis }}</td>
+                                                <td class="text-center">{{ $ds->nama_siswa }}</td>
                                                 <td class="d-flex">
                                                     <a href="/datasiswa/{{ $ds->id }}/detail" id="2"
                                                         class="detail me-2">
-                                                        <button class="btn btn-outline-info" type="button">
+                                                        <button class="btn btn-outline-info btn-sm" type="button">
                                                             Detail
                                                         </button>
                                                     </a>

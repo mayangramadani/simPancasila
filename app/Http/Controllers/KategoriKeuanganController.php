@@ -36,7 +36,7 @@ class KategoriKeuanganController extends Controller
     {
         $kategorikeuangan = KategoriKeuangan::find($id);
         $kategorikeuangan->delete();
-        return redirect('/kategorikeuangan')->with('success', 'Data Berhasil Dihapus');;
+        return redirect('kategorikeuangan')->with('success', 'Data Berhasil Dihapus');;
     }
     public function edit($id)
     {

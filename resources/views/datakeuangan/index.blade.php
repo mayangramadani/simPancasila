@@ -3,19 +3,19 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        <nav>
-            <ol class="breadcrumb">
-                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Input Keuangan
+        <div class="d-flex mb-3">
+            <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Input Keuangan
+            </button>
+        
+            <form action="{{ route('bayar') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-primary">
+                    Buka Pembayaran
                 </button>
-                <form action="{{ route('bayar') }}" method="post">
-                    @csrf
-                    <button type="submit" class="btn btn-primary">
-                        Buka Pembayaran
-                    </button>
-                </form>
-            </ol>
-        </nav>
+            </form>
+        </div>
+
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -119,46 +119,197 @@
                             type="button" role="tab" aria-controls="contact" aria-selected="false">Arsip</button>
                     </li>
                 </ul>
+
+                <!-- RKAS -->
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="col-md text-end mt-3"> <a href="/datakeuangan/rkas" class="btn btn-primary ">RKAS</a>
+                        </div>
+                        <div class="row">
+                            <div class="card-body">
+                                <div class="col-sm-12">
+                                    <div class="table-responsive">
+                                        <table id="table1" role="grid" aria-describedby="example1_info">
+                                            <thead>
+                                                <tr class="box bg-teal" role="row">
+                                                    <th width="5%" class="sorting_asc text-center text-primary"
+                                                        tabindex="0" aria-controls="example1" rowspan="1"
+                                                        colspan="1" aria-sort="ascending">No.</th>
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Nama
+                                                        Kegiatan</th>
+                                                    <th width="10%" class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        id="dengan-rupiah">Jumlah
+                                                    </th>
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Tanggal
+                                                    </th>
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Status
+                                                        Pembayaran</th>
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Sumber
+                                                        Dana
+                                                    </th>
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Berkas
+                                                        Pendukung
+                                                    </th>
+                                                    <th width="20%" class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @php
+                                                    $no = 0;
+                                                @endphp
+                                                @foreach ($keuangan->where('kategori_keuangan_id', '3') as $dku)
+                                                    @php
+                                                        $no++;
+                                                    @endphp
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center">{{ $no }}</td>
+                                                        <td class="text-center">{{ $dku->nama_keuangan }}</td>
+                                                        <td class="text-center">
+                                                            {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
+                                                        <td class="text-center">{{ $dku->tanggal }}</td>
+
+                                                        <td class="text-center">{{ $dku->status_pembayaran }}</td>
+
+                                                        {{-- <td>
+                                                            @if ($dku->status_pembayaran == 'Ditolak')
+                                                                <span class="badge bg-danger">Ditolak</span>
+                                                            @if ($dku->status_pembayaran == 'Belum Dibayar')
+                                                                <span class="badge bg-danger">Belum Dibayar</span>
+                                                            @elseif($dku->status_pembayaran == 'Diterima')
+                                                                <span class="badge bg-success">Diterima</span>
+                                                            @elseif($dku->status_pembayaran == 'Proses')
+                                                                <span class="badge bg-warning">Proses</span>
+                                                            @else 
+                                                            <span class="badge bg-dark">Belum diperiksa</span>
+                                                            @endif
+                                                        </td> --}}
+
+                                                        <td class="text-center">{{ $dku->sumber_dana }}</td>
+                                                        <td class="text-center">{{ $dku->berkas_pendukung }}</td>
+                                                        <td class="d-felx">
+                                                            <a href="/datakeuangan/{{ $dku->id }}/edit"
+                                                                id="2" class="edit me-1">
+                                                                <button class="btn btn-outline-success btn-sm mb-1"
+                                                                    type="button"><i class="fa fa-pencil-square"></i>
+                                                                    Edit
+                                                                </button>
+                                                            </a>
+                                                            <a href="/datakeuangan/{{ $dku->id }}/detail"
+                                                                id="2" class="detail me-2">
+                                                                <button class="btn btn-outline-info btn-sm"
+                                                                    type="button"><i class="fa fa-pencil-square"></i>
+                                                                    Detail
+                                                                </button>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <div class="row">
+                            <div class="card-body">
+                                <form class="validation" novalidate method="POST" action="{{ url('datakeuangan/add') }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label fw-semibold text-primary"
+                                                for="kelas">Nama Kegiatan</label>
+                                            <input type="text" class="form-control" id="nama_kegiatan"
+                                                placeholder="sumber dana" required autocomplete="off">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label fw-semibold text-primary"
+                                                for="kelas">Deskripsi</label>
+                                            <input type="text" class="form-control" id="deskripsi"
+                                                placeholder="sumber dana" required autocomplete="off">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label fw-semibold text-primary"
+                                                for="kelas">Status</label>
+                                            <input type="text" class="form-control" id="Status"
+                                                placeholder="Status" required autocomplete="off">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label fw-semibold text-primary"
+                                                for="kelas">Jumlah</label>
+                                            <input type="text" class="form-control" id="jumlah"
+                                                placeholder="jumlah" required autocomplete="off">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label fw-semibold text-primary"
+                                                for="kelas">Sumber Dana</label>
+                                            <input type="text" class="form-control" id="sumber_dana"
+                                                placeholder="sumber dana" required autocomplete="off">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="transaksi"
+                                                class="form-control-label fw-semibold text-primary">tanggal</label>
+                                            <input type="date" class="form-control" id="tanggal" name="tanggal">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="foto"
+                                                class="form-control-label fw-semibold text-primary">Berkas
+                                                Pendukung</label>
+                                            <input class="form-control" type="file" id="formFile"
+                                                name="berkas_pendukung">
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary" id="btn-submit" type="submit">Bayar</button>
+                            </div>
+
+                        </div>
+                    </div> --}}
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
                             <div class="card-body">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
-                                        <table id="table1" class="table table-bordered table-hover dataTable no-footer"
-                                            role="grid" aria-describedby="example1_info">
+                                        <table id="table2" role="grid" aria-describedby="example1_info">
                                             <thead>
                                                 <tr class="box bg-teal" role="row">
-                                                    <th width="5%" class="sorting_asc" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-sort="ascending">No.</th>
-                                                    <th width="15%" class="sorting" tabindex="0"
+                                                    <th width="5%" class="sorting_asc text-center text-primary"
+                                                        tabindex="0" aria-controls="example1" rowspan="1"
+                                                        colspan="1" aria-sort="ascending">No.</th>
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Kategori
                                                         Keuangan</th>
-                                                    <th width="15%" class="sorting" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Nama
                                                         Keuangan
                                                     </th>
-                                                    <th width="15%" class="sorting" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Jumlah
                                                     </th>
-                                                    <th width="15%" class="sorting" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Deskripsi
                                                     </th>
-                                                    <th width="15%" class="sorting" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Tanggal
                                                     </th>
-                                                    <th width="15%" class="sorting" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Bukti</th>
-                                                    <th width="15%" class="sorting" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Status
                                                         Pembayaran</th>
-                                                    <th width="15%" class="sorting" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Nama User
                                                     </th>
-                                                    <th width="15%" class="sorting" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -172,15 +323,22 @@
                                                     @endphp
                                                     <tr role="row" class="odd">
 
-                                                        <td>{{ $no }}</td>
-                                                        <td>{{ $dku->KategoriKeuangan->nama_keuangan }}</td>
-                                                        <td>{{ $dku->nama_keuangan }}</td>
-                                                        <td>{{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
-                                                        <td>{{ $dku->deskripsi }}</td>
-                                                        <td>{{ $dku->tanggal }}</td>
-                                                        <td>{{ $dku->bukti }}</td>
-                                                        <td>{{ $dku->status_pembayaran }}</td>
-                                                        <td>{{ $dku->users_id }}</td>
+                                                        <td class="text-center">{{ $no }}</td>
+                                                        <td class="text-center">
+                                                            {{ $dku->KategoriKeuangan->nama_keuangan }}
+                                                        </td>
+                                                        <td class="text-center">{{ $dku->nama_keuangan }}</td>
+                                                        <td class="text-center">
+                                                            {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
+                                                        <td class="text-center">{{ $dku->deskripsi }}</td>
+                                                        <td class="text-center">{{ $dku->tanggal }}</td>
+                                                        <td class="text-center">{{ $dku->bukti }}
+                                                            <img src="{{ url('asset/img/' . $dku->id . '/' . $dku->bukti) }}"
+                                                                target="_blank" class="fw-bold" height="100px"></a>
+                                                        </td>
+
+                                                        <td class="text-center">{{ $dku->status_pembayaran }}</td>
+                                                        <td class="text-center">{{ $dku->users_id }}</td>
                                                         <td class="d-felx">
                                                             <a href="/datakeuangan/{{ $dku->id }}/detail"
                                                                 id="2" class="detail me-2">
@@ -209,6 +367,7 @@
             $(document).ready(function() {
                 console.log('asdas');
                 $('#table1').DataTable();
+                $('#table2').DataTable();
                 //coba jquery
                 // $('#saldo').inputmask()
 

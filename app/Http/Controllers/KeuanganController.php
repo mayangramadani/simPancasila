@@ -127,4 +127,25 @@ class KeuanganController extends Controller
         $keuangan = Keuangan::find($id);
         return $keuangan;
     }
+    public function rkas(Request $request)
+    {
+        if ($request->berkas_pendukung != null) {
+            $file = $request->berkas_pendukung;
+            $extension = $file->extension();
+            $date = date("his");
+            $file_name1 = "Foto_$date.$extension";
+            $path = $request->file('berkas_pendukung')->storeAs('public/Pembayaran/bukti', $file_name1);
+        } else {
+            $file_name1 = null;
+        }
+        Keuangan::create([
+            'nama_keuangan' => $request->nama_keuangan,
+            'jumlah' => $request->jumlah,
+            'tanggal' => $request->tanggal,
+            'deskripsi' => $request->deskripsi,
+            'sumber_dana' => $request->sumber_dana,
+            'berkas_pendukung' => $file_name1,
+            'status' => 'Proses',
+        ]);
+    }
 }

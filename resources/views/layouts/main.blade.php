@@ -29,7 +29,7 @@
 
     <!-- Javascript Bootstrap Datepicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
-
+    <script src="https://kit.fontawesome.com/c2ff6e34d8.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -144,12 +144,12 @@
 
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLapP"
                         aria-expanded="true" aria-controls="collapseLap">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Pembayaran</span>
                     </a>
-                    <div id="collapseLap" class="collapse" aria-labelledby="headingPages"
+                    <div id="collapseLapP" class="collapse" aria-labelledby="headingPages"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">--Pembayaran--</h6>
@@ -181,12 +181,12 @@
 
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLapX"
                         aria-expanded="true" aria-controls="collapseLap">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Laporan Keuangan</span>
                     </a>
-                    <div id="collapseLap" class="collapse" aria-labelledby="headingPages"
+                    <div id="collapseLapX" class="collapse" aria-labelledby="headingPages"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">--Keuangan--</h6>

@@ -79,7 +79,8 @@
                             </div>
                             <div class="mb-3 row">
                                 <label for="foto" class="col-sm-2 col-form-label fw-semibold text-dark">Foto</label>
-                                <label for="foto" class="col-sm-2 col-form-label">: {{ $siswa->foto }}</label>
+                                <label for="foto" class="col-sm-2 col-form-label">: {{ $siswa->foto }} </label>
+                                
                             </div>
                             <div class="mb-3 row">
                                 <label for="nis" class="col-sm-2 col-form-label fw-semibold text-dark">Nama

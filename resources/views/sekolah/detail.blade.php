@@ -63,30 +63,30 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="table-responsive">
-                                    <table id="table1" class="table datatable table-bordered table-hover no-footer">
+                                    <table id="table1">
                                         <thead>
                                             <tr class="box bg-teal" role="row">
-                                                <th width="4%" class="sorting_asc" tabindex="0"
+                                                <th width="4%" class="sorting_1 text-center text-primary" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="No.: activate to sort column descending">No.</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="text-center text-primary" tabindex="0" aria-controls="example1" rowspan="1"
                                                     colspan="1" name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
                                                     Nama Siswa</th>
-                                                <th width="8%" class="sorting" tabindex="0" aria-controls="example1"
+                                                <th width="15%" class="text-center text-primary" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="derajat"
                                                     aria-label="Derajat: activate to sort column ascending">
                                                     Derajat</th>
-                                                <th width="25%" class="sorting" tabindex="0" aria-controls="example1"
+                                                <th width="25%" class="text-center text-primary" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="lokasi"
                                                     aria-label="Lokasi: activate to sort column ascending">Lokasi
                                                 </th>
-                                                <th width="10%" class="sorting" tabindex="0"
+                                                <th width="10%" class="text-center text-primary" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="spp" aria-label="spp: activate to sort column ascending">SPP
                                                 </th>
-                                                <th width="15%" class="sorting" tabindex="0"
+                                                <th width="15%" class="text-center text-primary" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="tingkatan_kelas"
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
@@ -105,12 +105,12 @@
                                                     $no++;
                                                 @endphp
                                                 <tr role="row" class="odd">
-                                                    <td class="sorting_1">{{ $no }}</td>
-                                                    <td>{{ $s->nama_siswa }}</td>
-                                                    <td>{{ $s->nis }}</td>
-                                                    <td>{{ $s->tempat_lahir }}</td>
-                                                    <td>{{ $s->tanggal_lahir }}</td>
-                                                    <td>{{ $s->tingkatan_kelas }}</td>
+                                                    <td class="sorting_1 text-center">{{ $no }}</td>
+                                                    <td class="text-center">{{ $s->nama_siswa }}</td>
+                                                    <td class="text-center">{{ $s->nis }}</td>
+                                                    <td class="text-center">{{ $s->tempat_lahir }}</td>
+                                                    <td class="text-center">{{ $s->tanggal_lahir }}</td>
+                                                    <td class="text-center">{{ $s->TingkatanKelas }}</td>
                                                     {{-- <td class="d-flex">
                                                         {{-- <a href="/sekolah/{{ $s->id }}/edit" id="2"
                                                             class="edit me-2">

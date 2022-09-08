@@ -4,14 +4,12 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Tingkatan Kelas</h1>
-        </div>
+        </div> --}}
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Tingkatan Kelas
-        </button>
+        
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -57,34 +55,37 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Tingkatan Kelas</h6>
+                        <h4 class="m-0 font-weight-bold text-primary">Tingkatan Kelas</h4>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Tingkatan Kelas
+                        </button>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="table-responsive">
-                                    <table id="table1" class="table datatable table-bordered table-hover no-footer">
+                                    <table id="table1">
                                         <thead>
                                             <tr class="box bg-teal" role="row">
-                                                <th width="4%" class="sorting_asc" tabindex="0"
+                                                <th width="4%" class="text-center text-primary" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="No.: activate to sort column descending">No.</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="text-center text-primary" tabindex="0" aria-controls="example1" rowspan="1"
                                                     colspan="1" name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
                                                     Nama Sekolah</th>
-                                                <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                <th width="15%" class="text-center text-primary" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="tingkatan_kelas"
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
                                                     Tingkat Kelas
                                                 </th>
-                                                <th width="15%" class="sorting" tabindex="0" aria-controls="example1"
+                                                <th width="15%" class="text-center text-primary" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="deskripsi"
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
                                                     Deskripsi
                                                 </th>
-                                                <th width="10%" class="sorting" tabindex="0" aria-controls="example1"
+                                                <th width="25%" class="text-center text-primary" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending">Action</th>
 
@@ -100,14 +101,14 @@
                                                     $no++;
                                                 @endphp
                                                 <tr role="row" class="odd">
-                                                    <td class="sorting_1">{{ $no }}</td>
-                                                    <td>{{ $tk->Sekolah->nama_sekolah }}</td>
-                                                    <td>{{ $tk->tingkatan_kelas }}</td>
-                                                    <td>{{ $tk->deskripsi }}</td>
+                                                    <td class="sorting_1 text-center">{{ $no }}</td>
+                                                    <td class="text-center">{{ $tk->Sekolah->nama_sekolah }}</td>
+                                                    <td class="text-center">{{ $tk->tingkatan_kelas }}</td>
+                                                    <td class="text-center">{{ $tk->deskripsi }}</td>
                                                     <td class="d-flex">
                                                         <a href="/tingkatankelas/{{ $tk->id }}/edit" id="2"
                                                             class="edit me-2">
-                                                            <button class="btn btn-outline-info" type="button">
+                                                            <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
                                                                 Edit
                                                             </button>
                                                         </a>
@@ -115,13 +116,13 @@
                                                             class="me-2">
                                                             @csrf
                                                             @method('delete')
-                                                            <input class="btn btn-outline-danger" type="submit"
+                                                            <input class="btn btn-outline-danger btn-sm" type="submit"
                                                                 value="Hapus">
                                                         </form>
 
                                                         <a href="/tingkatankelas/{{ $tk->id }}/detail"
                                                             id="2" class="detail me-2">
-                                                            <button class="btn btn-outline-primary" type="button">
+                                                            <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-pencil-square"></i>
                                                                 Show
                                                             </button>
                                                         </a>

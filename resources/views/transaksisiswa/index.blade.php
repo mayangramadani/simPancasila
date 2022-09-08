@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('container')
-
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
@@ -30,6 +29,8 @@
                                 type="button" role="tab" aria-controls="contact" aria-selected="false">Invoice</button>
                         </li>
                     </ul>
+
+                    <!-- Transaksi -->
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="card">
@@ -42,17 +43,19 @@
 
                                         <div class="form-row">
                                             <div class="col-md-4 mb-3">
-                                                <label class="form-control-label fw-semibold" for="nama">Nama Siswa
-                                                    *</label>
+                                                <label class="form-control-label fw-semibold text-primary"
+                                                    for="nama">Nama Siswa</label>
                                                 <input class="form-control" value="{{ Auth::user()->name }}" readonly>
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <label class="form-control-label fw-semibold" for="kelas">Kelas *</label>
+                                                <label class="form-control-label fw-semibold text-primary"
+                                                    for="kelas">Kelas</label>
                                                 <input type="text" class="form-control" id="kelas"
                                                     placeholder="Kelas" required autocomplete="off" readonly>
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <label for="transaksi" class="form-control-label fw-semibold">Kategori
+                                                <label for="transaksi"
+                                                    class="form-control-label fw-semibold text-primary">Kategori
                                                     Pembayaran</label>
                                                 <input type="text" class="form-control" id="kategori_pembayaran"
                                                     name="nama_keuangan" readonly>
@@ -61,7 +64,8 @@
 
                                         <div class="form-row">
                                             <div class="col-md-4 mb-10">
-                                                <label class="form-control-label fw-semibold" for="bulan_pembayaran">Bulan
+                                                <label class="form-control-label fw-semibold text-primary"
+                                                    for="bulan_pembayaran">Bulan
                                                     Pembayaran *</label>
                                                 <select class="form-control" name="bulan_pembayaran" id="bulan_pembayaran"
                                                     required>
@@ -73,13 +77,15 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <label class="form-control-label fw-semibold" for="name">Jumlah
-                                                    Pembayaran *</label>
+                                                <label class="form-control-label fw-semibold text-primary"
+                                                    for="name">Jumlah
+                                                    Pembayaran</label>
                                                 <input type="text" class="form-control" id="dengan-rupiah"
                                                     placeholder="Jumlah Pembayaran" name='jumlah_pembayaran' readonly>
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <label for="foto" class="form-control-label fw-semibold">Bukti</label>
+                                                <label for="foto"
+                                                    class="form-control-label fw-semibold text-primary">Bukti *</label>
                                                 <input class="form-control" type="file" id="formFile"
                                                     name="bukti_pembayaran">
                                             </div>
@@ -90,45 +96,45 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Histori -->
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
                                 <div class="card-body">
                                     <div class="col-sm-12">
                                         <div class="table-responsive">
                                             <table id="table1"
-                                                class="table datatable table-bordered table-hover no-footer">
+                                                >
                                                 <thead>
                                                     <tr class="box bg-teal" role="row">
-                                                        <th width="2%" class="sorting_asc" tabindex="0"
+                                                        <th width="2%" class="text-center text-primary" tabindex="0"
                                                             aria-controls="example1" rowspan="1" colspan="1"
                                                             aria-sort="ascending"
                                                             aria-label="No.: activate to sort column descending">No.
                                                         </th>
-                                                        <th class="sorting" tabindex="0" aria-contr ols="example1"
+                                                        <th class="text-center text-primary" tabindex="0" aria-contr ols="example1"
                                                             rowspan="1" colspan="1" name="nama_siswa"
                                                             aria-label="Nama Pembayaran: activate to sort column ascending">
                                                             Nama Keuangan</th>
-                                                        <th class="sorting" tabindex="0" aria-contr ols="example1"
+                                                        <th class="text-center text-primary" tabindex="0" aria-contr ols="example1"
                                                             rowspan="1" colspan="1" name="nama_siswa"
                                                             aria-label="Nama Pembayaran: activate to sort column ascending">
                                                             Jumlah</th>
-                                                        <th class="sorting" tabindex="0" aria-contr ols="example1"
+                                                        <th class="text-center text-primary" tabindex="0" aria-contr ols="example1"
                                                             rowspan="1" colspan="1" name="nama_siswa"
                                                             aria-label="Nama Pembayaran: activate to sort column ascending">
                                                             Tanggal</th>
-                                                        <th width="10%" class="sorting" tabindex="0"
+                                                        <th width="10%" class="text-center text-primary" tabindex="0"
                                                             aria-controls="example1" rowspan="1" colspan="1"
                                                             name="xxx"
                                                             aria-label="xxx: activate to sort column ascending">
                                                             Bukti</th>
-                                                        <th width="15%" class="sorting" tabindex="0"
+                                                        <th width="15%" class="text-center text-primary" tabindex="0"
                                                             aria-controls="example1" rowspan="1" colspan="1"
                                                             name="xx"
                                                             aria-label="xx: activate to sort column ascending">
                                                             Status
                                                         </th>
-                                                        <th width="15%" class="sorting" tabindex="0"
+                                                        <th width="15%" class="text-center text-primary" tabindex="0"
                                                             aria-controls="example1" rowspan="1" colspan="1"
                                                             name="xx"
                                                             aria-label="xx: activate to sort column ascending">
@@ -170,16 +176,16 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <!-- Invoice -->
+                        {{-- <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="row">
                                 <div class="card-body">
                                     <div class="col-sm-12">
                                         <div class="table-responsive">
-                                            <table id="table1" class="table table-hover">
-                                                <thead class="table-primary">
-                                                    <tr class="box bg-teal" role="row">
-                                                        <th width="4%" class="sorting_asc" tabindex="0"
+                                            <table id="table1">
+                                                <thead>
+                                                    <tr class="box bg-teal table-primary" role="row">
+                                                        <th width="4%" class="text-center text-primary" tabindex="0"
                                                             aria-controls="example1" rowspan="1" colspan="1"
                                                             aria-sort="ascending"
                                                             aria-label="No.: activate to sort column descending">No.
@@ -195,9 +201,9 @@
                                                         <th class="sorting" tabindex="0" aria-contr ols="example1"
                                                             rowspan="1" colspan="1" name="nama_siswa"
                                                             aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                            Jumlah</th>
+                                                            Jumlah</th> --}}
 
-
+{{-- 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -206,7 +212,7 @@
                                                             <td class="sorting_1">{{ $loop->iteration }}</td>
                                                             <td>{{ $ts->no_transaksi }}</td>
                                                             <td>{{ $ts->keterangan }}</td>
-                                                            <td>{{ 'Rp ' . number_format($ts->jumlah, 0, '.', '.') }}</td>
+                                                            <td>{{ 'Rp ' . number_format($ts->jumlah, 0, '.', '.') }}</td> --}}
                                                             {{-- <td class="d-flex">
                                                                 <a href="/transaksisiswa/{{ $ts->id }}/edit"
                                                                     id="2" class="edit me-2">
@@ -216,7 +222,7 @@
                                                                 </a>
 
                                                             </td> --}}
-
+{{-- 
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -233,8 +239,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div> --}}
+                        {{-- </div> --}}
                     </div>
                 </div>
             </div>

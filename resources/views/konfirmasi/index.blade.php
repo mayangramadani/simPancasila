@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Konfirmasi Pembayaran</h1>
+            <h3 class="m-0 font-weight-bold text-primary">Konfirmasi Pembayaran</h3>
         </div>
 
     </div>
@@ -35,37 +35,37 @@
                             <div class="card-body">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
-                                        <table id="table1" class="table datatable table-bordered table-hover no-footer">
+                                        <table id="table1">
                                             <thead>
-                                                <tr class="box bg-teal" role="row">
-                                                    <th width="4%" class="sorting_asc" tabindex="0"
+                                                <tr class="box bg-teal table-primary" role="row">
+                                                    <th width="4%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No.</th>
-                                                    <th width="15%" class="sorting_asc" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No. Transaksi</th>
-                                                    <th class="sorting" tabindex="0" aria-contr ols="example1"
+                                                    <th class="text-center text-primary" tabindex="0" aria-contr ols="example1"
                                                         rowspan="1" colspan="1" name="nama_siswa"
                                                         aria-label="Nama Pembayaran: activate to sort column ascending">
                                                         Nama siswa</th>
-                                                    <th width="10%" class="sorting" tabindex="0"
+                                                    <th width="10%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         id="dengan-rupiah"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Nominal</th>
-                                                    <th width="16%" class="sorting" tabindex="0"
+                                                    <th width="16%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Status Pembayaran</th>
-                                                    <th width="16%" class="sorting" tabindex="0"
+                                                    <th width="16%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Bukti Pembayaran</th>
-                                                    <th width="10%" class="sorting" tabindex="0"
+                                                    <th width="10%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">
                                                         Action</th>
@@ -75,12 +75,12 @@
                                             <tbody>
                                                 @foreach ($konfirmasi as $item)
                                                     <tr role="row" class="odd">
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $item->no_transaksi }}</td>
-                                                        <td>{{ $item->User->name }}</td>
-                                                        <td>{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
-                                                        <td>{{ $item->status_pembayaran }}</td>
-                                                        <td>{{ $item->bukti_pembayaran }}</td>
+                                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                                        <td class="text-center">{{ $item->no_transaksi }}</td>
+                                                        <td class="text-center">{{ $item->User->name }}</td>
+                                                        <td class="text-center">{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
+                                                        <td class="text-center">{{ $item->status_pembayaran }}</td>
+                                                        <td class="text-center">{{ $item->bukti_pembayaran }}</td>
                                                         <td class="d-flex">
                                                             <a href="/konfirmasi/{{ $item->id }}/show"
                                                                 id="2" class=" me-2">
@@ -99,38 +99,37 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
                         <div class="row">
                             <div class="card-body">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
-                                        <table id="table1" class="table datatable table-bordered table-hover no-footer">
+                                        <table id="table2">
                                             <thead>
-                                                <tr class="box bg-teal" role="row">
-                                                    <th width="4%" class="sorting_asc" tabindex="0"
+                                                <tr class="box bg-teal table-primary" role="row">
+                                                    <th width="4%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No.</th>
-                                                    <th width="15%" class="sorting_asc" tabindex="0"
+                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No. Transaksi</th>
-                                                    <th class="sorting" tabindex="0" aria-contr ols="example1"
+                                                    <th class="text-center text-primary" tabindex="0" aria-contr ols="example1"
                                                         rowspan="1" colspan="1" name="nama_siswa"
                                                         aria-label="Nama Pembayaran: activate to sort column ascending">
                                                         Nama siswa</th>
-                                                    <th width="10%" class="sorting" tabindex="0"
+                                                    <th width="10%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         id="dengan-rupiah"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Nominal</th>
-                                                    <th width="16%" class="sorting" tabindex="0"
+                                                    <th width="16%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Status Pembayaran</th>
-                                                    <th width="16%" class="sorting" tabindex="0"
+                                                    <th width="20%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Bukti Pembayaran</th>
@@ -144,12 +143,12 @@
                                             <tbody>
                                                 @foreach ($history as $item)
                                                     <tr role="row" class="odd">
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $item->no_transaksi }}</td>
-                                                        <td>{{ $item->User->name }}</td>
-                                                        <td>{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
-                                                        <td>{{ $item->status_pembayaran }}</td>
-                                                        <td>{{ $item->bukti_pembayaran }}</td>
+                                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                                        <td class="text-center">{{ $item->no_transaksi }}</td>
+                                                        <td class="text-center">{{ $item->User->name }}</td>
+                                                        <td class="text-center">{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
+                                                        <td class="text-center">{{ $item->status_pembayaran }}</td>
+                                                        <td class="text-center">{{ $item->bukti_pembayaran }}</td>
                                                         {{-- <td class="d-flex">
                                                             <a href="/konfirmasi/{{ $item->id }}/show"
                                                                 id="2" class=" me-2">
@@ -165,8 +164,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div>    
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">... </div>
                 </div>
@@ -184,6 +182,7 @@
             $(document).ready(function() {
                 console.log('asdas');
                 $('#table1').DataTable();
+                $('#table2').DataTable();
             });
         </script>
         <script>

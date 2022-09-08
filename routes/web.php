@@ -56,6 +56,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/transaksisiswa/historisiswa', function () {
         return view('transaksisiswa.historisiswa');
     });
+    // Route::get('/activitylog', function () {
+    //     return view('activitylog');
+    // });
 
     // datasiswa
     Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -100,6 +103,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/datakeuangan/{id}', [KeuanganController::class, 'hapus']);
         Route::put('/datakeuangan/{id}', [KeuanganController::class, 'update']);
         Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
+        Route::post('/datakeuangan/rkas', [KeuanganController::class, 'rkas'])->name('rkas');
     });
 
     // sekolah
