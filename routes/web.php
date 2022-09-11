@@ -14,6 +14,7 @@ use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\KategoriKeuanganController;
 use App\Http\Controllers\TransaksiPembayaranController;
 use App\Http\Controllers\TingkatanKelasController;
+use App\Http\Controllers\SumberDanaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +47,6 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::get('/histori', function () {
         return view('histori');
-    });
-    Route::get('/datakeuangan/anggaran', function () {
-        return view('datakeuangan.anggaran');
     });
     Route::get('/datakeuangan/rkas', function () {
         return view('datakeuangan.rkas');
@@ -104,6 +102,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/datakeuangan/{id}', [KeuanganController::class, 'update']);
         Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
         Route::post('/datakeuangan/rkas', [KeuanganController::class, 'rkas'])->name('rkas');
+        Route::get('/datakeuangan/rkas', [KeuanganController::class, 'lihatRkas'])->name('lihatRkas');
     });
 
     // sekolah
@@ -141,6 +140,11 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/kategorikeuangan/{id}', [KategoriKeuanganController::class, 'hapus']);
         Route::put('/kategorikeuangan/{id}', [KategoriKeuanganController::class, 'update']);
         Route::get('/kategorikeuangan/{id}/edit', [KategoriKeuanganController::class, 'edit']);
+    });
+    // sumberdana
+    Route::middleware(['auth', 'role:admin'])->group(function () {
+        Route::get('/sumberdana', [SumberDanaController::class, 'index'])->name('sumberdana');
+        Route::post('/sumberdana/add', [SumberDanaController::class, 'add']);
     });
 
     // Transaksi Pembayaran

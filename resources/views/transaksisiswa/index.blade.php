@@ -155,7 +155,7 @@
                                                             <td class="d-flex">
                                                                 <a href="/transaksisiswa/{{ $ts->id }}/show"
                                                                     id="2" class="edit me-2">
-                                                                    <button class="btn btn-outline-info" type="button">
+                                                                    <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
                                                                         Show
                                                                     </button>
                                                                 </a>
@@ -175,84 +175,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Invoice -->
-                        {{-- <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                            <div class="row">
-                                <div class="card-body">
-                                    <div class="col-sm-12">
-                                        <div class="table-responsive">
-                                            <table id="table1">
-                                                <thead>
-                                                    <tr class="box bg-teal table-primary" role="row">
-                                                        <th width="4%" class="text-center text-primary" tabindex="0"
-                                                            aria-controls="example1" rowspan="1" colspan="1"
-                                                            aria-sort="ascending"
-                                                            aria-label="No.: activate to sort column descending">No.
-                                                        </th>
-                                                        <th class="sorting" tabindex="0" aria-contr ols="example1"
-                                                            rowspan="1" colspan="1" name="no_transaksi"
-                                                            aria-label="No Transaksi: activate to sort column ascending">
-                                                            No Transaksi</th>
-                                                        <th class="sorting" tabindex="0" aria-contr ols="example1"
-                                                            rowspan="1" colspan="1" name="nama_siswa"
-                                                            aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                            Keterangan</th>
-                                                        <th class="sorting" tabindex="0" aria-contr ols="example1"
-                                                            rowspan="1" colspan="1" name="nama_siswa"
-                                                            aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                            Jumlah</th> --}}
-
-{{-- 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($transaksisiswa->where('status_pembayaran', '!=', 'Tolak')->where('status_pembayaran', '!=', 'Belum Lunas') as $ts)
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1">{{ $loop->iteration }}</td>
-                                                            <td>{{ $ts->no_transaksi }}</td>
-                                                            <td>{{ $ts->keterangan }}</td>
-                                                            <td>{{ 'Rp ' . number_format($ts->jumlah, 0, '.', '.') }}</td> --}}
-                                                            {{-- <td class="d-flex">
-                                                                <a href="/transaksisiswa/{{ $ts->id }}/edit"
-                                                                    id="2" class="edit me-2">
-                                                                    <button class="btn btn-outline-info" type="button">
-                                                                        Edit
-                                                                    </button>
-                                                                </a>
-
-                                                            </td> --}}
-{{-- 
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                                <tfoot>
-                                                    @foreach ($transaksisiswa as $ts)
-                                                        <tr role="row" class="odd">
-                                                            <td class="fw-bold">
-                                                                {{ 'Rp ' . number_format($ts->total, 0, '.', '.') }}</td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tfoot>
-                                            </table>
-                                            <button class="btn btn-danger" id="btn-submit" type="submit">Cetak</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                        {{-- </div> --}}
+                        </div>                    
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
-
-
-
-
-
-
     </div>
 
     @push('scripts')

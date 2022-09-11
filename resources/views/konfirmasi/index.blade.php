@@ -48,8 +48,8 @@
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No. Transaksi</th>
-                                                    <th class="text-center text-primary" tabindex="0" aria-contr ols="example1"
-                                                        rowspan="1" colspan="1" name="nama_siswa"
+                                                    <th class="text-center text-primary" tabindex="0" aria-contr
+                                                        ols="example1" rowspan="1" colspan="1" name="nama_siswa"
                                                         aria-label="Nama Pembayaran: activate to sort column ascending">
                                                         Nama siswa</th>
                                                     <th width="10%" class="text-center text-primary" tabindex="0"
@@ -78,12 +78,25 @@
                                                         <td class="text-center">{{ $loop->iteration }}</td>
                                                         <td class="text-center">{{ $item->no_transaksi }}</td>
                                                         <td class="text-center">{{ $item->User->name }}</td>
-                                                        <td class="text-center">{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
-                                                        <td class="text-center">{{ $item->status_pembayaran }}</td>
+                                                        <td class="text-center">
+                                                            {{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
+                                                        <td class="text-center">
+                                                            @if ($item->status_pembayaran == 'Ditolak')
+                                                                <span class="badge bg-danger">Ditolak</span>
+                                                            @elseif ($item->status_pembayaran == 'Belum Dibayar')
+                                                                <span class="badge bg-danger">Belum Dibayar</span>
+                                                            @elseif($item->status_pembayaran == 'Diterima')
+                                                                <span class="badge bg-success">Diterima</span>
+                                                            @elseif($item->status_pembayaran == 'Proses')
+                                                                <span class="badge bg-warning">Proses</span>
+                                                            @else
+                                                                <span class="badge bg-dark">Belum diperiksa</span>
+                                                            @endif
+                                                        </td>
                                                         <td class="text-center">{{ $item->bukti_pembayaran }}</td>
                                                         <td class="d-flex">
-                                                            <a href="/konfirmasi/{{ $item->id }}/show"
-                                                                id="2" class=" me-2">
+                                                            <a href="/konfirmasi/{{ $item->id }}/show" id="2"
+                                                                class=" me-2">
                                                                 <button class="btn btn-outline-info" type="button">
                                                                     Show
                                                                 </button>
@@ -116,8 +129,8 @@
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No. Transaksi</th>
-                                                    <th class="text-center text-primary" tabindex="0" aria-contr ols="example1"
-                                                        rowspan="1" colspan="1" name="nama_siswa"
+                                                    <th class="text-center text-primary" tabindex="0" aria-contr
+                                                        ols="example1" rowspan="1" colspan="1" name="nama_siswa"
                                                         aria-label="Nama Pembayaran: activate to sort column ascending">
                                                         Nama siswa</th>
                                                     <th width="10%" class="text-center text-primary" tabindex="0"
@@ -146,8 +159,21 @@
                                                         <td class="text-center">{{ $loop->iteration }}</td>
                                                         <td class="text-center">{{ $item->no_transaksi }}</td>
                                                         <td class="text-center">{{ $item->User->name }}</td>
-                                                        <td class="text-center">{{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
-                                                        <td class="text-center">{{ $item->status_pembayaran }}</td>
+                                                        <td class="text-center">
+                                                            {{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
+                                                        <td class="text-center">
+                                                            @if ($item->status_pembayaran == 'Ditolak')
+                                                                <span class="badge bg-danger">Ditolak</span>
+                                                            @elseif ($item->status_pembayaran == 'Belum Dibayar')
+                                                                <span class="badge bg-danger">Belum Dibayar</span>
+                                                            @elseif($item->status_pembayaran == 'Diterima')
+                                                                <span class="badge bg-success">Diterima</span>
+                                                            @elseif($item->status_pembayaran == 'Proses')
+                                                                <span class="badge bg-warning">Proses</span>
+                                                            @else
+                                                                <span class="badge bg-dark">Belum diperiksa</span>
+                                                            @endif
+                                                        </td>
                                                         <td class="text-center">{{ $item->bukti_pembayaran }}</td>
                                                         {{-- <td class="d-flex">
                                                             <a href="/konfirmasi/{{ $item->id }}/show"
@@ -164,7 +190,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">... </div>
                 </div>

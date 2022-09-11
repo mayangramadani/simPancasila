@@ -7,6 +7,7 @@ use App\Models\KategoriKeuangan;
 use App\Models\Keuangan;
 use App\Models\Saldo;
 use App\Models\Sekolah;
+use App\Models\SumberDana;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,11 +17,13 @@ class KeuanganController extends Controller
     //
     public function index()
     {
+
         $keuangan = Keuangan::get();
         $saldo = Saldo::all();
         $sekolah = Sekolah::all();
         $kategorikeuangan = KategoriKeuangan::all();
-        return view('datakeuangan.index', compact('keuangan', 'saldo', 'kategorikeuangan', 'sekolah'));
+        $sumberdana = SumberDana::all();
+        return view('datakeuangan.index', compact('keuangan', 'saldo', 'kategorikeuangan', 'sekolah', 'sumberdana'));
     }
     public function add(Request $request)
     {
@@ -44,10 +47,12 @@ class KeuanganController extends Controller
             'jumlah' => $this->convertRP($request->jumlah),
             'tanggal' => $request->tanggal,
             'deskripsi' => $request->deskripsi,
+            'sumber_dana' => $request->sumber_dana,
             'users_id' => Auth::user()->id,
             'bukti' => $file_name1,
 
         ]);
+
         if ($Saldo != null) {
             $cekSaldo = $Saldo->saldo;
         } else {
@@ -129,6 +134,7 @@ class KeuanganController extends Controller
     }
     public function rkas(Request $request)
     {
+     
         if ($request->berkas_pendukung != null) {
             $file = $request->berkas_pendukung;
             $extension = $file->extension();
@@ -143,9 +149,19 @@ class KeuanganController extends Controller
             'jumlah' => $request->jumlah,
             'tanggal' => $request->tanggal,
             'deskripsi' => $request->deskripsi,
-            'sumber_dana' => $request->sumber_dana,
+            'sumber_dana_id' => $request->sumber_dana,
             'berkas_pendukung' => $file_name1,
             'status' => 'Proses',
+            'kategori_keuangan_id' => '3'
         ]);
+        return back();
+    }
+
+    public function lihatRkas()
+    {   
+        $sumberdana = SumberDana::all();
+        // return view('datakeuangan.edit', compact('sumberdana'));
+
+        return view('datakeuangan.rkas', compact('sumberdana'));
     }
 }

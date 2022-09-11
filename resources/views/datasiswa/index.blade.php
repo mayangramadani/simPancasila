@@ -65,7 +65,7 @@
                                 <table id="table1" class="table-bordered"
                                     role="grid" aria-describedby="example1_info">
                                     <thead>
-                                        <tr class="box bg-teal" role="row">
+                                        <tr class="box bg-teal table-secondary" role="row">
                                             <th width="5%" class="sorting_asc text-center text-primary" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1" aria-sort="ascending">No.</th>
                                             <th width="25%" class="text-center text-primary" tabindex="0" aria-controls="example1"
@@ -85,7 +85,7 @@
                                                 <td class="d-flex">
                                                     <a href="/datasiswa/{{ $ds->id }}/detail" id="2"
                                                         class="detail me-2">
-                                                        <button class="btn btn-outline-info btn-sm" type="button">
+                                                        <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
                                                             Detail
                                                         </button>
                                                     </a>

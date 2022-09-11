@@ -12,7 +12,7 @@
 
                     <div class="row">
                         <div class="card-body">
-                            <form class="validation" novalidate method="POST" action="{{ url('datakeuangan/add') }}"
+                            <form class="validation" novalidate method="POST" action="{{ url('datakeuangan/rkas') }}"
                                 enctype="multipart/form-data">
                                 @csrf
 
@@ -31,18 +31,6 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold text-primary"
-                                            for="kelas">Status</label>
-                                        <select class="form-select form-select-lg form-control"
-                                            aria-label="Default select example" name="status_pembayaran">
-                                            <option selected disabled>=== Status Pembayaran ===</option>
-                                            <option value="Lunas" selected>Lunas</option>
-                                            <option value="Belum Lunas" selected>Belum Lunas</option>
-                                            <option value="Tolak" selected>Tolak</option>
-                                            <option value="Proses" selected>Proses</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label class="form-control-label fw-semibold text-primary"
                                             for="kelas">Jumlah</label>
                                         <input type="text" class="form-control" id="dengan-rupiah" placeholder="Jumlah"
                                             required autocomplete="off">
@@ -50,8 +38,13 @@
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold text-primary" for="kelas">Sumber
                                             Dana</label>
-                                        <input type="text" class="form-control" id="sumber_dana"
-                                            placeholder="Sumber Dana" required autocomplete="off">
+                                        <select class="form-select form-select-lg form-control"
+                                            aria-label="Default select example" name="sumber_dana">
+                                            <option selected disabled>Sumber Dana</option>
+                                            @foreach ($sumberdana as $item)
+                                                <option value="{{ $item->id }}">{{ $item->sumber_dana }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="transaksi"

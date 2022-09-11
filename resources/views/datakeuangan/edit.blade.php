@@ -30,11 +30,11 @@
                                             Transaksi</label>
 
                                         <select class="form-select form-select-lg form-control"
-                                            aria-label="Default select example" name="jenis_transaksi">
+                                            aria-label="Default select example" name="kategori_keuangan">
                                             <option selected>Jenis</option>
-                                            <option value="pemasukan" @if ($keuangan->jenis_transaksi == 'pemasukan') selected @endif>
+                                            <option value="pemasukan" @if ($keuangan->kategori_keuangan == 'pemasukan') selected @endif>
                                                 Pemasukan</option>
-                                            <option value="pengeluaran" @if ($keuangan->jenis_transaksi == 'pengeluaran') selected @endif>
+                                            <option value="pengeluaran" @if ($keuangan->kategori_keuangan == 'pengeluaran') selected @endif>
                                                 Pengeluaran</option>
                                         </select>
                                     </div>

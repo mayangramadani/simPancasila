@@ -4,10 +4,6 @@
     <div class="container-fluid">
 
         <div class="d-flex mb-3">
-            <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Input Keuangan
-            </button>
-        
             <form action="{{ route('bayar') }}" method="post">
                 @csrf
                 <button type="submit" class="btn btn-primary">
@@ -15,7 +11,6 @@
                 </button>
             </form>
         </div>
-
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -116,14 +111,16 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
-                            type="button" role="tab" aria-controls="contact" aria-selected="false">Arsip</button>
+                            type="button" role="tab" aria-controls="contact" aria-selected="false">Sumber
+                            Dana</button>
                     </li>
                 </ul>
 
                 <!-- RKAS -->
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="col-md text-end mt-3"> <a href="/datakeuangan/rkas" class="btn btn-primary ">RKAS</a>
+                        <div class="col-md text-end mt-3"> <a href="{{ route('rkas') }}"
+                                class="btn btn-primary ">RKAS</a>
                         </div>
                         <div class="row">
                             <div class="card-body">
@@ -170,28 +167,29 @@
                                                     @endphp
                                                     <tr role="row" class="odd">
                                                         <td class="text-center">{{ $no }}</td>
-                                                        <td class="text-center">{{ $dku->nama_keuangan }}</td>
+                                                        <td class="text-center">{{ $dku->KategoriKeuangan->nama_keuangan }}
+                                                        </td>
                                                         <td class="text-center">
                                                             {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
                                                         <td class="text-center">{{ $dku->tanggal }}</td>
 
-                                                        <td class="text-center">{{ $dku->status_pembayaran }}</td>
+                                                        {{-- <td class="text-center">{{ $dku->status_pembayaran }}</td> --}}
 
-                                                        {{-- <td>
+                                                        <td class="text-center">
                                                             @if ($dku->status_pembayaran == 'Ditolak')
                                                                 <span class="badge bg-danger">Ditolak</span>
-                                                            @if ($dku->status_pembayaran == 'Belum Dibayar')
+                                                            @elseif ($dku->status_pembayaran == 'Belum Dibayar')
                                                                 <span class="badge bg-danger">Belum Dibayar</span>
                                                             @elseif($dku->status_pembayaran == 'Diterima')
                                                                 <span class="badge bg-success">Diterima</span>
                                                             @elseif($dku->status_pembayaran == 'Proses')
                                                                 <span class="badge bg-warning">Proses</span>
-                                                            @else 
-                                                            <span class="badge bg-dark">Belum diperiksa</span>
+                                                            @else
+                                                                <span class="badge bg-dark">Belum diperiksa</span>
                                                             @endif
-                                                        </td> --}}
+                                                        </td>
 
-                                                        <td class="text-center">{{ $dku->sumber_dana }}</td>
+                                                        <td class="text-center">{{ $dku->SumberDana->sumber_dana }}</td>
                                                         <td class="text-center">{{ $dku->berkas_pendukung }}</td>
                                                         <td class="d-felx">
                                                             <a href="/datakeuangan/{{ $dku->id }}/edit"
@@ -201,11 +199,11 @@
                                                                     Edit
                                                                 </button>
                                                             </a>
-                                                            <a href="/datakeuangan/{{ $dku->id }}/detail"
+                                                            <a href="/datakeuangan/{{ $dku->id }}/show"
                                                                 id="2" class="detail me-2">
-                                                                <button class="btn btn-outline-info btn-sm"
+                                                                <button class="btn btn-outline-primary btn-sm"
                                                                     type="button"><i class="fa fa-pencil-square"></i>
-                                                                    Detail
+                                                                    Show
                                                                 </button>
                                                             </a>
                                                         </td>
@@ -217,72 +215,29 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="row">
-                            <div class="card-body">
-                                <form class="validation" novalidate method="POST" action="{{ url('datakeuangan/add') }}"
-                                    enctype="multipart/form-data">
-                                    @csrf
-
-                                    <div class="form-row">
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-control-label fw-semibold text-primary"
-                                                for="kelas">Nama Kegiatan</label>
-                                            <input type="text" class="form-control" id="nama_kegiatan"
-                                                placeholder="sumber dana" required autocomplete="off">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-control-label fw-semibold text-primary"
-                                                for="kelas">Deskripsi</label>
-                                            <input type="text" class="form-control" id="deskripsi"
-                                                placeholder="sumber dana" required autocomplete="off">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-control-label fw-semibold text-primary"
-                                                for="kelas">Status</label>
-                                            <input type="text" class="form-control" id="Status"
-                                                placeholder="Status" required autocomplete="off">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-control-label fw-semibold text-primary"
-                                                for="kelas">Jumlah</label>
-                                            <input type="text" class="form-control" id="jumlah"
-                                                placeholder="jumlah" required autocomplete="off">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-control-label fw-semibold text-primary"
-                                                for="kelas">Sumber Dana</label>
-                                            <input type="text" class="form-control" id="sumber_dana"
-                                                placeholder="sumber dana" required autocomplete="off">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="transaksi"
-                                                class="form-control-label fw-semibold text-primary">tanggal</label>
-                                            <input type="date" class="form-control" id="tanggal" name="tanggal">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="foto"
-                                                class="form-control-label fw-semibold text-primary">Berkas
-                                                Pendukung</label>
-                                            <input class="form-control" type="file" id="formFile"
-                                                name="berkas_pendukung">
-                                        </div>
-                                    </div>
-
-                                    <button class="btn btn-primary" id="btn-submit" type="submit">Bayar</button>
-                            </div>
-
-                        </div>
-                    </div> --}}
                     </div>
+
+                    <!-- Penatausahaan/BKU -->
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
                             <div class="card-body">
                                 <div class="col-sm-12">
+                                    <div class="py-2 d-flex flex-row align-items-center justify-content-between">
+                                        <h4 class="m-0 font-weight-bold text-dark">Buku Kas Umum Sekolah</h4>
+                                        <div class="d-flex">
+                                            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
+                                                Input
+                                            </button>
+
+                                        </div>
+
+                                    </div>
                                     <div class="table-responsive">
-                                        <table id="table2" role="grid" aria-describedby="example1_info">
+                                        <table id="table2" class="table-bordered" role="grid" aria-describedby="example1_info">
                                             <thead>
-                                                <tr class="box bg-teal" role="row">
-                                                    <th width="5%" class="sorting_asc text-center text-primary"
+                                                <tr class="box bg-teal table-primary">
+                                                    <th width="3%" class="sorting_asc text-center text-primary"
                                                         tabindex="0" aria-controls="example1" rowspan="1"
                                                         colspan="1" aria-sort="ascending">No.</th>
                                                     <th width="15%" class="text-center text-primary" tabindex="0"
@@ -296,13 +251,8 @@
                                                         aria-controls="example1" rowspan="1" colspan="1">Jumlah
                                                     </th>
                                                     <th width="15%" class="text-center text-primary" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Deskripsi
-                                                    </th>
-                                                    <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Tanggal
                                                     </th>
-                                                    <th width="15%" class="text-center text-primary" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Bukti</th>
                                                     <th width="15%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Status
                                                         Pembayaran</th>
@@ -330,14 +280,25 @@
                                                         <td class="text-center">{{ $dku->nama_keuangan }}</td>
                                                         <td class="text-center">
                                                             {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
-                                                        <td class="text-center">{{ $dku->deskripsi }}</td>
                                                         <td class="text-center">{{ $dku->tanggal }}</td>
-                                                        <td class="text-center">{{ $dku->bukti }}
+                                                        {{-- <td class="text-center">{{ $dku->bukti }}
                                                             <img src="{{ url('asset/img/' . $dku->id . '/' . $dku->bukti) }}"
                                                                 target="_blank" class="fw-bold" height="100px"></a>
-                                                        </td>
+                                                        </td> --}}
 
-                                                        <td class="text-center">{{ $dku->status_pembayaran }}</td>
+                                                        <td class="text-center">
+                                                            @if ($dku->status_pembayaran == 'Ditolak')
+                                                                <span class="badge bg-danger">Ditolak</span>
+                                                            @elseif ($dku->status_pembayaran == 'Belum Dibayar')
+                                                                <span class="badge bg-danger">Belum Dibayar</span>
+                                                            @elseif($dku->status_pembayaran == 'Diterima')
+                                                                <span class="badge bg-success">Diterima</span>
+                                                            @elseif($dku->status_pembayaran == 'Proses')
+                                                                <span class="badge bg-warning">Proses</span>
+                                                            @else
+                                                                <span class="badge bg-dark">Belum diperiksa</span>
+                                                            @endif
+                                                        </td>
                                                         <td class="text-center">{{ $dku->users_id }}</td>
                                                         <td class="d-felx">
                                                             <a href="/datakeuangan/{{ $dku->id }}/detail"
@@ -356,10 +317,100 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                    <!-- Sumber Dana -->
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+                        <div class="row">
+                            <div class="card-body">
+                                <form class="validation" novalidate method="POST" action="{{ url('sumberdana/add') }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label fw-semibold text-dark" for="namadana">Sumber
+                                                Dana</label>
+                                            <input type="text" class="form-control" id="sumber_dana"
+                                                name="sumber_dana" placeholder="Sumber Dana" required autocomplete="off">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label fw-semibold text-dark"
+                                                for="deskripsi">Deskripsi</label>
+                                            <input type="text" class="form-control" id="deskripsi" name="deskripsi"
+                                                placeholder="Deskripsi" required autocomplete="off">
+                                        </div>
+                                        <div class="col-md-4 mb-3 py-4">
+                                            <button class="btn btn-primary" id="btn-submit" type="submit">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- Table Sumber Dana -->
+                        <div class="row">
+                            <div class="card-body">
+                                <div class="col-sm-12">
+                                    <div class="table-responsive">
+                                        <table id="table1" class="table table-bordered">
+                                            <thead>
+                                                <tr class="box bg-teal" role="row">
+                                                    <th width="2%" class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="No.: activate to sort column descending">No.
+                                                    </th>
+                                                    <th class="text-center text-primary" tabindex="0" aria-contr
+                                                        ols="example1" rowspan="1" colspan="1" name="sumber_dana"
+                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                        Sumber Dana</th>
+                                                    <th class="text-center text-primary" tabindex="0" aria-contr
+                                                        ols="example1" rowspan="1" colspan="1" name="deskripsi"
+                                                        aria-label="Deskripsi: activate to sort column ascending">
+                                                        Deskripsi</th>
+
+                                                    <th width="25%" class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        name="xx" aria-label="xx: activate to sort column ascending">
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($sumberdana as $sd)
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1">{{ $loop->iteration }}</td>
+                                                        <td>{{ $sd->sumber_dana }}</td>
+                                                        <td>{{ $sd->deskripsi }}</td>
+                                                        <td class="d-flex">
+                                                            <a href="/datakeuangan/{{ $sd->id }}" id="2"
+                                                                class="edit me-2">
+                                                                <button class="btn btn-outline-info btn-sm"
+                                                                    type="button"><i class="fa fa-pencil-square"></i>
+                                                                    Show
+                                                                </button>
+                                                            </a>
+                                                            <form action="/datakeuangan/{{ $sd->id }}"
+                                                                method='post'>
+                                                                @csrf
+                                                                @method('delete')
+                                                                <input class="btn btn-outline-danger btn-sm"
+                                                                    type="submit" value="Hapus">
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     @push('scripts')
@@ -396,6 +447,5 @@
 
             });
         </script>
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script> --}}
     @endpush
 @endsection

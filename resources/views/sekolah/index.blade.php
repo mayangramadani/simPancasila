@@ -118,7 +118,8 @@
                                                     <td class="text-center">{{ $s->nama_sekolah }}</td>
                                                     <td class="text-center">{{ $s->derajat }}</td>
                                                     <td>{{ $s->lokasi }}</td>
-                                                    <td class="text-center">{{ 'Rp ' . number_format($s->spp, 0, '.', '.') }}</td>
+                                                    <td>{{ $s->spp }}</td>
+                                                    {{-- <td class="text-center">{{ 'Rp ' . number_format($s->spp, 0, '.', '.') }}</td> --}}
                                                     <td class="d-flex">
                                                         <a href="/sekolah/{{ $s->id }}/edit" id="2"
                                                             class="edit me-1">

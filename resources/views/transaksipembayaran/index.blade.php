@@ -92,63 +92,6 @@
 
         <div class="row">
 
-            {{-- <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Detail Pembayaran Siswa</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="table-responsive">
-                                        <table id="table1" class="table datatable table-bordered table-hover no-footer">
-                                            <thead>
-                                                <tr class="box bg-teal" role="row">
-                                                    <th width="4%" class="sorting_asc" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="No.: activate to sort column descending">No.</th>
-                                                    <th class="sorting" tabindex="0" aria-contr ols="example1"
-                                                        rowspan="1" colspan="1" name="nama_siswa"
-                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                        Nama siswa</th>
-                                                    <th width="10%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        name="xxx" aria-label="xxx: activate to sort column ascending">
-                                                        xxx</th>
-                                                    <th width="40%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        name="xxx"
-                                                        aria-label="xxx: activate to sort column ascending">xxx
-                                                    </th>
-                                                    <th width="15%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        name="xx" aria-label="xx: activate to sort column ascending">
-                                                        xx
-                                                    </th>
-                                                    <th width="10%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Action: activate to sort column ascending">Action</th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div> --}}
-
         </div>
 
     </div>

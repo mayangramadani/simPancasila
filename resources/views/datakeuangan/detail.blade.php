@@ -3,11 +3,13 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        <!-- Page Heading -->
+        {{-- <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Detail Data Keuangan</h1>
+        </div> --}}
+        <div class="mb-3">
+            <a href="/datakeuangan">Kembali</a>
         </div>
-        
         <div class="row">
 
             <!-- Area Chart -->
@@ -15,10 +17,9 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/datakeuangan">Kembali</a></li>
-                                <li class="breadcrumb-item font-weight-bold"><a href="#">Detail Keuangan</a></li>
-                            </ol>
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h4 class="m-0 font-weight-bold text-primary ">Buku Kas Umum Sekolah</h4>
+                        </div>
                         <div class="d-flex">
                             <a href="/datakeuangan/{{ $keuangan->id }}/edit" id="2" class="edit me-2">
                                 <button class="btn btn-outline-info" type="button">
@@ -36,9 +37,14 @@
                     <div class="card-body">
                         <div class="p-3">
                             <div class="mb-3 row">
-                            <label for="sekolah" class="col-sm-3 col-form-label fw-semibold">Sekolah</label>
-                            <label for="sekolah" class="col-sm-2 col-form-label">:
-                                {{ $keuangan->nama_sekolah }}</label>
+                                <label for="sekolah" class="col-sm-3 col-form-label fw-semibold text-dark">Sekolah</label>
+                                <label for="sekolah" class="col-sm-2 col-form-label">:
+                                    {{ $keuangan->nama_sekolah }}</label>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="sekolah" class="col-sm-3 col-form-label fw-semibold">Sekolah</label>
+                                <label for="sekolah" class="col-sm-2 col-form-label">:
+                                    {{ $keuangan->nama_sekolah }}</label>
                             </div>
                             <div class="mb-3 row">
                                 <label for="kategorikeuangan" class="col-sm-3 col-form-label fw-semibold">Kategori

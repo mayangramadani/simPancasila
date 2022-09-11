@@ -83,7 +83,7 @@
                                     <div class="table-responsive">
                                         <table id="table1"  >
                                             <thead>
-                                                <tr class="box bg-teal" role="row">
+                                                <tr class="box bg-teal table-primary" role="row">
                                                     <th width="5%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
