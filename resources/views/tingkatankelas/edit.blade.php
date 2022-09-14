@@ -8,16 +8,9 @@
             <h1 class="h3 mb-0 text-gray-800">Edit tingkatan kelas</h1>
         </div> --}}
 
-        {{-- <div class="mb-3">
+        <div class="mb-3">
             <a href="/tingkatankelas">Kembali</a>
-        </div> --}}
-        <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/tingkatankelas">Kembali</a></li>
-                <li class="breadcrumb-item font-weight-bold"><a href="#">Edit Tingkatan Kelas</a></li>
-            </ol>
-        </nav>
-
+        </div>
 
         <div class="row">
 
@@ -26,7 +19,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">TINGKATAN KELAS</h6>
+                        <h4 class="m-0 font-weight-bold text-primary">Tingkatan Kelas</h4>
                     </div>
 
                     <!-- Card Body -->
@@ -36,7 +29,7 @@
                                 @method('put')
                                 @csrf
                                 <div class="mb-3 row">
-                                    <label for="namaSekolah" class="col-sm-2 col-form-label">Nama Sekolah</label>
+                                    <label for="namaSekolah" class="col-sm-2 col-form-label fw-bold text-dark">Nama Sekolah</label>
                                     <div class="col-sm-10">
                                         <select class="form-select form-select-lg mb-3 form-control" name="sekolah_id">
                                             @foreach ($sekolah as $item)
@@ -47,7 +40,7 @@
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label for="cemail" class="col-sm-2 col-form-label">Tingkatan Kelas</label>
+                                    <label for="cemail" class="col-sm-2 col-form-label fw-bold text-dark">Tingkatan Kelas</label>
                                     <div class="col-sm-10">
                                         <input class="form-control mb-3" type="text" name="tingkatan_kelas"
                                             placeholder="tingkatan kelas" value="{{ $tingkatankelas->tingkatan_kelas }}">
@@ -55,7 +48,7 @@
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label for="cemail" class="col-sm-2 col-form-label">Deskripsi</label>
+                                    <label for="cemail" class="col-sm-2 col-form-label fw-bold text-dark">Deskripsi</label>
                                     <div class="col-sm-10">
                                         <input class="form-control mb-3" type="text" name="deskripsi"
                                             placeholder="deskripsi" value="{{ $tingkatankelas->deskripsi }}">

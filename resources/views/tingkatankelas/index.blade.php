@@ -116,8 +116,10 @@
                                                             class="me-2">
                                                             @csrf
                                                             @method('delete')
-                                                            <input class="btn btn-outline-danger btn-sm" type="submit"
-                                                                value="Hapus">
+                                                            <button class="btn btn-outline-danger btn-sm"
+                                                                type="submit"><i class="fas fa-trash-alt"></i>
+                                                                Delete
+                                                            </button>
                                                         </form>
 
                                                         <a href="/tingkatankelas/{{ $tk->id }}/detail"

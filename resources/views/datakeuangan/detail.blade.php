@@ -16,10 +16,8 @@
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h4 class="m-0 font-weight-bold text-primary ">Buku Kas Umum Sekolah</h4>
-                        </div>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h4 class="m-0 font-weight-bold text-primary ">Buku Kas Umum Sekolah</h4>
                         <div class="d-flex">
                             <a href="/datakeuangan/{{ $keuangan->id }}/edit" id="2" class="edit me-2">
                                 <button class="btn btn-outline-info" type="button">
@@ -37,50 +35,75 @@
                     <div class="card-body">
                         <div class="p-3">
                             <div class="mb-3 row">
-                                <label for="sekolah" class="col-sm-3 col-form-label fw-semibold text-dark">Sekolah</label>
-                                <label for="sekolah" class="col-sm-2 col-form-label">:
-                                    {{ $keuangan->nama_sekolah }}</label>
+                                <label for="user" class="col-sm-2 col-form-label fw-bold text-dark">Nama User</label>
+                                <div class="col-sm-10">
+                                    <label for="user" class="col-sm-5 form-control text-dark" readonly>
+                                        {{ $keuangan->users_id }}</label>
+                                </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="sekolah" class="col-sm-3 col-form-label fw-semibold">Sekolah</label>
-                                <label for="sekolah" class="col-sm-2 col-form-label">:
-                                    {{ $keuangan->nama_sekolah }}</label>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="kategorikeuangan" class="col-sm-3 col-form-label fw-semibold">Kategori
+                                <label for="sekolah" class="col-sm-2 col-form-label fw-bold text-dark">Kategori
                                     Keuangan</label>
-                                <label for="kategorikeuangan" class="col-sm-2 col-form-label">:
-                                    {{ $keuangan->KategoriKeuangan->nama_keuangan }}</label>
+                                <div class="col-sm-10">
+                                    <label for="sekolah" class="col-sm-5 form-control text-dark" readonly>
+                                        {{ $keuangan->KategoriKeuangan->nama_keuangan }}</label>
+                                </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="namakeuangan" class="col-sm-3 col-form-label fw-semibold">Nama
+                                <label for="sekolah" class="col-sm-2 col-form-label fw-bold text-dark">Nama
                                     Keuangan</label>
-                                <label for="namakeuangan" class="col-sm-2 col-form-label">:
-                                    {{ $keuangan->nama_keuangan }}</label>
+                                <div class="col-sm-10">
+                                    <label for="sekolah" class="col-sm-5 form-control text-dark" readonly>
+                                        {{ $keuangan->nama_keuangan }}</label>
+                                </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="jumlahtransaksi" class="col-sm-3 col-form-label fw-semibold">Jumlah
+                                <label for="jumlahtransaksi" class="col-sm-2 col-form-label fw-bold text-dark">Jumlah
                                     Transaksi</label>
-                                <label for="jumlahtransaksi" class="col-sm-2 col-form-label" id="dengan-rupiah">:
-                                    {{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}</label>
+                                <div class="col-sm-10">
+                                    <label for="jumlahtransaksi" class="col-sm-5 form-control text-dark" id="dengan-rupiah"
+                                        readonly>
+                                        {{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }} </label>
+                                </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="tanggal" class="col-sm-3 col-form-label fw-semibold">Tanggal Transaksi</label>
-                                <label for="tanggal" class="col-sm-2 col-form-label">: {{ $keuangan->tanggal }}</label>
+                                <label for="tanggal" class="col-sm-2 col-form-label fw-bold text-dark">Tanggal
+                                    Transaksi</label>
+                                <div class="col-sm-10">
+                                    <label for="tanggal" class="col-sm-5 form-control text-dark"
+                                        readonly>{{ $keuangan->tanggal }}</label>
+                                </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="Deskripsi" class="col-sm-3 col-form-label fw-semibold">Deskripsi</label>
-                                <label for="Deskripsi" class="col-sm-2 col-form-label">:
-                                    {{ $keuangan->deskripsi }}</label>
+                                <label for="Deskripsi" class="col-sm-2 col-form-label fw-bold text-dark">Deskripsi</label>
+                                <div class="col-sm-10">
+                                    <label for="Deskripsi" class="col-sm-5 form-control text-dark" readonly>
+                                        {{ $keuangan->deskripsi }}</label>
+                                </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="foto" class="col-sm-3 col-form-label fw-semibold">Bukti</label>
+                                <label for="foto" class="col-sm-2 col-form-label fw-bold text-dark">Bukti</label>
                                 <label for="foto" class="col-sm-2 col-form-label">: <img width="100"
                                         src="{{ asset('storage/Keuangan/bukti/' . $keuangan->bukti_transaksi) }}"
                                         alt="Profile"></label>
                             </div>
-
-                            {{-- <input class="btn btn-primary" type="submit" value="Submit" name="submit"> --}}
+                            <div class="mb-3 row">
+                                <label for="statuspembayaran" class="col-sm-2 col-form-label fw-bold text-dark">Status
+                                    Pembayaran</label>
+                                <label for="statuspembayaran" class="col-sm-2 col-form-label">:
+                                    @if ($keuangan->status_pembayaran == 'Ditolak')
+                                        <span class="badge bg-danger">Ditolak</span>
+                                    @elseif ($keuangan->status_pembayaran == 'Belum Dibayar')
+                                        <span class="badge bg-danger">Belum Dibayar</span>
+                                    @elseif($keuangan->status_pembayaran == 'Diterima')
+                                        <span class="badge bg-success">Diterima</span>
+                                    @elseif($keuangan->status_pembayaran == 'Proses')
+                                        <span class="badge bg-warning">Proses</span>
+                                    @else
+                                        <span class="badge bg-dark">Belum diperiksa</span>
+                                    @endif
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -7,31 +7,42 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Edit Saldo</h1>
         </div>
-        <div class="form-group  mt-4">
-            <div class="col-lg-4">
-                <form action="/saldo/{{ $saldo->id }}" method="POST">
-                    @method('put')
-                    @csrf
-                    <label for="cemail" class="control-label">Nama Sekolah</label>
-                    <select class="form-select form-select-lg mb-3 form-control" name="sekolah_id">
-                        @foreach ($datasekolah as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
-                        @endforeach
-                    </select>
+        <div class="col-xl-12 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h4 class="m-0 font-weight-bold text-primary">Kategori Keuangan</h4>
+                </div>
+                <div class="form-group  mt-4">
+                    <div class="col-lg-4">
+                        <div class="card-body">
+                                <form action="/saldo/{{ $saldo->id }}" method="POST">
+                                    @method('put')
+                                    @csrf
+                                    <label for="cemail" class="control-label fw-bold text-dark">Nama Sekolah</label>
+                                    <select class="form-select form-select-lg mb-3 form-control" name="sekolah_id">
+                                        @foreach ($datasekolah as $item)
+                                            <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
+                                        @endforeach
+                                    </select>
 
-                    <label for="cemail" class="control-label">Debit</label>
-                    <input class="form-control mb-3" type="number" name="debit" placeholder="Debit" id="dengan-rupiah"
-                        value="{{ $saldo->debit }}">
-                    <label for="cemail" class="control-label">Kredit</label>
-                    <input class="form-control mb-3" type="number" name="kredit" placeholder="kredit" id="dengan-rupiah"
-                        value="{{ $saldo->kredit }}">
-                    <label for="cemail" class="control-label">Saldo</label>
-                    <input class="form-control mb-3" type="number" name="saldo" placeholder="saldo" id="dengan-rupiah"
-                        value="{{ $saldo->saldo }}">
+                                    <label for="cemail" class="control-label fw-bold text-dark">Debit</label>
+                                    <input class="form-control mb-3" type="number" name="debit" placeholder="Debit"
+                                        id="dengan-rupiah" value="{{ $saldo->debit }}">
+                                    <label for="cemail" class="control-label fw-bold text-dark">Kredit</label>
+                                    <input class="form-control mb-3" type="number" name="kredit" placeholder="kredit"
+                                        id="dengan-rupiah" value="{{ $saldo->kredit }}">
+                                    <label for="cemail" class="control-label fw-bold text-dark">Saldo</label>
+                                    <input class="form-control mb-3" type="number" name="saldo" placeholder="saldo"
+                                        id="dengan-rupiah" value="{{ $saldo->saldo }}">
 
-                    <input class="btn btn-primary" type="submit" value="Submit" name="submit">
+                                    <input class="btn btn-primary" type="submit" value="Submit" name="submit">
 
-                </form>
+                                </form>
+                          
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

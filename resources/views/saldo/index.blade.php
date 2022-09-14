@@ -25,12 +25,12 @@
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">No.</th>
-                                                    <th class="text-center text-primary" tabindex="0" aria-controls="example1"
-                                                        rowspan="1" colspan="1"
+                                                    <th class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Sekolah: activate to sort column ascending">
                                                         Sekolah</th>
-                                                    <th class="text-center text-primary" tabindex="0" aria-controls="example1"
-                                                        rowspan="1" colspan="1"
+                                                    <th class="text-center text-primary" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Debit: activate to sort column ascending">
                                                         Debit</th>
                                                     <th width="25%" class="text-center text-primary" tabindex="0"
@@ -41,9 +41,9 @@
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Saldo: activate to sort column ascending">Saldo
                                                     </th>
-                                                    <th width="20%" class="text-center text-primary" tabindex="0"
+                                                    {{-- <th width="20%" class="text-center text-primary" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Action: activate to sort column ascending">Action</th>
+                                                        aria-label="Action: activate to sort column ascending">Action</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -58,24 +58,29 @@
                                                     <tr role="row" class="odd">
                                                         <td class="text-center">{{ $no }}</td>
                                                         <td class="text-center">{{ $s->sekolah->nama_sekolah }}</td>
-                                                        <td class="text-center">{{ 'Rp ' . number_format($s->debit, 0, '.', '.') }}</td>
+                                                        <td class="text-center">
+                                                            {{ 'Rp ' . number_format($s->debit, 0, '.', '.') }}</td>
                                                         <td class="text-center">{{ $s->kredit }}</td>
                                                         {{-- <td>{{ 'Rp ' . number_format($s->kredit, 0, '.', '.') }}</td> --}}
-                                                        <td class="text-center">{{ 'Rp ' . number_format($s->saldo, 0, '.', '.') }}</td>
-                                                        <td class="d-flex">
+                                                        <td class="text-center">
+                                                            {{ 'Rp ' . number_format($s->saldo, 0, '.', '.') }}</td>
+                                                        {{-- <td class="d-flex">
                                                             <a href="/saldo/{{ $s->id }}/edit" id="2"
                                                                 class="edit me-2">
-                                                                <button class="btn btn-outline-info" type="button">
+                                                                <button class="btn btn-outline-info btn-sm"
+                                                                    type="button"><i class="fa fa-pencil-square"></i>
                                                                     Edit
                                                                 </button>
                                                             </a>
                                                             <form action="/saldo/{{ $s->id }}" method='post'>
                                                                 @csrf
                                                                 @method('delete')
-                                                                <input class="btn btn-outline-danger" type="submit"
-                                                                    value="Hapus">
+                                                                <button class="btn btn-outline-danger btn-sm"
+                                                                    type="submit"><i class="fas fa-trash-alt"></i>
+                                                                    Delete
+                                                                </button>
                                                             </form>
-                                                        </td>
+                                                        </td> --}}
                                                     </tr>
                                                 @endforeach
                                             </tbody>
