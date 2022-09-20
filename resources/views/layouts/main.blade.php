@@ -21,6 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="{!! asset('asset/css/sb-admin-2.min.css') !!}" rel="stylesheet">
+    <link href="{!! asset('asset/css/sb-admin-2.css') !!}" rel="stylesheet">
     <link href="{!! asset('asset/css/style.css') !!}" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
@@ -166,6 +167,23 @@
                     <a class="nav-link collapsed" href="/transaksisiswa">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Transaksi Siswa</span>
+                    </a>
+                </li>
+            @endif
+
+            @if (Auth::user()->role == 'guru')
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/datakeuangan/rkas">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Form RKAS</span>
+                    </a>
+                </li>
+            @endif
+            @if (Auth::user()->role == 'guru')
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/datakeuangan/guru">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Status RKAS</span>
                     </a>
                 </li>
             @endif

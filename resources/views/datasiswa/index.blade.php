@@ -3,12 +3,6 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        <!-- Page Heading -->
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-primary font-weight-bold">Data Siswa</h1>
-        </div> --}}
-        {{-- {{ $siswa->DataKelas->nama_kelas }} --}}
-
         <div class="row">
 
             <!-- Area Chart -->
@@ -65,14 +59,14 @@
                                 <table id="table1" class="table-bordered"
                                     role="grid" aria-describedby="example1_info">
                                     <thead>
-                                        <tr class="box bg-teal table-secondary" role="row">
-                                            <th width="5%" class="sorting_asc text-center text-primary" tabindex="0" aria-controls="example1"
+                                        <tr class="box bg-primary" role="row">
+                                            <th width="5%" class="sorting_asc text-center text-light" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1" aria-sort="ascending">No.</th>
-                                            <th width="25%" class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                            <th width="25%" class="text-center text-light" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">NIS</th>
-                                            <th class="text-center text-primary" tabindex="0" aria-controls="example1" rowspan="1"
+                                            <th class="text-center text-light" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1">Nama Lengkap</th>
-                                            <th width="20%" class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                            <th width="20%" class="text-center text-light" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1">Action</th>
                                         </tr>
                                     </thead>
@@ -82,7 +76,7 @@
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td class="text-center">{{ $ds->nis }}</td>
                                                 <td class="text-center">{{ $ds->nama_siswa }}</td>
-                                                <td class="d-flex">
+                                                <td class="d-flex justify-content-center">
                                                     <a href="/datasiswa/{{ $ds->id }}/detail" id="2"
                                                         class="detail me-2">
                                                         <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>

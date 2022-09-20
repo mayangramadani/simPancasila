@@ -18,26 +18,26 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
-                                        <table id="table1">
+                                        <table id="table1" class="table-bordered">
                                             <thead>
-                                                <tr class="box bg-teal table-primary" role="row">
-                                                    <th width="5%" class="text-center text-primary" tabindex="0"
+                                                <tr class="box bg-primary" role="row">
+                                                    <th width="5%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">No.</th>
-                                                    <th class="text-center text-primary" tabindex="0"
+                                                    <th class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Sekolah: activate to sort column ascending">
                                                         Sekolah</th>
-                                                    <th class="text-center text-primary" tabindex="0"
+                                                    <th class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Debit: activate to sort column ascending">
                                                         Debit</th>
-                                                    <th width="25%" class="text-center text-primary" tabindex="0"
+                                                    <th width="25%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Kredit: activate to sort column ascending">
                                                         Kredit</th>
-                                                    <th width="20%" class="text-center text-primary" tabindex="0"
+                                                    <th width="20%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Saldo: activate to sort column ascending">Saldo
                                                     </th>

@@ -29,34 +29,34 @@
                             <form action="/sekolah/{{ $sekolah->id }}" method="POST">
                                 @method('put')
                                 @csrf
-                                <div class="mb-3 row">
-                                    <label for="namasekolah" class="h3 col-sm-2 col-form-label fw-bold text-black">Nama Sekolah</label>
+                                <div class="row">
+                                    <label for="namasekolah" class="h3 col-sm-2 col-form-label fw-bold text-dark">Nama Sekolah</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" name="nama_sekolah"
+                                        <input class="form-control mb-2" type="text" name="nama_sekolah"
                                             placeholder="Nama Sekolah" value="{{ $sekolah->nama_sekolah }}">
                                     </div>
                                 </div>
 
-                                <div class="mb-3 row">
-                                    <label for="cemail" class="col-sm-2 col-form-label fw-bold text-black">Derajat</label>
+                                <div class="row">
+                                    <label for="cemail" class="col-sm-2 col-form-label fw-bold text-dark">Derajat</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control mb-3" type="text" name="derajat" placeholder="Derajat"
+                                        <input class="form-control mb-2" type="text" name="derajat" placeholder="Derajat"
                                             value="{{ $sekolah->derajat }}">
                                     </div>
                                 </div>
 
-                                <div class="mb-3 row">
-                                    <label for="cemail" class="col-sm-2 col-form-label  fw-bold text-black">Lokasi</label>
+                                <div class="row">
+                                    <label for="cemail" class="col-sm-2 col-form-label  fw-bold text-dark">Lokasi</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control mb-3" type="text" name="lokasi" placeholder="Lokasi"
+                                        <input class="form-control mb-2" type="text" name="lokasi" placeholder="Lokasi"
                                             value="{{ $sekolah->lokasi }}">
                                     </div>
                                 </div>
 
-                                <div class="mb-3 row">
-                                    <label for="cemail" class="col-sm-2 col-form-label  fw-bold text-black">SPP</label>
+                                <div class="row">
+                                    <label for="cemail" class="col-sm-2 col-form-label  fw-bold text-dark">SPP</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control mb-3" type="text" name="spp" placeholder="Spp"
+                                        <input class="form-control mb-2" type="text" name="spp" placeholder="Spp"
                                             id="dengan-rupiah" value="{{ $sekolah->spp }}">
                                     </div>
                                 </div>

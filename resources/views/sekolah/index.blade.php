@@ -25,23 +25,23 @@
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sekolah</h5>
+                        <h4 class="text-primary fw-bold" id="exampleModalLabel">Sekolah</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="/sekolah/add" method="POST">
                         @csrf
                         <div class="modal-body">
-                            <label for="cemail" class="control-label">Nama Sekolah</label>
-                            <input class="form-control mb-3" type="text" name="nama_sekolah" placeholder="Nama Sekolah">
+                            <label for="cemail" class="control-label text-dark fw-bold">Nama Sekolah</label>
+                            <input class="form-control mb-3" type="text" name="nama_sekolah" placeholder="exp. SMP Pancasila">
 
-                            <label for="cemail" class="control-label">Derajat</label>
-                            <input class="form-control mb-3" type="text" name="derajat" placeholder="Derajat">
+                            <label for="cemail" class="control-label text-dark fw-bold">Derajat</label>
+                            <input class="form-control mb-3" type="text" name="derajat" placeholder="exp. SMP/SMA/SMK/MA">
 
-                            <label for="cemail" class="control-label">Lokasi</label>
+                            <label for="cemail" class="control-label text-dark fw-bold">Lokasi</label>
                             <input class="form-control mb-3" type="text" name="lokasi" placeholder="Lokasi">
 
-                            <label for="cemail" class="control-label">SPP</label>
-                            <input class="form-control mb-3" type="text" name="spp" placeholder="spp"
+                            <label for="cemail" class="control-label text-dark fw-bold">SPP</label>
+                            <input class="form-control mb-3" type="text" name="spp" placeholder="exp. Rp 100.000"
                                 id="dengan-rupiah">
 
                         </div>
@@ -72,31 +72,32 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="table-responsive">
-                                    <table id="table1">
+                                    <table id="table1" class="table-bordered">
                                         <thead>
-                                            <tr class="box bg-teal" role="row">
-                                                <th width="4%" class="text-center text-primary" tabindex="0"
+                                            <tr class="box bg-primary" role="row">
+                                                <th width="4%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="No.: activate to sort column descending">No.</th>
-                                                <th width="25%" class="text-center text-primary" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1" name="nama_sekolah"
+                                                <th width="25%" class="text-center text-light" tabindex="0"
+                                                    aria-controls="example1" rowspan="1" colspan="1"
+                                                    name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
                                                     Nama Sekolah</th>
-                                                <th width="10%" class="text-center text-primary" tabindex="0"
+                                                <th width="10%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1" name="derajat"
                                                     aria-label="Derajat: activate to sort column ascending">
                                                     Derajat</th>
-                                                <th width="25%" class="text-center text-primary" tabindex="0"
+                                                <th width="25%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1" name="lokasi"
                                                     aria-label="Lokasi: activate to sort column ascending">
                                                     Lokasi
                                                 </th>
-                                                <th width="15%" class="text-center text-primary" tabindex="0"
+                                                <th width="15%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="spp" aria-label="spp: activate to sort column ascending">SPP
                                                 </th>
-                                                <th width="25%" class="text-center text-primary" tabindex="0"
+                                                <th width="25%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="Action" aria-label="Action: activate to sort column ascending">
                                                     Action
@@ -114,13 +115,14 @@
                                                     $no++;
                                                 @endphp
                                                 <tr role="row" class="odd">
-                                                    <td class="sorting_1">{{ $no }}</td>
+                                                    <td class="sorting_1 text-center">{{ $no }}</td>
                                                     <td class="text-center">{{ $s->nama_sekolah }}</td>
                                                     <td class="text-center">{{ $s->derajat }}</td>
                                                     <td>{{ $s->lokasi }}</td>
-                                                    <td>{{ $s->spp }}</td>
-                                                    {{-- <td class="text-center">{{ 'Rp ' . number_format($s->spp, 0, '.', '.') }}</td> --}}
-                                                    <td class="d-flex">
+                                                    {{-- <td>{{ $s->spp }}</td> --}}
+                                                    <td class="text-center">
+                                                        {{ 'Rp ' . number_format($s->spp, 0, '.', '.') }}</td>
+                                                    <td class="d-flex justify-content-center">
                                                         <a href="/sekolah/{{ $s->id }}/edit" id="2"
                                                             class="edit me-1">
                                                             <button class="btn btn-outline-success btn-sm mb-1"
@@ -143,7 +145,7 @@
                                                         <a href="/sekolah/{{ $s->id }}/detail" id="2"
                                                             class="">
                                                             <button class="btn btn-outline-primary btn-sm"
-                                                                type="button"><i class="fa fa-pencil-square"></i>
+                                                                type="button"><i class="fa fa-eye"></i>
                                                                 Show
                                                             </button>
                                                         </a>

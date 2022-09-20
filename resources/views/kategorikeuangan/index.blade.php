@@ -15,24 +15,24 @@
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Kategori Keuangan</h5>
+                        <h5 class="modal-title text-primary fw-bold" id="exampleModalLabel">Kategori Keuangan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="/kategorikeuangan/add" method="POST">
                         @csrf
                         <div class="modal-body">
-                            <label for="cemail" class="control-label">Nama Keuangan</label>
+                            <label for="cemail" class="control-label fw-bold text-dark">Nama Keuangan</label>
                             <input class="form-control mb-3" type="text" name="nama_keuangan"
                                 placeholder="Nama Keuangan">
 
-                            <label for="cemail" class="control-label">Kategori Keuangan</label>
+                            <label for="cemail" class="control-label fw-bold text-dark">Kategori Keuangan</label>
                             <select class="form-select form-select-lg form-control mb-3" name="kategori_keuangan"
                                 id="kategori_keuangan">
                                 <option value="pemasukan">Pemasukan</option>
                                 <option value="pengeluaran">Pengeluaran</option>
                             </select>
 
-                            <label for="cemail" class="control-label">Deskripsi</label>
+                            <label for="cemail" class="control-label fw-bold text-dark">Deskripsi</label>
                             <input class="form-control mb-3" type="text" name="deskripsi" placeholder="Deskripsi">
 
                         </div>
@@ -64,27 +64,27 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="table-responsive">
-                                    <table id="table1">
+                                    <table id="table1" class="table-bordered">
                                         <thead>
-                                            <tr class="box bg-teal table-primary" role="row">
-                                                <th width="4%" class="text-center text-primary" tabindex="0"
+                                            <tr class="box bg-primary" role="row">
+                                                <th width="4%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="No.: activate to sort column descending">No.</th>
-                                                <th class="text-center text-primary" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="text-center text-light" tabindex="0" aria-controls="example1" rowspan="1"
                                                     colspan="1" name="nama_keuangan"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
                                                     Nama Keuangan</th>
-                                                <th width="20%" class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                                <th width="20%" class="text-center text-light" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="kategori_keuangan"
                                                     aria-label="Kategori Keuangan: activate to sort column ascending">
                                                     Kategori Keuangan</th>
-                                                <th width="25%" class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                                <th width="25%" class="text-center text-light" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="deskripsi"
                                                     aria-label="Deskripsi: activate to sort column ascending">Deskripsi
                                                 </th>
 
-                                                <th width="20%" class="sorting text-center text-primary" tabindex="0" aria-controls="example1"
+                                                <th width="20%" class="sorting text-center text-light" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending">Action</th>
 
@@ -105,7 +105,7 @@
                                                     <td class="text-center">{{ $kk->kategori_keuangan }}</td>
                                                     <td class="text-center">{{ $kk->deskripsi }}</td>
 
-                                                    <td class="d-flex text-center">
+                                                    <td class="d-flex justify-content-center">
                                                         <a href="/kategorikeuangan/{{ $kk->id }}/edit"
                                                             id="2" class="edit me-2">
                                                             <button class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-pencil-square"></i>

@@ -16,20 +16,21 @@
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah kelas</h5>
+                        <h4 class="modal-title text-primary fw-bold" id="exampleModalLabel">Tambah kelas</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="/datakelas/add" method="POST">
                         @csrf
                         <div class="modal-body">
-                            <label for="cemail" class="control-label">Sekolah</label>
+                            <label for="cemail" class="control-label text-dark fw-bold">Sekolah</label>
                             <select class="form-select form-select-lg mb-3 form-control" id="nama_sekolah"
                                 name="nama_sekolah">
+                                <option>=== Pilih Sekolah ===</option>
                                 @foreach ($sekolah as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
                                 @endforeach
                             </select>
-                            <label for="cemail" class="control-label">Tingkatan Kelas</label>
+                            <label for="cemail" class="control-label text-dark fw-bold">Tingkatan Kelas</label>
                             <select class="form-select form-select-lg mb-3 form-control" id="tingkatan_kelas"
                                 name="tingkatan_kelas">
                                 @foreach ($tingkatankelas as $item)
@@ -37,19 +38,19 @@
                                 @endforeach
 
                             </select>
-                            <label for="cemail" class="control-label">Nama Kelas</label>
-                            <input class="form-control mb-3" type="text" name="nama_kelas" placeholder="Nama Kelas">
+                            <label for="cemail" class="control-label text-dark fw-bold">Nama Kelas</label>
+                            <input class="form-control mb-3" type="text" name="nama_kelas" placeholder="exp. Kelas VI.1">
 
-                            {{-- <label for="cemail" class="control-label">Tingkatan Kelas</label>
+                            {{-- <label for="cemail" class="control-label text-dark fw-bold">Tingkatan Kelas</label>
                             <select class="form-select form-select-lg mb-3 form-control" name="tingkatan_kelas_id">
                                 @foreach ($tingkatankelas as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_tingkatan }}</option>
                                 @endforeach
                             </select> --}}
 
-                            <label for="cemail" class="control-label">kuota</label>
+                            <label for="cemail" class="control-label text-dark fw-bold">kuota</label>
                             <input class="form-control mb-3" type="number" min="0" name="kuota"
-                                placeholder="kuota">
+                                placeholder="--">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -81,18 +82,18 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
-                                        <table id="table1"  >
+                                        <table id="table1" class="table-bordered" >
                                             <thead>
-                                                <tr class="box bg-teal table-primary" role="row">
-                                                    <th width="5%" class="text-center text-primary" tabindex="0"
+                                                <tr class="box bg-primary" role="row">
+                                                    <th width="5%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">No.</th>
-                                                    <th class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                                    <th class="text-center text-light" tabindex="0" aria-controls="example1"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Nama Sekolah: activate to sort column ascending">
                                                         Tingkatan kelas</th>
-                                                    <th class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                                    <th class="text-center text-light" tabindex="0" aria-controls="example1"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Kelas/Rombel: activate to sort column ascending">
                                                         Kelas</th>
@@ -101,11 +102,11 @@
                                                         aria-label="Tingkat Kelas: activate to sort column ascending">
                                                         Tingkat
                                                         Kelas</th> --}}
-                                                    <th width="20%" class="text-center text-primary" tabindex="0"
+                                                    <th width="20%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">Jumlah Siswa
                                                     </th>
-                                                    <th width="30%" class="text-center text-primary" tabindex="0"
+                                                    <th width="30%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">Action</th>
                                                 </tr>
@@ -120,11 +121,11 @@
                                                         $no++;
                                                     @endphp
                                                     <tr role="row" class="odd">
-                                                        <td class="sorting_1">{{ $no }}</td>
+                                                        <td class="sorting_1 text-center">{{ $no }}</td>
                                                         <td class="text-center">{{ $dk->TingkatanKelas->tingkatan_kelas }}</td>
                                                         <td class="text-center">{{ $dk->nama_kelas }}</td>
                                                         <td class="text-center">{{ $dk->kuota }}</td>
-                                                        <td class="d-flex">
+                                                        <td class="d-flex justify-content-center">
                                                             <a href="/datakelas/{{ $dk->id }}/edit" id="2"
                                                                 class="edit me-2">
                                                                 <button class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-pencil-square"></i>
@@ -135,8 +136,10 @@
                                                                 class="me-2">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <input class="btn btn-outline-danger btn-sm" type="submit"
-                                                                    value="Hapus">
+                                                                <button class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i>
+                                                                    Hapus
+                                                                </button>
+                                                                
                                                             </form>
 
                                                             <a href="/datakelas/{{ $dk->id }}/detail"

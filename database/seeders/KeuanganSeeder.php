@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Keuangan;
+use App\Models\SumberDana;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -44,6 +45,10 @@ class KeuanganSeeder extends Seeder
             'tanggal' => '2022-07-22 11:13:24.000000',
             'bukti' => '',
             'status_pembayaran' => 'Proses'
+        ]);
+        SumberDana::create([
+            'sumber_dana' => 'Uang Kas Sekolah',
+            'deskripsi' => 'minta dana sekolah',
         ]);
     }
 }

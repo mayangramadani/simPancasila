@@ -26,17 +26,17 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table id="table1" class="table-bordered">
+                                <table id="table1" class="table table-bordered">
                                     <thead>
-                                        <tr class="box bg-teal table-primary" role="row">
-                                            <th width="5%" class="sorting_asc text-center text-primary" tabindex="0"
+                                        <tr class="box bg-primary" role="row">
+                                            <th width="5%" class="sorting_asc text-center text-light" tabindex="0"
                                                 aria-controls="example1" rowspan="1" colspan="1"
                                                 aria-sort="ascending">No.</th>
-                                            <th width="25%" class="sorting text-center text-primary" tabindex="0"
+                                            <th width="25%" class="sorting text-center text-light" tabindex="0"
                                                 aria-controls="example1" rowspan="1" colspan="1">NIS</th>
-                                            <th class="sorting text-center text-primary" tabindex="0"
+                                            <th class="sorting text-center text-light" tabindex="0"
                                                 aria-controls="example1" rowspan="1" colspan="1">Nama Lengkap</th>
-                                            <th width="20%" class="sorting text-center text-primary" tabindex="0"
+                                            <th width="20%" class="sorting text-center text-light" tabindex="0"
                                                 aria-controls="example1" rowspan="1" colspan="1">Action</th>
                                         </tr>
                                     </thead>

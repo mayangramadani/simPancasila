@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EnsureUserHasRole
 {
@@ -14,12 +15,25 @@ class EnsureUserHasRole
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, string $role)
+    // public function handle(Request $request, Closure $next, string $role)
+    // {
+
+
+    //     abort(403);
+    // }
+
+    public function handle($request, Closure $next, ...$roles)
     {
-        if ($request->user()->role === $role) {
-            return $next($request);
+        if (!Auth::check()) {
+            return redirect('login');
         }
 
-        abort(403);
+        foreach ($roles as $role) {
+            if ($request->user()->role === $role) {
+                return $next($request);
+            }
+        }
+
+        return abort(403);
     }
 }

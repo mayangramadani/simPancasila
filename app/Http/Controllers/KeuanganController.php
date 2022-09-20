@@ -17,7 +17,7 @@ class KeuanganController extends Controller
     //
     public function index()
     {
-
+dd();
         $keuangan = Keuangan::get();
         $saldo = Saldo::all();
         $sekolah = Sekolah::all();
@@ -83,11 +83,6 @@ class KeuanganController extends Controller
         return view('datakeuangan.detail', compact('keuangan', 'sekolah'));
     }
 
-    // public function anggaran($id)
-    // {
-    //     $keuangan = Keuangan::find($id);
-    //     return view('datakeuangan.anggaran', compact('keuangan'));
-    // }
     public function edit($id)
     {
         $keuangan = Keuangan::find($id);
@@ -99,7 +94,7 @@ class KeuanganController extends Controller
         $keuangan = Keuangan::find($id);
         $keuangan->nama_keuangan = $request->nama_keuangan;
         $keuangan->jenis_keuangan = $request->jenis_keuangan;
-        $keuangan->jumlah = $request->jumlah;
+        $keuangan->jumlah = $this->convertRP($request->jumlah);
         $keuangan->tanggal = $request->tanggal;
         $keuangan->deskripsi = $request->deskripsi;
 
@@ -125,7 +120,7 @@ class KeuanganController extends Controller
     {
         $keuangan = Keuangan::find($id);
         $keuangan->delete();
-        return redirect('/datakeuangan')->with('success', 'Data Berhasil Dihapus');;
+        return redirect('/datakeuangan')->with('success', 'Data Berhasil Dihapus');
     }
     public function getkeuangan($id)
     {
@@ -134,7 +129,7 @@ class KeuanganController extends Controller
     }
     public function rkas(Request $request)
     {
-     
+
         if ($request->berkas_pendukung != null) {
             $file = $request->berkas_pendukung;
             $extension = $file->extension();
@@ -146,7 +141,7 @@ class KeuanganController extends Controller
         }
         Keuangan::create([
             'nama_keuangan' => $request->nama_keuangan,
-            'jumlah' => $request->jumlah,
+            'jumlah' => $this->convertRP($request->jumlah),
             'tanggal' => $request->tanggal,
             'deskripsi' => $request->deskripsi,
             'sumber_dana_id' => $request->sumber_dana,
@@ -154,14 +149,27 @@ class KeuanganController extends Controller
             'status' => 'Proses',
             'kategori_keuangan_id' => '3'
         ]);
-        return back();
+        return back()->with('success', 'Data Berhasil DiTambahkan');
     }
 
     public function lihatRkas()
-    {   
+    {
         $sumberdana = SumberDana::all();
         // return view('datakeuangan.edit', compact('sumberdana'));
 
         return view('datakeuangan.rkas', compact('sumberdana'));
+    }
+    public function review($id)
+    {
+        $keuangan = Keuangan::find($id);
+        return view('datakeuangan.review', compact('keuangan'));
+    }
+
+    public function guru($id)
+    {
+       
+        $keuangan = Keuangan::find($id);
+        $sumberdana = SumberDana::get();
+        return view('datakeuangan.guru', compact('keuangan', 'sumberdana'));
     }
 }

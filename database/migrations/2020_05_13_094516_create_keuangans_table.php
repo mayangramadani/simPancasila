@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('jumlah')->nullable();
             $table->string('tanggal')->nullable();
             $table->string('deskripsi')->nullable();
+            $table->string('komentar')->nullable();
             $table->string('bukti')->nullable();
             $table->string('berkas_pendukung')->nullable();
             $table->enum('status_pembayaran', ['Diterima', 'Belum Dibayar', 'Ditolak', 'Proses'])->nullable()->default('Belum Dibayar');

@@ -11,6 +11,6 @@ class ActivityLog extends Model
     protected $table = 'activity_log';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'id', 'log_name', 'description', 'subject', 'causer', 'properties', 'log_name'
+        'nama', 'aktivitas', 'tanggal'
     ];
 }

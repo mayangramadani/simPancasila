@@ -16,25 +16,25 @@
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tingkatan Kelas</h5>
+                        <h5 class="modal-title text-primary fw-bold" id="exampleModalLabel">Tingkatan Kelas</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="/tingkatankelas/add" method="POST">
                         @csrf
                         <div class="modal-body">
-                            <label for="cemail" class="control-label">Sekolah</label>
-                            <select class="form-select form-select-lg form- mb-3" name="sekolah_id">
+                            <label for="cemail" class="control-label text-dark fw-bold">Sekolah</label>
+                            <select class="form-select form-select-md form- mb-3" name="sekolah_id">
                                 <option>=== Pilih Sekolah ===</option>
                                 @foreach ($sekolah as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
                                     </option>
                                 @endforeach
                             </select>
-                            <label for="cemail" class="control-label">Tingkatan Kelas</label>
+                            <label for="cemail" class="control-label text-dark fw-bold">Tingkatan Kelas</label>
                             <input class="form-control mb-3" type="text" name="tingkatan_kelas"
-                                placeholder="Tingkatan Kelas">
+                                placeholder="exp. Kelas 7">
 
-                            <label for="cemail" class="control-label">Deskripsi</label>
+                            <label for="cemail" class="control-label text-dark fw-bold">Deskripsi</label>
                             <input class="form-control mb-3" type="text" name="deskripsi" placeholder="deskripsi">
 
                         </div>
@@ -64,28 +64,28 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="table-responsive">
-                                    <table id="table1">
+                                    <table id="table1" class="table-bordered">
                                         <thead>
-                                            <tr class="box bg-teal" role="row">
-                                                <th width="4%" class="text-center text-primary" tabindex="0"
+                                            <tr class="box bg-primary " role="row">
+                                                <th width="4%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="No.: activate to sort column descending">No.</th>
-                                                <th class="text-center text-primary" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="text-center text-light" tabindex="0" aria-controls="example1" rowspan="1"
                                                     colspan="1" name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
                                                     Nama Sekolah</th>
-                                                <th width="15%" class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                                <th width="15%" class="text-center text-light" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="tingkatan_kelas"
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
                                                     Tingkat Kelas
                                                 </th>
-                                                <th width="15%" class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                                <th width="15%" class="text-center text-light" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="deskripsi"
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
                                                     Deskripsi
                                                 </th>
-                                                <th width="25%" class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                                <th width="25%" class="text-center text-light" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending">Action</th>
 
@@ -105,7 +105,7 @@
                                                     <td class="text-center">{{ $tk->Sekolah->nama_sekolah }}</td>
                                                     <td class="text-center">{{ $tk->tingkatan_kelas }}</td>
                                                     <td class="text-center">{{ $tk->deskripsi }}</td>
-                                                    <td class="d-flex">
+                                                    <td class="d-flex justify-content-center">
                                                         <a href="/tingkatankelas/{{ $tk->id }}/edit" id="2"
                                                             class="edit me-2">
                                                             <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
@@ -124,7 +124,7 @@
 
                                                         <a href="/tingkatankelas/{{ $tk->id }}/detail"
                                                             id="2" class="detail me-2">
-                                                            <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-pencil-square"></i>
+                                                            <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-eye"></i>
                                                                 Show
                                                             </button>
                                                         </a>

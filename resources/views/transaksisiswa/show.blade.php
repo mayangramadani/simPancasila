@@ -25,7 +25,9 @@
                             <div class="col-lg-6">
                                 <!-- col-lg-6 start here -->
                                 <div class="sidebar-brand-icon logo-brand">
-                                    <img src="{!! asset('asset/img/logo.png') !!}" alt="">
+                                    <img src="{!! asset('asset/img/logo.png') !!}" alt="" width="100px
+                                    
+                                    ">
                                 </div>
                             </div>
                             <!-- col-lg-6 end here -->
@@ -49,8 +51,18 @@
                                             <li><strong>Invoice</strong> {{ $transaksisiswa->no_transaksi }}</li>
                                             <li><strong>Invoice Date:</strong> {{ $transaksisiswa->tanggal }}</li>
                                             <li><strong>Due Date:</strong> {{ $transaksisiswa->tanggal }}</li>
-                                            <li><strong>Status:</strong> <span
-                                                    class="label label-danger">{{ $transaksisiswa->status_pembayaran }}</span>
+                                            <li><strong>Status:</strong>
+                                                @if ($transaksisiswa->status_pembayaran == 'Ditolak')
+                                                    <span class="badge bg-danger">Ditolak</span>
+                                                @elseif ($transaksisiswa->status_pembayaran == 'Belum Dibayar')
+                                                    <span class="badge bg-danger">Belum Dibayar</span>
+                                                @elseif($transaksisiswa->status_pembayaran == 'Diterima')
+                                                    <span class="badge bg-success">Diterima</span>
+                                                @elseif($transaksisiswa->status_pembayaran == 'Proses')
+                                                    <span class="badge bg-danger">Proses</span>
+                                                @else
+                                                    <span class="badge bg-dark">Belum diperiksa</span>
+                                                @endif
                                             </li>
                                         </ul>
                                     </div>

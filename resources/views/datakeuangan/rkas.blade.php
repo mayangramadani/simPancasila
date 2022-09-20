@@ -20,20 +20,20 @@
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold text-primary" for="kelas">Nama
                                             Kegiatan</label>
-                                        <input type="text" class="form-control" id="nama_keuangan"
+                                        <input type="text" class="form-control" id="nama_keuangan" name="nama_keuangan"
                                             placeholder="Nama Kegiatan" required autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold text-primary"
                                             for="kelas">Deskripsi</label>
                                         <input type="text" class="form-control" id="deskripsi" placeholder="Deskripsi"
-                                            required autocomplete="off">
+                                            name="deskripsi" required autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold text-primary"
                                             for="kelas">Jumlah</label>
                                         <input type="text" class="form-control" id="dengan-rupiah" placeholder="Jumlah"
-                                            required autocomplete="off">
+                                            name="jumlah" required autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold text-primary" for="kelas">Sumber
@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary" id="btn-submit" type="submit">Bayar</button>
+                                <button class="btn btn-primary" id="btn-submit" type="submit">Add</button>
                         </div>
 
                     </div>

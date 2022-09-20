@@ -61,7 +61,20 @@
                                                         </td>
                                                         <td>{{ $ts->tanggal }}</td>
                                                         <td>{{ $ts->bukti }}</td>
-                                                        <td>{{ $ts->status_pembayaran }}</td>
+
+                                                        <td class="text-center">
+                                                            @if ($item->status_pembayaran == 'Ditolak')
+                                                                <span class="badge bg-danger">Ditolak</span>
+                                                            @elseif ($item->status_pembayaran == 'Belum Dibayar')
+                                                                <span class="badge bg-danger">Belum Dibayar</span>
+                                                            @elseif($item->status_pembayaran == 'Diterima')
+                                                                <span class="badge bg-success">Diterima</span>
+                                                            @elseif($item->status_pembayaran == 'Proses')
+                                                                <span class="badge bg-warning">Proses</span>
+                                                            @else
+                                                                <span class="badge bg-dark">Belum diperiksa</span>
+                                                            @endif
+                                                        </td>
                                                         {{-- <td class="d-flex">
                                                             <a href="/transaksisiswa/{{ $ts->id }}/edit"
                                                                 id="2" class="edit me-2">

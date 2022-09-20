@@ -51,12 +51,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datakeuangan/rkas', function () {
         return view('datakeuangan.rkas');
     });
+    Route::get('/datakeuangan/guru', function () {
+        return view('datakeuangan.guru');
+    });
     Route::get('/transaksisiswa/historisiswa', function () {
         return view('transaksisiswa.historisiswa');
     });
-    // Route::get('/activitylog', function () {
-    //     return view('activitylog');
-    // });
+    Route::get('/activitylog', function () {
+        return view('activitylog');
+    });
 
     // datasiswa
     Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -92,7 +95,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     // datakeuangan
-    Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::middleware('role:guru,admin')->group(function () {
         Route::get('/datakeuangan', [KeuanganController::class, 'index'])->name('index');
         Route::get('/datakeuangan/create', [KeuanganController::class, 'create'])->name('create');
         Route::post('/datakeuangan/add', [KeuanganController::class, 'add'])->name('add');
@@ -103,6 +106,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
         Route::post('/datakeuangan/rkas', [KeuanganController::class, 'rkas'])->name('rkas');
         Route::get('/datakeuangan/rkas', [KeuanganController::class, 'lihatRkas'])->name('lihatRkas');
+        Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review'])->name('review');
+        Route::get('/datakeuangan/{id}/guru', [KeuanganController::class, 'guru'])->name('guru');
     });
 
     // sekolah

@@ -27,24 +27,24 @@
                                 <div class="table-responsive">
                                     <table id="table1" class="table-bordered">
                                         <thead>
-                                            <tr class="box bg-teal table-primary" role="row">
-                                                <th width="4%" class="sorting_1 text-center text-primary" tabindex="0"
+                                            <tr class="box bg-primary" role="row">
+                                                <th width="4%" class="sorting_1 text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="No.: activate to sort column descending">No.</th>
-                                                <th class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                                <th class="text-center text-light" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1" name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
                                                     Nama Siswa</th>
-                                                <th width="25%" class="text-center text-primary" tabindex="0"
+                                                <th width="25%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1" name="nis"
                                                     aria-label="Lokasi: activate to sort column ascending">NIS
                                                 </th>
-                                                <th width="15%" class="text-center text-primary" tabindex="0"
+                                                <th width="15%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1" name="derajat"
                                                     aria-label="Derajat: activate to sort column ascending">
                                                     Derajat</th>
-                                                <th width="10%" class="text-center text-primary" tabindex="0"
+                                                <th width="10%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="spp" aria-label="spp: activate to sort column ascending">SPP
                                                 </th>

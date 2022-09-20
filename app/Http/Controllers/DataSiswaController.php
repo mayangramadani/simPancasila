@@ -38,7 +38,6 @@ class DataSiswaController extends Controller
         Siswa::create([
             'nis' => $request->nis,
             'nama_siswa' => $request->nama_siswa,
-            'kelas_id' => $request->kelas_id,
             'tanggal_lahir' => $request->tanggal_lahir,
             'tempat_lahir' => $request->tempat_lahir,
             'alamat' => $request->alamat,
@@ -84,7 +83,6 @@ class DataSiswaController extends Controller
         $siswa = Siswa::find($id);
         $siswa->nis = $request->nis;
         $siswa->nama_siswa = $request->nama_siswa;
-        $siswa->kelas_id = $request->kelas_id;
         $siswa->alamat = $request->alamat;
         $siswa->tanggal_lahir = $request->tanggal_lahir;
         $siswa->jenis_kelamin = $request->jenis_kelamin;

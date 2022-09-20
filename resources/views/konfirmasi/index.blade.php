@@ -35,37 +35,37 @@
                             <div class="card-body">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
-                                        <table id="table1">
+                                        <table id="table1" class="table-bordered">
                                             <thead>
-                                                <tr class="box bg-teal table-primary" role="row">
-                                                    <th width="4%" class="text-center text-primary" tabindex="0"
+                                                <tr class="box bg-primary" role="row">
+                                                    <th width="4%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No.</th>
-                                                    <th width="15%" class="text-center text-primary" tabindex="0"
+                                                    <th width="15%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No. Transaksi</th>
-                                                    <th class="text-center text-primary" tabindex="0" aria-contr
+                                                    <th class="text-center text-light" tabindex="0" aria-contr
                                                         ols="example1" rowspan="1" colspan="1" name="nama_siswa"
                                                         aria-label="Nama Pembayaran: activate to sort column ascending">
                                                         Nama siswa</th>
-                                                    <th width="10%" class="text-center text-primary" tabindex="0"
+                                                    <th width="10%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         id="dengan-rupiah"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Nominal</th>
-                                                    <th width="16%" class="text-center text-primary" tabindex="0"
+                                                    <th width="16%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Status Pembayaran</th>
-                                                    <th width="16%" class="text-center text-primary" tabindex="0"
+                                                    <th width="16%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Bukti Pembayaran</th>
-                                                    <th width="10%" class="text-center text-primary" tabindex="0"
+                                                    <th width="10%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">
                                                         Action</th>
@@ -94,10 +94,11 @@
                                                             @endif
                                                         </td>
                                                         <td class="text-center">{{ $item->bukti_pembayaran }}</td>
-                                                        <td class="d-flex">
+                                                        <td class="d-flex justify-content-center
+                                                        ">
                                                             <a href="/konfirmasi/{{ $item->id }}/show" id="2"
                                                                 class=" me-2">
-                                                                <button class="btn btn-outline-info" type="button">
+                                                                <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-eye"></i>
                                                                     Show
                                                                 </button>
                                                             </a>
@@ -111,45 +112,42 @@
                             </div>
                         </div>
                     </div>
+                      <!-- Histori -->
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
                             <div class="card-body">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
-                                        <table id="table2">
+                                        <table id="table2" class="table-bordered">
                                             <thead>
-                                                <tr class="box bg-teal table-primary" role="row">
-                                                    <th width="4%" class="text-center text-primary" tabindex="0"
+                                                <tr class="box bg-primary" role="row">
+                                                    <th width="4%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No.</th>
-                                                    <th width="15%" class="text-center text-primary" tabindex="0"
+                                                    <th width="15%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">
                                                         No. Transaksi</th>
-                                                    <th class="text-center text-primary" tabindex="0" aria-contr
+                                                    <th class="text-center text-light" tabindex="0" aria-contr
                                                         ols="example1" rowspan="1" colspan="1" name="nama_siswa"
                                                         aria-label="Nama Pembayaran: activate to sort column ascending">
                                                         Nama siswa</th>
-                                                    <th width="10%" class="text-center text-primary" tabindex="0"
+                                                    <th width="10%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         id="dengan-rupiah"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Nominal</th>
-                                                    <th width="16%" class="text-center text-primary" tabindex="0"
+                                                    <th width="16%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Status Pembayaran</th>
-                                                    <th width="20%" class="text-center text-primary" tabindex="0"
+                                                    <th width="20%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="xxx: activate to sort column ascending">
                                                         Bukti Pembayaran</th>
-                                                    {{-- <th width="10%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Action: activate to sort column ascending">
-                                                        Action</th> --}}
 
                                                 </tr>
                                             </thead>
@@ -175,14 +173,6 @@
                                                             @endif
                                                         </td>
                                                         <td class="text-center">{{ $item->bukti_pembayaran }}</td>
-                                                        {{-- <td class="d-flex">
-                                                            <a href="/konfirmasi/{{ $item->id }}/show"
-                                                                id="2" class=" me-2">
-                                                                <button class="btn btn-outline-info" type="button">
-                                                                    Show
-                                                                </button>
-                                                            </a>
-                                                        </td> --}}
                                                     </tr>
                                                 @endforeach
                                             </tbody>

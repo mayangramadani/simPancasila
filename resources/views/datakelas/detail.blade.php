@@ -39,36 +39,38 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table id="table1" class="table table-bordered table-hover dataTable no-footer"
-                                    role="grid" aria-describedby="example1_info">
+                                <table id="table1" class="table table-bordered" role="grid"
+                                    aria-describedby="example1_info">
                                     <thead>
-                                        <tr class="box bg-teal" role="row">
-                                            <th width="5%" class="sorting_asc" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1" aria-sort="ascending">No.</th>
-                                            <th width="25%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">NIS</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1">Nama Lengkap</th>
-                                            <th width="20%" class="sorting" tabindex="0" aria-controls="example1"
-                                                rowspan="1" colspan="1">Action</th>
+                                        <tr class="box bg-primary" role="row">
+                                            <th width="5%" class="sorting_asc text-center text-light" tabindex="0"
+                                                aria-controls="example1" rowspan="1" colspan="1"
+                                                aria-sort="ascending">No.</th>
+                                            <th width="25%" class="sorting text-center text-light" tabindex="0"
+                                                aria-controls="example1" rowspan="1" colspan="1">NIS</th>
+                                            <th class="sorting text-center text-light" tabindex="0"
+                                                aria-controls="example1" rowspan="1" colspan="1">Nama Lengkap</th>
+                                            <th width="20%" class="sorting text-center text-light" tabindex="0"
+                                                aria-controls="example1" rowspan="1" colspan="1">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @if ($dataku != null)
                                             @foreach ($dataku as $ds)
                                                 <tr role="row" class="odd">
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $ds['nis'] }}</td>
-                                                    <td>{{ $ds['nama_siswa'] }}</td>
+                                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                                    <td class="text-center">{{ $ds['nis'] }}</td>
+                                                    <td class="text-center">{{ $ds['nama_siswa'] }}</td>
                                                     {{-- <td>{{ $ds->DataKelas->nama_kelas }}</td> --}}
-                                                    <td class="d-flex">
+                                                    <td class="d-flex justify-content-center">
                                                         <form action="{{ url('/akseskelas/add') }}" method="post">
                                                             @csrf
                                                             <input type="hidden" value="{{ $ds['id'] }}"
                                                                 name="siswa_id">
                                                             <input type="hidden" value="{{ $datakelas->id }}"
                                                                 name="kelas_id">
-                                                            <button class="btn btn-outline-info" type="submit">
+                                                            <button class="btn btn-outline-info btn-sm" type="submit"><i
+                                                                    class="fa fa-plus"></i>
                                                                 Add Siswa
                                                             </button>
                                                         </form>
@@ -87,4 +89,11 @@
 
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $('#table1').DataTable();
+            });
+        </script>
+    @endpush
 @endsection
