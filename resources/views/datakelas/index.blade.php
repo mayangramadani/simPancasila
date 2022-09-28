@@ -97,11 +97,6 @@
                                                         rowspan="1" colspan="1"
                                                         aria-label="Kelas/Rombel: activate to sort column ascending">
                                                         Kelas</th>
-                                                    {{-- <th width="25%" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Tingkat Kelas: activate to sort column ascending">
-                                                        Tingkat
-                                                        Kelas</th> --}}
                                                     <th width="20%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">Jumlah Siswa
@@ -144,7 +139,7 @@
 
                                                             <a href="/datakelas/{{ $dk->id }}/detail"
                                                                 id="2" class="detail me-2">
-                                                                <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
+                                                                <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-plus"></i>
                                                                     Add
                                                                 </button>
                                                             </a>

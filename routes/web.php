@@ -9,6 +9,7 @@ use App\Http\Controllers\TransaksiSiswaController;
 use App\Http\Controllers\KategoriPembayaranController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\AksesKelasController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\KategoriKeuanganController;
@@ -36,9 +37,8 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
+  
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('datasiswa');
     Route::get('/datalaporan/laporansemester', function () {
         return view('datalaporan.laporansemester');
     });
@@ -63,6 +63,8 @@ Route::middleware(['auth'])->group(function () {
 
     // datasiswa
     Route::middleware(['auth', 'role:admin'])->group(function () {
+        
+        Route::get('/cariSiswa', [DataSiswaController::class, 'cariSiswa'])->name('cariSiswa');
         Route::get('/datasiswa', [DataSiswaController::class, 'index'])->name('datasiswa');
         Route::get('/data-siswa/{id}', [DataSiswaController::class, 'getsiswa'])->name('getsiswa');
         Route::get('/datasiswa/create', [DataSiswaController::class, 'create'])->name('create');

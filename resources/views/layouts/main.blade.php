@@ -47,7 +47,7 @@
                     <img src="{!! asset('asset/img/logo.png') !!}" alt="">
                 </div>
                 <h6 class="nav-link fw-bold text-gray-500">Sistem Informasi</h6>
-                <h4 class="sidebar-brand-text fw-semibold">Administrasi Sekolah</h4>
+                <h4 class="sidebar-brand-text fw-semibold text-gray-500">Administrasi Sekolah</h4>
             </a>
 
             <!-- Divider -->

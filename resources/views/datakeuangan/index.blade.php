@@ -17,7 +17,7 @@
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Keuangan</h5>
+                        <h5 class="modal-title text-primary fw-bold" id="exampleModalLabel">Tambah Data Keuangan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -25,8 +25,8 @@
                             @csrf
 
                             <div class="mb-3">
-                                <label for="sekolah" class="form-label">Sekolah</label>
-                                <select class="form-select form-select-lg form-control" name="sekolah_id">
+                                <label for="sekolah" class="form-label text-dark fw-bold">Sekolah</label>
+                                <select class="form-select form-select-lg form-control mb-3" name="sekolah_id">
                                     <option disabled>=== Pilih Sekolah ===</option>
                                     @foreach ($sekolah as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
@@ -34,7 +34,7 @@
                                     @endforeach
                                 </select>
                                 <div class="mb-3">
-                                    <label for="transaksi" class="form-label">Kategori Keuangan</label>
+                                    <label for="transaksi" class="form-label text-dark fw-bold">Kategori Keuangan</label>
                                     <select class="form-select form-select-lg form-control"
                                         aria-label="Default select example" name="kategori_keuangan_id">
                                         <option selected disabled>=== Kategori Keuangan ===</option>
@@ -45,33 +45,34 @@
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="namaKeuangan" class="form-label">Nama Keuangan</label>
+                                    <label for="namaKeuangan" class="form-label text-dark fw-bold">Nama Keuangan</label>
                                     <input type="text" class="form-control" id="namaKeuangan" name="nama_keuangan"
                                         placeholder="Nama Keuangan">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="cemail" class="control-label">Jumlah</label>
-                                    <input class="form-control mb-3" type="text" name="jumlah" id="dengan-rupiah" />
+                                    <label for="cemail" class="control-label text-dark fw-bold">Jumlah</label>
+                                    <input class="form-control mb-3" type="text" name="jumlah" id="dengan-rupiah"
+                                        placeholder="exp. Rp 123.456">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="tanggal" class="form-label">Tanggal Transaksi</label>
+                                    <label for="tanggal" class="form-label text-dark fw-bold">Tanggal Transaksi</label>
                                     <input type="date" class="form-control" name="tanggal">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                                    <label for="deskripsi" class="form-label text-dark fw-bold">Deskripsi</label>
                                     <input type="text" class="form-control" id="deskripsi" name="deskripsi"
                                         placeholder="Deskripsi">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="foto" class="form-label">Bukti</label>
+                                    <label for="foto" class="form-label text-dark fw-bold">Bukti</label>
                                     <input class="form-control" type="file" id="formFile" name="bukti_transaksi">
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="foto" class="form-label">Status Pembayaran</label>
+                                {{-- <div class="mb-3">
+                                    <label for="foto" class="form-label ">Status Pembayaran</label>
                                     <select class="form-select form-select-lg form-control"
                                         aria-label="Default select example" name="status_pembayaran">
                                         <option selected disabled>=== Status Pembayaran ===</option>
@@ -80,7 +81,7 @@
                                         <option value="Tolak" selected>Tolak</option>
                                         <option value="Proses" selected>Proses</option>
                                     </select>
-                                </div>
+                                </div> --}}
 
                             </div>
                             <div class="modal-footer">
@@ -188,13 +189,10 @@
                                                                     <td class="text-center">
                                                                         {{ $dku->KategoriKeuangan->nama_keuangan }}
                                                                     </td>
-                                                                    <td class="text-center">{{ $dku->jumlah }}
-                                                                        {{-- {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }} --}}
+                                                                    <td class="text-center">
+                                                                        {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}
                                                                     </td>
                                                                     <td class="text-center">{{ $dku->tanggal }}</td>
-
-                                                                    {{-- <td class="text-center">{{ $dku->status_pembayaran }}</td> --}}
-
                                                                     <td class="text-center">
                                                                         @if ($dku->status_pembayaran == 'Ditolak')
                                                                             <span class="badge bg-danger">Ditolak</span>
@@ -213,9 +211,11 @@
 
                                                                     <td class="text-center">
                                                                         {{ $dku->SumberDana->sumber_dana }}</td>
-                                                                    <td class="text-center">{{ $dku->berkas_pendukung }}
+                                                                    <td class="text-center">
+                                                                        <img src="  {{ asset('storage/Keuangan/bukti/' . $dku->berkas_pendukung) }}"
+                                                                            height="80">
                                                                     </td>
-                                                                    <td class="d-felx justify-content-center">
+                                                                    <td class="justify-content-center">
                                                                         {{-- <a href="/datakeuangan/{{ $dku->id }}/edit"
                                                                             id="2" class="edit me-1">
                                                                             <button
@@ -306,11 +306,10 @@
 
                                                         <td class="text-center">{{ $no }}</td>
                                                         <td class="text-center">
-                                                            {{ $dku->KategoriKeuangan->nama_keuangan }}
-                                                        </td>
+                                                            {{ $dku->KategoriKeuangan->nama_keuangan }}</td>
                                                         <td class="text-center">{{ $dku->nama_keuangan }}</td>
-                                                        <td class="text-center">{{ $dku->jumlah }}
-                                                            {{-- {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td> --}}
+                                                        <td class="text-center">
+                                                            {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}</td>
                                                         <td class="text-center">{{ $dku->tanggal }}</td>
                                                         {{-- <td class="text-center">{{ $dku->bukti }}
                                                             <img src="{{ url('asset/img/' . $dku->id . '/' . $dku->bukti) }}"
@@ -331,10 +330,11 @@
                                                             @endif
                                                         </td>
                                                         <td class="text-center">{{ $dku->users_id }}</td>
-                                                        <td class="d-flex justify-content-center">
+                                                        <td class="justify-content-center">
                                                             <a href="/datakeuangan/{{ $dku->id }}/detail"
                                                                 id="2" class="detail me-2">
-                                                                <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
+                                                                <button class="btn btn-outline-info btn-sm"
+                                                                    type="button"><i class="fa fa-pencil-square"></i>
                                                                     Detail
                                                                 </button>
                                                             </a>
@@ -413,7 +413,7 @@
                                                         <td class="sorting_1">{{ $loop->iteration }}</td>
                                                         <td>{{ $sd->sumber_dana }}</td>
                                                         <td>{{ $sd->deskripsi }}</td>
-                                                        <td class="d-flex justify-content-center">
+                                                        <td class="text-center d-flex align-items-stretch">
                                                             <a href="/datakeuangan/{{ $sd->id }}" id="2"
                                                                 class="edit me-2">
                                                                 <button class="btn btn-outline-info btn-sm"
@@ -426,10 +426,11 @@
                                                                 @csrf
                                                                 @method('delete')
                                                                 <button class="btn btn-outline-danger btn-sm"
-                                                                    type="submit" value="Hapus"><i class="fas fa-trash-alt"></i>
+                                                                    type="submit" value="Hapus"><i
+                                                                        class="fas fa-trash-alt"></i>
                                                                     Delete
                                                                 </button>
-                                                                
+
                                                             </form>
                                                         </td>
                                                     </tr>

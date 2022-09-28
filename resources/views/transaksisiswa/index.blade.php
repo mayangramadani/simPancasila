@@ -87,7 +87,7 @@
                                                 <label for="foto"
                                                     class="form-control-label fw-semibold text-primary">Bukti *</label>
                                                 <input class="form-control" type="file" id="formFile"
-                                                    name="bukti_pembayaran">
+                                                    name="bukti">
                                             </div>
                                         </div>
 

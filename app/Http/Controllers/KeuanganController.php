@@ -17,7 +17,6 @@ class KeuanganController extends Controller
     //
     public function index()
     {
-dd();
         $keuangan = Keuangan::get();
         $saldo = Saldo::all();
         $sekolah = Sekolah::all();

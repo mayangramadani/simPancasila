@@ -20,28 +20,28 @@
                         <h4 class="m-0 font-weight-bold text-primary ">Buku Kas Umum Sekolah</h4>
                         <div class="d-flex">
                             <a href="/datakeuangan/{{ $keuangan->id }}/edit" id="2" class="edit me-2">
-                                <button class="btn btn-outline-info" type="button">
+                                <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
                                     Edit
                                 </button>
                             </a>
                             <form action="/datakeuangan/{{ $keuangan->id }}" method='post'>
                                 @csrf
                                 @method('delete')
-                                <input class="btn btn-outline-danger" type="submit" value="Hapus">
+                                <input class="btn btn-outline-danger btn-sm" type="submit" value="Hapus">
                             </form>
                         </div>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="p-3">
-                            <div class="mb-3 row">
+                            <div class="row">
                                 <label for="user" class="col-sm-2 col-form-label fw-bold text-dark">Nama User</label>
                                 <div class="col-sm-10">
                                     <label for="user" class="col-sm-5 form-control text-dark" readonly>
                                         {{ $keuangan->users_id }}</label>
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            <div class="row">
                                 <label for="sekolah" class="col-sm-2 col-form-label fw-bold text-dark">Kategori
                                     Keuangan</label>
                                 <div class="col-sm-10">
@@ -49,7 +49,7 @@
                                         {{ $keuangan->KategoriKeuangan->nama_keuangan }}</label>
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            <div class="row">
                                 <label for="sekolah" class="col-sm-2 col-form-label fw-bold text-dark">Nama
                                     Keuangan</label>
                                 <div class="col-sm-10">
@@ -57,7 +57,7 @@
                                         {{ $keuangan->nama_keuangan }}</label>
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            <div class="row">
                                 <label for="jumlahtransaksi" class="col-sm-2 col-form-label fw-bold text-dark">Jumlah
                                     Transaksi</label>
                                 <div class="col-sm-10">
@@ -66,7 +66,7 @@
                                         {{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }} </label>
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            <div class="row">
                                 <label for="tanggal" class="col-sm-2 col-form-label fw-bold text-dark">Tanggal
                                     Transaksi</label>
                                 <div class="col-sm-10">
@@ -74,20 +74,19 @@
                                         readonly>{{ $keuangan->tanggal }}</label>
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            <div class="row">
                                 <label for="Deskripsi" class="col-sm-2 col-form-label fw-bold text-dark">Deskripsi</label>
                                 <div class="col-sm-10">
                                     <label for="Deskripsi" class="col-sm-5 form-control text-dark" readonly>
                                         {{ $keuangan->deskripsi }}</label>
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            <div class="row">
                                 <label for="foto" class="col-sm-2 col-form-label fw-bold text-dark">Bukti</label>
-                                <label for="foto" class="col-sm-2 col-form-label">: <img width="100"
-                                        src="{{ asset('storage/Keuangan/bukti/' . $keuangan->bukti_transaksi) }}"
-                                        alt="Profile"></label>
+                                <label for="foto" class="col-sm-2 col-form-label"><img src="  {{ asset('storage/Keuangan/bukti/' . $keuangan->bukti_transaksi) }}"
+                                    height="80"></label>
                             </div>
-                            <div class="mb-3 row">
+                            <div class="row">
                                 <label for="statuspembayaran" class="col-sm-2 col-form-label fw-bold text-dark">Status
                                     Pembayaran</label>
                                 <label for="statuspembayaran" class="col-sm-2 col-form-label">:

@@ -7,9 +7,13 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Daftar Siswa Kelas</h1>
         </div>
+        <a href="/datakelas">Kembali</a>
 
-        <div class="mb-3">
-            <a href="/datakelas">Kembali</a>
+        <div class="d-flex justify-content-end mb-2">          
+            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal"><i class="fa fa-download"></i>
+            Export
+        </button>
         </div>
 
         <div class="row">

@@ -112,4 +112,34 @@ class DataSiswaController extends Controller
         $siswa = Siswa::find($id);
         return view('datasiswa.detail', compact('siswa'));
     }
+    public function cariSiswa(Request $request)
+    {
+        // $siswa = Siswa::where('sekolah_id', $request->sekolah)->where('isActive', True)->get();
+        // return $siswa;
+
+        if (!$request->sekolah) {
+            $html = null;
+        } else {
+            $html = '';
+            $siswa = Siswa::where('sekolah_id', $request->sekolah)->where('isActive', True)->get();
+            foreach ($siswa as $item) {
+                $html .= '<tr role="row" class="odd">
+                <td class="text-center">' . $item->id . '</td>
+                <td class="text-center">' . $item->nis . '</td>
+                <td class="text-center">' . $item->nama_siswa . '</td>
+                <td class="d-flex justify-content-center">
+                    <a href="/datasiswa/' . $item->id . '/detail" id="2"
+                        class="detail me-2">
+                        <button class="btn btn-outline-info btn-sm" type="button"><i
+                                class="fa fa-pencil-square"></i>
+                            Detail
+                        </button>
+                    </a>
+                </td>
+            </tr>';
+            }
+        }
+
+        return response()->json(['html' => $html]);
+    }
 }

@@ -4991,37 +4991,26 @@ input[type="button"].btn-block {
 }
 
 .breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
-    list-style: none;
-    background-color: #eaecf4;
-    border-radius: 0.35rem;
-}
-
-.breadcrumb-item+.breadcrumb-item {
-    padding-left: 0.5rem;
-}
-
-.breadcrumb-item+.breadcrumb-item::before {
-    float: left;
-    padding-right: 0.5rem;
-    color: #858796;
-    content: "/";
-}
-
-.breadcrumb-item+.breadcrumb-item:hover::before {
-    text-decoration: underline;
-}
-
-.breadcrumb-item+.breadcrumb-item:hover::before {
-    text-decoration: none;
-}
-
-.breadcrumb-item.active {
-    color: #858796;
-}
+    font-size: 14px;
+    font-family: "Nunito", sans-serif;
+    color: #899bbd;
+    font-weight: 600;
+    background-color: #f8f9fc;
+  }
+  .breadcrumb a {
+    color: #899bbd;
+    transition: 0.3s;
+  }
+  .breadcrumb a:hover {
+    color: #51678f;
+  }
+  .breadcrumb .breadcrumb-item::before {
+    color: #899bbd;
+  }
+  .breadcrumb .active {
+    color: #51678f;
+    font-weight: 600;
+  }
 
 .pagination {
     display: flex;
@@ -11034,7 +11023,7 @@ a:focus {
 }
 
 .sidebar-dark .sidebar-brand {
-    color: #fff;
+    color: #4e73df;
 }
 
 .sidebar-dark hr.sidebar-divider {

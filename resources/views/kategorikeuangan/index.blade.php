@@ -117,7 +117,7 @@
                                                             @csrf
                                                             @method('delete')
                                                             <button class="btn btn-outline-danger btn-sm"
-                                                                type="submit"><i class="fa fa-pencil-square"></i>
+                                                                type="submit"><i class="fas fa-trash-alt"></i>
                                                                 Delete
                                                             </button>
                                                             {{-- <input class="btn btn-outline-danger btn-sm delete-data" type="submit"
