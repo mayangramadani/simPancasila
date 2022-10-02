@@ -4,28 +4,42 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Daftar Siswa Kelas</h1>
+        <h4 class="text-primary fw-bold">Daftar Siswa</h4>
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/datakelas">Data Kelas</a></li>
+                    <li class="breadcrumb-item active">Daftar Siswa</li>
+                </ol>
+            </nav>
+            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                    class="fa fa-download"></i>
+                Export
+            </button>
         </div>
-        <a href="/datakelas">Kembali</a>
-
-        <div class="d-flex justify-content-end mb-2">          
+        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-2">
+            <h1 class="h3 mb-0 text-gray-800">Daftar Siswa Kelas</h1>
+        </div> --}}
+        {{-- <div class="py-3 d-flex flex-row align-items-center justify-content-between">
+            <h4 class="m-0 font-weight-bold text-primary">kEM</h4>
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus"></i>
+                Add Kelas
+            </button>
+        </div> --}}
+        {{-- <div class="py-3 d-flex flex-row align-items-center justify-content-between">          
+            <a href="/datakelas">Kembali</a>
             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
             data-bs-target="#exampleModal"><i class="fa fa-download"></i>
             Export
         </button>
-        </div>
+        </div> --}}
 
         <div class="row">
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h5 class="m-0 font-weight-bold text-primary ">Daftar Nama Siswa</h6>
 
-                    </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="row">

@@ -63,8 +63,8 @@
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h4 class="m-0 font-weight-bold text-primary">Data Sekolah</h4>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"><i class="fa fa-plus"></i> 
                             Add Sekolah
                         </button>
                     </div>
@@ -79,7 +79,7 @@
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="No.: activate to sort column descending">No.</th>
-                                                <th width="25%" class="text-center text-light" tabindex="0"
+                                                <th width="20%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
@@ -88,7 +88,7 @@
                                                     aria-controls="example1" rowspan="1" colspan="1" name="derajat"
                                                     aria-label="Derajat: activate to sort column ascending">
                                                     Derajat</th>
-                                                <th width="25%" class="text-center text-light" tabindex="0"
+                                                <th width="30%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1" name="lokasi"
                                                     aria-label="Lokasi: activate to sort column ascending">
                                                     Lokasi
@@ -97,7 +97,7 @@
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="spp" aria-label="spp: activate to sort column ascending">SPP
                                                 </th>
-                                                <th width="25%" class="text-center text-light" tabindex="0"
+                                                <th width="15%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="Action" aria-label="Action: activate to sort column ascending">
                                                     Action
@@ -127,7 +127,7 @@
                                                             class="edit me-1">
                                                             <button class="btn btn-outline-success btn-sm mb-1"
                                                                 type="button"><i class="fa fa-pencil-square"></i>
-                                                                Edit
+                                                              
                                                             </button>
                                                         </a>
                                                         <form action="/sekolah/{{ $s->id }}" method='post'
@@ -136,7 +136,7 @@
                                                             @method('delete')
                                                             <button class="btn btn-outline-danger btn-sm"
                                                                 type="submit"><i class="fas fa-trash-alt"></i>
-                                                                Delete
+                                                             
                                                             </button>
                                                             {{-- <input class="btn btn-outline-danger btn-sm delete-data" type="submit"
                                                                 value="Hapus"> --}}
@@ -146,7 +146,7 @@
                                                             class="">
                                                             <button class="btn btn-outline-primary btn-sm"
                                                                 type="button"><i class="fa fa-eye"></i>
-                                                                Show
+                                                               
                                                             </button>
                                                         </a>
                                                     </td>

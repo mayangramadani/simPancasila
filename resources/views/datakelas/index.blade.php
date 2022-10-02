@@ -66,16 +66,16 @@
 
         <div class="row">
 
+            <div class="py-3 d-flex flex-row align-items-center justify-content-between">
+                <h4 class="m-0 font-weight-bold text-primary">Daftar Kelas</h4>
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus"></i>
+                    Add Kelas
+                </button>
+            </div>
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary">Daftar Kelas</h4>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Add Kelas
-                        </button>
-                    </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-area">
@@ -101,7 +101,7 @@
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">Jumlah Siswa
                                                     </th>
-                                                    <th width="30%" class="text-center text-light" tabindex="0"
+                                                    <th width="20%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">Action</th>
                                                 </tr>
@@ -123,8 +123,7 @@
                                                         <td class="d-flex justify-content-center">
                                                             <a href="/datakelas/{{ $dk->id }}/edit" id="2"
                                                                 class="edit me-2">
-                                                                <button class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-pencil-square"></i>
-                                                                    Edit
+                                                                <button class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-pencil-square"></i>               
                                                                 </button>
                                                             </a>
                                                             <form action="/datakelas/{{ $dk->id }}" method='post'
@@ -132,7 +131,6 @@
                                                                 @csrf
                                                                 @method('delete')
                                                                 <button class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i>
-                                                                    Hapus
                                                                 </button>
                                                                 
                                                             </form>
@@ -140,13 +138,11 @@
                                                             <a href="/datakelas/{{ $dk->id }}/detail"
                                                                 id="2" class="detail me-2">
                                                                 <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-plus"></i>
-                                                                    Add
                                                                 </button>
                                                             </a>
                                                             <a href="/datakelas/{{ $dk->id }}/show"
                                                                 id="2" class="me-2">
-                                                                <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-pencil-square"></i>
-                                                                    Show
+                                                                <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-eye"></i>
                                                                 </button>
                                                             </a>
 

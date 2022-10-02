@@ -9,8 +9,8 @@
                     <!-- Card Body -->
                     <div class="mt-3 mb-3 d-flex flex-row align-items-center justify-content-between">
                         <div class="d-flex">
-                            <label for="namaSekolah" class="col-sm-3 col-form-label text-dark fw-bold">Kelas: </label>
-                            <div class="col-sm-9">
+                            <label for="namaSekolah" class="col-sm-3 col-form-label text-dark fw-bold">Sekolah: </label>
+                            <div class="col-sm-10">
                                 <select id="pilihSekolah" class="form-select form-select-lg form-control" name="sekolah_id">
                                     <option>Pilih...</option>
                                     @foreach ($sekolah as $item)
@@ -27,6 +27,9 @@
                             <button type="button" class="btn btn-warning me-2 btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"><i class="fa fa-file-import"></i>
                                 Import
+                            </button>
+                            <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-download"></i>
+                                Export
                             </button>
 
                         </div>
