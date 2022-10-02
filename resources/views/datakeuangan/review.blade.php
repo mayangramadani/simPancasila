@@ -30,7 +30,10 @@
 
                     </div>
                     <!-- Card Body -->
-                    <div class="card-body">                        
+                    <div class="card-body">
+                        <form action="/datakeuangan/{{ $keuangan->id }}" method="POST" enctype="multipart/form-data">
+                            @method('put')
+                            @csrf
                             <div class="col-xl-3 col-md-6 mb-4 mr-3">
                                 <div class="card border-left-success shadow h-100 py-2">
                                     <div class="card-body">
@@ -62,7 +65,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label for="sumberdana" class="col-sm-2 col-form-label fw-bold text-dark">Sumber Dana</label>
+                                <label for="sumberdana" class="col-sm-2 col-form-label fw-bold text-dark">Sumber
+                                    Dana</label>
                                 <div class="col-sm-10">
                                     :<label for="sumberdana" class="col-sm-5 " readonly>
                                         {{ $keuangan->SumberDana->sumber_dana }}</label>
@@ -83,8 +87,11 @@
                                         alt="Profile"></label>
                             </div> --}}
                             <div class="row">
-                                <label for="foto" class="col-sm-2 col-form-label fw-bold text-dark">Bekas Pendukung</label>
-                                <label for="foto" class="col-sm-5 col-form-label">:<a href="/storage/Keuangan/bukti/Foto_092350.jpg" target="_blank" class="col-sm-5 fw-bold">Lihat disini</a>
+                                <label for="foto" class="col-sm-2 col-form-label fw-bold text-dark">Bekas
+                                    Pendukung</label>
+                                <label for="foto" class="col-sm-5 col-form-label">:<a
+                                        href="/storage/Keuangan/bukti/Foto_092350.jpg" target="_blank"
+                                        class="col-sm-5 fw-bold">Lihat disini</a>
                             </div>
                             <div class="row">
                                 <label for="foto" class="col-sm-3 col-form-label fw-bold text-dark">Status</label>
@@ -103,28 +110,26 @@
                                 </div>
                             </div>
 
-                            <form action="{{ url('datakeuangan/review/' .$keuangan->id) }}" method="POST">
-                                @csrf
-                                <div class="row mb-3">
-                                    <label for="komentar" class="col-sm-2 col-form-label fw-bold text-dark">Komentar</label>
-                                    <input type="text" class="col-sm form-control @error('komentar') is-invalid @enderror" placeholder="komentar"
-                                        name="komentar" id="komentar" value="{{ old('komentar') }}">
-                                </div>
-
-                           
+                            {{-- <form action="{{ url('datakeuangan/review/' . $keuangan->id) }}" method="POST">
+                                @csrf --}}
+                            <div class="row mb-3">
+                                <label for="komentar" class="col-sm-2 col-form-label fw-bold text-dark">Komentar</label>
+                                <input type="text" class="col-sm form-control @error('komentar') is-invalid @enderror"
+                                    placeholder="komentar" name="komentar" id="komentar" value="{{ old('komentar') }}">
+                            </div>
 
                             <div class="row">
                                 <div class="col-md text-end">
                                     <button class="btn btn-primary">Simpan</button>
                                 </div>
                             </div>
-
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
     </div>
     @push('scripts')
         <script>

@@ -107,18 +107,16 @@
 
                                                     <td class="d-flex justify-content-center">
                                                         <a href="/kategorikeuangan/{{ $kk->id }}/edit"
-                                                            id="2" class="edit me-2">
+                                                            id="2" class="edit me-2" title="Edit">
                                                             <button class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-pencil-square"></i>
-                                                                Edit
                                                             </button>
                                                         </a>
                                                         <form action="/kategorikeuangan/{{ $kk->id }}" method='post'
-                                                            class="me-1">
+                                                            class="me-1" title="Hapus">
                                                             @csrf
                                                             @method('delete')
                                                             <button class="btn btn-outline-danger btn-sm"
                                                                 type="submit"><i class="fas fa-trash-alt"></i>
-                                                                Delete
                                                             </button>
                                                             {{-- <input class="btn btn-outline-danger btn-sm delete-data" type="submit"
                                                                 value="Hapus"> --}}

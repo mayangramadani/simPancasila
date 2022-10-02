@@ -18,9 +18,9 @@ class DashboardController extends Controller
         }
         $jumlahSaldo = 0;
         foreach ($saldo as $item) {
-            $jumlahSaldo = $jumlahSaldo + $item;
+            $jumlahSaldo = $jumlahSaldo + (int)$item;
         }
-
+        // dd($jumlahSaldo);
         //Debit
         // foreach ($sekolah as $item) {
         $debit = Saldo::all();

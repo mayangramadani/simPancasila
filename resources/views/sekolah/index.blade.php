@@ -62,7 +62,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary">Data Sekolah</h4>
+                        <h5 class="m-0 font-weight-bold text-primary">Data Sekolah</h5>
                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal"><i class="fa fa-plus"></i> 
                             Add Sekolah
@@ -122,34 +122,30 @@
                                                     {{-- <td>{{ $s->spp }}</td> --}}
                                                     <td class="text-center">
                                                         {{ 'Rp ' . number_format($s->spp, 0, '.', '.') }}</td>
+
                                                     <td class="d-flex justify-content-center">
                                                         <a href="/sekolah/{{ $s->id }}/edit" id="2"
-                                                            class="edit me-1">
+                                                            class="edit me-1" title="Edit">
                                                             <button class="btn btn-outline-success btn-sm mb-1"
-                                                                type="button"><i class="fa fa-pencil-square"></i>
-                                                              
+                                                                type="button"><i class="fa fa-pencil-square"></i>                    
                                                             </button>
                                                         </a>
                                                         <form action="/sekolah/{{ $s->id }}" method='post'
-                                                            class="me-1">
+                                                            class="me-1" title="Hapus">
                                                             @csrf
                                                             @method('delete')
                                                             <button class="btn btn-outline-danger btn-sm"
-                                                                type="submit"><i class="fas fa-trash-alt"></i>
-                                                             
+                                                                type="submit"><i class="fas fa-trash-alt"></i>                                                        
                                                             </button>
-                                                            {{-- <input class="btn btn-outline-danger btn-sm delete-data" type="submit"
-                                                                value="Hapus"> --}}
                                                         </form>
-
                                                         <a href="/sekolah/{{ $s->id }}/detail" id="2"
-                                                            class="">
+                                                            class="" title="Detail">
                                                             <button class="btn btn-outline-primary btn-sm"
-                                                                type="button"><i class="fa fa-eye"></i>
-                                                               
+                                                                type="button"><i class="fa fa-eye"></i>                                                          
                                                             </button>
                                                         </a>
                                                     </td>
+
                                                 </tr>
                                             @endforeach
                                         </tbody>

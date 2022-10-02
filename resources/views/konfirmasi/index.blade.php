@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h3 class="m-0 font-weight-bold text-primary">Konfirmasi Pembayaran</h3>
+            <h5 class="m-0 font-weight-bold text-primary">Konfirmasi Pembayaran</h5>
         </div>
 
 
@@ -189,7 +189,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...
+                         <!-- Buka Pembayaran -->
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="d-flex justify-content-center mt-5 mb-3">
+                                <form action="{{ route('bayar') }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">
+                                        Buka Pembayaran
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

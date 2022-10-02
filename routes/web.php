@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\KategoriKeuanganController;
+use App\Http\Controllers\LaporanKeuanganController;
 use App\Http\Controllers\TransaksiPembayaranController;
 use App\Http\Controllers\TingkatanKelasController;
 use App\Http\Controllers\SumberDanaController;
@@ -39,15 +40,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
   
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('datasiswa');
-    Route::get('/datalaporan/laporansemester', function () {
-        return view('datalaporan.laporansemester');
-    });
-    Route::get('/datalaporan/laporantahunan', function () {
-        return view('datalaporan.laporantahunan');
-    });
-    Route::get('/histori', function () {
-        return view('histori');
-    });
+
     Route::get('/datakeuangan/rkas', function () {
         return view('datakeuangan.rkas');
     });
@@ -110,6 +103,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/datakeuangan/rkas', [KeuanganController::class, 'lihatRkas'])->name('lihatRkas');
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review'])->name('review');
         Route::get('/datakeuangan/{id}/guru', [KeuanganController::class, 'guru'])->name('guru');
+        Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review']);
     });
 
     // sekolah
@@ -194,6 +188,10 @@ Route::middleware(['auth'])->group(function () {
     //ActivityLog
     //  Route::resource('Akun', UserController::class);
     Route::get('/activitylog', [ActivityLogController::class, 'index'])->name('Aktivitas');
+
+    //LaporanKeuangan
+    Route::get('/datalaporan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan');
+    Route::get('/datalaporan/show', [LaporanKeuanganController::class, 'show']);
 });
 
 require __DIR__ . '/auth.php';

@@ -73,9 +73,6 @@
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Sekolah</span></a>
                 </li>
-            @endif
-
-            @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLap"
                         aria-expanded="true" aria-controls="collapseLap">
@@ -92,10 +89,6 @@
                         </div>
                     </div>
                 </li>
-            @endif
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link" href="/datasiswa">
                         <i class="fas fa-fw fa-wrench"></i>
@@ -156,7 +149,6 @@
                             <h6 class="collapse-header">--Pembayaran--</h6>
                             <a class="collapse-item" href="/transaksipembayaran">Transaksi Pembayaran</a>
                             <a class="collapse-item" href="/konfirmasi">Konfirmasi Pembayaran</a>
-                            <a class="collapse-item" href="/histori">Histori Pembayaran</a>
                         </div>
                     </div>
                 </li>
@@ -167,6 +159,12 @@
                     <a class="nav-link collapsed" href="/transaksisiswa">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Transaksi Siswa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/transaksisiswa/historisiswa">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Histori</span>
                     </a>
                 </li>
             @endif
@@ -208,8 +206,8 @@
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">--Keuangan--</h6>
-                            <a class="collapse-item" href="/datalaporan/laporansemester">Laporan Semester</a>
-                            <a class="collapse-item" href="/datalaporan/laporantahunan">Laporan Tahunan</a>
+                            <a class="collapse-item" href="/datalaporan">Laporan Semester</a>
+                            <a class="collapse-item" href="#">Laporan Tahunan</a>
                         </div>
                     </div>
                 </li>

@@ -9,7 +9,7 @@
                     <!-- Card Body -->
                     <div class="mt-3 mb-3 d-flex flex-row align-items-center justify-content-between">
                         <div class="d-flex">
-                            <label for="namaSekolah" class="col-sm-3 col-form-label text-dark fw-bold">Sekolah: </label>
+                            <label for="namaSekolah" class="col-sm-3 col-form-label text-primary fw-bold">Sekolah: </label>
                             <div class="col-sm-10">
                                 <select id="pilihSekolah" class="form-select form-select-lg form-control" name="sekolah_id">
                                     <option>Pilih...</option>
@@ -25,11 +25,14 @@
                                         class="fa fa-plus"></i>
                                     Add Siswa</button></a>
                             <button type="button" class="btn btn-warning me-2 btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"><i class="fa fa-file-import"></i>
+                                data-bs-target="#exampleModal"><i class="fa fa-file-excel"></i>
                                 Import
                             </button>
-                            <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-download"></i>
+                            <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf"></i>
                                 Export
+                            </button>
+                            <button type="button" class="btn btn-success me-2 btn-sm"><i class="fa fa-file-download"></i>
+                                Template
                             </button>
 
                         </div>
@@ -112,10 +115,9 @@
                                                 <td class="text-center">{{ $ds->nama_siswa }}</td>
                                                 <td class="d-flex justify-content-center">
                                                     <a href="/datasiswa/{{ $ds->id }}/detail" id="2"
-                                                        class="detail me-2">
-                                                        <button class="btn btn-outline-info btn-sm" type="button"><i
-                                                                class="fa fa-pencil-square"></i>
-                                                            Detail
+                                                        class="detail me-2" >
+                                                        <button class="btn btn-outline-info btn-sm" type="button" title="Detail"><i
+                                                                class="fa fa-eye"></i>
                                                         </button>
                                                     </a>
                                                 </td>

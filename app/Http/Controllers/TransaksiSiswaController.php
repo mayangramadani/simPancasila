@@ -78,7 +78,11 @@ class TransaksiSiswaController extends Controller
     public function historisiswa($id)
     {
         $transaksisiswa = TransaksiSiswa::find($id);
-        return view('transaksisiswa.histrosiswa', compact('transaksisiswa'));
+        $transaksisiswa = Keuangan::where('users_id', Auth::user()->id)->get();
+        $siswa = Siswa::where('users_id', Auth::user()->id)->first();
+        $kategorikeuangan = KategoriKeuangan::all();
+
+        return view('transaksisiswa.historisiswa', compact('transaksisiswa', 'siswa', 'kategorikeuangan'));
     }
 
     public function show($id)

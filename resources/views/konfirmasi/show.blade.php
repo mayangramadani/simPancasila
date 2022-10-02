@@ -89,8 +89,8 @@
                                     </div>
                                 </div>
     
-                                <form action="{{ url('konfirmasi/show/' .$konfirmasi->id) }}" method="POST">
-                                    @csrf
+                                {{-- <form action="{{ url('konfirmasi/show/' .$konfirmasi->id) }}" method="POST">
+                                    @csrf --}}
                                     <div class="row mb-3">
                                         <label for="komentar" class="col-sm-2 col-form-label fw-bold text-dark">Komentar</label>
                                         <input type="text" class="col-sm form-control @error('komentar') is-invalid @enderror" placeholder="komentar"

@@ -93,8 +93,10 @@ class KeuanganController extends Controller
         $keuangan = Keuangan::find($id);
         $keuangan->nama_keuangan = $request->nama_keuangan;
         $keuangan->jenis_keuangan = $request->jenis_keuangan;
+        $keuangan->status_pembayaran = $request->status_pembayaran;
         $keuangan->jumlah = $this->convertRP($request->jumlah);
         $keuangan->tanggal = $request->tanggal;
+        $keuangan->komentar = $request->komentar;
         $keuangan->deskripsi = $request->deskripsi;
 
 
@@ -114,6 +116,7 @@ class KeuanganController extends Controller
         $keuangan->save();
 
         return redirect('/datakeuangan');
+    
     }
     public function hapus($id)
     {

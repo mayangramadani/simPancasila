@@ -3,14 +3,84 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        <div class="d-flex mb-3">
+        {{-- <div class="d-flex mb-3">
             <form action="{{ route('bayar') }}" method="post">
                 @csrf
                 <button type="submit" class="btn btn-primary">
                     Buka Pembayaran
                 </button>
             </form>
+        </div> --}}
+        <div class="row mb-4">
+            <div class="col-xl-3 col-md-6 mb-4 mr-3">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Saldo</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Rp</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-md-2 mb-2">
+                <div class="card border-left-success shadow mt-3">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-5">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Diterima</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">--</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-check fa-2x text-gray-300"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-3 mb-2">
+                <div class="card border-left-warning shadow mt-3">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-5">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    Proses</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">--</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-spinner fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-3 mb-2">
+                <div class="card border-left-danger shadow   mt-3">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-5">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                    Ditolak</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">--</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-ban fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
+
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -34,7 +104,8 @@
                                     @endforeach
                                 </select>
                                 <div class="mb-3">
-                                    <label for="transaksi" class="form-label text-dark fw-bold">Kategori Keuangan</label>
+                                    <label for="transaksi" class="form-label text-dark fw-bold">Kategori
+                                        Keuangan</label>
                                     <select class="form-select form-select-lg form-control"
                                         aria-label="Default select example" name="kategori_keuangan_id">
                                         <option selected disabled>=== Kategori Keuangan ===</option>
@@ -124,7 +195,8 @@
                             <div class="card-body">
                                 <div class="col-sm-12">
                                     <div class="d-flex flex-row align-items-center justify-content-between">
-                                        <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah</h4>
+                                        <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah
+                                        </h4>
                                         <div class="d-flex">
                                             <div class="col-md text-end mt-3"> <a href="{{ route('rkas') }}"
                                                     class="btn btn-primary ">RKAS</a>
@@ -215,7 +287,7 @@
                                                                         <img src="  {{ asset('storage/Keuangan/bukti/' . $dku->berkas_pendukung) }}"
                                                                             height="80">
                                                                     </td>
-                                                                    <td class="justify-content-center">
+                                                                    <td class="text-center">
                                                                         {{-- <a href="/datakeuangan/{{ $dku->id }}/edit"
                                                                             id="2" class="edit me-1">
                                                                             <button
@@ -226,11 +298,10 @@
                                                                             </button>
                                                                         </a> --}}
                                                                         <a href="/datakeuangan/{{ $dku->id }}/review"
-                                                                            id="2" class="detail me-2">
+                                                                            id="2" class="detail me-2" title="Review">
                                                                             <button class="btn btn-outline-success btn-sm"
                                                                                 type="button"><i
                                                                                     class="fa fa-pencil-square"></i>
-                                                                                Review
                                                                             </button>
                                                                         </a>
                                                                     </td>
@@ -272,7 +343,8 @@
                                                         tabindex="0" aria-controls="example1" rowspan="1"
                                                         colspan="1" aria-sort="ascending">No.</th>
                                                     <th width="15%" class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Kategori
+                                                        aria-controls="example1" rowspan="1" colspan="1">
+                                                        Kategori
                                                         Keuangan</th>
                                                     <th width="15%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Nama
@@ -282,16 +354,19 @@
                                                         aria-controls="example1" rowspan="1" colspan="1">Jumlah
                                                     </th>
                                                     <th width="15%" class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Tanggal
+                                                        aria-controls="example1" rowspan="1" colspan="1">
+                                                        Tanggal
                                                     </th>
                                                     <th width="15%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Status
                                                         Pembayaran</th>
                                                     <th width="15%" class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Nama User
+                                                        aria-controls="example1" rowspan="1" colspan="1">Nama
+                                                        User
                                                     </th>
                                                     <th width="15%" class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Aksi</th>
+                                                        aria-controls="example1" rowspan="1" colspan="1">Aksi
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -330,12 +405,11 @@
                                                             @endif
                                                         </td>
                                                         <td class="text-center">{{ $dku->users_id }}</td>
-                                                        <td class="justify-content-center">
+                                                        <td class="text-center" title="Detail">
                                                             <a href="/datakeuangan/{{ $dku->id }}/detail"
                                                                 id="2" class="detail me-2">
                                                                 <button class="btn btn-outline-info btn-sm"
                                                                     type="button"><i class="fa fa-pencil-square"></i>
-                                                                    Detail
                                                                 </button>
                                                             </a>
                                                         </td>

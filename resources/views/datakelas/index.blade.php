@@ -121,13 +121,13 @@
                                                         <td class="text-center">{{ $dk->nama_kelas }}</td>
                                                         <td class="text-center">{{ $dk->kuota }}</td>
                                                         <td class="d-flex justify-content-center">
-                                                            <a href="/datakelas/{{ $dk->id }}/edit" id="2"
+                                                            <a href="/datakelas/{{ $dk->id }}/edit" id="2" title="Edit"
                                                                 class="edit me-2">
                                                                 <button class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-pencil-square"></i>               
                                                                 </button>
                                                             </a>
                                                             <form action="/datakelas/{{ $dk->id }}" method='post'
-                                                                class="me-2">
+                                                                class="me-2" title="Delete">
                                                                 @csrf
                                                                 @method('delete')
                                                                 <button class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i>
@@ -136,12 +136,12 @@
                                                             </form>
 
                                                             <a href="/datakelas/{{ $dk->id }}/detail"
-                                                                id="2" class="detail me-2">
+                                                                id="2" class="detail me-2" title="Detail">
                                                                 <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-plus"></i>
                                                                 </button>
                                                             </a>
                                                             <a href="/datakelas/{{ $dk->id }}/show"
-                                                                id="2" class="me-2">
+                                                                id="2" class="me-2" title="Show">
                                                                 <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-eye"></i>
                                                                 </button>
                                                             </a>

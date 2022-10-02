@@ -23,51 +23,48 @@
                         <div class="p-2">
                             <form action="{{ url('datasiswa/add') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="row mt-3 mb-2">
-                                    <div class="col-lg-3 col-md-9 col-sm-10">
-                                        <label for="namaSekolah" class="col-form-label text-dark fw-bold">Sekolah</label>
-                                        <select class="form-select form-select-lg form-control-sm" name="sekolah_id">
+                                <div class="form-row mb-4">
+                                    <div class="col-md-4">
+                                        <label for="namaSekolah"
+                                            class="form-control-label fw-semibold text-dark">Sekolah</label>
+                                        <select class="form-control form-control-sm form-select " name="sekolah_id">
                                             <option>Pilih...</option>
                                             @foreach ($sekolah as $item)
                                                 <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
                                                 </option>
                                             @endforeach
                                         </select>
+
                                     </div>
-                                </div>
-                                <div class="row mt-3 mb-2">
-                                    <div class="col-lg-3 col-md-9 col-sm-10">
-                                        <label for="nis" class="col-form-label text-dark fw-bold">NIS</label>
+                                    <div class="col-md-4">
+                                        <label for="nis" class="form-control-label fw-semibold text-dark">NIS</label>
                                         <input type="text" class="form-control form-control-sm" id="nis"
                                             placeholder="NIS" name="nis">
                                     </div>
-                                    <div class="col-lg-3 col-md-9 col-sm-10">
-                                        <label for="namaLengkap" class="col-form-label text-dark fw-bold">Nama
-                                            Lengkap</label>
-                                        <input type="text" class="form-control form-control-sm" id="namaLengkap"
-                                            name="nama_siswa" placeholder="Nama Lengkap">
-
+                                    <div class="col-md-4">
+                                        <label for="nis" class="form-control-label fw-semibold text-dark">Nama
+                                            Siswa</label>
+                                        <input type="text" class="form-control form-control-sm" id="nis"
+                                            placeholder="Nama Siswa" name="nama_siswa">
                                     </div>
+
                                 </div>
-                                <div class="row mt-3 mb-2">
-                                    <div class="col-lg-3 col-md-9 col-sm-10">
-                                        <label for="namaLengkap" class="col-form-label text-dark fw-bold">Tempat
-                                            Lahir</label>
-                                        <input type="text" class="form-control form-control-sm" id="tempatLahir"
-                                            name="tempat_lahir" placeholder="Tempat Lahir">
+                                <div class="form-row mb-3">
+                                    <div class="col-md-4 me-3">
+                                        <label for="agama"
+                                            class="form-control-label fw-semibold text-dark">Agama</label>
+                                        <select class="form-select form-control form-control-sm" name="agama"
+                                            aria-label="Default select example">
+                                            <option selected>Pilih...</option>
+                                            <option value="Islam">Islam</option>
+                                            <option value="Kristen">Kristen</option>
+                                            <option value="Hindu">Hindu</option>
+                                        </select>
                                     </div>
-
-                                    <div class="col-lg-3 col-md-9 col-sm-10">
-                                        <label for="tanggal" class="col-form-label text-dark fw-bold">Tanggal</label>
-                                        <input type="date" class="form-control form-control-sm" name="tanggal_lahir">
-                                    </div>
-                                </div>
-
-                                <div class="row mt-3 mb-5">
-                                    <div class="col-lg-3 col-md-9 col-sm-10">
-                                        <label for="jenisKelamin" class="col-form-label text-dark fw-bold">Jenis
+                                    <div class="col-md-3">
+                                        <label for="jenisKelamin" class="col-form-label text-dark fw-semibold">Jenis
                                             Kelamin</label>
-                                        <div class="col-lg-5 col-md-9 col-sm-10">
+                                        <div class="col-lg-5 col-md-9 col-sm-9">
                                             <input class="form-check-input" type="radio" name="jenis_kelamin"
                                                 id="inlineRadio1" value="Laki-laki">
                                             <label class="form-check-label form-check form-check-inline"
@@ -80,18 +77,22 @@
                                                 for="inlineRadio2">Perempuan</label>
                                         </div>
                                     </div>
-
-                                    <div class="col-lg-3 col-md-9 col-sm-10">
-                                        <label for="agama" class="col-form-label text-dark fw-bold">Agama</label>
-                                        <select class="form-select form-select-lg form-control form-control-sm"
-                                            name="agama" aria-label="Default select example">
-                                            <option selected>Pilih...</option>
-                                            <option value="Islam">Islam</option>
-                                            <option value="Kristen">Kristen</option>
-                                            <option value="Hindu">Hindu</option>
-                                        </select>
-                                    </div>
                                 </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <label for="namaLengkap" class="form-control-label fw-semibold text-dark">Tempat
+                                            Lahir</label>
+                                        <input type="text" class="form-control form-control-sm" id="tempatLahir"
+                                            name="tempat_lahir" placeholder="Tempat Lahir">
+                                    </div>
+                                    <div class="col-md-4 me-2">
+                                        <label for="tanggal" class="form-control-label fw-semibold text-dark">Tanggal
+                                            Lahir</label>
+                                        <input type="date" class="form-control form-control-sm" name="tanggal_lahir">
+                                    </div>
+                                   
+                                </div>
+
                                 <div class="row mt-3">
                                     <div class="col-lg-4 col-md-9 col-sm-10">
                                         <label for="alamat" class="col-form-label text-dark fw-bold">Alamat</label>

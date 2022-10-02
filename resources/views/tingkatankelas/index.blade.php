@@ -16,7 +16,7 @@
                         <div class="modal-body">
                             <label for="cemail" class="control-label text-dark fw-bold">Sekolah</label>
                             <select class="form-select form-select-md form- mb-3" name="sekolah_id">
-                                <option>=== Pilih Sekolah ===</option>
+                                <option>Pilih...</option>
                                 @foreach ($sekolah as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
                                     </option>
@@ -99,25 +99,22 @@
                                                     <td class="text-center">{{ $tk->deskripsi }}</td>
                                                     <td class="d-flex justify-content-center">
                                                         <a href="/tingkatankelas/{{ $tk->id }}/edit" id="2"
-                                                            class="edit me-2">
+                                                            class="edit me-2" title="Edit">
                                                             <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
-                                                                Edit
                                                             </button>
                                                         </a>
                                                         <form action="/tingkatankelas/{{ $tk->id }}" method='post'
-                                                            class="me-2">
+                                                            class="me-2" title="Delete">
                                                             @csrf
                                                             @method('delete')
                                                             <button class="btn btn-outline-danger btn-sm"
                                                                 type="submit"><i class="fas fa-trash-alt"></i>
-                                                                Delete
                                                             </button>
                                                         </form>
 
                                                         <a href="/tingkatankelas/{{ $tk->id }}/detail"
-                                                            id="2" class="detail me-2">
+                                                            id="2" class="detail me-2" title="Detail">
                                                             <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-eye"></i>
-                                                                Show
                                                             </button>
                                                         </a>
                                                     </td>
