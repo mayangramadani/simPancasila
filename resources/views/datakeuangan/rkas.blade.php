@@ -15,7 +15,6 @@
                             <form class="validation" novalidate method="POST" action="{{ url('datakeuangan/rkas') }}"
                                 enctype="multipart/form-data">
                                 @csrf
-
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold text-primary" for="kelas">Nama
@@ -34,17 +33,6 @@
                                             for="kelas">Jumlah</label>
                                         <input type="text" class="form-control" id="dengan-rupiah" placeholder="Jumlah"
                                             name="jumlah" required autocomplete="off">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label class="form-control-label fw-semibold text-primary" for="kelas">Sumber
-                                            Dana</label>
-                                        <select class="form-select form-select-lg form-control"
-                                            aria-label="Default select example" name="sumber_dana">
-                                            <option selected disabled>Sumber Dana</option>
-                                            @foreach ($sumberdana as $item)
-                                                <option value="{{ $item->id }}">{{ $item->sumber_dana }}</option>
-                                            @endforeach
-                                        </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="transaksi"

@@ -65,14 +65,6 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label for="sumberdana" class="col-sm-2 col-form-label fw-bold text-dark">Sumber
-                                    Dana</label>
-                                <div class="col-sm-10">
-                                    :<label for="sumberdana" class="col-sm-5 " readonly>
-                                        {{ $keuangan->SumberDana->sumber_dana }}</label>
-                                </div>
-                            </div>
-                            <div class="row">
                                 <label for="Deskripsi" class="col-sm-2 col-form-label fw-bold text-dark">
                                     Deskripsi</label>
                                 <div class="col-sm-10">

@@ -17,7 +17,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Body -->
                     <div class="mt-4 row pl-3">
-                        <p>Isilah form berikut dengan data yang benar.</p>
+                        <p class="text-primary">Isilah form berikut dengan data yang benar.</p>
                     </div>
                     <div class="card-body pl-5">
                         <div class="p-2">

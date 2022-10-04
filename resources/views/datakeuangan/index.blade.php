@@ -183,8 +183,7 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
-                            type="button" role="tab" aria-controls="contact" aria-selected="false">Sumber
-                            Dana</button>
+                            type="button" role="tab" aria-controls="contact" aria-selected="false">Monitoring</button>
                     </li>
                 </ul>
 
@@ -235,11 +234,6 @@
                                                                     Pembayaran</th>
                                                                 <th width="15%" class="text-center text-light"
                                                                     tabindex="0" aria-controls="example1"
-                                                                    rowspan="1" colspan="1">Sumber
-                                                                    Dana
-                                                                </th>
-                                                                <th width="15%" class="text-center text-light"
-                                                                    tabindex="0" aria-controls="example1"
                                                                     rowspan="1" colspan="1">Berkas
                                                                     Pendukung
                                                                 </th>
@@ -280,9 +274,6 @@
                                                                                 diperiksa</span>
                                                                         @endif
                                                                     </td>
-
-                                                                    <td class="text-center">
-                                                                        {{ $dku->SumberDana->sumber_dana }}</td>
                                                                     <td class="text-center">
                                                                         <img src="  {{ asset('storage/Keuangan/bukti/' . $dku->berkas_pendukung) }}"
                                                                             height="80">
@@ -422,99 +413,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Sumber Dana -->
+                    <!-- Monitoring -->
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-
-                        <div class="row">
-                            <div class="card-body">
-                                <form class="validation" novalidate method="POST" action="{{ url('sumberdana/add') }}"
-                                    enctype="multipart/form-data">
-                                    @csrf
-
-                                    <div class="form-row">
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-control-label fw-semibold text-dark" for="namadana">Sumber
-                                                Dana</label>
-                                            <input type="text" class="form-control" id="sumber_dana"
-                                                name="sumber_dana" placeholder="Sumber Dana" required autocomplete="off">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-control-label fw-semibold text-dark"
-                                                for="deskripsi">Deskripsi</label>
-                                            <input type="text" class="form-control" id="deskripsi" name="deskripsi"
-                                                placeholder="Deskripsi" required autocomplete="off">
-                                        </div>
-                                        <div class="col-md-4 mb-3 py-4">
-                                            <button class="btn btn-primary" id="btn-submit" type="submit">Save</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-                        <!-- Table Sumber Dana -->
-                        <div class="row">
-                            <div class="card-body">
-                                <div class="col-sm-12">
-                                    <div class="table-responsive">
-                                        <table id="table1" class="table table-bordered">
-                                            <thead>
-                                                <tr class="box bg-primary" role="row">
-                                                    <th width="2%" class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="No.: activate to sort column descending">No.
-                                                    </th>
-                                                    <th class="text-center text-light" tabindex="0" aria-contr
-                                                        ols="example1" rowspan="1" colspan="1" name="sumber_dana"
-                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                        Sumber Dana</th>
-                                                    <th class="text-center text-light" tabindex="0" aria-contr
-                                                        ols="example1" rowspan="1" colspan="1" name="deskripsi"
-                                                        aria-label="Deskripsi: activate to sort column ascending">
-                                                        Deskripsi</th>
-
-                                                    <th width="25%" class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        name="xx" aria-label="xx: activate to sort column ascending">
-                                                        Action
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($sumberdana as $sd)
-                                                    <tr role="row" class="odd">
-                                                        <td class="sorting_1">{{ $loop->iteration }}</td>
-                                                        <td>{{ $sd->sumber_dana }}</td>
-                                                        <td>{{ $sd->deskripsi }}</td>
-                                                        <td class="text-center d-flex align-items-stretch">
-                                                            <a href="/datakeuangan/{{ $sd->id }}" id="2"
-                                                                class="edit me-2">
-                                                                <button class="btn btn-outline-info btn-sm"
-                                                                    type="button"><i class="fa fa-pencil-square"></i>
-                                                                    Show
-                                                                </button>
-                                                            </a>
-                                                            <form action="/datakeuangan/{{ $sd->id }}"
-                                                                method='post'>
-                                                                @csrf
-                                                                @method('delete')
-                                                                <button class="btn btn-outline-danger btn-sm"
-                                                                    type="submit" value="Hapus"><i
-                                                                        class="fas fa-trash-alt"></i>
-                                                                    Delete
-                                                                </button>
-
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -99,7 +99,7 @@
                                                         Kelas</th>
                                                     <th width="20%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Action: activate to sort column ascending">Jumlah Siswa
+                                                        aria-label="Action: activate to sort column ascending">Kuota Siswa
                                                     </th>
                                                     <th width="20%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"

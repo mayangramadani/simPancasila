@@ -11,7 +11,7 @@ class Keuangan extends Model
     protected $table = 'keuangan';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'kategori_keuangan_id', 'sumber_dana_id', 'berkas_pendukung', 'users_id', 'no_transaksi', 'nama_keuangan', 'jumlah', 'tanggal', 'deskripsi', 'bukti', 'status_pembayaran'
+        'kategori_keuangan_id', 'berkas_pendukung', 'users_id', 'no_transaksi', 'nama_keuangan', 'jumlah', 'tanggal', 'deskripsi', 'bukti', 'status_pembayaran'
     ];
     public function KategoriKeuangan()
     {
@@ -21,8 +21,5 @@ class Keuangan extends Model
     {
         return $this->belongsTo(User::class, 'users_id', 'id');
     }
-    public function SumberDana()
-    {
-        return $this->belongsTo(SumberDana::class, 'sumber_dana_id', 'id');
-    }
+
 }

@@ -16,18 +16,18 @@ class KategoriKeuanganSeeder extends Seeder
     public function run()
     {
         KategoriKeuangan::create([
-            'nama_keuangan' => 'SPP',
-            'deskripsi' => 'SPP',
-            'kategori_keuangan' => 'pemasukan'
-        ]);
-        KategoriKeuangan::create([
             'nama_keuangan' => 'Pemasukan',
-            'deskripsi' => 'Dana Bantuan',
+            'deskripsi' => 'Uang masuk',
             'kategori_keuangan' => 'pemasukan'
         ]);
         KategoriKeuangan::create([
             'nama_keuangan' => 'Pengeluaran',
-            'deskripsi' => 'Beli Barang',
+            'deskripsi' => 'Belanja',
+            'kategori_keuangan' => 'pengeluaran'
+        ]);
+        KategoriKeuangan::create([
+            'nama_keuangan' => 'RKAS',
+            'deskripsi' => 'Rencana Kerja dan Anggaran Sekolah',
             'kategori_keuangan' => 'pengeluaran'
         ]);
     }

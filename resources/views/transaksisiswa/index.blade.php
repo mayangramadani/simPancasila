@@ -98,7 +98,7 @@
                         </div>
                         <!-- Histori -->
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="card-body">
                                     <div class="col-sm-12">
                                         <div class="table-responsive">
@@ -170,13 +170,6 @@
                                                                         Show
                                                                     </button>
                                                                 </a>
-                                                                {{-- <form action="/transaksisiswa/{{ $ts->id }}"
-                                                                    method='post'>
-                                                                    @csrf
-                                                                    @method('delete')
-                                                                    <input class="btn btn-outline-danger" type="submit"
-                                                                        value="Hapus">
-                                                                </form> --}}
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -185,7 +178,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>                    
                     </div>
                 </div>

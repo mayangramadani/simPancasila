@@ -50,7 +50,6 @@ class TransaksiSiswaController extends Controller
         $keuangan->bukti = $file_name1;
         $keuangan->status_pembayaran = 'Proses';
         $keuangan->save();
-
         return redirect('transaksisiswa')->with('success', 'Data Berhasil Terkirim');
     }
     public function hapus($id)
@@ -75,10 +74,10 @@ class TransaksiSiswaController extends Controller
         $transaksisiswa = TransaksiSiswa::find($id);
         return view('transaksisiswa.detail', compact('transaksisiswa'));
     }
-    public function historisiswa($id)
+    public function historisiswa()
     {
-        $transaksisiswa = TransaksiSiswa::find($id);
-        $transaksisiswa = Keuangan::where('users_id', Auth::user()->id)->get();
+        $transaksisiswa = TransaksiSiswa::where('users_id', Auth::user()->id)->first();
+        // $transaksisiswa = Keuangan::where('users_id', Auth::user()->id)->get();
         $siswa = Siswa::where('users_id', Auth::user()->id)->first();
         $kategorikeuangan = KategoriKeuangan::all();
 

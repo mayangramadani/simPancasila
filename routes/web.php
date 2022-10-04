@@ -47,9 +47,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datakeuangan/guru', function () {
         return view('datakeuangan.guru');
     });
-    Route::get('/transaksisiswa/historisiswa', function () {
-        return view('transaksisiswa.historisiswa');
-    });
+    // Route::get('/transaksisiswa/historisiswa', function () {
+    //     return view('transaksisiswa.historisiswa');
+    // });
     Route::get('/activitylog', function () {
         return view('activitylog');
     });
@@ -100,7 +100,6 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/datakeuangan/{id}', [KeuanganController::class, 'update']);
         Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
         Route::post('/datakeuangan/rkas', [KeuanganController::class, 'rkas'])->name('rkas');
-        Route::get('/datakeuangan/rkas', [KeuanganController::class, 'lihatRkas'])->name('lihatRkas');
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review'])->name('review');
         Route::get('/datakeuangan/{id}/guru', [KeuanganController::class, 'guru'])->name('guru');
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review']);
@@ -142,11 +141,6 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/kategorikeuangan/{id}', [KategoriKeuanganController::class, 'update']);
         Route::get('/kategorikeuangan/{id}/edit', [KategoriKeuanganController::class, 'edit']);
     });
-    // sumberdana
-    Route::middleware(['auth', 'role:admin'])->group(function () {
-        Route::get('/sumberdana', [SumberDanaController::class, 'index'])->name('sumberdana');
-        Route::post('/sumberdana/add', [SumberDanaController::class, 'add']);
-    });
 
     // Transaksi Pembayaran
     Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -161,7 +155,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/transaksisiswa/{id}', [TransaksiSiswaController::class, 'update']);
         Route::get('/transaksisiswa/{id}/edit', [TransaksiSiswaController::class, 'edit']);
         Route::get('/transaksisiswa/{id}/detail', [TransaksiSiswaController::class, 'detail']);
-        Route::get('/transaksisiswa/{id}/historisiswa', [TransaksiSiswaController::class, 'historisiswa']);
+        Route::get('/transaksisiswa/historisiswa', [TransaksiSiswaController::class, 'historisiswa']);
         Route::get('/transaksisiswa/{id}/show', [TransaksiSiswaController::class, 'show']);
     });
     // tingkatan kelas
