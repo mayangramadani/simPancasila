@@ -12,33 +12,19 @@
                     <li class="breadcrumb-item active">Daftar Siswa</li>
                 </ol>
             </nav>
-            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                    class="fa fa-download"></i>
-                Export
-            </button>
+            <a href="{{route('exportDataKelas',request()->route()->parameters)}}" id="2" class="edit me-2">
+                <button class="btn btn-danger btn-sm" type="button"><i class="fa fa-download"></i>
+                    Export
+                </button>
+            </a>
         </div>
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-2">
-            <h1 class="h3 mb-0 text-gray-800">Daftar Siswa Kelas</h1>
-        </div> --}}
-        {{-- <div class="py-3 d-flex flex-row align-items-center justify-content-between">
-            <h4 class="m-0 font-weight-bold text-primary">kEM</h4>
-            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus"></i>
-                Add Kelas
-            </button>
-        </div> --}}
-        {{-- <div class="py-3 d-flex flex-row align-items-center justify-content-between">          
-            <a href="/datakelas">Kembali</a>
-            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-            data-bs-target="#exampleModal"><i class="fa fa-download"></i>
-            Export
-        </button>
-        </div> --}}
+
 
         <div class="row">
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
+                <div class="card shadow-sm mb-4">
 
                     <!-- Card Body -->
                     <div class="card-body">

@@ -38,7 +38,7 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth'])->group(function () {
-  
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('datasiswa');
 
     Route::get('/datakeuangan/rkas', function () {
@@ -56,7 +56,7 @@ Route::middleware(['auth'])->group(function () {
 
     // datasiswa
     Route::middleware(['auth', 'role:admin'])->group(function () {
-        
+
         Route::get('/cariSiswa', [DataSiswaController::class, 'cariSiswa'])->name('cariSiswa');
         Route::get('/datasiswa', [DataSiswaController::class, 'index'])->name('datasiswa');
         Route::get('/data-siswa/{id}', [DataSiswaController::class, 'getsiswa'])->name('getsiswa');
@@ -78,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/datakelas/{id}/edit', [DataKelasController::class, 'edit']);
         Route::get('/datakelas/{id}/detail', [DataKelasController::class, 'detail']);
         Route::get('/datakelas/{id}/show', [DataKelasController::class, 'show']);
+        Route::get('/datakelas/{id}/download', [DataKelasController::class, 'download'])->name('exportDataKelas');
     });
 
     // Kategori Pembayaran

@@ -7,7 +7,7 @@
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
+                <div class="card shadow-sm mb-4">
                     <!-- RKAS -->
                     <div class="row">
                         <div class="card-body">

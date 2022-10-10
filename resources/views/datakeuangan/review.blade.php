@@ -11,7 +11,7 @@
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
+                <div class="card shadow-sm mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h4 class="m-0 font-weight-bold text-primary ">Review RKAS
@@ -35,7 +35,7 @@
                             @method('put')
                             @csrf
                             <div class="col-xl-3 col-md-6 mb-4 mr-3">
-                                <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card border-left-success shadow-sm h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">

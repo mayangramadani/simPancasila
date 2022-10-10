@@ -179,7 +179,7 @@
             @endif
             @if (Auth::user()->role == 'guru')
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/datakeuangan/guru">
+                    <a class="nav-link collapsed" href="/datakeuangan">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Status RKAS</span>
                     </a>

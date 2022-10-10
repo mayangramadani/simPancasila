@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>Laporan Keuangan</title>
+    <title>Daftar Siswa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,8 @@
                             <div class="col-lg-6">
                                 <!-- col-lg-6 start here -->
                                 <div class="sidebar-brand-icon logo-brand">
-                                    <img src="{!! asset('asset/img/logo.png') !!}" alt="" width="100px
+                                    <img src="{!! asset('asset/img/logo.png') !!}" alt=""
+                                        width="100px
                                     
                                     ">
                                 </div>
@@ -47,24 +48,18 @@
                                 <!-- col-lg-12 start here -->
                                 <div class="invoice-details mt25">
                                     <div class="well">
+
                                         <ul class="list-unstyled mb0">
-                                            <li><strong>Laporan Keuangan</strong> </li>
-                                            <li><strong>Sekolah: {{$keuangan->LaporanKeuangan
-                                            ->Sekolah->nama_sekolah}}</strong></li>
-                                            <li><strong>Due Date:</strong> </li>
-                                            <li><strong>Status:</strong>
-                                                
-                                            </li>
+                                            <li><strong class="text-info">Daftar Nama-Nama Siswa di
+                                                    {{ request()->parameters }} </strong></li>
+                                            <li><strong>Sekolah: {{$kelas->TingkatanKelas->Sekolah->nama_sekolah}}</strong></li>
+                                            <li><strong>Kelas: {{$kelas->nama_kelas}}</strong> </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="invoice-to mt25">
                                     <ul class="list-unstyled">
-                                        <li><strong>Invoiced To</strong></li>
-                                        <li></li>
-                                        <li></li>
-                                        <li>New York, NY, 2014</li>
-                                        <li>USA</li>
+                                        <li><strong>Daftar Siswa</strong></li>
                                     </ul>
                                 </div>
                                 <div class="invoice-items">
@@ -73,45 +68,31 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th class="per1 text-center">No.</th>
-                                                    <th class="per40 text-center">Pemasukan</th>
-                                                    <th class="per40 text-center">Pengeluaran</th>
-                                                    <th class="per19 text-center">Jumlah</th>
+                                                    <th class="per2 text-center">No.</th>
+                                                    <th class="per37 text-center">Nis</th>
+                                                    <th class="per40 text-center">Nama Siswa</th>
+                                                    <th class="per20 text-center">Kelas</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @if ($datakelas != null)
+                                                    @foreach ($datakelas as $ds)
+                                                        <tr role="row" class="odd">
+                                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                                            <td>{{ $ds->Siswa->nis }}</td>
+                                                            <td>{{ $ds->Siswa->nama_siswa }}</td>
+                                                            <td class="text-center">{{ $ds->Kelas}}</td>
+                                                        </tr>
+
+                                                    @endforeach
+                                                @endif
                                                 <tr role="row" class="odd">
                                                     <td></td>
                                                     <td></td>
-                                                    <td></td>
                                                     <td class="text-center"></td>
-                                                 
-                                                </tr>
-                                                <tr role="row" class="odd">
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td class="text-center"></td>
-                                                  
+
                                                 </tr>
                                             </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th colspan="2" class="text-right">Total Pemasukan:</th>
-                                                    <th class="text-center">                  
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2" class="text-right">Total Pengeluaran:</th>
-                                                    <th class="text-center"></th>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="2" class="text-right">Sisa:</th>
-                                                    <th class="text-center">
-                                                       
-                                                    </th>
-                                                </tr>
-                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>

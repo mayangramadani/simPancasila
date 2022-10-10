@@ -11,9 +11,9 @@
                 </button>
             </form>
         </div> --}}
-        <div class="row mb-4">
+        <div class="row mt-5">
             <div class="col-xl-3 col-md-6 mb-4 mr-3">
-                <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card border-left-primary shadow-sm ">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -29,8 +29,8 @@
                 </div>
             </div>
 
-            <div class="col-xl-2 col-md-2 mb-2">
-                <div class="card border-left-success shadow mt-3">
+            <div class="col-xl-2 col-md-6 mb-4 mr-3">
+                <div class="card border-left-success shadow-sm ">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-5">
@@ -46,8 +46,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-2 col-md-3 mb-2">
-                <div class="card border-left-warning shadow mt-3">
+            <div class="col-xl-2 col-md-6 mb-4 mr-3">
+                <div class="card border-left-warning shadow-sm ">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-5">
@@ -62,8 +62,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-2 col-md-3 mb-2">
-                <div class="card border-left-danger shadow   mt-3">
+            <div class="col-xl-2 col-md-6 mb-4 mr-3">
+                <div class="card border-left-danger shadow-sm   ">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-5">
@@ -168,7 +168,7 @@
 
         <!-- Area Chart -->
         <div class="col-xl-12 col-lg-7">
-            <div class="card shadow mb-4">
+            <div class="card shadow-sm mb-4">
                 <!-- Card Header - Dropdown -->
                 {{-- <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between"> --}}
                 <ul class="nav nav-tabs" id="myTab" role="tablist">

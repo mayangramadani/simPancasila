@@ -97,4 +97,10 @@ class DataKelasController extends Controller
         // dd($siswa);
         return view('datakelas.show', compact('AksesKelas'));
     }
+    public function download($id)
+    {
+        $kelas = DataKelas::find($id);
+        $datakelas = AksesKelas::where('kelas_id', $id)->where('tahun', Date("Y"))->get();
+        return view('datakelas.download', compact('datakelas','kelas'));
+    }
 }

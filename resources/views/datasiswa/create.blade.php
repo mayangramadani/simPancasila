@@ -14,7 +14,7 @@
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
+                <div class="card shadow-sm mb-4">
                     <!-- Card Body -->
                     <div class="mt-4 row pl-3">
                         <p class="text-primary">Isilah form berikut dengan data yang benar.</p>

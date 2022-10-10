@@ -2,14 +2,13 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
+        
         <!-- Page Heading -->
         {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Data Kelas</h1>
         </div> --}}
 
         <!-- Button trigger modal -->
-        
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,7 +73,7 @@
             </div>
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
+                <div class="card shadow-sm-sm mb-4">
                     <!-- Card Header - Dropdown -->
                     <!-- Card Body -->
                     <div class="card-body">

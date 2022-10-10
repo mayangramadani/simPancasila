@@ -12,7 +12,7 @@
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
+                <div class="card shadow-sm mb-4">
                     <!-- Card Header - Dropdown -->
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
