@@ -27,7 +27,7 @@ class SiswaSeeder extends Seeder
             'ayah' => 'Kuncoro',
             'ibu' => 'Susanti',
             'sekolah_id' => '1',
-            'users_id' => '2',
+            'users_id' => '5',
             'isActive' => '0'
         ]);
         Siswa::create([

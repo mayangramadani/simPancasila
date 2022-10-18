@@ -32,22 +32,22 @@ class UserSeeder extends Seeder
 
         User::create([
             'id' => '3',
-            'name' => 'siswa',
-            'email' => 'siswa@gmail.com',
+            'name' => 'Bambang',
+            'email' => 'bambang@gmail.com',
             'password' => bcrypt('123123123'),
         ]);
 
         User::create([
             'id' => '4',
-            'name' => 'siswa2',
-            'email' => 'siswa2@gmail.com',
+            'name' => 'Menik',
+            'email' => 'menik@gmail.com',
             'password' => bcrypt('123123123'),
         ]);
 
         User::create([
             'id' => '5',
-            'name' => 'siswa3',
-            'email' => 'siswa3@gmail.com',
+            'name' => 'Budi',
+            'email' => 'budi@gmail.com',
             'password' => bcrypt('123123123'),
         ]);
     }

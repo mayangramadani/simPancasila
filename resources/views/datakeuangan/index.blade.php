@@ -91,14 +91,17 @@
                 <!-- Card Header - Dropdown -->
                 {{-- <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between"> --}}
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                            type="button" role="tab" aria-controls="home" aria-selected="true">RKAS</button>
+                    <li class="nav-item mr-3" role="presentation">
+                        <button class="nav-link active position-relative" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                            type="button" role="tab" aria-controls="home" aria-selected="true">RKAS
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ $keuangan->where('kategori_keuangan_id', '3')->where('status_pembayaran', 'Menunggu')->count() }}
+                                <span class="visually-hidden">unread messages</span>
+                            </span></button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                            type="button" role="tab" aria-controls="profile"
-                            aria-selected="false">BKU</button>
+                            type="button" role="tab" aria-controls="profile" aria-selected="false">BKU</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"

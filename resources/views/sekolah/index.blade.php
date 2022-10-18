@@ -3,23 +3,6 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        <!-- Page Heading -->
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Sekolah</h1>
-        </div> --}}
-        {{-- <nav>
-            <ol class="breadcrumb">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Tambah Sekolah
-                </button>
-            </ol>
-        </nav> --}}
-
-        <!-- Button trigger modal -->
-        {{-- <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Sekolah
-        </button> --}}
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -54,20 +37,19 @@
             </div>
         </div>
 
-
         <div class="row">
-
+            <div class="py-3 d-flex flex-row align-items-center justify-content-between"> <h5 class="m-0 font-weight-bold text-primary">Data Sekolah</h5>
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"><i class="fa fa-plus"></i> 
+                    Add Sekolah
+                </button>
+            </div>
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h5 class="m-0 font-weight-bold text-primary">Data Sekolah</h5>
-                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"><i class="fa fa-plus"></i> 
-                            Add Sekolah
-                        </button>
-                    </div>
+                    
+                       
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">

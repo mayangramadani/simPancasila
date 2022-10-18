@@ -4,117 +4,100 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Histori Pembayaran Siswa</h1>
+        <div class="d-sm-flex align-items-center justify-content-between py-3">
+            <h5 class="pl-3 text-primary fw-bold">Histori Pembayaran Siswa</h5>
         </div>
 
         <div class="row">
-
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Histori</h6>
-                    </div>
                     <div class="card-body">
-                        <div class="chart-area">
-                            <div class="row">
-                                <div class="card-body">
-                                    <div class="col-sm-12">
-                                        <div class="table-responsive">
-                                            <table id="table1" class="table-bordered">
-                                                <thead>
-                                                    <tr class="box bg-primary" role="row">
-                                                        <th width="2%" class="text-center text-light" tabindex="0"
-                                                            aria-controls="example1" rowspan="1" colspan="1"
-                                                            aria-sort="ascending"
-                                                            aria-label="No.: activate to sort column descending">No.
-                                                        </th>
-                                                        <th class="text-center text-light" tabindex="0" aria-contr ols="example1"
-                                                            rowspan="1" colspan="1" name="nama_siswa"
-                                                            aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                            Nama Keuangan</th>
-                                                        <th class="text-center text-light" tabindex="0" aria-contr ols="example1"
-                                                            rowspan="1" colspan="1" name="nama_siswa"
-                                                            aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                            Jumlah</th>
-                                                        <th class="text-center text-light" tabindex="0" aria-contr ols="example1"
-                                                            rowspan="1" colspan="1" name="nama_siswa"
-                                                            aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                            Tanggal</th>
-                                                        <th width="10%" class="text-center text-light" tabindex="0"
-                                                            aria-controls="example1" rowspan="1" colspan="1"
-                                                            name="xxx"
-                                                            aria-label="xxx: activate to sort column ascending">
-                                                            Bukti</th>
-                                                        <th width="15%" class="text-center text-light" tabindex="0"
-                                                            aria-controls="example1" rowspan="1" colspan="1"
-                                                            name="xx"
-                                                            aria-label="xx: activate to sort column ascending">
-                                                            Status
-                                                        </th>
-                                                        <th width="15%" class="text-center text-light" tabindex="0"
-                                                            aria-controls="example1" rowspan="1" colspan="1"
-                                                            name="xx"
-                                                            aria-label="xx: activate to sort column ascending">
-                                                            Action
-                                                        </th>
+                        <div class="row">
+                            <div class="card-body">
+                                <div class="col-sm-12">
+                                    <div class="table-responsive">
+                                        <table id="table1" class="table-bordered">
+                                            <thead>
+                                                <tr class="box bg-primary" role="row">
+                                                    <th width="2%" class="text-center text-light" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="No.: activate to sort column descending">No.
+                                                    </th>
+                                                    <th class="text-center text-light" tabindex="0" aria-contr
+                                                        ols="example1" rowspan="1" colspan="1" name="nama_siswa"
+                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                        Nama Keuangan</th>
+                                                    <th class="text-center text-light" tabindex="0" aria-contr
+                                                        ols="example1" rowspan="1" colspan="1" name="nama_siswa"
+                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                        Jumlah</th>
+                                                    <th class="text-center text-light" tabindex="0" aria-contr
+                                                        ols="example1" rowspan="1" colspan="1" name="nama_siswa"
+                                                        aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                        Tanggal</th>
+                                                    <th width="10%" class="text-center text-light" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        name="xxx" aria-label="xxx: activate to sort column ascending">
+                                                        Bukti</th>
+                                                    <th width="15%" class="text-center text-light" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        name="xx" aria-label="xx: activate to sort column ascending">
+                                                        Status
+                                                    </th>
+                                                    <th width="15%" class="text-center text-light" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        name="xx" aria-label="xx: activate to sort column ascending">
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($transaksisiswa->where('status_pembayaran', '!=', 'Ditolak')->where('status_pembayaran', '!=', 'Belum Dibayar') as $ts)
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1 text-center">{{ $loop->iteration }}</td>
+                                                        <td class="text-center">{{ $ts->nama_keuangan }}</td>
+                                                        <td class="text-center">
+                                                            {{ 'Rp ' . number_format($ts->jumlah, 0, '.', '.') }}
+                                                        </td>
+                                                        <td class="text-center">{{ $ts->tanggal }}</td>
+                                                        <td class="text-center">{{ $ts->bukti }}</td>
+                                                        <td class="text-center">
+                                                            @if ($ts->status_pembayaran == 'Ditolak')
+                                                                <span class="badge bg-danger">Ditolak</span>
+                                                            @elseif ($ts->status_pembayaran == 'Belum Dibayar')
+                                                                <span class="badge bg-danger">Belum Dibayar</span>
+                                                            @elseif($ts->status_pembayaran == 'Diterima')
+                                                                <span class="badge bg-success">Diterima</span>
+                                                            @elseif($ts->status_pembayaran == 'Proses')
+                                                                <span class="badge bg-warning">Proses</span>
+                                                            @else
+                                                                <span class="badge bg-dark">Belum diperiksa</span>
+                                                            @endif
+                                                        </td>
+                                                        <td class="d-flex">
+                                                            <a href="/transaksisiswa/{{ $ts->id }}/show"
+                                                                id="2" class="edit me-2">
+                                                                <button class="btn btn-outline-info btn-sm"
+                                                                    type="button"><i class="fa fa-pencil-square"></i>
+                                                                    Show
+                                                                </button>
+                                                            </a>
+                                                        </td>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($transaksisiswa->where('status_pembayaran', '!=', 'Ditolak')->where('status_pembayaran', '!=', 'Belum Dibayar') as $ts)
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1 text-center">{{ $loop->iteration }}</td>
-                                                            <td class="text-center">{{ $ts->nama_keuangan }}</td>
-                                                            <td class="text-center">{{ 'Rp ' . number_format($ts->jumlah, 0, '.', '.') }}
-                                                            </td>
-                                                            <td class="text-center">{{ $ts->tanggal }}</td>
-                                                            <td class="text-center">{{ $ts->bukti }}</td>                                 
-                                                            <td class="text-center">
-                                                                @if ($ts->status_pembayaran == 'Ditolak')
-                                                                    <span class="badge bg-danger">Ditolak</span>
-                                                                @elseif ($ts->status_pembayaran == 'Belum Dibayar')
-                                                                    <span class="badge bg-danger">Belum Dibayar</span>
-                                                                @elseif($ts->status_pembayaran == 'Diterima')
-                                                                    <span class="badge bg-success">Diterima</span>
-                                                                @elseif($ts->status_pembayaran == 'Proses')
-                                                                    <span class="badge bg-warning">Proses</span>
-                                                                @else
-                                                                    <span class="badge bg-dark">Belum diperiksa</span>
-                                                                @endif
-                                                            </td>
-                                                            <td class="d-flex">
-                                                                <a href="/transaksisiswa/{{ $ts->id }}/show"
-                                                                    id="2" class="edit me-2">
-                                                                    <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
-                                                                        Show
-                                                                    </button>
-                                                                </a>
-                                                                {{-- <form action="/transaksisiswa/{{ $ts->id }}"
-                                                                    method='post'>
-                                                                    @csrf
-                                                                    @method('delete')
-                                                                    <input class="btn btn-outline-danger" type="submit"
-                                                                        value="Hapus">
-                                                                </form> --}}
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
     </div>
 
     @push('scripts')

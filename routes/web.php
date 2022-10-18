@@ -158,6 +158,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/transaksisiswa/{id}/detail', [TransaksiSiswaController::class, 'detail']);
         Route::get('/transaksisiswa/historisiswa', [TransaksiSiswaController::class, 'historisiswa']);
         Route::get('/transaksisiswa/{id}/show', [TransaksiSiswaController::class, 'show']);
+        Route::get('/transaksisiswa/petunjuk', [TransaksiSiswaController::class, 'petunjuk']);
     });
     // tingkatan kelas
     Route::middleware(['auth', 'role:admin'])->group(function () {
