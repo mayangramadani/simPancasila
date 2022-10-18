@@ -42,12 +42,12 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a class="sidebar-brand d-flex flex-column align-items-center justify-content-center p-3" href="/dashboard">
+            <a class="sidebar-brand d-flex flex-column align-items-center justify-content-center p-1" href="/dashboard">
                 <div class="sidebar-brand-icon logo-brand">
                     <img src="{!! asset('asset/img/logo.png') !!}" alt="">
                 </div>
                 <h6 class="nav-link fw-bold text-gray-500">Sistem Informasi</h6>
-                <h4 class="sidebar-brand-text fw-semibold text-gray-500">Administrasi Sekolah</h4>
+                <h6 class="sidebar-brand-text fw-semibold text-gray-500">Administrasi Sekolah</h6>
             </a>
 
             <!-- Divider -->
@@ -67,6 +67,7 @@
             <div class="sidebar-heading">
                 Master Data
             </div>
+            
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link" href="/sekolah">
@@ -179,7 +180,7 @@
             @endif
             @if (Auth::user()->role == 'guru')
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/datakeuangan">
+                    <a class="nav-link collapsed" href="/datakeuangan/guru">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Status RKAS</span>
                     </a>

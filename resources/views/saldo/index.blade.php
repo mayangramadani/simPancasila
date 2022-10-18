@@ -4,17 +4,16 @@
     <div class="container-fluid">
 
         <div class="row">
-
+            <!-- Card Header - Dropdown -->
+            <div class="pl-4 py-3 d-flex flex-row align-items-center justify-content-between">
+                <h4 class="m-0 font-weight-bold text-primary">Histori Saldo</h4>
+            </div>
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary">Histori Saldo</h4>
-                    </div>
+
                     <!-- Card Body -->
                     <div class="card-body">
-                        <div class="chart-area">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
@@ -41,9 +40,6 @@
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Saldo: activate to sort column ascending">Saldo
                                                     </th>
-                                                    {{-- <th width="20%" class="text-center text-primary" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Action: activate to sort column ascending">Action</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>

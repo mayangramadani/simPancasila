@@ -47,18 +47,17 @@
 
 
         <div class="row">
-
+            <div class="pl-5 py-3 d-flex flex-row align-items-center justify-content-between">
+                <h4 class="m-0 font-weight-bold text-primary">Keuangan</h4>
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                   Add Kategori
+                </button>
+            </div>
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary">Keuangan</h4>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                           Add Kategori
-                        </button>
-                
-                    </div>
+                    
                     <div class="card-body">
 
                         <div class="row">

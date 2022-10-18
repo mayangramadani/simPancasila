@@ -41,7 +41,7 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                     Saldo</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">Rp 123.000</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}</div>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -60,15 +60,23 @@
                                 <label for="kegiatan" class="col-sm-2 col-form-label fw-bold text-dark">Nama
                                     Kegiatan</label>
                                 <div class="col-sm-10">
-                                    :<label for="kegiatan" name="sumber_dana" class="col-sm-5" readonly>
+                                    :<label for="kegiatan" name="nama_keuangan" class="col-sm-5" readonly>
                                         {{ $keuangan->nama_keuangan }}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="kegiatan" class="col-sm-2 col-form-label fw-bold text-dark">Tanggal
+                                    Kegiatan</label>
+                                <div class="col-sm-10">
+                                    :<label for="kegiatan" name="tanggal" class="col-sm-5" readonly>
+                                        {{ $keuangan->tanggal }}</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <label for="Deskripsi" class="col-sm-2 col-form-label fw-bold text-dark">
                                     Deskripsi</label>
                                 <div class="col-sm-10">
-                                    :<label for="Deskripsi" name="sumber_dana" class="col-sm-5" readonly>
+                                    :<label for="Deskripsi" name="deskripsi" class="col-sm-5" readonly>
                                         {{ $keuangan->deskripsi }}</label>
                                 </div>
                             </div>
@@ -98,6 +106,12 @@
                                     <input class="form-check-input" type="radio" name="status_pembayaran" value="Ditolak">
                                     <label class="form-check-label">
                                         Ditolak
+                                    </label>
+                                </div>
+                                <div class="form-check col-sm-2 col-form-label">
+                                    <input class="form-check-input" type="radio" name="status_pembayaran" value="Proses">
+                                    <label class="form-check-label">
+                                        Diproses
                                     </label>
                                 </div>
                             </div>

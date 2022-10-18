@@ -11,75 +11,7 @@
                 </button>
             </form>
         </div> --}}
-        <div class="row mt-5">
-            <div class="col-xl-3 col-md-6 mb-4 mr-3">
-                <div class="card border-left-primary shadow-sm ">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Saldo</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">Rp</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-xl-2 col-md-6 mb-4 mr-3">
-                <div class="card border-left-success shadow-sm ">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-5">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Diterima</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">--</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-check fa-2x text-gray-300"></i>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-2 col-md-6 mb-4 mr-3">
-                <div class="card border-left-warning shadow-sm ">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-5">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Proses</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">--</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-spinner fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-2 col-md-6 mb-4 mr-3">
-                <div class="card border-left-danger shadow-sm   ">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-5">
-                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                    Ditolak</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">--</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-ban fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
         <!-- Modal -->
@@ -141,19 +73,6 @@
                                     <label for="foto" class="form-label text-dark fw-bold">Bukti</label>
                                     <input class="form-control" type="file" id="formFile" name="bukti_transaksi">
                                 </div>
-
-                                {{-- <div class="mb-3">
-                                    <label for="foto" class="form-label ">Status Pembayaran</label>
-                                    <select class="form-select form-select-lg form-control"
-                                        aria-label="Default select example" name="status_pembayaran">
-                                        <option selected disabled>=== Status Pembayaran ===</option>
-                                        <option value="Lunas" selected>Lunas</option>
-                                        <option value="Belum Lunas" selected>Belum Lunas</option>
-                                        <option value="Tolak" selected>Tolak</option>
-                                        <option value="Proses" selected>Proses</option>
-                                    </select>
-                                </div> --}}
-
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -179,29 +98,105 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
                             type="button" role="tab" aria-controls="profile"
-                            aria-selected="false">Penatausahaan</button>
+                            aria-selected="false">BKU</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
-                            type="button" role="tab" aria-controls="contact" aria-selected="false">Monitoring</button>
+                            type="button" role="tab" aria-controls="contact"
+                            aria-selected="false">Monitoring</button>
                     </li>
                 </ul>
 
                 <!-- RKAS -->
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
-                            <div class="card-body">
-                                <div class="col-sm-12">
-                                    <div class="d-flex flex-row align-items-center justify-content-between">
-                                        <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah
-                                        </h4>
-                                        <div class="d-flex">
-                                            <div class="col-md text-end mt-3"> <a href="{{ route('rkas') }}"
-                                                    class="btn btn-primary ">RKAS</a>
+
+                        <div class="row mt-4 pl-5">
+                            <div class="col-xl-2 col-md-6 mb-3 mr-2">
+                                <div class="card border-left-dark shadow-sm ">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-5">
+                                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                                                    Menunggu</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {{ $keuangan->where('kategori_keuangan_id', '3')->where('status_pembayaran', 'Menunggu')->count() }}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-check text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-6 mb-3 mr-2">
+                                <div class="card border-left-success shadow-sm ">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-5">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Diterima</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {{ $keuangan->where('kategori_keuangan_id', '3')->where('status_pembayaran', 'Diterima')->count() }}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-check fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-6 mb-3 mr-2">
+                                <div class="card border-left-warning shadow-sm ">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-5">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Proses</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {{ $keuangan->where('kategori_keuangan_id', '3')->where('status_pembayaran', 'Proses')->count() }}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-spinner fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-6 mb-3 mr-2">
+                                <div class="card border-left-danger shadow-sm   ">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-5">
+                                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                    Ditolak</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {{ $keuangan->where('kategori_keuangan_id', '3')->where('status_pembayaran', 'Ditolak')->count() }}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-ban fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card-body">
+                                <div class="col-sm-12">
+                                    <div class="d-flex">
+                                        <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah
+                                        </h4>
+                                        <div class="col-md text-end"> <a href="{{ route('rkas') }}"
+                                                class="btn btn-primary ">RKAS</a>
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="card-body">
                                             <div class="col-sm-12">
@@ -253,7 +248,7 @@
                                                                 <tr role="row" class="odd">
                                                                     <td class="text-center">{{ $no }}</td>
                                                                     <td class="text-center">
-                                                                        {{ $dku->KategoriKeuangan->nama_keuangan }}
+                                                                        {{ $dku->nama_keuangan }}
                                                                     </td>
                                                                     <td class="text-center">
                                                                         {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}
@@ -269,6 +264,8 @@
                                                                             <span class="badge bg-success">Diterima</span>
                                                                         @elseif($dku->status_pembayaran == 'Proses')
                                                                             <span class="badge bg-warning">Proses</span>
+                                                                        @elseif($dku->status_pembayaran == 'Menunggu')
+                                                                            <span class="badge bg-dark">Menunggu</span>
                                                                         @else
                                                                             <span class="badge bg-dark">Belum
                                                                                 diperiksa</span>
@@ -289,7 +286,8 @@
                                                                             </button>
                                                                         </a> --}}
                                                                         <a href="/datakeuangan/{{ $dku->id }}/review"
-                                                                            id="2" class="detail me-2" title="Review">
+                                                                            id="2" class="detail me-2"
+                                                                            title="Review">
                                                                             <button class="btn btn-outline-success btn-sm"
                                                                                 type="button"><i
                                                                                     class="fa fa-pencil-square"></i>
@@ -311,6 +309,78 @@
 
                     <!-- Penatausahaan/BKU -->
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row mt-5 pl-5">
+                            <div class="col-xl-2 col-md-6 mb-4 mr-3">
+                                <div class="card border-left-primary shadow-sm ">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-5">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Saldo</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">Rp</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-2 col-md-6 mb-4 mr-3">
+                                <div class="card border-left-success shadow-sm ">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-5">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Diterima</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {{ $keuangan->where('status_pembayaran', 'Diterima')->count() }}</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-check fa-2x text-gray-300"></i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-6 mb-4 mr-3">
+                                <div class="card border-left-warning shadow-sm ">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-5">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Proses</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {{ $keuangan->where('status_pembayaran', 'Proses')->count() }}</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-spinner fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-6 mb-4 mr-3">
+                                <div class="card border-left-danger shadow-sm   ">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-5">
+                                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                    Ditolak</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {{ $keuangan->where('status_pembayaran', 'Ditolak')->count() }}</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-ban fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="card-body">
                                 <div class="col-sm-12">

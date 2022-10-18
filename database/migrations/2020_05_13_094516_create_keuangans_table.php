@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('komentar')->nullable();
             $table->string('bukti')->nullable();
             $table->string('berkas_pendukung')->nullable();
-            $table->enum('status_pembayaran', ['Diterima', 'Belum Dibayar', 'Ditolak', 'Proses'])->nullable()->default('Belum Dibayar');
+            $table->enum('status_pembayaran', ['Diterima', 'Belum Dibayar', 'Ditolak', 'Proses', 'Menunggu'])->nullable()->default('Belum Dibayar');
             $table->timestamps();
         });
     }

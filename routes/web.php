@@ -102,7 +102,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
         Route::post('/datakeuangan/rkas', [KeuanganController::class, 'rkas'])->name('rkas');
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review'])->name('review');
-        Route::get('/datakeuangan/{id}/guru', [KeuanganController::class, 'guru'])->name('guru');
+        Route::get('/datakeuangan/guru', [KeuanganController::class, 'guru'])->name('guru');
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review']);
     });
 

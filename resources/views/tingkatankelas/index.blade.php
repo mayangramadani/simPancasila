@@ -41,17 +41,17 @@
 
 
         <div class="row">
-
+            <!-- Card Header - Dropdown -->
+            <div class="pl-3 py-3 d-flex flex-row align-items-center justify-content-between">
+                <h4 class="m-0 font-weight-bold text-primary">Tingkatan Kelas</h4>
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Tingkatan Kelas
+                </button>
+            </div>
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary">Tingkatan Kelas</h4>
-                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Tingkatan Kelas
-                        </button>
-                    </div>
+
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
@@ -63,22 +63,23 @@
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label="No.: activate to sort column descending">No.</th>
-                                                <th class="text-center text-light" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1" name="nama_sekolah"
+                                                <th class="text-center text-light" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1" name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
                                                     Nama Sekolah</th>
-                                                <th width="15%" class="text-center text-light" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1" name="tingkatan_kelas"
+                                                <th width="15%" class="text-center text-light" tabindex="0"
+                                                    aria-controls="example1" rowspan="1" colspan="1"
+                                                    name="tingkatan_kelas"
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
                                                     Tingkat Kelas
                                                 </th>
-                                                <th width="15%" class="text-center text-light" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1" name="deskripsi"
+                                                <th width="15%" class="text-center text-light" tabindex="0"
+                                                    aria-controls="example1" rowspan="1" colspan="1" name="deskripsi"
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
                                                     Deskripsi
                                                 </th>
-                                                <th width="25%" class="text-center text-light" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1"
+                                                <th width="25%" class="text-center text-light" tabindex="0"
+                                                    aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending">Action</th>
 
                                             </tr>
@@ -100,7 +101,8 @@
                                                     <td class="d-flex justify-content-center">
                                                         <a href="/tingkatankelas/{{ $tk->id }}/edit" id="2"
                                                             class="edit me-2" title="Edit">
-                                                            <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-pencil-square"></i>
+                                                            <button class="btn btn-outline-info btn-sm" type="button"><i
+                                                                    class="fa fa-pencil-square"></i>
                                                             </button>
                                                         </a>
                                                         <form action="/tingkatankelas/{{ $tk->id }}" method='post'
@@ -112,11 +114,11 @@
                                                             </button>
                                                         </form>
 
-                                                        <a href="/tingkatankelas/{{ $tk->id }}/detail"
+                                                        {{-- <a href="/tingkatankelas/{{ $tk->id }}/detail"
                                                             id="2" class="detail me-2" title="Detail">
                                                             <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-eye"></i>
                                                             </button>
-                                                        </a>
+                                                        </a> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

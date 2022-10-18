@@ -59,38 +59,37 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary">Akses Kelas</h4>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        <h5 class="m-0 font-weight-bold text-primary">Akses Kelas</h5>
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             Add
                         </button>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <div class="chart-area">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
-                                        <table id="table1">
+                                        <table id="table1" class="table-bordered">
                                             <thead>
-                                                <tr class="box bg-teal table-primary" role="row">
-                                                    <th width="5%" class="text-center text-primary" tabindex="0"
+                                                <tr class="box bg-primary" role="row">
+                                                    <th width="5%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">No.</th>
-                                                    <th class="text-center text-primary" tabindex="0" aria-controls="example1"
+                                                    <th class="text-center text-light" tabindex="0" aria-controls="example1"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Kelas/Rombel: activate to sort column ascending">
                                                         Nama Siswa</th>
-                                                    <th width="25%" class="text-center text-primary" tabindex="0"
+                                                    <th width="25%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Tingkat Kelas: activate to sort column ascending">
                                                         Nama Kelas</th>
-                                                    <th width="25%" class="text-center text-primary" tabindex="0"
+                                                    <th width="25%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Tahun: activate to sort column ascending">
                                                         Tahun</th>
-                                                    <th width="25%" class="text-center text-primary" tabindex="0"
+                                                    <th width="25%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">
                                                         Action</th>
@@ -111,22 +110,21 @@
                                                         <td class="text-center">{{ $ak->Siswa->nama_siswa }}</td>
                                                         <td class="text-center">{{ $ak->DataKelas->nama_kelas }}</td>
                                                         <td class="text-center">{{ $ak->tahun }}</td>
-                                                        <td class="d-flex">
+                                                        <td class="d-flex justify-content-center">
                                                             <a href="/akseskelas/{{ $ak->id }}/edit" id="2"
                                                                 class="edit me-2">
                                                                 <button class="btn btn-outline-info btn-sm"
-                                                                    type="button"><i class="fa fa-pencil-square"></i>
-                                                                    Edit
+                                                                    type="button"><i class="fa fa-pencil-square" title="Edit"></i>
+                                                                    
                                                                 </button>
                                                             </a>
-                                                            <form action="/akseskelas/{{ $ak->id }}" method='post'>
+                                                            <form action="/akseskelas/{{ $ak->id }}" method='post' title="Hapus">
                                                                 @csrf
                                                                 @method('delete')
                                                                 {{-- <input class="btn btn-outline-danger btn-sm"
                                                                     type="submit" value="Hapus"> --}}
                                                                 <button class="btn btn-outline-danger btn-sm"
-                                                                    type="submit"><i class="fa fa-pencil-square"></i>
-                                                                    Delete
+                                                                    type="submit"><i class="fas fa-trash-alt"></i>
                                                                 </button>
                                                             </form>
                                                         </td>

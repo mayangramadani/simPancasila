@@ -50,11 +50,6 @@
                                                                 Pembayaran</th>
                                                             <th width="15%" class="text-center text-light" tabindex="0"
                                                                 aria-controls="example1" rowspan="1" colspan="1">
-                                                                Sumber
-                                                                Dana
-                                                            </th>
-                                                            <th width="15%" class="text-center text-light" tabindex="0"
-                                                                aria-controls="example1" rowspan="1" colspan="1">
                                                                 Berkas
                                                                 Pendukung
                                                             </th>
@@ -83,7 +78,7 @@
 
                                                                 {{-- <td class="text-center">{{ $dku->status_pembayaran }}</td> --}}
 
-                                                                <td class="text-center">
+                                                                 <td class="text-center">
                                                                     @if ($dku->status_pembayaran == 'Ditolak')
                                                                         <span class="badge bg-danger">Ditolak</span>
                                                                     @elseif ($dku->status_pembayaran == 'Belum Dibayar')
@@ -98,9 +93,6 @@
                                                                             diperiksa</span>
                                                                     @endif
                                                                 </td>
-
-                                                                <td class="text-center">
-                                                                    {{ $dku->SumberDana->sumber_dana }}</td>
                                                                 <td class="text-center">{{ $dku->berkas_pendukung }}
                                                                 </td>
                                                                 <td class="d-felx justify-content-center">

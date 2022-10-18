@@ -77,7 +77,7 @@
                                                         <tr role="row" class="odd">
                                                             <td class="text-center">{{ $loop->iteration }}</td>
                                                             <td class="text-center">{{ $item->no_transaksi }}</td>
-                                                            <td class="text-center">{{ $item->User->name }}</td>
+                                                            {{-- <td class="text-center">{{ $item->User->name }}</td> --}}
                                                             <td class="text-center">
                                                                 {{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
                                                             <td class="text-center">
@@ -122,7 +122,8 @@
                                 <div class="card-body">
                                     <div class="col-sm-12">
                                         <div class="table-responsive">
-                                            <table id="table2" class="table-bordered">
+                                            <table id="table2" class="table-bordered" role="grid"
+                                            aria-describedby="example1_info">
                                                 <thead>
                                                     <tr class="box bg-primary" role="row">
                                                         <th width="4%" class="text-center text-light" tabindex="0"
@@ -161,7 +162,7 @@
                                                         <tr role="row" class="odd">
                                                             <td class="text-center">{{ $loop->iteration }}</td>
                                                             <td class="text-center">{{ $item->no_transaksi }}</td>
-                                                            <td class="text-center">{{ $item->User->name }}</td>
+                                                            {{-- <td class="text-center">{{ $item->User->name }}</td> --}}
                                                             <td class="text-center">
                                                                 {{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
                                                             <td class="text-center">
@@ -191,14 +192,7 @@
                         </div>
                          <!-- Buka Pembayaran -->
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                            <div class="d-flex justify-content-center mt-5 mb-3">
-                                <form action="{{ route('bayar') }}" method="post">
-                                    @csrf
-                                    <button type="submit" class="btn btn-primary">
-                                        Buka Pembayaran
-                                    </button>
-                                </form>
-                            </div>
+
                         </div>
                     </div>
                 </div>

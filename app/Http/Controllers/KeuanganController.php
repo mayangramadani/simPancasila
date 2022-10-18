@@ -20,6 +20,12 @@ class KeuanganController extends Controller
         $saldo = Saldo::all();
         $sekolah = Sekolah::all();
         $kategorikeuangan = KategoriKeuangan::all();
+        // $jumlahSaldo = 0;
+        // foreach ($saldo as $item) {
+        //     $jumlahSaldo = $jumlahSaldo + (int)$item;
+        // }
+        // $debit = Saldo::all();
+        // $kredit = Saldo::all();
         return view('datakeuangan.index', compact('keuangan', 'saldo', 'kategorikeuangan', 'sekolah'));
     }
     public function add(Request $request)
@@ -143,11 +149,12 @@ class KeuanganController extends Controller
             'jumlah' => $this->convertRP($request->jumlah),
             'tanggal' => $request->tanggal,
             'deskripsi' => $request->deskripsi,
-            'berkas_pendukung' => $file_name1,
-            'status' => 'Proses',
+            'berkas_pendukung' => $file_name1,  
+            'status_pembayaran' => 'Menunggu',
             'kategori_keuangan_id' => '3'
         ]);
         return back()->with('success', 'Data Berhasil DiTambahkan');
+        
     }
     public function review($id)
     {
@@ -155,9 +162,9 @@ class KeuanganController extends Controller
         return view('datakeuangan.review', compact('keuangan'));
     }
 
-    public function guru($id)
+    public function guru()
     {
-        $keuangan = Keuangan::find($id);
+        $keuangan = Keuangan::all();
         return view('datakeuangan.guru', compact('keuangan'));
     }
 }
