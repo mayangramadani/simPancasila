@@ -53,7 +53,7 @@
                                                     @endphp
                                                     <tr role="row" class="odd">
                                                         <td class="text-center">{{ $no }}</td>
-                                                        <td class="text-center">{{ $s->sekolah->nama_sekolah }}</td>
+                                                        <td class="text-center">{{ $s->Sekolah->nama_sekolah }}</td>
                                                         <td class="text-center">
                                                             {{ 'Rp ' . number_format($s->debit, 0, '.', '.') }}</td>
                                                         <td class="text-center">{{ $s->kredit }}</td>

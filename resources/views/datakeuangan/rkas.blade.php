@@ -15,11 +15,21 @@
                     </div>
                     <!-- RKAS -->
                     <div class="card-body pl-5">
-                    
+
                         <form class="validation" novalidate method="POST" action="{{ url('datakeuangan/rkas') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="sekolah" class="form-label text-primary fw-bold">Sekolah</label>
+                                    <select class="form-select form-select-lg form-control mb-3" name="sekolah_id">
+                                        <option disabled>=== Pilih Sekolah ===</option>
+                                        @foreach ($sekolah as $item)
+                                            <option value="{{ $item->id }}">{{ $item->nama_sekolah }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="col-md-4 mb-3">
                                     <label class="form-control-label fw-semibold text-primary" for="kelas">Nama
                                         Kegiatan</label>
@@ -39,7 +49,7 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="transaksi"
-                                        class="form-control-label fw-semibold text-primary">tanggal</label>
+                                        class="form-control-label fw-semibold text-primary">Tanggal</label>
                                     <input type="date" class="form-control" id="tanggal" name="tanggal">
                                 </div>
                                 <div class="col-md-4 mb-3">

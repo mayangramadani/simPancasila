@@ -4,22 +4,22 @@
     <div class="container-fluid">
 
         <div class="row">
+            <div class="d-flex flex-row align-items-center justify-content-between mt-3 mb-3">
+                <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah</h4>
+                <div class="d-flex">
+                    <div class="col-md text-end"> <a href="{{ route('rkas') }}"
+                            class="btn btn-primary ">RKAS</a>
+                    </div>
+                </div>
+            </div>
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
                     <!-- RKAS -->
-                    <div class="row">
+                    <div class="row">     
                         <div class="card-body">
-                            <div class="col-sm-12">
-                                <div class="d-flex flex-row align-items-center justify-content-between">
-                                    <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah</h4>
-                                    <div class="d-flex">
-                                        <div class="col-md text-end mt-3"> <a href="{{ route('rkas') }}"
-                                                class="btn btn-primary ">RKAS</a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-sm-12">        
                                 <div class="row">
                                     <div class="card-body">
                                         <div class="col-sm-12">
@@ -95,22 +95,12 @@
                                                                 </td>
                                                                 <td class="text-center">{{ $dku->berkas_pendukung }}
                                                                 </td>
-                                                                <td class="d-felx justify-content-center">
-                                                                    {{-- <a href="/datakeuangan/{{ $dku->id }}/edit"
-                                                    id="2" class="edit me-1">
-                                                    <button
-                                                        class="btn btn-outline-success btn-sm mb-1"
-                                                        type="button"><i
-                                                            class="fa fa-pencil-square"></i>
-                                                        Edit
-                                                    </button>
-                                                </a> --}}
-                                                                    <a href="/datakeuangan/{{ $dku->id }}/review"
-                                                                        id="2" class="detail me-2">
+                                                                <td class="d-flex justify-content-center">
+                                                                    <a href="/datakeuangan/{{ $dku->id }}/show"
+                                                                        id="2" class="detail me-2" title="Show">
                                                                         <button class="btn btn-outline-success btn-sm"
                                                                             type="button"><i
-                                                                                class="fa fa-pencil-square"></i>
-                                                                            Review
+                                                                                class="fa fa-eye"></i>
                                                                         </button>
                                                                     </a>
                                                                 </td>
@@ -129,4 +119,58 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+    <script>
+        $(document).ready(function() {
+            console.log('asdas');
+            $('#table1').DataTable();
+        });
+    </script>
+    <script>
+        $('#bulan_pembayaran').change(function() {
+            var id = $(this).val();
+            console.log('bulan_pembayaran', id)
+            if (id) {
+                $.ajax({
+                    type: "GET",
+                    url: "getPembayaran?id=" + id,
+                    dataType: 'JSON',
+                    success: function(res) {
+                        console.log(res);
+                        if (res) {
+                            $("#dengan-rupiah").val(formatRupiah(res.jumlah, 'Rp. '));
+                            $("#kategori_pembayaran").val(res.nama_keuangan);
+                        } else {
+                            // $("#tingkatan_kelas").empty();
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    <script>
+        /* Dengan Rupiah */
+        var dengan_rupiah = document.getElementById('dengan-rupiah');
+        dengan_rupiah.addEventListener('keyup', function(e) {
+            dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+        });
+
+        /* Fungsi */
+        function formatRupiah(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+    </script>
+@endpush
 @endsection

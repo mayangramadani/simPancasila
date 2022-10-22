@@ -113,7 +113,6 @@
                 <!-- RKAS -->
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
                         <div class="row mt-4 pl-5">
                             <div class="col-xl-2 col-md-6 mb-3 mr-2">
                                 <div class="card border-left-dark shadow-sm ">
@@ -195,7 +194,7 @@
                                     <div class="d-flex">
                                         <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah
                                         </h4>
-                                        <div class="col-md text-end"> <a href="{{ route('rkas') }}"
+                                        <div class="col-md text-end"> <a href="{{ route('lihatrkas') }}"
                                                 class="btn btn-primary ">RKAS</a>
                                         </div>
                                     </div>

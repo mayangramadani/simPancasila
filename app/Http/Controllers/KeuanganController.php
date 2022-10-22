@@ -20,12 +20,6 @@ class KeuanganController extends Controller
         $saldo = Saldo::all();
         $sekolah = Sekolah::all();
         $kategorikeuangan = KategoriKeuangan::all();
-        // $jumlahSaldo = 0;
-        // foreach ($saldo as $item) {
-        //     $jumlahSaldo = $jumlahSaldo + (int)$item;
-        // }
-        // $debit = Saldo::all();
-        // $kredit = Saldo::all();
         return view('datakeuangan.index', compact('keuangan', 'saldo', 'kategorikeuangan', 'sekolah'));
     }
     public function add(Request $request)
@@ -47,6 +41,7 @@ class KeuanganController extends Controller
             'no_transaksi' => Str::random(9),
             'nama_keuangan' => $request->nama_keuangan,
             'kategori_keuangan_id' => $request->kategori_keuangan_id,
+            'sekolah_id' => $request->sekolah_id,
             'jumlah' => $this->convertRP($request->jumlah),
             'tanggal' => $request->tanggal,
             'deskripsi' => $request->deskripsi,
@@ -93,13 +88,19 @@ class KeuanganController extends Controller
     }
     public function update($id, Request $request)
     {
+        // dd($request->all());
         $keuangan = Keuangan::find($id);
-        $keuangan->nama_keuangan = $request->nama_keuangan;
+        // $keuangan->nama_keuangan = $request->nama_keuangan;
+        if ($request->nama_keuangan != null) {
+            $keuangan->nama_keuangan = $request->nama_keuangan;
+        }
         $keuangan->status_pembayaran = $request->status_pembayaran;
         if ($request->jumlah != null) {
             $keuangan->jumlah = $this->convertRP($request->jumlah);
         }
-        $keuangan->tanggal = $request->tanggal;
+        if ($request->tanggal != null) {
+            $keuangan->tanggal = $request->tanggal;
+        }
         $keuangan->komentar = $request->komentar;
         $keuangan->deskripsi = $request->deskripsi;
 
@@ -118,6 +119,24 @@ class KeuanganController extends Controller
             $keuangan->bukti_keuangan = $file_name1;
         }
         $keuangan->save();
+
+        if($request->status_pembayaran == 'Diterima'){
+            $cariSekolah = Saldo::where('sekolah_id',$keuangan->sekolah_id)->latest()->first();
+            if ($cariSekolah) {
+                Saldo::Create([
+                    'sekolah_id' => $keuangan->sekolah_id,
+                    'debit' => 0,
+                    'kredit' => $keuangan->jumlah,
+                    'saldo'=> $cariSekolah->saldo - $keuangan->jumlah
+                ]);
+            }
+            Saldo::Create([
+                'sekolah_id' => $keuangan->sekolah_id,
+                'debit' => 0,
+                'kredit' => $keuangan->jumlah,
+                'saldo'=> -$keuangan->jumlah
+            ]);
+        }
 
         return redirect('/datakeuangan');
     }
@@ -144,17 +163,18 @@ class KeuanganController extends Controller
         } else {
             $file_name1 = null;
         }
+
         Keuangan::create([
+            'sekolah_id' => $request->sekolah_id,
             'nama_keuangan' => $request->nama_keuangan,
             'jumlah' => $this->convertRP($request->jumlah),
             'tanggal' => $request->tanggal,
             'deskripsi' => $request->deskripsi,
-            'berkas_pendukung' => $file_name1,  
+            'berkas_pendukung' => $file_name1,
             'status_pembayaran' => 'Menunggu',
             'kategori_keuangan_id' => '3'
         ]);
         return back()->with('success', 'Data Berhasil DiTambahkan');
-        
     }
     public function review($id)
     {
@@ -166,5 +186,17 @@ class KeuanganController extends Controller
     {
         $keuangan = Keuangan::all();
         return view('datakeuangan.guru', compact('keuangan'));
+    }
+    public function show($id)
+    {
+        $keuangan = Keuangan::find($id);
+        return view('datakeuangan.show', compact('keuangan'));
+    }
+    public function lihatrkas()
+    {
+        // dd('asdas');
+        $keuangan = Keuangan::all();
+        $sekolah = Sekolah::all();
+        return view('datakeuangan.rkas', compact('keuangan', 'sekolah'));
     }
 }

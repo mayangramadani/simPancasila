@@ -40,7 +40,7 @@
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold text-primary"
                                             for="kelas">Kelas</label>
-                                        <input type="text" class="form-control" id="kelas" placeholder="Kelas"
+                                        <input type="text" class="form-control" id="kelas" placeholder="Kelas"  value="{{$kelasSiswa->DataKelas->nama_kelas}}"
                                             required autocomplete="off" readonly>
                                     </div>
                                 </div>

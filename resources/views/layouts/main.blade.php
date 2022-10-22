@@ -172,7 +172,7 @@
 
             @if (Auth::user()->role == 'guru')
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="/datakeuangan/rkas">
+                    <a class="nav-link collapsed" href="/datakeuangan/tambah-rkas">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Form RKAS</span>
                     </a>

@@ -5,10 +5,9 @@
 
 
         <div class="mb-3">
-            <a href="/datakeuangan">Kembali</a>
+            <a href="/datakeuangan/guru">Kembali</a>
         </div>
         <div class="row">
-
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
@@ -65,8 +64,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label for="kegiatan" class="col-sm-2 col-form-label fw-bold text-dark">Tanggal
-                                    Kegiatan</label>
+                                <label for="tanggal" class="col-sm-2 col-form-label fw-bold text-dark">Tanggal
+                                    </label>
                                 <div class="col-sm-10">
                                     :<label for="kegiatan" name="tanggal" class="col-sm-5" readonly>
                                         {{ $keuangan->tanggal }}</label>

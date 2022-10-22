@@ -41,9 +41,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('datasiswa');
 
-    Route::get('/datakeuangan/rkas', function () {
-        return view('datakeuangan.rkas');
-    });
+    Route::get('/datakeuangan/tambah-rkas', [KeuanganController::class, 'lihatrkas'])->name('lihatrkas');
     Route::get('/datakeuangan/guru', function () {
         return view('datakeuangan.guru');
     });
@@ -101,9 +99,11 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/datakeuangan/{id}', [KeuanganController::class, 'update']);
         Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
         Route::post('/datakeuangan/rkas', [KeuanganController::class, 'rkas'])->name('rkas');
+
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review'])->name('review');
         Route::get('/datakeuangan/guru', [KeuanganController::class, 'guru'])->name('guru');
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review']);
+        Route::get('/datakeuangan/{id}/show', [KeuanganController::class, 'show']);
     });
 
     // sekolah

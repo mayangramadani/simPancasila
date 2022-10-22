@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AksesKelas;
 use App\Models\KategoriKeuangan;
 use App\Models\KategoriPembayaran;
 use App\Models\Keuangan;
@@ -18,9 +19,11 @@ class TransaksiSiswaController extends Controller
     {
         $transaksisiswa = Keuangan::where('users_id', Auth::user()->id)->get();
         $siswa = Siswa::where('users_id', Auth::user()->id)->first();
+        $kelasSiswa = AksesKelas::where('siswa_id',$siswa->users_id)->latest()->first();
+        // dd($siswa);
         $kategorikeuangan = KategoriKeuangan::all();
 
-        return view('transaksisiswa.index', compact('transaksisiswa', 'siswa', 'kategorikeuangan'));
+        return view('transaksisiswa.index', compact('transaksisiswa', 'siswa', 'kategorikeuangan','kelasSiswa'));
     }
 
     public function getPembayaran(Request $request)
@@ -76,7 +79,7 @@ class TransaksiSiswaController extends Controller
     }
     public function historisiswa()
     {
-        $transaksisiswa = TransaksiSiswa::where('users_id', Auth::user()->id)->first();
+        $transaksisiswa = TransaksiSiswa::where('users_id', Auth::user()->id)->get();
         // $transaksisiswa = Keuangan::where('users_id', Auth::user()->id)->get();
         $siswa = Siswa::where('users_id', Auth::user()->id)->first();
         $kategorikeuangan = KategoriKeuangan::all();

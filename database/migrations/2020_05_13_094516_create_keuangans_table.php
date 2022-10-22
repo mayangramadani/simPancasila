@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('no_transaksi')->nullable();
             $table->foreignId("kategori_keuangan_id")->nullable()->constrained("kategori_keuangan")->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("users_id")->nullable()->constrained("users")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId("sekolah_id")->nullable()->constrained("sekolah")->onDelete("cascade")->onUpdate("cascade");
             $table->string('nama_keuangan')->nullable();
             $table->string('jumlah')->nullable();
             $table->string('tanggal')->nullable();

@@ -55,6 +55,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                
                                                 @foreach ($transaksisiswa->where('status_pembayaran', '!=', 'Ditolak')->where('status_pembayaran', '!=', 'Belum Dibayar') as $ts)
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1 text-center">{{ $loop->iteration }}</td>
