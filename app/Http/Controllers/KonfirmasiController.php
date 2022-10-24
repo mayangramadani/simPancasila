@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Keuangan;
+use App\Models\Saldo;
 use Illuminate\Http\Request;
 
 class KonfirmasiController extends Controller
@@ -26,8 +27,27 @@ class KonfirmasiController extends Controller
     }
     public function update($id, Request $request)
     {
+        // dd($request->all());
         $konfirmasi = Keuangan::find($id);
         $konfirmasi->status_pembayaran = $request->status_pembayaran;
+        if ($konfirmasi->status_pembayaran == 'Diterima') {
+            $cariSekolah = Saldo::where('sekolah_id', $konfirmasi->sekolah_id)->latest()->first();
+            if ($cariSekolah) {
+                Saldo::Create([
+                    'sekolah_id' => $konfirmasi->sekolah_id,
+                    'debit' => $konfirmasi->jumlah,
+                    'kredit' => 0,
+                    'saldo' => $cariSekolah->saldo - $konfirmasi->jumlah
+                ]);
+            }
+            Saldo::Create([
+                'sekolah_id' => $konfirmasi->sekolah_id,
+                'debit' => $konfirmasi->jumlah,
+                'kredit' => 0,
+                'saldo' => -$konfirmasi->jumlah
+            ]);
+        }
+
         $konfirmasi->save();
         return redirect('/konfirmasi');
     }

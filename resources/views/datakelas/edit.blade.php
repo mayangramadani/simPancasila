@@ -8,7 +8,7 @@
             <h1 class="h3 mb-0 text-gray-800">Edit Sekolah</h1>
         </div> --}}
 
-        <div class="mb-3">
+        <div class="mb-3 btn btn-outline-primary btn-sm">
             <a href="/datakelas/{{ $datakelas->id }}/detail">Kembali</a>
         </div>
 
@@ -30,7 +30,7 @@
                                 @method('put')
                                 @csrf
                                 <div class="mb-3 row">
-                                    <label for="cemail" class="col-sm-2 col-form-label">tingkatan kelas</label>
+                                    <label for="cemail" class="col-sm-2 col-form-label text-dark fw-bold">Tingkatan Kelas</label>
                                     <div class="col-sm-10">
                                         <select class="form-select form-select-lg form-control" name="tingkatan_kelas_id">
                                             @foreach ($tingkatankelas as $item)
@@ -40,21 +40,22 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="cemail" class="col-sm-2 col-form-label">Kelas</label>
+                                    <label for="cemail" class="col-sm-2 col-form-label text-dark fw-bold">Kelas</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control mb-3" type="text" name="nama_kelas"
+                                        <input class="form-control" type="text" name="nama_kelas"
                                             placeholder="nama_kelas" value="{{ $datakelas->nama_kelas }}">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="cemail" class="col-sm-2 col-form-label">kuota</label>
+                                    <label for="cemail" class="col-sm-2 col-form-label text-dark fw-bold">Kuota</label>
                                     <div class="col-sm-10">
                                         <input class="form-control mb-3" type="text" name="kuota" placeholder="kuota"
                                             value="{{ $datakelas->kuota }}">
                                     </div>
                                 </div>
-
-                                <input class="btn btn-primary" type="submit" value="Submit" name="submit">
+                                <div class="d-flex justify-content-end">
+                                    <input class="btn btn-primary" type="submit" value="Submit" name="submit">
+                                </div>
                             </form>
 
                         </div>

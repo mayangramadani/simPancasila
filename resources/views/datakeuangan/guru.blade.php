@@ -6,11 +6,11 @@
         <div class="row">
             <div class="d-flex flex-row align-items-center justify-content-between mt-3 mb-3">
                 <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah</h4>
-                <div class="d-flex">
+                {{-- <div class="d-flex">
                     <div class="col-md text-end"> <a href="{{ route('rkas') }}"
                             class="btn btn-primary ">RKAS</a>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Area Chart -->

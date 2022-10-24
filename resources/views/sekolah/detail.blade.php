@@ -8,7 +8,7 @@
             <h1 class="h3 mb-0 text-gray-800">Sekolah</h1>
         </div> --}}
 
-        <div class="mb-3">
+        <div class="mb-3 btn btn-outline-primary btn-sm">
             <a href="/sekolah">Kembali</a>
         </div>
 

@@ -7,6 +7,10 @@
             <!-- Card Header - Dropdown -->
             <div class="pl-4 py-3 d-flex flex-row align-items-center justify-content-between">
                 <h4 class="m-0 font-weight-bold text-primary">Histori Saldo</h4>
+                <a href="/saldo/show" id="2" class="edit me-2">
+                <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf"></i>
+                    Export
+                </button></a>
             </div>
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
@@ -14,53 +18,53 @@
 
                     <!-- Card Body -->
                     <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="table-responsive">
-                                        <table id="table1" class="table-bordered">
-                                            <thead>
-                                                <tr class="box bg-primary" role="row">
-                                                    <th width="5%" class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="No.: activate to sort column descending">No.</th>
-                                                    <th class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Sekolah: activate to sort column ascending">
-                                                        Sekolah</th>
-                                                    <th class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Debit: activate to sort column ascending">
-                                                        Debit</th>
-                                                    <th width="25%" class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Kredit: activate to sort column ascending">
-                                                        Kredit</th>
-                                                    <th width="20%" class="text-center text-light" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-label="Saldo: activate to sort column ascending">Saldo
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="table-responsive">
+                                    <table id="table1" class="table-bordered">
+                                        <thead>
+                                            <tr class="box bg-primary" role="row">
+                                                <th width="5%" class="text-center text-light" tabindex="0"
+                                                    aria-controls="example1" rowspan="1" colspan="1"
+                                                    aria-sort="ascending"
+                                                    aria-label="No.: activate to sort column descending">No.</th>
+                                                <th class="text-center text-light" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Sekolah: activate to sort column ascending">
+                                                    Sekolah</th>
+                                                <th class="text-center text-light" tabindex="0" aria-controls="example1"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Debit: activate to sort column ascending">
+                                                    Debit</th>
+                                                <th width="25%" class="text-center text-light" tabindex="0"
+                                                    aria-controls="example1" rowspan="1" colspan="1"
+                                                    aria-label="Kredit: activate to sort column ascending">
+                                                    Kredit</th>
+                                                <th width="20%" class="text-center text-light" tabindex="0"
+                                                    aria-controls="example1" rowspan="1" colspan="1"
+                                                    aria-label="Saldo: activate to sort column ascending">Saldo
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
+                                            @php
+                                                $no = 0;
+                                            @endphp
+                                            @foreach ($saldo as $s)
                                                 @php
-                                                    $no = 0;
+                                                    $no++;
                                                 @endphp
-                                                @foreach ($saldo as $s)
-                                                    @php
-                                                        $no++;
-                                                    @endphp
-                                                    <tr role="row" class="odd">
-                                                        <td class="text-center">{{ $no }}</td>
-                                                        <td class="text-center">{{ $s->Sekolah->nama_sekolah }}</td>
-                                                        <td class="text-center">
-                                                            {{ 'Rp ' . number_format($s->debit, 0, '.', '.') }}</td>
-                                                        <td class="text-center">{{ $s->kredit }}</td>
-                                                        {{-- <td>{{ 'Rp ' . number_format($s->kredit, 0, '.', '.') }}</td> --}}
-                                                        <td class="text-center">
-                                                            {{ 'Rp ' . number_format($s->saldo, 0, '.', '.') }}</td>
-                                                        {{-- <td class="d-flex">
+                                                <tr role="row" class="odd">
+                                                    <td class="text-center">{{ $no }}</td>
+                                                    <td class="text-center">{{ $s->Sekolah->nama_sekolah }}</td>
+                                                    <td class="text-center">
+                                                        {{ 'Rp ' . number_format($s->debit, 0, '.', '.') }}</td>
+                                                    <td class="text-center">{{ 'Rp ' . number_format($s->kredit, 0, '.', '.') }}</td>
+                                                    {{-- <td>{{ 'Rp ' . number_format($s->kredit, 0, '.', '.') }}</td> --}}
+                                                    <td class="text-center">
+                                                        {{ 'Rp ' . number_format($s->saldo, 0, '.', '.') }}</td>
+                                                    {{-- <td class="d-flex">
                                                             <a href="/saldo/{{ $s->id }}/edit" id="2"
                                                                 class="edit me-2">
                                                                 <button class="btn btn-outline-info btn-sm"
@@ -77,11 +81,10 @@
                                                                 </button>
                                                             </form>
                                                         </td> --}}
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -89,6 +92,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     @push('scripts')
         <script>

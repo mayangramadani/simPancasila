@@ -126,14 +126,14 @@ class KeuanganController extends Controller
                 Saldo::Create([
                     'sekolah_id' => $keuangan->sekolah_id,
                     'debit' => 0,
-                    'kredit' => $keuangan->jumlah,
+                    'kredit' =>  $this->convertRP($keuangan->jumlah),
                     'saldo'=> $cariSekolah->saldo - $keuangan->jumlah
                 ]);
             }
             Saldo::Create([
                 'sekolah_id' => $keuangan->sekolah_id,
                 'debit' => 0,
-                'kredit' => $keuangan->jumlah,
+                'kredit' =>  $this->convertRP($keuangan->jumlah),
                 'saldo'=> -$keuangan->jumlah
             ]);
         }
@@ -200,3 +200,4 @@ class KeuanganController extends Controller
         return view('datakeuangan.rkas', compact('keuangan', 'sekolah'));
     }
 }
+

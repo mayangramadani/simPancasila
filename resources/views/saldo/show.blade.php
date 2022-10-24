@@ -25,7 +25,8 @@
                             <div class="col-lg-6">
                                 <!-- col-lg-6 start here -->
                                 <div class="sidebar-brand-icon logo-brand">
-                                    <img src="{!! asset('asset/img/logo.png') !!}" alt="" width="100px
+                                    <img src="{!! asset('asset/img/logo.png') !!}" alt=""
+                                        width="100px
                                     
                                     ">
                                 </div>
@@ -49,11 +50,10 @@
                                     <div class="well">
                                         <ul class="list-unstyled mb0">
                                             <li><strong>Laporan Keuangan</strong> </li>
-                                            <li><strong>Sekolah: {{$keuangan->LaporanKeuangan
-                                            ->Sekolah->nama_sekolah}}</strong></li>
-                                            <li><strong>Due Date:</strong> </li>
+                                            <li><strong>Sekolah:</strong></li>
+                                            <li><strong>Due Date:</strong></li>
                                             <li><strong>Status:</strong>
-                                                
+
                                             </li>
                                         </ul>
                                     </div>
@@ -61,7 +61,7 @@
                                 <div class="invoice-to mt25">
                                     <ul class="list-unstyled">
                                         <li><strong>Invoiced To</strong></li>
-                                        <li></li>
+                                        <li>Keuangan Sekolah</li>
                                         <li></li>
                                         <li>New York, NY, 2014</li>
                                         <li>USA</li>
@@ -73,42 +73,43 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th class="per1 text-center">No.</th>
+                                                    <th width="4%" class="text-center">No.</th>
                                                     <th class="per40 text-center">Pemasukan</th>
                                                     <th class="per40 text-center">Pengeluaran</th>
                                                     <th class="per19 text-center">Jumlah</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($saldo as $item)
                                                 <tr role="row" class="odd">
                                                     <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td class="text-center"></td>
-                                                 
+                                                    <td>{{ 'Rp ' . number_format($item->debit, 0, '.', '.') }}</td>
+                                                    <td>{{ 'Rp ' . number_format($item->kredit, 0, '.', '.') }}</td>
+                                                    <td class="text-center">
+                                                        {{ 'Rp ' . number_format($item->saldo, 0, '.', '.') }}</td>
+
                                                 </tr>
-                                                <tr role="row" class="odd">
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td class="text-center"></td>
-                                                  
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                             <tfoot>
                                                 <tr>
+                                                    <th class="text-center"></th>
                                                     <th colspan="2" class="text-right">Total Pemasukan:</th>
-                                                    <th class="text-center">                  
-                                                    </th>
+                                                    <th class="text-center"></th>
                                                 </tr>
                                                 <tr>
+                                                    <th class="text-center">
+                                                    </th>
                                                     <th colspan="2" class="text-right">Total Pengeluaran:</th>
                                                     <th class="text-center"></th>
                                                 </tr>
                                                 <tr>
-                                                    <th colspan="2" class="text-right">Sisa:</th>
                                                     <th class="text-center">
-                                                       
+                                                    </th>
+
+                                                    <th colspan="2" class="text-right">Sisa:</th>
+                                                    <th class="text-center">{{ 'Rp ' . number_format($item->saldo, 0, '.', '.') }}
+
                                                     </th>
                                                 </tr>
                                             </tfoot>

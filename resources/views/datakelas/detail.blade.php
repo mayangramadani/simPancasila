@@ -4,12 +4,12 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Detail Kelas</h1>
-        </div>
+        </div> --}}
 
 
-        <div class="mb-3">
+        <div class="mb-3 btn-sm btn-outline-primary btn">
             <a href="/datakelas">Kembali</a>
         </div>
 

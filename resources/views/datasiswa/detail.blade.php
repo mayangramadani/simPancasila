@@ -3,7 +3,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        <div class="mb-3">
+        <div class="mb-3 btn-sm btn-outline-primary btn">
             <a href="/datasiswa">Kembali</a>
         </div>
 

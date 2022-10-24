@@ -14,9 +14,5 @@ class LaporanKeuanganController extends Controller
         $sekolah = Sekolah::all();
         return view('datalaporan.index', compact('sekolah'));
     }
-    public function show()
-    {
-        $keuangan = Keuangan::all();
-        return view('datalaporan.show', compact('keuangan'));
-    }
+    
 }

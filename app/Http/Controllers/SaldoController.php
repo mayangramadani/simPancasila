@@ -53,8 +53,30 @@ class SaldoController extends Controller
     }
     public function update($id, Request $request)
     {
+        dd($request->all());
         $saldo = Saldo::find($id);
         $saldo->update($request->except(['_token', 'submit']));
+        if ($saldo) {
+            Saldo::Create([
+                'sekolah_id' => $keuangan->sekolah_id,
+                'debit' => 0,
+                'kredit' => $keuangan->jumlah,
+                'saldo'=> $saldo->saldo - $keuangan->jumlah
+            ]);
+        }
+        Saldo::Create([
+            'sekolah_id' => $keuangan->sekolah_id,
+            'debit' => 0,
+            'kredit' => $keuangan->jumlah,
+            'saldo'=> -$keuangan->jumlah
+        ]);
         return redirect('/saldo');
     }
+    public function show()
+    {
+        $saldo = Saldo::all();
+        // dd($saldo);
+        return view('saldo.show', compact('saldo'));
+    }
 }
+

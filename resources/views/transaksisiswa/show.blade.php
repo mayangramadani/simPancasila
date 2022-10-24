@@ -5,14 +5,20 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>Receipt page - Bootdey.com</title>
+    <title>Receipt page - Invoice Pembayaran</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+
+        .print {
+            visibility: visible;
+        }
+    </style>
 </head>
 
-<body>
+<body  onload="window.print()">
     <div class="container bootdey">
         <div class="row invoice row-printable">
             <div class="col-md-10">
@@ -25,7 +31,8 @@
                             <div class="col-lg-6">
                                 <!-- col-lg-6 start here -->
                                 <div class="sidebar-brand-icon logo-brand">
-                                    <img src="{!! asset('asset/img/logo.png') !!}" alt="" width="100px
+                                    <img src="{!! asset('asset/img/logo.png') !!}" alt=""
+                                        width="100px
                                     
                                     ">
                                 </div>
@@ -120,8 +127,9 @@
                                     </div>
                                 </div>
                                 <div class="invoice-footer mt25">
-                                    <p class="text-center">Generated on Monday, October 08th, 2015 <a href="#"
-                                            class="btn btn-default ml15"><i class="fa fa-print mr5"></i> Print</a></p>
+                                    {{-- <p class="text-center">Generated on Monday, October 08th, 2015 <a
+                                            onclick="window.print();return false;" href="#"
+                                            class="btn btn-default ml15"><i class="fa fa-print mr5"></i> Print</a></p> --}}
                                 </div>
                             </div>
                             <!-- col-lg-12 end here -->

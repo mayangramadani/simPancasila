@@ -17,8 +17,12 @@
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                                type="button" role="tab" aria-controls="home" aria-selected="true">Status</button>
+                            <button class="nav-link active position-relative" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                                type="button" role="tab" aria-controls="home" aria-selected="true">Status 
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{ $konfirmasi->where('status_pembayaran', 'Proses')->count() }}
+                                    <span class="visually-hidden">unread messages</span>
+                                </span></button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
@@ -77,7 +81,7 @@
                                                         <tr role="row" class="odd">
                                                             <td class="text-center">{{ $loop->iteration }}</td>
                                                             <td class="text-center">{{ $item->no_transaksi }}</td>
-                                                            {{-- <td class="text-center">{{ $item->User->name }}</td> --}}
+                                                            <td class="text-center">{{ $item->User->name }}</td>
                                                             <td class="text-center">
                                                                 {{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
                                                             <td class="text-center">
@@ -162,7 +166,7 @@
                                                         <tr role="row" class="odd">
                                                             <td class="text-center">{{ $loop->iteration }}</td>
                                                             <td class="text-center">{{ $item->no_transaksi }}</td>
-                                                            {{-- <td class="text-center">{{ $item->User->name }}</td> --}}
+                                                            <td class="text-center">{{ $item->User->name }}</td>
                                                             <td class="text-center">
                                                                 {{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
                                                             <td class="text-center">

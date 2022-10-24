@@ -4,10 +4,8 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-3">
-            <h1 class="h3 mb-0 text-gray-800">Transaksi Siswa</h1>
-            <div class="col-md text-end"> <a href="/transaksisiswa/petunjuk" class="btn-sm btn-primary ">Petunjuk</a>
-            </div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-3 pl-3">
+            <h4 class="mb-0 text-primary fw-bold">Transaksi Siswa</h4>
         </div>
 
         <div class="row">
@@ -48,7 +46,7 @@
                                 <div class="form-row">
                                     <div class="col-md-4 mb-10">
                                         <label class="form-control-label fw-semibold text-primary"
-                                            for="bulan_pembayaran">Bulan
+                                            for="bulan_pembayaran">
                                             Pembayaran *</label>
                                         <select class="form-control" name="bulan_pembayaran" id="bulan_pembayaran" required>
                                             <option selected disabled>==PILIH==</option>

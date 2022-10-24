@@ -132,6 +132,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/saldo/{id}', [SaldoController::class, 'hapus']);
         Route::put('/saldo/{id}', [SaldoController::class, 'update']);
         Route::get('/saldo/{id}/edit', [SaldoController::class, 'edit']);
+        Route::get('/saldo/show', [SaldoController::class, 'show']);
     });
 
     // kategori keuangan
@@ -157,8 +158,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/transaksisiswa/{id}/edit', [TransaksiSiswaController::class, 'edit']);
         Route::get('/transaksisiswa/{id}/detail', [TransaksiSiswaController::class, 'detail']);
         Route::get('/transaksisiswa/historisiswa', [TransaksiSiswaController::class, 'historisiswa']);
-        Route::get('/transaksisiswa/{id}/show', [TransaksiSiswaController::class, 'show']);
-        Route::get('/transaksisiswa/petunjuk', [TransaksiSiswaController::class, 'petunjuk']);
+        Route::get('/transaksisiswa/{id}/show', [TransaksiSiswaController::class, 'show']); 
     });
     // tingkatan kelas
     Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -187,7 +187,7 @@ Route::middleware(['auth'])->group(function () {
 
     //LaporanKeuangan
     Route::get('/datalaporan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan');
-    Route::get('/datalaporan/show', [LaporanKeuanganController::class, 'show']);
+   
 });
 
 require __DIR__ . '/auth.php';

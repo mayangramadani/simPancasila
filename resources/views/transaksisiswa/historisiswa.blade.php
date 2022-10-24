@@ -4,14 +4,14 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between py-3">
-            <h5 class="pl-3 text-primary fw-bold">Histori Pembayaran Siswa</h5>
+        <div class="d-sm-flex align-items-center justify-content-between py-2">
+            <h4 class="pl-3 text-primary fw-bold">Histori Pembayaran Siswa</h4>
         </div>
 
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
-                <div class="card shadow-sm mb-4">
+                <div class="card shadow-sm mb-3">
                     <!-- Card Header - Dropdown -->
                     <div class="card-body">
                         <div class="row">
@@ -64,7 +64,11 @@
                                                             {{ 'Rp ' . number_format($ts->jumlah, 0, '.', '.') }}
                                                         </td>
                                                         <td class="text-center">{{ $ts->tanggal }}</td>
-                                                        <td class="text-center">{{ $ts->bukti }}</td>
+                                                        {{-- <td class="text-center">{{ $ts->bukti }}</td> --}}
+                                                        <td class="text-center">
+                                                            <img src="  {{ asset('storage/Keuangan/bukti/' . $ts->bukti) }}"
+                                                                height="80">
+                                                        </td>
                                                         <td class="text-center">
                                                             @if ($ts->status_pembayaran == 'Ditolak')
                                                                 <span class="badge bg-danger">Ditolak</span>
@@ -78,12 +82,11 @@
                                                                 <span class="badge bg-dark">Belum diperiksa</span>
                                                             @endif
                                                         </td>
-                                                        <td class="d-flex">
+                                                        <td class="d-flex justify-content-center">
                                                             <a href="/transaksisiswa/{{ $ts->id }}/show"
-                                                                id="2" class="edit me-2">
+                                                                id="2" class="edit me-2" title="Invoice">
                                                                 <button class="btn btn-outline-info btn-sm"
-                                                                    type="button"><i class="fa fa-pencil-square"></i>
-                                                                    Show
+                                                                    type="button"><i class="fa fa-eye"></i>
                                                                 </button>
                                                             </a>
                                                         </td>

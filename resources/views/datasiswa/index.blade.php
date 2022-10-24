@@ -31,9 +31,10 @@
                             <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf"></i>
                                 Export
                             </button>
-                            <button type="button" class="btn btn-success me-2 btn-sm"><i class="fa fa-file-download"></i>
+                            <a href="{{asset('asset/img/template.xlsx')}}" class="btn btn-success me-2 btn-sm"
+                                data-bs-target="#exampleModal"><i class="fa fa-file-excel"></i>
                                 Template
-                            </button>
+                            </a>
 
                         </div>
                     </div>

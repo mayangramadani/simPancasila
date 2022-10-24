@@ -4,17 +4,44 @@
     <div class="container-fluid">
 
 
-        <div class="mb-3">
-            <a href="/datakeuangan/guru">Kembali</a>
+        <div class="d-flex flex-row align-items-center justify-content-between mb-2">
+            {{-- <a href="/datakeuangan/guru">Kembali</a> --}}
+            <h4 class="m-0 font-weight-bold text-primary mb-7">Review RKAS 
+
+                @if ($keuangan->status_pembayaran == 'Ditolak')
+                    <span class="badge bg-danger">Ditolak</span>
+                @elseif ($keuangan->status_pembayaran == 'Belum Dibayar')
+                    <span class="badge bg-danger">Belum Dibayar</span>
+                @elseif($keuangan->status_pembayaran == 'Diterima')
+                    <span class="badge bg-success">Diterima</span>
+                @elseif($keuangan->status_pembayaran == 'Proses')
+                    <span class="badge bg-warning">Proses</span>
+                @else
+                    <span class="badge bg-dark">Belum diperiksa</span>
+                @endif
+            </h4>
+            <div class="col-xl-2 col-md-2 mr-3">
+                <div class="card border-left-success shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Jumlah</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    {{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary ">Review RKAS
-                        </h4>
+                    {{-- <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+
                         @if ($keuangan->status_pembayaran == 'Ditolak')
                             <span class="badge bg-danger">Ditolak</span>
                         @elseif ($keuangan->status_pembayaran == 'Belum Dibayar')
@@ -26,35 +53,26 @@
                         @else
                             <span class="badge bg-dark">Belum diperiksa</span>
                         @endif
-
-                    </div>
+                        <div class="col-xl-2 col-md-2 mr-3">
+                            <div class="card border-left-success shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Jumlah</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                {{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
                     <!-- Card Body -->
                     <div class="card-body">
                         <form action="/datakeuangan/{{ $keuangan->id }}" method="POST" enctype="multipart/form-data">
                             @method('put')
                             @csrf
-                            <div class="col-xl-3 col-md-6 mb-4 mr-3">
-                                <div class="card border-left-success shadow-sm h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                    Saldo</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- <div class="col-md-4 mb-5">
-                                <div class="card card-body text-center">
-                                    <h4 class="text-success fw-bold">{{ 'Rp ' . number_format($keuangan->jumlah, 0, ',','.') }},-</h4>
-                                    <p class="mb-0"> <small>Jumlah</small> </p>
-                                </div>
-                            </div> --}}
                             <div class="row">
                                 <label for="kegiatan" class="col-sm-2 col-form-label fw-bold text-dark">Nama
                                     Kegiatan</label>
@@ -65,7 +83,7 @@
                             </div>
                             <div class="row">
                                 <label for="tanggal" class="col-sm-2 col-form-label fw-bold text-dark">Tanggal
-                                    </label>
+                                </label>
                                 <div class="col-sm-10">
                                     :<label for="kegiatan" name="tanggal" class="col-sm-5" readonly>
                                         {{ $keuangan->tanggal }}</label>

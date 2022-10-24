@@ -71,10 +71,10 @@
                                 <div class="invoice-to mt25">
                                     <ul class="list-unstyled">
                                         <li><strong>Invoiced To</strong></li>
+                                        <li>Rencana Kerja dan Anggaran Sekolah</li>
+                                        <li>{{ $keuangan->Sekolah->nama_sekolah }}</li>
                                         <li></li>
                                         <li></li>
-                                        <li>New York, NY, 2014</li>
-                                        <li>USA</li>
                                     </ul>
                                 </div>
                                 <div class="invoice-items">
@@ -90,9 +90,9 @@
                                             </thead>
                                             <tbody>
                                                 <tr role="row" class="odd">
-                                                    <td></td>
-                                                    <td class="text-center">1</td>
-                                                    <td>
+                                                    <td>{{ $keuangan->nama_keuangan}}</td>
+                                                    <td class="text-center">{{ $keuangan->tanggal }}</td>
+                                                    <td>{{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}</td>
                                                 </tr>
                                             </tbody>
                                             <tfoot>
@@ -108,16 +108,16 @@
                                                 </tr>
                                                 <tr>
                                                     <th colspan="2" class="text-right">Total:</th>
-                                                    <th class="text-center">
+                                                    <th class="text-center">{{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}
 
                                                     </th>
                                                 </tr>
                                             </tfoot>
                                         </table>
-                                        <li><strong>Note : </strong> </li>
+                                        <li><strong>Note : </strong> {{ $keuangan->komentar }}</li>
                                     </div>
                                 </div>
-                                <div class="invoice-footer mt25">
+                                <div class="invoice-footer">
                                     <p class="text-center">Generated on Monday, October 08th, 2015 <a href="#"
                                             class="btn btn-default ml15"><i class="fa fa-print mr5"></i> Print</a></p>
                                 </div>
