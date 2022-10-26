@@ -486,7 +486,7 @@
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         Diterima</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                        {{ $dashboard->where('status_pembayaran', 'Diterima')->count() }}
+                                        {{ $dashboard->where('kategori_keuangan_id', '3')->where('status_pembayaran', 'Diterima')->count() }}
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -506,7 +506,7 @@
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                         DiProses</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                        {{ $dashboard->where('status_pembayaran', 'Proses')->count() }}
+                                        {{ $dashboard->where('kategori_keuangan_id', '3')->where('status_pembayaran', 'Proses')->count() }}
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -528,7 +528,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                {{ $dashboard->where('status_pembayaran', 'Ditolak')->count() }}
+                                                {{ $dashboard->where('kategori_keuangan_id', '3')->where('status_pembayaran', 'Ditolak')->count() }}
                                             </div>
                                         </div>
                                     </div>
@@ -552,14 +552,14 @@
                             <h6 class="m-0 font-weight-bold text-primary">Cara Melakukan Transaksi Pembayaran</h6>
                         </div>
                         <div class="card-body d-flex justify-content-center">
-                          <img src="{!! asset('asset/img/cara.png') !!}" alt=""
+                          <img src="{!! asset('asset/img/rkas.png') !!}" alt=""
                                         width="800px">
                         </div>
                     </div>
 
                 </div>
 
-                <div class="col-lg-4 mb-4">
+                {{-- <div class="col-lg-4 mb-4">
 
                     <!-- Illustrations -->
                     <div class="card shadow-sm mb-4">
@@ -573,9 +573,9 @@
                             
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
-            <div class="row">
+            {{-- <div class="row">
 
                 <!-- Area Chart -->
                 <div class="col-xl-12 col-lg-7">
@@ -638,7 +638,7 @@
                         </div>
     
                     </div>
-                </div>
+                </div> --}}
         @endif
 
 

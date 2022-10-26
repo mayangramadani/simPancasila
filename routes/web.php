@@ -35,6 +35,12 @@ Route::get('/', function () {
 // Route::get('/', function () {
 //     return redirect()->route('login');
 // });
+Route::get('/notification', function () {
+    return view('notification');
+});
+Route::get('/profil', function () {
+    return view('profil');
+});
 
 
 Route::middleware(['auth'])->group(function () {
@@ -188,6 +194,8 @@ Route::middleware(['auth'])->group(function () {
     //LaporanKeuangan
     Route::get('/datalaporan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan');
    
+    
+
 });
 
 require __DIR__ . '/auth.php';

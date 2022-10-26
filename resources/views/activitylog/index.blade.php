@@ -4,14 +4,14 @@
     <div class="container-fluid">
 
         <div class="row">
-
+            <div class="py-3 d-flex flex-row align-items-center justify-content-between">
+                <h4 class="pl-3 m-0 font-weight-bold text-primary ">Riwayat Aktivitas</h4>
+            </div>
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-3">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary ">Riwayat Aktivitas</h4>
-                    </div>
+                    
 
                     <!-- Card Body -->
                     <div class="card-body">
@@ -33,16 +33,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if ($aktivitas != null)
-                                            @foreach ($aktivitas as $aktivity)
+                                            @foreach ($aktivitas as $key => $aktivity)
                                                 <tr role="row" class="odd">
                                                     <td class="text-center">{{ $loop->iteration }}</td>
-                                                    <td class="text-center">xxx</td>
-                                                    <td class="text-center">123</td>
+                                                    <td class="text-center">{{ $aktivity->nama }}</td>
+                                                    <td class="text-center">{{ $aktivity->aktivitas }}/td>
                                                     <td class="text-center">bbb</td>
                                                 </tr>
                                             @endforeach
-                                        @endif
                                     </tbody>
 
                                 </table>
