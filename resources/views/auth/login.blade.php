@@ -35,4 +35,9 @@
     <div class="text-center fs-6">
         <a href="/forgot-password">Forget password?</a>
     </div>
+    <div class="col-12">
+        <p class="small mb-0">Belum punya akun? <a
+                href="{{ route('register') }}">Buat akun</a></p>
+    </div>
+    
 </div>

@@ -4,9 +4,9 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h5 class="m-0 font-weight-bold text-primary">Konfirmasi Pembayaran</h5>
-        </div>
+        </div> --}}
 
 
         <div class="row">
@@ -17,9 +17,11 @@
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active position-relative" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                                type="button" role="tab" aria-controls="home" aria-selected="true">Status 
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <button class="nav-link active position-relative" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                aria-selected="true">Status
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                     {{ $konfirmasi->where('status_pembayaran', 'Proses')->count() }}
                                     <span class="visually-hidden">unread messages</span>
                                 </span></button>
@@ -35,6 +37,81 @@
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row mt-4 pl-5">
+                                <div class="col-xl-2 col-md-6 mb-3 mr-2">
+                                    <div class="card border-left-dark shadow-sm ">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-5">
+                                                    <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                                                        Menunggu</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                        {{ $konfirmasi->where('status_pembayaran', 'Menunggu')->count() }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-check text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-6 mb-3 mr-2">
+                                    <div class="card border-left-success shadow-sm ">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-5">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Diterima</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                        {{ $konfirmasi->where('status_pembayaran', 'Diterima')->count() }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-check fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-6 mb-3 mr-2">
+                                    <div class="card border-left-warning shadow-sm ">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-5">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Proses</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                        {{ $konfirmasi->where('status_pembayaran', 'Proses')->count() }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-spinner fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-6 mb-3 mr-2">
+                                    <div class="card border-left-danger shadow-sm   ">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-5">
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                        Ditolak</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                        {{ $konfirmasi->where('status_pembayaran', 'Ditolak')->count() }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-ban fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="card-body">
                                     <div class="col-sm-12">
@@ -53,7 +130,8 @@
                                                             aria-label="No.: activate to sort column descending">
                                                             No. Transaksi</th>
                                                         <th class="text-center text-light" tabindex="0" aria-contr
-                                                            ols="example1" rowspan="1" colspan="1" name="nama_siswa"
+                                                            ols="example1" rowspan="1" colspan="1"
+                                                            name="nama_siswa"
                                                             aria-label="Nama Pembayaran: activate to sort column ascending">
                                                             Nama siswa</th>
                                                         <th width="10%" class="text-center text-light" tabindex="0"
@@ -127,7 +205,7 @@
                                     <div class="col-sm-12">
                                         <div class="table-responsive">
                                             <table id="table2" class="table-bordered" role="grid"
-                                            aria-describedby="example1_info">
+                                                aria-describedby="example1_info">
                                                 <thead>
                                                     <tr class="box bg-primary" role="row">
                                                         <th width="4%" class="text-center text-light" tabindex="0"
@@ -168,7 +246,8 @@
                                                             <td class="text-center">{{ $item->no_transaksi }}</td>
                                                             <td class="text-center">{{ $item->User->name }}</td>
                                                             <td class="text-center">
-                                                                {{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}</td>
+                                                                {{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}
+                                                            </td>
                                                             <td class="text-center">
                                                                 @if ($item->status_pembayaran == 'Ditolak')
                                                                     <span class="badge bg-danger">Ditolak</span>
@@ -194,7 +273,7 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- Buka Pembayaran -->
+                        <!-- Buka Pembayaran -->
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
                         </div>

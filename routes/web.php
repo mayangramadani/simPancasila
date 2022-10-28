@@ -14,6 +14,8 @@ use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\KategoriKeuanganController;
 use App\Http\Controllers\LaporanKeuanganController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TransaksiPembayaranController;
 use App\Http\Controllers\TingkatanKelasController;
 use App\Http\Controllers\SumberDanaController;
@@ -38,9 +40,9 @@ Route::get('/', function () {
 Route::get('/notification', function () {
     return view('notification');
 });
-Route::get('/profil', function () {
-    return view('profil');
-});
+// Route::get('/profil', function () {
+//     return view('profil');
+// });
 
 
 Route::middleware(['auth'])->group(function () {
@@ -105,7 +107,6 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/datakeuangan/{id}', [KeuanganController::class, 'update']);
         Route::get('/datakeuangan/{id}', [KeuanganController::class, 'getkeuangan'])->name('getkeuangan');
         Route::post('/datakeuangan/rkas', [KeuanganController::class, 'rkas'])->name('rkas');
-
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review'])->name('review');
         Route::get('/datakeuangan/guru', [KeuanganController::class, 'guru'])->name('guru');
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review']);
@@ -183,13 +184,16 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/konfirmasi/{id}', [KonfirmasiController::class, 'update']);
     });
 
-
+ //
     Route::GET('getTingkatanKelas', [TingkatanKelasController::class, 'getKelas'])->name('getKota');
     Route::GET('getPembayaran', [TransaksiSiswaController::class, 'getPembayaran'])->name('getPembayaran');
 
     //ActivityLog
     //  Route::resource('Akun', UserController::class);
     Route::get('/activitylog', [ActivityLogController::class, 'index'])->name('Aktivitas');
+    Route::get('/profil', [ProfilController::class, 'profile'])->name('Profile');
+
+    Route::get('/setting', [SettingController::class, 'index'])->name('Setting');
 
     //LaporanKeuangan
     Route::get('/datalaporan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan');

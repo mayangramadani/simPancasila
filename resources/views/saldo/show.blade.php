@@ -10,9 +10,15 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+
+        .print {
+            visibility: visible;
+        }
+    </style>
 </head>
 
-<body>
+<body onload="window.print()">
     <div class="container bootdey">
         <div class="row invoice row-printable">
             <div class="col-md-10">
@@ -63,8 +69,8 @@
                                         <li><strong>Invoiced To</strong></li>
                                         <li>Keuangan Sekolah</li>
                                         <li></li>
-                                        <li>New York, NY, 2014</li>
-                                        <li>USA</li>
+                                        <li>Sinar Pancasila</li>
+                                        <li>Balikpapan</li>
                                     </ul>
                                 </div>
                                 <div class="invoice-items">
@@ -114,12 +120,13 @@
                                                 </tr>
                                             </tfoot>
                                         </table>
+                                        
                                     </div>
                                 </div>
-                                <div class="invoice-footer mt25">
+                                {{-- <div class="invoice-footer mt25">
                                     <p class="text-center">Generated on Monday, October 08th, 2015 <a href="#"
                                             class="btn btn-default ml15"><i class="fa fa-print mr5"></i> Print</a></p>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- col-lg-12 end here -->
                         </div>

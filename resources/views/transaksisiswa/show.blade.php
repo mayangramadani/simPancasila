@@ -102,20 +102,20 @@
                                                 </tr>
                                             </tbody>
                                             <tfoot>
-                                                <tr>
+                                                {{-- <tr>
                                                     <th colspan="2" class="text-right">Sub Total:</th>
                                                     <th class="text-center">
                                                         {{ 'Rp ' . number_format($transaksisiswa->jumlah, 0, '.', '.') }}
                                                     </th>
-                                                </tr>
+                                                </tr> --}}
                                                 {{-- <tr>
                                                     <th colspan="2" class="text-right">20% VAT:</th>
                                                     <th class="text-center">00</th>
                                                 </tr> --}}
-                                                <tr>
+                                                {{-- <tr>
                                                     <th colspan="2" class="text-right">Credit:</th>
                                                     <th class="text-center">00</th>
-                                                </tr>
+                                                </tr> --}}
                                                 <tr>
                                                     <th colspan="2" class="text-right">Total:</th>
                                                     <th class="text-center">
@@ -124,6 +124,7 @@
                                                 </tr>
                                             </tfoot>
                                         </table>
+                                        <li><strong>Note : </strong> {{ $transaksisiswa->komentar }}</li>
                                     </div>
                                 </div>
                                 <div class="invoice-footer mt25">
