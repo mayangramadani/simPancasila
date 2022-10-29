@@ -38,15 +38,15 @@
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold text-primary"
                                             for="kelas">Kelas</label>
-                                        <input type="text" class="form-control" id="kelas" placeholder="Kelas"  value="{{$kelasSiswa->DataKelas->nama_kelas}}"
-                                            required autocomplete="off" readonly>
+                                        <input type="text" class="form-control" id="kelas" placeholder="Kelas"
+                                            value="{{ $kelasSiswa->DataKelas->nama_kelas ?? null }}" required
+                                            autocomplete="off" readonly>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-md-4 mb-10">
-                                        <label class="form-control-label fw-semibold text-primary"
-                                            for="bulan_pembayaran">
+                                        <label class="form-control-label fw-semibold text-primary" for="bulan_pembayaran">
                                             Pembayaran *</label>
                                         <select class="form-control" name="bulan_pembayaran" id="bulan_pembayaran" required>
                                             <option selected disabled>==PILIH==</option>

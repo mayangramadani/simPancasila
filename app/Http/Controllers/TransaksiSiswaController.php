@@ -19,8 +19,9 @@ class TransaksiSiswaController extends Controller
     {
         $transaksisiswa = Keuangan::where('users_id', Auth::user()->id)->get();
         $siswa = Siswa::where('users_id', Auth::user()->id)->first();
-        $kelasSiswa = AksesKelas::where('siswa_id',$siswa->users_id)->latest()->first();
-        // dd($siswa);
+        $kelasSiswa = AksesKelas::where('siswa_id',$siswa->id)->latest()->first();
+        // dd(Auth::user());
+        // dd($kelasSiswa, $siswa->id);
         $kategorikeuangan = KategoriKeuangan::all();
 
         return view('transaksisiswa.index', compact('transaksisiswa', 'siswa', 'kategorikeuangan','kelasSiswa'));

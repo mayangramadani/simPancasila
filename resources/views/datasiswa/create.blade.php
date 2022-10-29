@@ -37,13 +37,13 @@
 
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="nis" class="form-control-label fw-semibold text-dark">NIS</label>
+                                        <label for="nis" class="form-control-label fw-semibold text-dark">NIS :</label>
                                         <input type="text" class="form-control form-control-sm" id="nis"
                                             placeholder="NIS" name="nis">
                                     </div>
                                     <div class="col-md-4">
                                         <label for="nis" class="form-control-label fw-semibold text-dark">Nama
-                                            Siswa</label>
+                                            Siswa :</label>
                                         <input type="text" class="form-control form-control-sm" id="nis"
                                             placeholder="Nama Siswa" name="nama_siswa">
                                     </div>
@@ -52,7 +52,7 @@
                                 <div class="form-row mb-3">
                                     <div class="col-md-4 me-3">
                                         <label for="agama"
-                                            class="form-control-label fw-semibold text-dark">Agama</label>
+                                            class="form-control-label fw-semibold text-dark">Agama <span class="fs-6 fw-normal text-gray-500">(pilih agama)</span></label>
                                         <select class="form-select form-control form-control-sm" name="agama"
                                             aria-label="Default select example">
                                             <option selected>Pilih...</option>
@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="jenisKelamin" class="col-form-label text-dark fw-semibold">Jenis
-                                            Kelamin</label>
+                                            Kelamin :</label>
                                         <div class="col-lg-5 col-md-9 col-sm-9">
                                             <input class="form-check-input" type="radio" name="jenis_kelamin"
                                                 id="inlineRadio1" value="Laki-laki">
@@ -81,13 +81,13 @@
                                 <div class="form-row">
                                     <div class="col-md-4">
                                         <label for="namaLengkap" class="form-control-label fw-semibold text-dark">Tempat
-                                            Lahir</label>
+                                            Lahir :</label>
                                         <input type="text" class="form-control form-control-sm" id="tempatLahir"
                                             name="tempat_lahir" placeholder="Tempat Lahir">
                                     </div>
                                     <div class="col-md-4 me-2">
                                         <label for="tanggal" class="form-control-label fw-semibold text-dark">Tanggal
-                                            Lahir</label>
+                                            Lahir :</label>
                                         <input type="date" class="form-control form-control-sm" name="tanggal_lahir">
                                     </div>
                                    
@@ -95,7 +95,7 @@
 
                                 <div class="row mt-3">
                                     <div class="col-lg-4 col-md-9 col-sm-10">
-                                        <label for="alamat" class="col-form-label text-dark fw-bold">Alamat</label>
+                                        <label for="alamat" class="col-form-label text-dark fw-bold">Alamat :</label>
                                         <textarea type="textarea" class="form-control form-control-sm" id="alamat" placeholder="Jalan" name="alamat" value></textarea>
 
                                         {{-- <div class="col-lg-5 col-md-9 col-sm-10">
@@ -194,18 +194,18 @@
 
                                 <div class="row mt-3 mb-2">
                                     <div class="col-lg-3 col-md-9 col-sm-10">
-                                        <label for="noHP" class="col-form-label text-dark fw-bold">No. HP</label>
+                                        <label for="noHP" class="col-form-label text-dark fw-bold">No. HP :</label>
                                         <input type="number" class="form-control form-control-sm" id="noHP"
                                             name="no_hp" placeholder="exp. 081224567890">
                                     </div>
                                     <div class="col-lg-3 col-md-9 col-sm-10">
-                                        <label for="foto" class="col-form-label text-dark fw-bold">Foto</label>
+                                        <label for="foto" class="col-form-label text-dark fw-bold">Foto :</label>
                                         <input class="form-control form-control-sm" type="file" name="foto">
                                     </div>
                                 </div>
                                 <div class="row mt-3 mb-4">
                                     <label for="nis" class="col-form-label text-dark fw-bold">Nama Orang
-                                        Tua</label>
+                                        Tua :</label>
                                     <div class="col-lg-3 col-md-9 col-sm-10">
                                         <input type="text" class="form-control form-control-sm" placeholder="Ayah"
                                             name="ayah">

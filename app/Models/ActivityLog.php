@@ -13,4 +13,8 @@ class ActivityLog extends Model
     protected $fillable = [
         'nama', 'aktivitas', 'tanggal'
     ];
+    public function User()
+    {
+        return $this->belongsTo(User::class, 'users_id');
+    }
 }

@@ -50,12 +50,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('datasiswa');
 
     Route::get('/datakeuangan/tambah-rkas', [KeuanganController::class, 'lihatrkas'])->name('lihatrkas');
+    Route::get('/datakeuangan/export', [KeuanganController::class, 'export'])->name('export');
     Route::get('/datakeuangan/guru', function () {
         return view('datakeuangan.guru');
     });
-    // Route::get('/transaksisiswa/historisiswa', function () {
-    //     return view('transaksisiswa.historisiswa');
-    // });
+
     Route::get('/activitylog', function () {
         return view('activitylog');
     });

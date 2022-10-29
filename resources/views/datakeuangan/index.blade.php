@@ -112,7 +112,6 @@
                     </li> --}}
                 </ul>
 
-
                 <!-- RKAS -->
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -122,7 +121,7 @@
                             <div class="col-md text-end"> <a href="{{ route('lihatrkas') }}"
                                     class="btn btn-sm btn-primary "><i class="fa fa-plus"></i> RKAS</a>
                             </div>
-                            <a href="#" id="2" class="edit me-2">
+                            <a href="/datakeuangan/export" id="2" class="edit me-2">
                                 <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf"></i>
                                     Export
                                 </button></a>
@@ -319,9 +318,7 @@
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="d-flex pl-5 mt-3 mb-3">
                             {{-- <h4 class="m-0 font-weight-bold text-dark">Buku Kas Umum Sekolah</h4> --}}
-                            <div class="col-md text-end
-                            
-                            ">
+                            <div class="col-md text-end">
                                 <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"><i class="fa fa-plus"></i>
                                     BKU
@@ -412,7 +409,7 @@
                                                         aria-describedby="example1_info">
                                                         <thead>
                                                             <tr class="box bg-primary">
-                                                                <th width="3%"
+                                                                <th width="5%"
                                                                     class="sorting_asc text-center text-light"
                                                                     tabindex="0" aria-controls="example1"
                                                                     rowspan="1" colspan="1" aria-sort="ascending">
@@ -436,16 +433,16 @@
                                                                     rowspan="1" colspan="1">
                                                                     Tanggal
                                                                 </th>
-                                                                <th width="15%" class="text-center text-light"
+                                                                <th width="5%" class="text-center text-light"
                                                                     tabindex="0" aria-controls="example1"
                                                                     rowspan="1" colspan="1">Status
                                                                     Pembayaran</th>
-                                                                <th width="15%" class="text-center text-light"
+                                                                <th width="10%" class="text-center text-light"
                                                                     tabindex="0" aria-controls="example1"
                                                                     rowspan="1" colspan="1">Nama
                                                                     User
                                                                 </th>
-                                                                <th width="15%" class="text-center text-light"
+                                                                <th width="10%" class="text-center text-light"
                                                                     tabindex="0" aria-controls="example1"
                                                                     rowspan="1" colspan="1">Aksi
                                                                 </th>

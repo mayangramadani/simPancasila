@@ -172,9 +172,10 @@ class KeuanganController extends Controller
             'deskripsi' => $request->deskripsi,
             'berkas_pendukung' => $file_name1,
             'status_pembayaran' => 'Menunggu',
-            'kategori_keuangan_id' => '3'
+            'kategori_keuangan_id' => '3',
+            'users_id' => '2'
         ]);
-        return back()->with('success', 'Data Berhasil DiTambahkan');
+        return back()->with('success', 'Data Berhasil ditambahkan');
     }
     public function review($id)
     {
@@ -198,6 +199,11 @@ class KeuanganController extends Controller
         $keuangan = Keuangan::all();
         $sekolah = Sekolah::all();
         return view('datakeuangan.rkas', compact('keuangan', 'sekolah'));
+    }
+    public function export()
+    {
+        $keuangan = Keuangan::all();
+        return view('datakeuangan.export', compact('keuangan'));
     }
 }
 

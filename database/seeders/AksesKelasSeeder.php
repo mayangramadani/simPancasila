@@ -20,5 +20,15 @@ class AksesKelasSeeder extends Seeder
             'kelas_id' => '1',
             'tahun' => '2022'
         ]);
+        AksesKelas::create([
+            'siswa_id' => '2',
+            'kelas_id' => '2',
+            'tahun' => '2022'
+        ]);
+        AksesKelas::create([
+            'siswa_id' => '3',
+            'kelas_id' => '3',
+            'tahun' => '2022'
+        ]);
     }
 }
