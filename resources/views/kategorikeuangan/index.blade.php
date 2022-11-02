@@ -4,12 +4,12 @@
     <div class="container-fluid">
         @include('sweetalert::alert')
         <!-- Page Heading -->
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Kategori Keuangan</h1>
-        </div> --}}
+        <div class="d-sm-flex align-items-center justify-content-between mb-2">
+            <h4 class=" text-primary fw-bold">Kategori Keuangan</h4>
+        </div>
 
         <!-- Button trigger modal -->
-       
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -47,95 +47,169 @@
 
 
         <div class="row">
-            <div class="pl-5 py-3 d-flex flex-row align-items-center justify-content-between">
+            {{-- <div class="pl-5 py-3 d-flex flex-row align-items-center justify-content-between">
                 <h4 class="m-0 font-weight-bold text-primary">Keuangan</h4>
                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                   Add Kategori
+                    Add Kategori
                 </button>
-            </div>
+            </div> --}}
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
-                    <!-- Card Header - Dropdown -->
-                    
-                    <div class="card-body">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active position-relative" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                aria-selected="true">Form Kategori
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                type="button" role="tab" aria-controls="profile" aria-selected="false">Kategori
+                                Keuangan</button>
+                        </li>
+                        {{-- <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                                type="button" role="tab" aria-controls="contact"
+                                aria-selected="false">Monitoring</button>
+                        </li> --}}
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-body">
+                                <p>isilah form berikut ini dengan benar.</p>
+                                <div class="row pl-5 mt-5">
+                                    <div class="col-sm-12">
+                                        <form action="/kategorikeuangan/add" method="POST">
+                                            @csrf
+                                            
+                                            <div class="form-row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label class="form-control-label fw-semibold text-dark"
+                                                        for="nama">Nama
+                                                        Keuangan</label>
+                                                    <input class="form-control form-control-sm" name="nama_keuangan">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-control-label fw-semibold text-dark"
+                                                        for="kelas">Kategori
+                                                        Keuangan</label>
+                                                    <select class="form-select form-select-lg form-control form-control-sm"
+                                                        name="kategori_keuangan" id="kategori_keuangan">
+                                                        <option value="pemasukan">Pemasukan</option>
+                                                        <option value="pengeluaran">Pengeluaran</option>
+                                                    </select>
+                                                </div>
 
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="table-responsive">
-                                    <table id="table1" class="table-bordered">
-                                        <thead>
-                                            <tr class="box bg-primary" role="row">
-                                                <th width="4%" class="text-center text-light" tabindex="0"
-                                                    aria-controls="example1" rowspan="1" colspan="1"
-                                                    aria-sort="ascending"
-                                                    aria-label="No.: activate to sort column descending">No.</th>
-                                                <th class="text-center text-light" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1" name="nama_keuangan"
-                                                    aria-label="Nama Pembayaran: activate to sort column ascending">
-                                                    Nama Keuangan</th>
-                                                <th width="20%" class="text-center text-light" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1" name="kategori_keuangan"
-                                                    aria-label="Kategori Keuangan: activate to sort column ascending">
-                                                    Kategori Keuangan</th>
-                                                <th width="25%" class="text-center text-light" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1" name="deskripsi"
-                                                    aria-label="Deskripsi: activate to sort column ascending">Deskripsi
-                                                </th>
 
-                                                <th width="20%" class="sorting text-center text-light" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Action: activate to sort column ascending">Action</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            @php
-                                                $no = 0;
-                                            @endphp
-                                            @foreach ($kategorikeuangan as $kk)
-                                                @php
-                                                    $no++;
-                                                @endphp
-                                                <tr role="row" class="odd">
-                                                    <td class="sorting_1 text-center">{{ $no }}</td>
-                                                    <td class="text-center">{{ $kk->nama_keuangan }}</td>
-                                                    <td class="text-center">{{ $kk->kategori_keuangan }}</td>
-                                                    <td class="text-center">{{ $kk->deskripsi }}</td>
-
-                                                    <td class="d-flex justify-content-center">
-                                                        <a href="/kategorikeuangan/{{ $kk->id }}/edit"
-                                                            id="2" class="edit me-2" title="Edit">
-                                                            <button class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-pencil-square"></i>
-                                                            </button>
-                                                        </a>
-                                                        <form action="/kategorikeuangan/{{ $kk->id }}" method='post'
-                                                            class="me-1" title="Hapus">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button class="btn btn-outline-danger btn-sm"
-                                                                type="submit"><i class="fas fa-trash-alt"></i>
-                                                            </button>
-                                                            {{-- <input class="btn btn-outline-danger btn-sm delete-data" type="submit"
-                                                                value="Hapus"> --}}
-                                                        </form>
-                                                    </td>
-                                                    
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                                                <div class="col-md-4">
+                                                    <label class="form-control-label fw-semibold text-dark"
+                                                        for="nama">Deskripsi</label>
+                                                    <input class="form-control form-control-sm" name="deskripsi">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-end ">
+                                                <button class="btn btn-primary">submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                    </div>
 
+
+
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="table-responsive">
+                                            <table id="table1" class="table-bordered">
+                                                <thead>
+                                                    <tr class="box bg-primary" role="row">
+                                                        <th width="4%" class="text-center text-light" tabindex="0"
+                                                            aria-controls="example1" rowspan="1" colspan="1"
+                                                            aria-sort="ascending"
+                                                            aria-label="No.: activate to sort column descending">No.
+                                                        </th>
+                                                        <th class="text-center text-light" tabindex="0"
+                                                            aria-controls="example1" rowspan="1" colspan="1"
+                                                            name="nama_keuangan"
+                                                            aria-label="Nama Pembayaran: activate to sort column ascending">
+                                                            Nama Keuangan</th>
+                                                        <th width="20%" class="text-center text-light" tabindex="0"
+                                                            aria-controls="example1" rowspan="1" colspan="1"
+                                                            name="kategori_keuangan"
+                                                            aria-label="Kategori Keuangan: activate to sort column ascending">
+                                                            Kategori Keuangan</th>
+                                                        <th width="25%" class="text-center text-light" tabindex="0"
+                                                            aria-controls="example1" rowspan="1" colspan="1"
+                                                            name="deskripsi"
+                                                            aria-label="Deskripsi: activate to sort column ascending">
+                                                            Deskripsi
+                                                        </th>
+
+                                                        <th width="20%" class="sorting text-center text-light"
+                                                            tabindex="0" aria-controls="example1" rowspan="1"
+                                                            colspan="1"
+                                                            aria-label="Action: activate to sort column ascending">
+                                                            Action</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    @php
+                                                        $no = 0;
+                                                    @endphp
+                                                    @foreach ($kategorikeuangan as $kk)
+                                                        @php
+                                                            $no++;
+                                                        @endphp
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1 text-center">{{ $no }}</td>
+                                                            <td class="text-center">{{ $kk->nama_keuangan }}</td>
+                                                            <td class="text-center">{{ $kk->kategori_keuangan }}</td>
+                                                            <td class="text-center">{{ $kk->deskripsi }}</td>
+
+                                                            <td class="d-flex justify-content-center">
+                                                                <a href="/kategorikeuangan/{{ $kk->id }}/edit"
+                                                                    id="2" class="edit me-2" title="Edit">
+                                                                    <button class="btn btn-outline-success btn-sm"
+                                                                        type="button"><i class="fa fa-pencil-square"></i>
+                                                                    </button>
+                                                                </a>
+                                                                <form action="/kategorikeuangan/{{ $kk->id }}"
+                                                                    method='post' class="me-1" title="Hapus">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <button class="btn btn-outline-danger btn-sm"
+                                                                        type="submit"><i class="fas fa-trash-alt"></i>
+                                                                    </button>
+                                                                    {{-- <input class="btn btn-outline-danger btn-sm delete-data" type="submit"
+                                                                value="Hapus"> --}}
+                                                                </form>
+                                                            </td>
+
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     @push('scripts')
         <script>

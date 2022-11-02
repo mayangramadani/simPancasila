@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\SiswaImport;
+use App\Models\Province;
 use App\Models\Siswa;
 use App\Models\Sekolah;
 use Illuminate\Http\Request;
@@ -55,7 +56,8 @@ class DataSiswaController extends Controller
     {
         $siswa = Siswa::get();
         $sekolah = Sekolah::get();
-        return view('datasiswa.create', compact('siswa', 'sekolah'));
+        $Provinsi = Province::all();
+        return view('datasiswa.create', compact('siswa', 'sekolah', 'province'));
     }
 
     public function getsiswa($id)

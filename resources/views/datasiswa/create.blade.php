@@ -190,7 +190,20 @@
                                         </select>
                                     </div>
                                 </div>
-
+                                <div class="row">
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <label>Provinsi</label>
+                                            <select name="provinsi" id="provinsi" class="form-select form-select-sm"
+                                                required="">
+                                                <option disabled="" selected="" value="">Pilih..</option>
+                                                @foreach ($Provinsi as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="row mt-3 mb-2">
                                     <div class="col-lg-3 col-md-9 col-sm-10">

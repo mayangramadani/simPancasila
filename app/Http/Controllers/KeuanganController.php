@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ActivityLog;
 use Illuminate\Support\Str;
 use App\Models\KategoriKeuangan;
 use App\Models\Keuangan;
