@@ -96,46 +96,7 @@
                                 <div class="row mt-3">
                                     <div class="col-lg-4 col-md-9 col-sm-10">
                                         <label for="alamat" class="col-form-label text-dark fw-bold">Alamat :</label>
-                                        <textarea type="textarea" class="form-control form-control-sm" id="alamat" placeholder="Jalan" name="alamat" value></textarea>
-
-                                        {{-- <div class="col-lg-5 col-md-9 col-sm-10">
-                                        <table id="table1" class="table-bordered" role="grid"
-                                            aria-describedby="example1_info">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-dark fw-semibold" width="50" bgcolor="#D3DBEB">
-                                                        Jalan
-                                                    </td>
-                                                    <td class="text-dark">xxxxssssssssssssssss</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-dark fw-semibold" bgcolor="#D3DBEB">Dusun</td>
-                                                    <td class="text-dark">xxxxssssssssssssssss</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-dark fw-semibold" bgcolor="#D3DBEB">Kelurahan</td>
-                                                    <td class="text-dark">xxxxssssssssssssssss</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-dark fw-semibold" bgcolor="#D3DBEB">Kecamatan</td>
-                                                    <td class="text-dark">xxxxssssssssssssssss</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-dark fw-semibold" bgcolor="#D3DBEB">RT</td>
-                                                    <td class="text-dark">xxxxssssssssssssssss</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-dark fw-semibold" bgcolor="#D3DBEB">RW</td>
-                                                    <td class="text-dark">xxxxssssssssssssssss</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-dark fw-semibold" bgcolor="#D3DBEB">Kode Pos</td>
-                                                    <td class="text-dark">xxxxssssssssssssssss</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div> --}}
+                                        <textarea type="textarea" class="form-control form-control-sm" id="alamat" placeholder="Jalan" name="alamat" value></textarea> 
                                     </div>
                                     <div class="col-lg-1 col-md-9 col-sm-10">
                                         <label for="namaLengkap" class="col-form-label text-dark">RT:</label>
@@ -151,46 +112,46 @@
                                 <div class="row mt-3 mb-5">
                                     <div class="col-lg-2 col-md-9 col-sm-10">
                                         <label for="namaLengkap" class="col-form-label text-dark">Kelurahan:</label>
-                                        <select class="form-select form-select-lg form-control form-control-sm"
-                                            name="agama" aria-label="Default select example">
-                                            <option selected>Pilih...</option>
-                                            {{-- <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Hindu">Hindu</option> --}}
-                                        </select>
+                                        <select name="kelurahan" id="provinsi" class="form-select form-select-sm"
+                                                required="">
+                                                <option disabled="" selected="" value="">Pilih..</option>
+                                                @foreach ($Provinsi as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                     </div>
                                     <div class="col-lg-2 col-md-9 col-sm-10">
                                         <label for="namaLengkap" class="col-form-label text-dark">Kecamatan:</label>
-                                        <select class="form-select form-select-lg form-control form-control-sm"
-                                            name="agama" aria-label="Default select example">
-                                            <option selected>Pilih...</option>
-                                            {{-- <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Hindu">Hindu</option> --}}
-                                        </select>
+                                        <select name="kecamatan" id="provinsi" class="form-select form-select-sm"
+                                                required="">
+                                                <option disabled="" selected="" value="">Pilih..</option>
+                                                @foreach ($Provinsi as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                     </div>
                                     <div class="col-lg-2 col-md-9 col-sm-10">
                                         <label for="namaLengkap" class="col-form-label text-dark">Kota/Kab:</label>
-                                        <select class="form-select form-select-lg form-control form-control-sm"
-                                            name="agama" aria-label="Default select example">
-                                            <option selected>Pilih...</option>
-                                            {{-- <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Hindu">Hindu</option> --}}
-                                        </select>
+                                        <select name="kota" id="provinsi" class="form-select form-select-sm"
+                                                required="">
+                                                <option disabled="" selected="" value="">Pilih..</option>
+                                                @foreach ($Provinsi as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                     </div>
                                     <div class="col-lg-2 col-md-9 col-sm-10">
                                         <label for="namaLengkap" class="col-form-label text-dark">Provinsi:</label>
-                                        <select class="form-select form-select-lg form-control form-control-sm"
-                                            name="agama" aria-label="Default select example">
-                                            <option selected>Pilih...</option>
-                                            {{-- <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Hindu">Hindu</option> --}}
-                                        </select>
+                                        <select name="provinsi" id="provinsi" class="form-select form-select-sm"
+                                                required="">
+                                                <option disabled="" selected="" value="">Pilih..</option>
+                                                @foreach ($Provinsi as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                     </div>
                                 </div>
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label>Provinsi</label>
@@ -203,7 +164,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="row mt-3 mb-2">
                                     <div class="col-lg-3 col-md-9 col-sm-10">

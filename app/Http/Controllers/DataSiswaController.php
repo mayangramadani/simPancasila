@@ -57,7 +57,7 @@ class DataSiswaController extends Controller
         $siswa = Siswa::get();
         $sekolah = Sekolah::get();
         $Provinsi = Province::all();
-        return view('datasiswa.create', compact('siswa', 'sekolah', 'province'));
+        return view('datasiswa.create', compact('siswa', 'sekolah', 'Provinsi'));
     }
 
     public function getsiswa($id)

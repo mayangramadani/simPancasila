@@ -13,6 +13,9 @@ class ActivityLogController extends Controller
     {
         $aktivitas = ActivityLog::with('user')->limit(15)->orderBy('id')->get();
         $user = User::select()->count();
-        return view('activitylog.index', compact('aktivitas', 'user'));
+        $dataLogin = User::find(Auth::id())->authentications;
+        // dd($dataLogin);
+        return view('activitylog.index', compact('aktivitas', 'user', 'dataLogin'));
     }
 }
+

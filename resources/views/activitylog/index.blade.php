@@ -20,24 +20,25 @@
                                 <table id="table1" class="table-bordered" role="grid" aria-describedby="example1_info">
                                     <thead>
                                         <tr class="box bg-primary " role="row">
-                                            <th width="5%" class="sorting_asc text-center text-light" tabindex="0"
+                                            <th width="2%" class="sorting_asc text-center text-light" tabindex="0"
                                                 aria-controls="example1" rowspan="1" colspan="1"
                                                 aria-sort="ascending">No.</th>
-                                            <th width="25%" class="sorting text-center text-light" tabindex="0"
-                                                aria-controls="example1" rowspan="1" colspan="1">Nama</th>
+                                            {{-- <th width="25%" class="sorting text-center text-light" tabindex="0"
+                                                aria-controls="example1" rowspan="1" colspan="1">Nama</th> --}}
                                             {{-- <th class="sorting text-center text-light" tabindex="0"
                                                 aria-controls="example1" rowspan="1" colspan="1">Aktivitas</th> --}}
                                             <th width="20%" class="sorting text-center text-light" tabindex="0"
                                                 aria-controls="example1" rowspan="1" colspan="1">Tanggal</th>
                                         </tr>
                                     </thead>
+                                    
                                     <tbody>
-                                        @foreach ($aktivitas as $key => $aktivity)
+                                        @foreach ($dataLogin as $key => $aktivity)
                                             <tr role="row" class="odd">
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td class="text-center">{{ $aktivity->nama }}</td>
+                                                {{-- <td class="text-center">{{ $aktivity->name }}</td> --}}
                                                 {{-- <td class="text-center">{{ $aktivity->aktivitas }}</td> --}}
-                                                <td class="text-center">{{$activity->tanggal}}</td>
+                                                <td class="text-center">{{$aktivity->login_at}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
