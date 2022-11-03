@@ -60,36 +60,36 @@ class SiswaSeeder extends Seeder
             'users_id' => '4',
             'isActive' => '1'
         ]);
-        Siswa::create([
-            'nis' => '321321',
-            'nama_siswa' => 'Udin',
-            'tempat_lahir' => 'Jalan Rohani',
-            'tanggal_lahir' => '2004-01-13',
-            'jenis_kelamin' => 'Laki-laki',
-            'agama' => 'Kristen',
-            'alamat' => 'Jalan Rohani',
-            'no_hp' => '089555555',
-            'ayah' => 'Sapri',
-            'ibu' => 'Siti',
-            'sekolah_id' => '1',
-            'users_id' => '5',
-            'isActive' => '1'
-        ]);
-        Siswa::create([
-            'nis' => '999999',
-            'nama_siswa' => 'Kasma',
-            'tempat_lahir' => 'Gang Buntu',
-            'tanggal_lahir' => '2002-12-11',
-            'jenis_kelamin' => 'Perempuan',
-            'agama' => 'Islam',
-            'alamat' => 'Gang Buntu',
-            'no_hp' => '0821888888',
-            'ayah' => 'Fajar',
-            'ibu' => 'Rani',
-            'sekolah_id' => '2',
-            'users_id' => '6',
-            'isActive' => '1'
-        ]);
+        // Siswa::create([
+        //     'nis' => '321321',
+        //     'nama_siswa' => 'Udin',
+        //     'tempat_lahir' => 'Jalan Rohani',
+        //     'tanggal_lahir' => '2004-01-13',
+        //     'jenis_kelamin' => 'Laki-laki',
+        //     'agama' => 'Kristen',
+        //     'alamat' => 'Jalan Rohani',
+        //     'no_hp' => '089555555',
+        //     'ayah' => 'Sapri',
+        //     'ibu' => 'Siti',
+        //     'sekolah_id' => '1',
+        //     'users_id' => '5',
+        //     'isActive' => '1'
+        // ]);
+        // Siswa::create([
+        //     'nis' => '999999',
+        //     'nama_siswa' => 'Kasma',
+        //     'tempat_lahir' => 'Gang Buntu',
+        //     'tanggal_lahir' => '2002-12-11',
+        //     'jenis_kelamin' => 'Perempuan',
+        //     'agama' => 'Islam',
+        //     'alamat' => 'Gang Buntu',
+        //     'no_hp' => '0821888888',
+        //     'ayah' => 'Fajar',
+        //     'ibu' => 'Rani',
+        //     'sekolah_id' => '2',
+        //     'users_id' => '6',
+        //     'isActive' => '1'
+        // ]);
 
     }
 }

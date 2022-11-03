@@ -67,7 +67,7 @@
             <div class="sidebar-heading">
                 Master Data
             </div>
-            
+
             @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link" href="/sekolah">
@@ -278,14 +278,13 @@
                                 </form>
                             </div>
                         </li>
-
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="/notification" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="/notification" id="alertsDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
+                                <span class="badge badge-danger badge-counter">{{ Auth::user()->unreadNotifications->count() }}</span>
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -293,20 +292,22 @@
                                 <h6 class="dropdown-header">
                                     Notifikasi
                                 </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="/notification">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
+                                @foreach (Auth::user()->notifications as $item)
+                                    <a class="dropdown-item d-flex align-items-center" href="/notification">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-primary">
+                                                <i class="fas fa-file-alt text-white"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to
-                                            download!</span>
-                                    </div>
-                                </a>
-                               
-                                <a class="dropdown-item text-center small text-gray-500" href="/notification">Show All
+                                        <div>
+                                            <div class="small text-gray-500">Terbayar</div>
+                                            <span class="font-weight-bold">{{ $item->data['message'] }}</span>
+                                        </div>
+                                    </a>
+                                @endforeach
+
+                                <a class="dropdown-item text-center small text-gray-500" href="/notification">Show
+                                    All
                                     Alerts</a>
                             </div>
                         </li>
@@ -319,8 +320,8 @@
                                 <!-- Counter - Messages -->
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a> --}}
-                            <!-- Dropdown - Messages -->
-                            {{-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        <!-- Dropdown - Messages -->
+                        {{-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
                                     Message Center

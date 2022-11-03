@@ -20,6 +20,7 @@ class TransaksiSiswaController extends Controller
     public function index()
     {
         $transaksisiswa = Keuangan::where('users_id', Auth::user()->id)->get();
+        // dd($transaksisiswa);
         $siswa = Siswa::where('users_id', Auth::user()->id)->first();
         $kelasSiswa = AksesKelas::where('siswa_id', $siswa->id)->latest()->first();
         // dd(Auth::user());
@@ -50,8 +51,10 @@ class TransaksiSiswaController extends Controller
         } else {
             $file_name1 = null;
         }
-
+        // dd(Carbon::now());
+        
         $keuangan = Keuangan::find($request->bulan_pembayaran);
+        // dd($keuangan);
         $keuangan->tanggal = Carbon::now();
         $keuangan->bukti = $file_name1;
         $keuangan->status_pembayaran = 'Proses';
@@ -63,6 +66,7 @@ class TransaksiSiswaController extends Controller
         ];
         $user = User::find($keuangan->users_id);
         Notification::send($user, new InvoiceTransaksi($transaksi_data));
+
 
         return redirect('transaksisiswa')->with('success', 'Data Berhasil Terkirim');
     }
@@ -79,7 +83,7 @@ class TransaksiSiswaController extends Controller
     }
     public function update($id, Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $transaksisiswa = TransaksiSiswa::find($id);
         $transaksisiswa->update($request->except(['_token', 'submit']));
         return redirect('/transaksisiswa');

@@ -33,7 +33,8 @@ class TransaksiPembayaranController extends Controller
                 'no_transaksi' => Str::random(9),
                 'kategori_keuangan_id' => 1,
                 'users_id' => $item->users_id,
-                'nama_keuangan' => "Bayar SPP Siswa",
+                'nama_keuangan' => "Bayar SPP Siswa - ".date("M Y"),
+                'sekolah_id' => $item->sekolah_id
             ]);
         }
         return back();

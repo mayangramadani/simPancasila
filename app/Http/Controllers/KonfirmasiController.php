@@ -6,7 +6,7 @@ use App\Models\Keuangan;
 use App\Models\Saldo;
 use Illuminate\Http\Request;
 
-class KonfirmasiController extends Controller
+class   KonfirmasiController extends Controller
 {
     public function index()
     {
@@ -32,20 +32,41 @@ class KonfirmasiController extends Controller
         $konfirmasi->status_pembayaran = $request->status_pembayaran;
         if ($konfirmasi->status_pembayaran == 'Diterima') {
             $cariSekolah = Saldo::where('sekolah_id', $konfirmasi->sekolah_id)->latest()->first();
-            if ($cariSekolah) {
-                Saldo::Create([
-                    'sekolah_id' => $konfirmasi->sekolah_id,
-                    'debit' => $konfirmasi->jumlah,
-                    'kredit' => 0,
-                    'saldo' => $cariSekolah->saldo - $konfirmasi->jumlah
-                ]);
+            dd($konfirmasi->KategoriKeuangan->kategori_keuangan);
+            if ($konfirmasi->KategoriKeuangan->kategori_keuangan == "pemasukan") {
+                if ($cariSekolah) {
+                    Saldo::Create([
+                        'sekolah_id' => $konfirmasi->sekolah_id,
+                        'debit' => $konfirmasi->jumlah,
+                        'kredit' => 0,
+                        'saldo' => $cariSekolah->saldo + $konfirmasi->jumlah
+                    ]);
+                } else {
+                    Saldo::Create([
+                        'sekolah_id' => $konfirmasi->sekolah_id,
+                        'debit' => $konfirmasi->jumlah,
+                        'kredit' => 0,
+                        'saldo' => -$konfirmasi->jumlah
+                    ]);
+                }
             }
-            Saldo::Create([
-                'sekolah_id' => $konfirmasi->sekolah_id,
-                'debit' => $konfirmasi->jumlah,
-                'kredit' => 0,
-                'saldo' => -$konfirmasi->jumlah
-            ]);
+            if ($konfirmasi->KategoriKeuangan->kategori_keuangan == "pengeluaran") {
+                if ($cariSekolah) {
+                    Saldo::Create([
+                        'sekolah_id' => $konfirmasi->sekolah_id,
+                        'debit' => 0,
+                        'kredit' => $konfirmasi->jumlah,
+                        'saldo' => $cariSekolah->saldo - $konfirmasi->jumlah
+                    ]);
+                } else {
+                    Saldo::Create([
+                        'sekolah_id' => $konfirmasi->sekolah_id,
+                        'debit' => 0,
+                        'kredit' => $konfirmasi->jumlah,
+                        'saldo' => -$konfirmasi->jumlah
+                    ]);
+                }
+            }
         }
 
         $konfirmasi->save();

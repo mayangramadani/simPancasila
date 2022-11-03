@@ -57,6 +57,7 @@ class KeuanganController extends Controller
         } else {
             $cekSaldo = 0;
         }
+        dd('opemasuka');
         if ($kategorikeuangan->kategori_keuangan == 'pemasukan') {
             Saldo::create([
                 'debit' => $this->convertRP($request->jumlah),
@@ -212,4 +213,5 @@ class KeuanganController extends Controller
         return view('datakeuangan.export-bku', compact('keuangan'));
     }
 }
+
 

@@ -60,7 +60,7 @@
                                         <label class="form-control-label fw-semibold text-primary" for="name">Jumlah
                                             Pembayaran</label>
                                         <input type="text" class="form-control" id="dengan-rupiah"
-                                            placeholder="Jumlah Pembayaran" name='jumlah_pembayaran' readonly>
+                                            placeholder="Jumlah Pembayaran" name='jumlah' readonly>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="foto" class="form-control-label fw-semibold text-primary">Bukti
