@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/datakeuangan/tambah-rkas', [KeuanganController::class, 'lihatrkas'])->name('lihatrkas');
     Route::get('/datakeuangan/export', [KeuanganController::class, 'export'])->name('export');
+    Route::get('/datakeuangan/export-bku', [KeuanganController::class, 'exportbku'])->name('export');
     Route::get('/datakeuangan/guru', function () {
         return view('datakeuangan.guru');
     });
@@ -110,6 +111,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/datakeuangan/guru', [KeuanganController::class, 'guru'])->name('guru');
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review']);
         Route::get('/datakeuangan/{id}/show', [KeuanganController::class, 'show']);
+        
     });
 
     // sekolah

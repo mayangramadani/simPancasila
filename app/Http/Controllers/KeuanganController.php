@@ -206,5 +206,10 @@ class KeuanganController extends Controller
         $keuangan = Keuangan::all();
         return view('datakeuangan.export', compact('keuangan'));
     }
+    public function exportbku()
+    {
+        $keuangan = Keuangan::all();
+        return view('datakeuangan.export-bku', compact('keuangan'));
+    }
 }
 

@@ -4,7 +4,10 @@
     <div class="container-fluid">
         @include('sweetalert::alert')
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-2">
+        <div class="d-sm-flex align-items-center justify-content-center mb-3">
+            <h6 class="d-sm-mb-0 text-gray-500">Selamat Datang di Halaman <span class="fw-bold"> Kategori Keuangan</span></h6>
+        </div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-2 mt-3">
             <h4 class=" text-primary fw-bold">Kategori Keuangan</h4>
         </div>
 
@@ -86,17 +89,18 @@
                                             
                                             <div class="form-row">
                                                 <div class="col-md-4 mb-3">
-                                                    <label class="form-control-label fw-semibold text-dark"
+                                                    <label class="form-control-label fw-semibold text-primary"
                                                         for="nama">Nama
-                                                        Keuangan</label>
-                                                    <input class="form-control form-control-sm" name="nama_keuangan">
+                                                        Keuangan :</label>
+                                                    <input class="form-control" name="nama_keuangan" placeholder="Nama Keuangan">
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label class="form-control-label fw-semibold text-dark"
+                                                    <label class="form-control-label fw-semibold text-primary"
                                                         for="kelas">Kategori
-                                                        Keuangan</label>
-                                                    <select class="form-select form-select-lg form-control form-control-sm"
+                                                        Keuangan :</label>
+                                                    <select class="form-select form-select-lg form-control"
                                                         name="kategori_keuangan" id="kategori_keuangan">
+                                                        <option>Pilih...</option>
                                                         <option value="pemasukan">Pemasukan</option>
                                                         <option value="pengeluaran">Pengeluaran</option>
                                                     </select>
@@ -104,9 +108,9 @@
 
 
                                                 <div class="col-md-4">
-                                                    <label class="form-control-label fw-semibold text-dark"
-                                                        for="nama">Deskripsi</label>
-                                                    <input class="form-control form-control-sm" name="deskripsi">
+                                                    <label class="form-control-label fw-semibold text-primary"
+                                                        for="nama">Deskripsi :</label>
+                                                    <input class="form-control" name="deskripsi" placeholder="Deskripsi">
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-end ">

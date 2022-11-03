@@ -102,7 +102,7 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                            type="button" role="tab" aria-controls="profile" aria-selected="false">Buku Kas
+                            type="button" role="tab" aria-controls="profile" aria-selected="false">Buku Kas 
                             Umum</button>
                     </li>
                     {{-- <li class="nav-item" role="presentation">
@@ -119,10 +119,10 @@
                             {{-- <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah
                             </h4> --}}
                             <div class="col-md text-end"> <a href="{{ route('lihatrkas') }}"
-                                    class="btn btn-sm btn-primary "><i class="fa fa-plus"></i> RKAS</a>
+                                    class="btn btn-primary "><i class="fa fa-plus"></i> RKAS</a>
                             </div>
                             <a href="/datakeuangan/export" id="2" class="edit me-2">
-                                <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf"></i>
+                                <button type="button" class="btn btn-danger me-2 "><i class="fa fa-file-pdf"></i>
                                     Export
                                 </button></a>
                         </div>
@@ -319,10 +319,14 @@
                         <div class="d-flex pl-5 mt-3 mb-3">
                             {{-- <h4 class="m-0 font-weight-bold text-dark">Buku Kas Umum Sekolah</h4> --}}
                             <div class="col-md text-end">
-                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"><i class="fa fa-plus"></i>
                                     BKU
                                 </button>
+                                <a href="/datakeuangan/export-bku" id="2" class="edit me-2">
+                                    <button type="button" class="btn btn-danger me-2 "><i class="fa fa-file-pdf"></i>
+                                        Export
+                                    </button></a>
                             </div>
                         </div>
                         <div class="row pl-5">
