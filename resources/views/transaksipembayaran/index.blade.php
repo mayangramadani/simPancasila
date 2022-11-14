@@ -26,7 +26,7 @@
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label class="form-control-label fw-semibold" for="nama">Nama Siswa *</label>
-                                        <select class="form-control selectpicker" id="select-country"
+                                        <select class="form-control selectpicker" id="select-country" 
                                             data-live-search="true">
                                             @foreach ($siswa as $ni)
                                                 <option value="{{ $ni->id }}" data-tokens="{{ $ni->nama_siswa }}">

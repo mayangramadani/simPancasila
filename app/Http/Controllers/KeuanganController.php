@@ -11,6 +11,7 @@ use App\Models\Sekolah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class KeuanganController extends Controller
 {
@@ -122,21 +123,21 @@ class KeuanganController extends Controller
         }
         $keuangan->save();
 
-        if($request->status_pembayaran == 'Diterima'){
-            $cariSekolah = Saldo::where('sekolah_id',$keuangan->sekolah_id)->latest()->first();
+        if ($request->status_pembayaran == 'Diterima') {
+            $cariSekolah = Saldo::where('sekolah_id', $keuangan->sekolah_id)->latest()->first();
             if ($cariSekolah) {
                 Saldo::Create([
                     'sekolah_id' => $keuangan->sekolah_id,
                     'debit' => 0,
                     'kredit' =>  $this->convertRP($keuangan->jumlah),
-                    'saldo'=> $cariSekolah->saldo - $keuangan->jumlah
+                    'saldo' => $cariSekolah->saldo - $keuangan->jumlah
                 ]);
             }
             Saldo::Create([
                 'sekolah_id' => $keuangan->sekolah_id,
                 'debit' => 0,
                 'kredit' =>  $this->convertRP($keuangan->jumlah),
-                'saldo'=> -$keuangan->jumlah
+                'saldo' => -$keuangan->jumlah
             ]);
         }
 
@@ -212,6 +213,33 @@ class KeuanganController extends Controller
         $keuangan = Keuangan::all();
         return view('datakeuangan.export-bku', compact('keuangan'));
     }
+
+    public function chartTransaksi(Request $request)
+    {
+        $status = $request->query("status");
+        $keuangan = Keuangan::selectRaw('sum(jumlah) as `total`')
+            ->selectRaw("DATE_FORMAT(tanggal, '%m-%Y') month")
+            ->groupby('month')
+            ->where("tanggal", 2022);
+        if ($status) {
+            $keuangan = $keuangan->where("status_pembayaran", $status);
+        }
+        $keuangan = $keuangan->orderBy('month', "asc")->get();
+        $data = [];
+        
+        foreach($keuangan as $item){
+            $data["month"][] = Carbon::parse("1-$item->month")->isoFormat('MMM');
+            $data["total"][] = $item->total;
+        }
+
+        // $month = Carbon::parse("2000-1-1")->monthsUntil(Carbon::parse("2000-12-1"));
+
+        // foreach ($month as $key => $value) {
+        //     foreach ($keuangan as $key => $val) {
+        //         # code...
+        //     }
+        // }
+
+        return $data;
+    }
 }
-
-

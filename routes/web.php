@@ -203,4 +203,6 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+Route::get('chart-transaksi', [KeuanganController::class, 'chartTransaksi']);
+
 require __DIR__ . '/auth.php';

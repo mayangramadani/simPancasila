@@ -39,4 +39,6 @@ class DashboardController extends Controller
 
         return view('dashboard', compact('jumlahSaldo', 'debit', 'kredit', 'dashboard'));
     }
+
+    
 }

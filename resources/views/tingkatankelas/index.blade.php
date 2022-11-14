@@ -67,18 +67,18 @@
                                                     rowspan="1" colspan="1" name="nama_sekolah"
                                                     aria-label="Nama Pembayaran: activate to sort column ascending">
                                                     Nama Sekolah</th>
-                                                <th width="15%" class="text-center text-light" tabindex="0"
+                                                <th width="20%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="tingkatan_kelas"
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
                                                     Tingkat Kelas
                                                 </th>
-                                                <th width="15%" class="text-center text-light" tabindex="0"
+                                                <th width="20%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1" name="deskripsi"
                                                     aria-label="tingkatan_kelas: activate to sort column ascending">
                                                     Deskripsi
                                                 </th>
-                                                <th width="25%" class="text-center text-light" tabindex="0"
+                                                <th width="15%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending">Action</th>
 

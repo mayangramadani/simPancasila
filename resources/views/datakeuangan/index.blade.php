@@ -101,8 +101,11 @@
                             </span></button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                            type="button" role="tab" aria-controls="profile" aria-selected="true">Buku Kas Umum <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        <button class="nav-link 
+                        
+                        position-relative" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                            type="button" role="tab" aria-controls="profile" aria-selected="true">Buku Kas Umum 
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 {{ $keuangan->where('status_pembayaran', 'Proses')->count() }}
                                 <span class="visually-hidden">unread messages</span>
                             </span></button>
