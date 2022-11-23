@@ -196,7 +196,7 @@
                 </li>
             @endif --}}
 
-            @if (Auth::user()->role == 'admin')
+            {{-- @if (Auth::user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLapX"
                         aria-expanded="true" aria-controls="collapseLap">
@@ -212,7 +212,9 @@
                         </div>
                     </div>
                 </li>
-            @endif
+            @endif --}}
+
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

@@ -97,13 +97,15 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right shadow-sm animated--fade-in"
                                     aria-labelledby="dropdownMenuLink">
-                                    <div class="dropdown-header">Dropdown Header:</div>
+                                    <div class="dropdown-header">Dropdown Status:</div>
                                     <a class="dropdown-item" href="#" onclick="updateChartStatus()">Semua</a>
-                                    <a class="dropdown-item" href="#" onclick="updateChartStatus('Belum Dibayar')">Belum Bayar</a>
+                                    <a class="dropdown-item" href="#" onclick="updateChartStatus('Dibayar')">Dibayar</a>
                                     <a class="dropdown-item" href="#" onclick="updateChartStatus('Proses')">Proses</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#" onclick="updateChartStatus('Belum Dibayar')">Belum Bayar</a>
+                                    <a class="dropdown-item" href="#" onclick="updateChartStatus('Ditolak')">Ditolak</a>
+                                    {{-- <a class="dropdown-item" href="#">Another action</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="#">Something else here</a> --}}
                                 </div>
                             </div>
                         </div>

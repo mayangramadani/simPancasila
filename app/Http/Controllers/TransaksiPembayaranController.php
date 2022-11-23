@@ -34,7 +34,8 @@ class TransaksiPembayaranController extends Controller
                 'kategori_keuangan_id' => 1,
                 'users_id' => $item->users_id,
                 'nama_keuangan' => "Bayar SPP Siswa - ".date("M Y"),
-                'sekolah_id' => $item->sekolah_id
+                'sekolah_id' => $item->sekolah_id,
+                'jumlah' => $item->Sekolah->spp
             ]);
         }
         return back();

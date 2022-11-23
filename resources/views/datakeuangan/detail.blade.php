@@ -18,7 +18,7 @@
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h4 class="m-0 font-weight-bold text-primary ">Buku Kas Umum Sekolah</h4>
-                        <div class="d-flex">
+                        {{-- <div class="d-flex">
                             <a href="/datakeuangan/{{ $keuangan->id }}/edit" id="2" class="edit me-2">
                                 <button class="btn btn-outline-info btn-sm" type="button"><i
                                         class="fa fa-pencil-square"></i>
@@ -30,7 +30,7 @@
                                 @method('delete')
                                 <input class="btn btn-outline-danger btn-sm" type="submit" value="Hapus">
                             </form>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -84,9 +84,10 @@
                             </div>
                             <div class="row">
                                 <label for="foto" class="col-sm-3 col-form-label fw-bold text-dark">Bukti</label>
-                                <label for="foto" class="col-sm-3 col-form-label"><img
-                                        src="  {{ asset('storage/Keuangan/bukti/' . $keuangan->bukti_transaksi) }}"
-                                        height="80"></label>
+                                <label for="foto" class="col-sm-6 col-form-label">:<a
+                                    href="{{ asset('storage/Keuangan/bukti/' . $keuangan->bukti) }}" target="_blank"
+                                    class="col-sm-5 fw-bold">Lihat disini</a>
+                                    </label>
                             </div>
                             <div class="row">
                                 <label for="statuspembayaran" class="col-sm-3 col-form-label fw-bold text-dark">Status
@@ -114,7 +115,9 @@
                     <div class="card-body">
                         <body>
                             <h5>How to disable downloading of the PDF document</h5>
-                            <iframe src="/uploads/media/default/0001/01/540cb75550adf33f281f29132dddd14fded85bfc.pdf#toolbar=0" width="100%" height="500px">
+                            <iframe
+                                src="{{ asset('storage/Keuangan/bukti/' . $keuangan->berkas_pendukung) }}"
+                                width="100%" height="400px">
                             </iframe>
                           </body>
                     </div>

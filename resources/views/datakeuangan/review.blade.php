@@ -12,7 +12,9 @@
             </h4>
 
         </div>
+        
         <div class="row">
+            
             <!-- Area Chart -->
             <div class="col-xl-7 col-lg-7">
                 <div class="card shadow-sm mb-4">
@@ -21,6 +23,7 @@
                         <form action="/datakeuangan/{{ $keuangan->id }}" method="POST" enctype="multipart/form-data">
                             @method('put')
                             @csrf
+                            
                             <div class="row">
                                 <label for="kegiatan" class="col-sm-4 col-form-label fw-bold text-dark">Nama
                                     Kegiatan</label>
