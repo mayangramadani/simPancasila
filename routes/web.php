@@ -19,6 +19,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TransaksiPembayaranController;
 use App\Http\Controllers\TingkatanKelasController;
 use App\Http\Controllers\SumberDanaController;
+use App\Models\TransaksiPembayaran;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/datasiswa/{id}/edit', [DataSiswaController::class, 'edit']);
         Route::get('/datasiswa/{id}/detail', [DataSiswaController::class, 'detail']);
         Route::post('/import-siswa', [DataSiswaController::class, 'importSiswa'])->name('importSiswa');
+        Route::get('/datasiswa/blm-bayar', [DataSiswaController::class, 'blmbayar']);
     });
 
     // datakelas
@@ -111,7 +113,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/datakeuangan/guru', [KeuanganController::class, 'guru'])->name('guru');
         Route::get('/datakeuangan/{id}/review', [KeuanganController::class, 'review']);
         Route::get('/datakeuangan/{id}/show', [KeuanganController::class, 'show']);
-        
     });
 
     // sekolah
@@ -166,7 +167,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/transaksisiswa/{id}/edit', [TransaksiSiswaController::class, 'edit']);
         Route::get('/transaksisiswa/{id}/detail', [TransaksiSiswaController::class, 'detail']);
         Route::get('/transaksisiswa/historisiswa', [TransaksiSiswaController::class, 'historisiswa']);
-        Route::get('/transaksisiswa/{id}/show', [TransaksiSiswaController::class, 'show']); 
+        Route::get('/transaksisiswa/{id}/show', [TransaksiSiswaController::class, 'show']);
     });
     // tingkatan kelas
     Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -185,7 +186,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/konfirmasi/{id}', [KonfirmasiController::class, 'update']);
     });
 
- //
+    //
     Route::GET('getTingkatanKelas', [TingkatanKelasController::class, 'getKelas'])->name('getKota');
     Route::GET('getPembayaran', [TransaksiSiswaController::class, 'getPembayaran'])->name('getPembayaran');
 
@@ -198,11 +199,8 @@ Route::middleware(['auth'])->group(function () {
 
     //LaporanKeuangan
     Route::get('/datalaporan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan');
-   
-    
-
 });
-
+Route::get('/getSiswaBayar/{id}', [TransaksiPembayaranController::class, 'getDataSiswa']);
 Route::get('chart-transaksi', [KeuanganController::class, 'chartTransaksi']);
 
 require __DIR__ . '/auth.php';

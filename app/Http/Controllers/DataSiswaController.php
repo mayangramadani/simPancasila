@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\SiswaImport;
+use App\Models\Keuangan;
 use App\Models\Province;
 use App\Models\Siswa;
 use App\Models\Sekolah;
@@ -143,5 +144,11 @@ class DataSiswaController extends Controller
         }
 
         return response()->json(['html' => $html]);
+    }
+    public function blmbayar()
+    {
+        $siswa = Keuangan::get();
+        // dd('');
+        return view('datasiswa.blm-bayar', compact('siswa'));
     }
 }

@@ -91,11 +91,26 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaptt"
+                        aria-expanded="true" aria-controls="collapseLap">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Data Siswa</span>
+                    </a>
+                    <div id="collapseLaptt" class="collapse" aria-labelledby="headingPages"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">--Siswa--</h6>
+                            <a class="collapse-item" href="/datasiswa">Data Siswa</a>
+                            <a class="collapse-item" href="/datasiswa/blm-bayar">Siswa Belum Bayar</a>
+                        </div>
+                    </div>
+                </li>
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="/datasiswa">
                         <i class="fas fa-fw fa-wrench"></i>
                         <span>Data Siswa</span>
                     </a>
-                </li>
+                </li> --}}
             @endif
 
             <!-- Divider -->

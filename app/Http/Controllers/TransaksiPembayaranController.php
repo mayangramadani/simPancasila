@@ -15,7 +15,7 @@ class TransaksiPembayaranController extends Controller
 {
     public function index()
     {
-        $transaksipembayaran = Keuangan::where('users_id', Auth::user()->id)->get();
+        $transaksipembayaran = Keuangan::all();
 
         $siswa = Siswa::get();
         $kategorikeuangan = KategoriKeuangan::all();
@@ -33,11 +33,19 @@ class TransaksiPembayaranController extends Controller
                 'no_transaksi' => Str::random(9),
                 'kategori_keuangan_id' => 1,
                 'users_id' => $item->users_id,
-                'nama_keuangan' => "Bayar SPP Siswa - ".date("M Y"),
+                'nama_keuangan' => "Bayar SPP Siswa - " . date("M Y"),
                 'sekolah_id' => $item->sekolah_id,
                 'jumlah' => $item->Sekolah->spp
             ]);
         }
         return back();
+    }
+
+    public function getDataSiswa($id)
+    {
+
+        $transaksipembayaran = Keuangan::join('siswa', 'keuangan.users_id', 'siswa.users_id')->where('siswa.id', $id)
+            ->get();
+        return $transaksipembayaran;
     }
 }
