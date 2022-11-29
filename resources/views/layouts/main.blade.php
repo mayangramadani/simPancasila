@@ -31,7 +31,20 @@
     <!-- Javascript Bootstrap Datepicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
     <script src="https://kit.fontawesome.com/c2ff6e34d8.js" crossorigin="anonymous"></script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function(e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </head>
 
 <body id="page-top">
@@ -46,8 +59,8 @@
                 <div class="sidebar-brand-icon logo-brand">
                     <img src="{!! asset('asset/img/logo.png') !!}" alt="">
                 </div>
-                <h6 class="nav-link fw-bold text-gray-500">Sistem Informasi</h6>
-                <h6 class="sidebar-brand-text fw-semibold text-gray-500">Administrasi Sekolah</h6>
+                <h6 class="nav-link fw-bold text-white mb-0">Sistem Informasi</h6>
+                <h6 class="sidebar-brand-text fw-semibold text-white">Administrasi Sekolah</h6>
             </a>
 
             <!-- Divider -->
@@ -229,7 +242,7 @@
                 </li>
             @endif --}}
 
-            
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -301,7 +314,8 @@
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">{{ Auth::user()->unreadNotifications->count() }}</span>
+                                <span
+                                    class="badge badge-danger badge-counter">{{ Auth::user()->unreadNotifications->count() }}</span>
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"

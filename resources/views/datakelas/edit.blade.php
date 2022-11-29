@@ -2,19 +2,10 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
-        <!-- Page Heading -->
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Edit Sekolah</h1>
-        </div> --}}
-
         <div class="mb-3 btn btn-outline-primary btn-sm">
             <a href="/datakelas/{{ $datakelas->id }}/detail">Kembali</a>
         </div>
-
-
         <div class="row">
-
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
@@ -22,7 +13,6 @@
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h4 class="m-0 font-weight-bold text-primary">Edit Sekolah</h4>
                     </div>
-
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="p-3">

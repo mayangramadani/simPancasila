@@ -21,13 +21,17 @@
                 <div class="card shadow-sm mb-4">
                     <!-- Card header -->
                     <div class="card-body">
-                        <form class="validation" novalidate method="POST" action="{{ url('transaksi/add') }}">
+                        <form class="validation" novalidate method="POST" action="{{ url('transaksi/add') }}" autocomplete="off">
                             @csrf
+                            <!--Make sure the form has the autocomplete function switched off:-->
+                                {{-- <div class="autocomplete mb-5" style="width:300px;">
+                                    <input id="nama_siswa" type="text" name="nama_siswa" placeholder="Nama Siswa">
+                                </div> --}}
+
                             <div class="form-row">
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-control-label fw-semibold" for="nama_siswa" >Nama Siswa *</label>
-                                    <select class="form-control selectpicker" id="select-country"
-                                    data-live-search="true" >
+                                    <label class="form-control-label fw-semibold" for="nama_siswa">Nama Siswa *</label>
+                                    <select class="form-control selectpicker " id="selectpicker" data-live-search="true">
                                         @foreach ($siswa as $ni)
                                             <option value="{{ $ni->id }}" data-tokens="{{ $ni->nama_siswa }}">
                                                 {{ $ni->nama_siswa }}</option>
@@ -72,6 +76,85 @@
     </div>
 
     @push('scripts')
+        <script>
+            var countries = ["aaa","bhsadgah","jshdja","jhsajdhajd","hsdh","abcde","efghijklmn","opqrstu"
+            ];
+            autocomplete(document.getElementById("nama_siswa"), countries);
+
+            function autocomplete(inp, arr) {
+                var currentFocus;
+                inp.addEventListener("input", function(e) {
+                    var a, b, i, val = this.value;
+                    closeAllLists();
+                    if (!val) {
+                        return false;
+                    }
+                    currentFocus = -1;
+                    a = document.createElement("DIV");
+                    a.setAttribute("id", this.id + "autocomplete-list");
+                    a.setAttribute("class", "autocomplete-items");
+                    this.parentNode.appendChild(a);
+                    for (i = 0; i < arr.length; i++) {
+                        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                            b = document.createElement("DIV");
+                            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                            b.innerHTML += arr[i].substr(val.length);
+                            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                            b.addEventListener("click", function(e) {
+                                inp.value = this.getElementsByTagName("input")[0].value;
+                                closeAllLists();
+                            });
+                            a.appendChild(b);
+                        }
+                    }
+                });
+                inp.addEventListener("keydown", function(e) {
+                    var x = document.getElementById(this.id + "autocomplete-list");
+                    if (x) x = x.getElementsByTagName("div");
+                    if (e.keyCode == 40) {
+                        currentFocus++;
+                        addActive(x);
+                    } else if (e.keyCode == 38) {
+                        currentFocus--;
+                        addActive(x);
+                    } else if (e.keyCode == 13) {
+                        e.preventDefault();
+                        if (currentFocus > -1) {
+                            if (x) x[currentFocus].click();
+                        }
+                    }
+                });
+
+                function addActive(x) {
+                    if (!x) return false;
+                    removeActive(x);
+                    if (currentFocus >= x.length) currentFocus = 0;
+                    if (currentFocus < 0) currentFocus = (x.length - 1);
+                    x[currentFocus].classList.add("autocomplete-active");
+                }
+
+                function removeActive(x) {
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].classList.remove("autocomplete-active");
+                    }
+                }
+
+                function closeAllLists(elmnt) {
+                    var x = document.getElementsByClassName("autocomplete-items");
+                    for (var i = 0; i < x.length; i++) {
+                        if (elmnt != x[i] && elmnt != inp) {
+                            x[i].parentNode.removeChild(x[i]);
+                        }
+                    }
+                }
+                document.addEventListener("click", function(e) {
+                    closeAllLists(e.target);
+                });
+            }
+        </script>
+
+
+
         <script>
             $(function() {
                 $('.selectpicker').selectpicker();
@@ -157,6 +240,5 @@
                 return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
             }
         </script>
-      
     @endpush
 @endsection

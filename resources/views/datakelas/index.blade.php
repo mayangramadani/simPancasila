@@ -2,14 +2,6 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-        
-        <!-- Page Heading -->
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data Kelas</h1>
-        </div> --}}
-
-        <!-- Button trigger modal -->
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -39,14 +31,6 @@
                             </select>
                             <label for="cemail" class="control-label text-dark fw-bold">Nama Kelas</label>
                             <input class="form-control mb-3" type="text" name="nama_kelas" placeholder="exp. Kelas VI.1">
-
-                            {{-- <label for="cemail" class="control-label text-dark fw-bold">Tingkatan Kelas</label>
-                            <select class="form-select form-select-lg mb-3 form-control" name="tingkatan_kelas_id">
-                                @foreach ($tingkatankelas as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama_tingkatan }}</option>
-                                @endforeach
-                            </select> --}}
-
                             <label for="cemail" class="control-label text-dark fw-bold">kuota</label>
                             <input class="form-control mb-3" type="number" min="0" name="kuota"
                                 placeholder="--">
@@ -59,12 +43,7 @@
                 </div>
             </div>
         </div>
-
-
-
-
         <div class="row">
-
             <div class="py-3 d-flex flex-row align-items-center justify-content-between">
                 <h4 class="m-0 font-weight-bold text-primary">Daftar Kelas</h4>
                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus"></i>
@@ -74,7 +53,6 @@
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm-sm mb-4">
-                    <!-- Card Header - Dropdown -->
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-area">
@@ -106,7 +84,6 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-
                                                 @php
                                                     $no = 0;
                                                 @endphp
@@ -130,10 +107,8 @@
                                                                 @csrf
                                                                 @method('delete')
                                                                 <button class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i>
-                                                                </button>
-                                                                
+                                                                </button>                                                               
                                                             </form>
-
                                                             <a href="/datakelas/{{ $dk->id }}/detail"
                                                                 id="2" class="detail me-2" title="Detail">
                                                                 <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-plus"></i>
@@ -144,8 +119,6 @@
                                                                 <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-eye"></i>
                                                                 </button>
                                                             </a>
-
-
                                                         </td>
                                                     </tr>
                                                 @endforeach

@@ -2,18 +2,10 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
-        <!-- Page Heading -->
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Sekolah</h1>
-        </div> --}}
-
         <div class="mb-3 btn btn-outline-primary btn-sm">
             <a href="/sekolah">Kembali</a>
         </div>
-
         <div class="row">
-
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
@@ -48,12 +40,9 @@
                                                     aria-controls="example1" rowspan="1" colspan="1"
                                                     name="spp" aria-label="spp: activate to sort column ascending">SPP
                                                 </th>
-
-
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                             @php
                                                 $no = 0;
                                             @endphp
@@ -66,29 +55,7 @@
                                                     <td class="text-center">{{ $s->nama_siswa }}</td>
                                                     <td class="text-center">{{ $s->nis }}</td>
                                                     <td class="text-center">{{ $s->derajat }}</td>
-                                                    <td class="text-center">{{ $s->tanggal_lahir }}</td>
-                                                    {{-- <td class="text-center">{{ $s->TingkatanKelas->nama_tingkatan }}</td> --}}
-                                                    {{-- <td class="d-flex">
-                                                        {{-- <a href="/sekolah/{{ $s->id }}/edit" id="2"
-                                                            class="edit me-2">
-                                                            <button class="btn btn-outline-info" type="button">
-                                                                Edit
-                                                            </button>
-                                                        </a>
-                                                        <form action="/sekolah/{{ $s->id }}" method='post'
-                                                            class="me-2">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <input class="btn btn-outline-danger" type="submit"
-                                                                value="Hapus">
-                                                        </form>
-
-                                                        <a href="/sekolah/{{ $s->id }}/detail" id="2"
-                                                            class="detail me-2">
-                                                            <button class="btn btn-outline-primary" type="button">
-                                                                Show
-                                                            </button>
-                                                        </a> --}}
+                                                    <td class="text-center">{{ $s->tanggal_lahir }}</td>                                               
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -97,9 +64,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>

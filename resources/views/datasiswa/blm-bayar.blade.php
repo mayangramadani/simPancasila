@@ -25,8 +25,8 @@
                                             aria-controls="example1" rowspan="1" colspan="1">Nama Siswa</th>
                                         <th class="text-center text-light" tabindex="0" aria-controls="example1"
                                             rowspan="1" colspan="1">Bulan</th>
-                                        <th width="20%" class="text-center text-light" tabindex="0"
-                                            aria-controls="example1" rowspan="1" colspan="1">Action</th>
+                                        {{-- <th width="20%" class="text-center text-light" tabindex="0"
+                                            aria-controls="example1" rowspan="1" colspan="1">Action</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody id="isiTabel">
@@ -35,14 +35,14 @@
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             <td class="text-center">{{ $ds->User->name }}</td>
                                             <td class="text-center">{{ $ds->nama_keuangan }}</td>
-                                            <td class="d-flex justify-content-center">
+                                            {{-- <td class="d-flex justify-content-center">
                                                 <a href="/datasiswa/{{ $ds->id }}/detail" id="2"
                                                     class="detail me-2">
                                                     <button class="btn btn-outline-info btn-sm" type="button"
                                                         title="Detail"><i class="fa fa-eye"></i>
                                                     </button>
                                                 </a>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>
