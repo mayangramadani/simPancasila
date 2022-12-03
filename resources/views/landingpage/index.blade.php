@@ -165,12 +165,12 @@
                             <p class="description">6. Melaksanakan Pengembangan Kegiatan Keagamaan di Sekolah.</p>
                         </div>
 
-                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+                        {{-- <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
                             <div class="icon"><i class="bx bx-atom"></i></div>
                             <h4 class="title"><a href="">Dine Pad</a></h4>
                             <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis
                                 odit. Sunt aut deserunt minus aut eligendi omnis</p>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
