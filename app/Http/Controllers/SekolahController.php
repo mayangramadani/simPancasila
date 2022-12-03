@@ -25,7 +25,9 @@ class SekolahController extends Controller
             'nama_sekolah' => $request->nama_sekolah,
             'derajat' => $request->derajat,
             'lokasi' => $request->lokasi,
-            'spp' => $request->spp,
+            'spp' => $this->convertRP($request->spp),
+            // 'spp' => $request->spp,
+            
 
         ]);
         return redirect('sekolah');
