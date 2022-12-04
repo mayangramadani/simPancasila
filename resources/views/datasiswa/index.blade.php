@@ -28,9 +28,15 @@
                                 data-bs-target="#exampleModal"><i class="fa fa-file-excel"></i>
                                 Import
                             </button>
-                            <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf"></i>
+                            <a href="/datasiswa/export" id="2" class="edit me-2">
+                                <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf"></i>
+                                    Export
+                                </button></a>
+
+                            {{-- <a href="/datasiswa/export"><button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf"></i>
                                 Export
-                            </button>
+                            </button></a> --}}
+
                             <a href="{{asset('asset/img/template.xlsx')}}" class="btn btn-success me-2 btn-sm"
                                 data-bs-target="#exampleModal"><i class="fa fa-file-excel"></i>
                                 Template

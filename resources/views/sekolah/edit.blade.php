@@ -2,53 +2,53 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-        <div class="mb-3 btn btn-outline-primary btn-sm">
-            <a class="text-primary" href="/sekolah/">Kembali</a>
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Update Data Sekolah
+            </h3>
         </div>
+        <p class="mb-5 text-center">Transaksi menunggu persetujuan, silahkan mengubah status pembayaran</p>
+
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary">Edit Sekolah</h4>
-                    </div>
-                    <!-- Card Body -->
                     <div class="card-body">
                         <div class="p-3">
                             <form action="/sekolah/{{ $sekolah->id }}" method="POST">
                                 @method('put')
                                 @csrf
                                 <div class="row">
-                                    <label for="namasekolah" class="h3 col-sm-2 col-form-label fw-bold text-dark">Nama Sekolah</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control mb-2" type="text" name="nama_sekolah"
-                                            placeholder="Nama Sekolah" value="{{ $sekolah->nama_sekolah }}">
+                                    <div class="col-md-5 mb-3">
+                                        <label for="namasekolah" class="form-control-label fw-semibold text-dark">Nama
+                                            Sekolah
+                                        </label>
+                                        <input value="{{ $sekolah->nama_sekolah }}" type="text"
+                                            class="form-control form-control-md" id="nama_sekolah"
+                                            placeholder="Masukkan Nama Sekolah" name="nama_sekolah">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="derajat"
+                                            class="form-control-label fw-semibold text-dark">Derajat</label>
+                                        <input value="{{ $sekolah->derajat }}" type="text"
+                                            class="form-control form-control-md" id="derajat"
+                                            placeholder="Masukkan Derajat" name="derajat">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="spp" class="form-control-label fw-semibold text-dark">Spp</label>
+                                        <input value="{{ $sekolah->spp }}"
+                                            type="text" class="form-control form-control-md" id="dengan-rupiah"
+                                            placeholder="Masukkan Spp" name="spp">
+                                    </div>
+                                    <div class="col-md-8 mb-5">
+                                        <label for="lokasi" class="col-form-label text-dark fw-semibold">Lokasi</label>
+                                        <textarea rows="5" type="textarea" class="form-control form-control-md" id="lokasi"
+                                            placeholder="Masukkan Lokasi Lengkap" name="lokasi" value>{{ $sekolah->lokasi }}</textarea>
                                     </div>
                                 </div>
-
-                                <div class="row">
-                                    <label for="cemail" class="col-sm-2 col-form-label fw-bold text-dark">Derajat</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control mb-2" type="text" name="derajat" placeholder="Derajat"
-                                            value="{{ $sekolah->derajat }}">
-                                    </div>
+                                <div class="col-md-12">
+                                    <input class="btn btn-md btn-primary w-100 btn-block" type="submit" value="SIMPAN DATA"
+                                        name="submit">
                                 </div>
-                                <div class="row">
-                                    <label for="cemail" class="col-sm-2 col-form-label  fw-bold text-dark">Lokasi</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control mb-2" type="text" name="lokasi" placeholder="Lokasi"
-                                            value="{{ $sekolah->lokasi }}">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="cemail" class="col-sm-2 col-form-label  fw-bold text-dark">SPP</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control mb-2" type="text" name="spp" placeholder="Spp"
-                                            id="dengan-rupiah" value="{{ $sekolah->spp }}">
-                                    </div>
-                                </div>
-                                <input class="btn btn-primary" type="submit" value="Submit" name="submit">
                             </form>
                         </div>
                     </div>

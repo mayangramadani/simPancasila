@@ -75,6 +75,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/datasiswa/{id}/detail', [DataSiswaController::class, 'detail']);
         Route::post('/import-siswa', [DataSiswaController::class, 'importSiswa'])->name('importSiswa');
         Route::get('/datasiswa/blm-bayar', [DataSiswaController::class, 'blmbayar']);
+        Route::get('/datasiswa/export', [DataSiswaController::class, 'export']);
     });
 
     // datakelas

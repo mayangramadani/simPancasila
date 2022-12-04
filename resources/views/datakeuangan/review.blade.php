@@ -149,28 +149,6 @@
 
             <div class="col-lg-7 mb-4">
 
-
-                {{-- <div class="col-xl-2 col-lg-5">
-                <div class="card shadow-sm mb-4">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <h6>status: </h6>
-                            @if ($keuangan->status_pembayaran == 'Ditolak')
-                                <span class="badge bg-danger">Ditolak</span>
-                            @elseif ($keuangan->status_pembayaran == 'Belum Dibayar')
-                                <span class="badge bg-danger">Belum Dibayar</span>
-                            @elseif($keuangan->status_pembayaran == 'Diterima')
-                                <span class="badge bg-success">Diterima</span>
-                            @elseif($keuangan->status_pembayaran == 'Proses')
-                                <span class="badge bg-warning">Proses</span>
-                            @else
-                                <span class="badge bg-dark">Belum diperiksa</span>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
                 <div class="card shadow-sm mb-4">
                     <div class="card-body">
 

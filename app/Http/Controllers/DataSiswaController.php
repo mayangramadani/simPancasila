@@ -151,4 +151,9 @@ class DataSiswaController extends Controller
         // dd('');
         return view('datasiswa.blm-bayar', compact('siswa'));
     }
+    public function export()
+    {
+        $siswa = Siswa::get();
+        return view('datasiswa.export', compact('siswa'));
+    }
 }

@@ -3,12 +3,16 @@
     <!-- Begin Page Content -->
 
     <div class="container-fluid">
-        <div class="d-flex flex-row align-items-center justify-content-between mb-2 py-3 pl-3">
-            <h4 class="m-0 font-weight-bold text-primary mb-7">Daftar Siswa yang Belum Bayar
-
-            </h4>
-
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Daftar Siswa
+            </h3>
         </div>
+        <p class="mb-5 text-center">Berikut daftar nama-nama siswa yang belum melakukan pembayaran</p>
+
+        {{-- <div class="d-flex flex-row align-items-center justify-content-between mb-2 py-3 pl-3">
+            <h4 class="m-0 font-weight-bold text-primary mb-7">Daftar Siswa yang Belum Bayar
+            </h4>
+        </div> --}}
         <!-- Card Body -->
         <div class="col-xl-12 col-lg-7">
             <div class="card shadow-sm mb-4">
@@ -25,8 +29,7 @@
                                             aria-controls="example1" rowspan="1" colspan="1">Nama Siswa</th>
                                         <th class="text-center text-light" tabindex="0" aria-controls="example1"
                                             rowspan="1" colspan="1">Bulan</th>
-                                        {{-- <th width="20%" class="text-center text-light" tabindex="0"
-                                            aria-controls="example1" rowspan="1" colspan="1">Action</th> --}}
+  
                                     </tr>
                                 </thead>
                                 <tbody id="isiTabel">
@@ -35,14 +38,6 @@
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             <td class="text-center">{{ $ds->User->name }}</td>
                                             <td class="text-center">{{ $ds->nama_keuangan }}</td>
-                                            {{-- <td class="d-flex justify-content-center">
-                                                <a href="/datasiswa/{{ $ds->id }}/detail" id="2"
-                                                    class="detail me-2">
-                                                    <button class="btn btn-outline-info btn-sm" type="button"
-                                                        title="Detail"><i class="fa fa-eye"></i>
-                                                    </button>
-                                                </a>
-                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

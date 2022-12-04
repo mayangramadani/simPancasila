@@ -32,7 +32,6 @@ class   KonfirmasiController extends Controller
         $konfirmasi->status_pembayaran = $request->status_pembayaran;
         if ($konfirmasi->status_pembayaran == 'Diterima') {
             $cariSekolah = Saldo::where('sekolah_id', $konfirmasi->sekolah_id)->latest()->first();
-            dd($konfirmasi->KategoriKeuangan->kategori_keuangan);
             if ($konfirmasi->KategoriKeuangan->kategori_keuangan == "pemasukan") {
                 if ($cariSekolah) {
                     Saldo::Create([

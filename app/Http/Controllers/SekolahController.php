@@ -55,5 +55,14 @@ class SekolahController extends Controller
         $sekolah = Sekolah::find($id);
         $sekolah->update($request->except(['_token', 'submit']));
         return redirect('/sekolah');
+        Sekolah::create([
+            'nama_sekolah' => $request->nama_sekolah,
+            'derajat' => $request->derajat,
+            'lokasi' => $request->lokasi,
+            'spp' => $this->convertRP($request->spp),
+            // 'spp' => $request->spp,
+            
+
+        ]);
     }
 }
