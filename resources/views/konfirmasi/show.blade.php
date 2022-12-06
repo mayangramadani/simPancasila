@@ -3,8 +3,6 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-
-
         <div class="d-flex flex-row align-items-center justify-content-center py-3">
             <h3 class="m-0 font-weight-bold text-primary mb-7">Konfirmasi Pembayaran
             </h3>
@@ -92,12 +90,7 @@
                                                 target="_blank" class="fw-bold">Lihat disini</a>
                                     </div>
                                 </div>
-                                {{-- <div class="row">
-                                        <label for="Siswa"
-                                            class="col-sm-2 col-form-label fw-bold text-dark">Nominal</label>
-                                        <label for="Siswa" class="col-sm-2 col-form-label">:
-                                            {{ 'Rp ' . number_format($konfirmasi->jumlah, 0, '.', '.') }}</label>
-                                    </div> --}}
+
                                 <div class="row">
                                     <label for="kegiatan"
                                         class="col-sm-5 col-form-label fw-semibold text-dark">Status</label>
