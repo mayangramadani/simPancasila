@@ -2,17 +2,18 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-        <div class="mb-3 btn btn-outline-primary btn-sm">
-            <a href="/sekolah">Kembali</a>
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Daftar Siswa 
+            </h3>
         </div>
+        <p class="mb-5 text-center">Daftar siswa yang berada pada sekolah <span class="fw-bold text-dark">{{$sekolah->nama_sekolah}},</span> klik <a href="/sekolah">Sekolah</a> jika ingin kembali ke halaman sekolah </p>
+
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary">Sekolah</h4>
-                    </div>
+                  
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
@@ -33,12 +34,12 @@
                                                     aria-label="Lokasi: activate to sort column ascending">NIS
                                                 </th>
                                                 <th width="15%" class="text-center text-light" tabindex="0"
-                                                    aria-controls="example1" rowspan="1" colspan="1" name="derajat"
+                                                    aria-controls="example1" rowspan="1" colspan="1" name="sekolah"
                                                     aria-label="Derajat: activate to sort column ascending">
-                                                    Derajat</th>
+                                                    Sekolah</th>
                                                 <th width="10%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1"
-                                                    name="spp" aria-label="spp: activate to sort column ascending">SPP
+                                                    name="status" aria-label="spp: activate to sort column ascending">Status
                                                 </th>
                                             </tr>
                                         </thead>
@@ -54,8 +55,8 @@
                                                     <td class="sorting_1 text-center">{{ $no }}</td>
                                                     <td class="text-center">{{ $s->nama_siswa }}</td>
                                                     <td class="text-center">{{ $s->nis }}</td>
-                                                    <td class="text-center">{{ $s->derajat }}</td>
-                                                    <td class="text-center">{{ $s->tanggal_lahir }}</td>                                               
+                                                    <td class="text-center">{{ $s->Sekolah->nama_sekolah }}</td>
+                                                    <td class="text-center">{{$s->isActive}}</td>                                               
                                                     </td>
                                                 </tr>
                                             @endforeach

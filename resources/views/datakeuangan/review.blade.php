@@ -7,10 +7,7 @@
         <div class="d-flex flex-row align-items-center justify-content-between mb-3 py-3">
             {{-- <a href="/datakeuangan/guru">Kembali</a> --}}
             <h4 class="m-0 font-weight-bold text-primary mb-7">Review RKAS
-
-
             </h4>
-
         </div>
 
         <div class="row">

@@ -6,45 +6,54 @@
             <h3 class="m-0 font-weight-bold text-primary mb-7">Update Data Sekolah
             </h3>
         </div>
-        <p class="mb-5 text-center">Transaksi menunggu persetujuan, silahkan mengubah status pembayaran</p>
+        <p class="mb-5 text-center">Silakan input form pada data yang ingin dirubah, klik <a href="/sekolah">Sekolah</a> jika
+            ingin melihat daftar sekolah </p>
 
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
                 <div class="card shadow-sm mb-4">
                     <div class="card-body">
-                        <div class="p-3">
+                        <div class="">
                             <form action="/sekolah/{{ $sekolah->id }}" method="POST">
                                 @method('put')
                                 @csrf
-                                <div class="row">
-                                    <div class="col-md-5 mb-3">
-                                        <label for="namasekolah" class="form-control-label fw-semibold text-dark">Nama
-                                            Sekolah
-                                        </label>
-                                        <input value="{{ $sekolah->nama_sekolah }}" type="text"
-                                            class="form-control form-control-md" id="nama_sekolah"
-                                            placeholder="Masukkan Nama Sekolah" name="nama_sekolah">
+                                <div class="col-md-12 mb-5" style="position: relative">
+                                    <div
+                                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom">
                                     </div>
-                                    <div class="col-md-3 mb-3">
+                                    <p class="text-primary bg-white px-1 ml-3" style="position: absolute; top:10px;">
+                                        Update Data</p>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label for="namasekolah" class="form-control-label fw-semibold text-dark">Nama
+                                        Sekolah
+                                    </label>
+                                    <input value="{{ $sekolah->nama_sekolah }}" type="text"
+                                        class="form-control form-control-md" id="nama_sekolah"
+                                        placeholder="Masukkan Nama Sekolah" name="nama_sekolah">
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-md-4 mb-3">
                                         <label for="derajat"
-                                            class="form-control-label fw-semibold text-dark">Derajat</label>
+                                            class="form-control-label fw-semibold text-dark">Derajat <span class="fw-light">(SMP/SMA/SMK)</span></label>
                                         <input value="{{ $sekolah->derajat }}" type="text"
                                             class="form-control form-control-md" id="derajat"
                                             placeholder="Masukkan Derajat" name="derajat">
                                     </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="spp" class="form-control-label fw-semibold text-dark">Spp</label>
-                                        <input value="{{ $sekolah->spp }}"
-                                            type="text" class="form-control form-control-md" id="dengan-rupiah"
+                                    <div class="col-md-4 mb-3">
+                                        <label for="spp" class="form-control-label fw-semibold text-dark">Spp <span class="fw-light">(/bln)</span></label>
+                                        <input value="{{ $sekolah->spp }}" type="text"
+                                            class="form-control form-control-md" id="dengan-rupiah"
                                             placeholder="Masukkan Spp" name="spp">
                                     </div>
+                                </div>
                                     <div class="col-md-8 mb-5">
                                         <label for="lokasi" class="col-form-label text-dark fw-semibold">Lokasi</label>
                                         <textarea rows="5" type="textarea" class="form-control form-control-md" id="lokasi"
                                             placeholder="Masukkan Lokasi Lengkap" name="lokasi" value>{{ $sekolah->lokasi }}</textarea>
                                     </div>
-                                </div>
                                 <div class="col-md-12">
                                     <input class="btn btn-md btn-primary w-100 btn-block" type="submit" value="SIMPAN DATA"
                                         name="submit">

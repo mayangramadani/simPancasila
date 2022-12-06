@@ -2,124 +2,157 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
-        {{-- <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Detail Data Keuangan</h1>
-        </div> --}}
-        <div class="mb-3">
-            <a href="/datakeuangan">Kembali</a>
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Detail Transaksi Keuangan
+            </h3>
         </div>
+        <p class="mb-5 text-center">Halaman detail, klik <a href="/datakeuangan">Kembali</a> untuk ke halaman BKU</p>
+
         <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+          
+            <div class="col-xl-7 col-lg-7">
                 <div class="card shadow-sm mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h4 class="m-0 font-weight-bold text-primary ">Buku Kas Umum Sekolah</h4>
-                        {{-- <div class="d-flex">
-                            <a href="/datakeuangan/{{ $keuangan->id }}/edit" id="2" class="edit me-2">
-                                <button class="btn btn-outline-info btn-sm" type="button"><i
-                                        class="fa fa-pencil-square"></i>
-                                    Edit
-                                </button>
-                            </a>
-                            <form action="/datakeuangan/{{ $keuangan->id }}" method='post'>
-                                @csrf
-                                @method('delete')
-                                <input class="btn btn-outline-danger btn-sm" type="submit" value="Hapus">
-                            </form>
-                        </div> --}}
-                    </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="p-3">
-                            <div class="row">
-                                <label for="user" class="col-sm-3 col-form-label fw-bold text-dark">Nama User</label>
-                                <div class="col-sm-8">
-                                    <label for="user" class="col-sm-8 form-control text-dark" readonly>
-                                        {{ $keuangan->users_id }}</label>
+                            <form action="/datakeuangan/{{ $keuangan->id }}" method="POST" enctype="multipart/form-data">
+                                @method('put')
+                                @csrf
+                                <div class="col-md-12 mb-4" style="position: relative">
+                                    <div
+                                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom">
+                                    </div>
+                                    <p class="text-primary bg-white px-1 ml-3"
+                                        style="position: absolute; top:10px;">
+                                        Data
+                                        Keuangan</p>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <label for="sekolah" class="col-sm-3 col-form-label fw-bold text-dark">Kategori
-                                    Keuangan</label>
-                                <div class="col-sm-8">
-                                    <label for="sekolah" class="col-sm-8 form-control text-dark" readonly>
-                                        {{ $keuangan->KategoriKeuangan->nama_keuangan }}</label>
+                                <div class="row">
+                                    <label for="jumlah" class="col-sm-5 col-form-label fw-semibold text-dark">Jumlah</label>
+                                    <div class="col d-flex align-items-center">
+                                        <span class="me-3">:</span><label for="jumlah" name="jumlah"
+                                            class="mb-0 font-weight-bold"  readonly>
+                                            {{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }}</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <label for="sekolah" class="col-sm-3 col-form-label fw-bold text-dark">Nama
-                                    Keuangan</label>
-                                <div class="col-sm-8">
-                                    <label for="sekolah" class="col-sm-8 form-control text-dark" readonly>
-                                        {{ $keuangan->nama_keuangan }}</label>
+                                <div class="row">
+                                    <label for="status_pembayaran" class="col-sm-5 col-form-label fw-semibold text-dark">status</label>
+                                    <div class="col d-flex align-items-center">
+                                        <span class="me-3">:</span><label for="status_pembayaran" name="status_pembayaran"
+                                            class="mb-0 font-weight-bold"  readonly>
+                                            @if ($keuangan->status_pembayaran == 'Ditolak')
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @elseif ($keuangan->status_pembayaran == 'Belum Dibayar')
+                                            <span class="badge bg-danger">Belum Dibayar</span>
+                                        @elseif($keuangan->status_pembayaran == 'Diterima')
+                                            <span class="badge bg-success">Diterima</span>
+                                        @elseif($keuangan->status_pembayaran == 'Proses')
+                                            <span class="badge bg-warning">Proses</span>
+                                        @else
+                                            <span class="badge bg-dark">Belum diperiksa</span>
+                                        @endif</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <label for="jumlahtransaksi" class="col-sm-3 col-form-label fw-bold text-dark">Jumlah
-                                    Transaksi</label>
-                                <div class="col-sm-8">
-                                    <label for="jumlahtransaksi" class="col-sm-8 form-control text-dark" id="dengan-rupiah"
-                                        readonly>
-                                        {{ 'Rp ' . number_format($keuangan->jumlah, 0, '.', '.') }} </label>
+                                <div class="row">
+                                    <label for="kategori_keuangan" class="col-sm-5 col-form-label fw-semibold text-dark">kategori keuangan</label>
+                                    <div class="col d-flex align-items-center">
+                                        <span class="me-3">:</span><label for="kategori_keuangan" name="kategori_keuangan"
+                                            class="mb-0"  readonly>
+                                            {{ $keuangan->KategoriKeuangan->nama_keuangan }}</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <label for="tanggal" class="col-sm-3 col-form-label fw-bold text-dark">Tanggal
-                                    Transaksi</label>
-                                <div class="col-sm-8">
-                                    <label for="tanggal" class="col-sm-8 form-control text-dark"
-                                        readonly>{{ $keuangan->tanggal }}</label>
+                                <div class="row">
+                                    <label for="nama_keuangan" class="col-sm-5 col-form-label fw-semibold text-dark">Nama keuangan</label>
+                                    <div class="col d-flex align-items-center">
+                                        <span class="me-3">:</span><label for="nama_keuangan" name="nama_keuangan"
+                                            class="mb-0"  readonly>
+                                            {{ $keuangan->nama_keuangan }}</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <label for="Deskripsi" class="col-sm-3 col-form-label fw-bold text-dark">Deskripsi</label>
-                                <div class="col-sm-8">
-                                    <label for="Deskripsi" class="col-sm-8 form-control text-dark" readonly>
-                                        {{ $keuangan->deskripsi }}</label>
+                                <div class="row">
+                                    <label for="tanggal" class="col-sm-5 col-form-label fw-semibold text-dark">Tanggal</label>
+                                    <div class="col d-flex align-items-center">
+                                        <span class="me-3">:</span><label for="tanggal" name="tanggal"
+                                            class="mb-0"  readonly>
+                                            {{ $keuangan->tanggal }}</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <label for="foto" class="col-sm-3 col-form-label fw-bold text-dark">Bukti</label>
-                                <label for="foto" class="col-sm-6 col-form-label">:<a
-                                    href="{{ asset('storage/Keuangan/bukti/' . $keuangan->bukti) }}" target="_blank"
-                                    class="col-sm-5 fw-bold">Lihat disini</a>
-                                    </label>
-                            </div>
-                            <div class="row">
-                                <label for="statuspembayaran" class="col-sm-3 col-form-label fw-bold text-dark">Status
-                                    Pembayaran</label>
-                                <label for="statuspembayaran" class="col-sm-3 col-form-label">:
-                                    @if ($keuangan->status_pembayaran == 'Ditolak')
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @elseif ($keuangan->status_pembayaran == 'Belum Dibayar')
-                                        <span class="badge bg-danger">Belum Dibayar</span>
-                                    @elseif($keuangan->status_pembayaran == 'Diterima')
-                                        <span class="badge bg-success">Diterima</span>
-                                    @elseif($keuangan->status_pembayaran == 'Proses')
-                                        <span class="badge bg-warning">Proses</span>
-                                    @else
-                                        <span class="badge bg-dark">Belum diperiksa</span>
-                                    @endif
+                                <div class="row">
+                                    <label for="deskripsi" class="col-sm-5 col-form-label fw-semibold text-dark">Deskripsi</label>
+                                    <div class="col d-flex align-items-center">
+                                        <span class="me-3">:</span><label for="deskripsi" name="deskripsi"
+                                            class="mb-0"  readonly>
+                                            {{ $keuangan->deskripsi }}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="deskripsi" class="col-sm-5 col-form-label fw-semibold text-dark">Bukti</label>
+                                    <label for="foto" class="col-sm-6 col-form-label">:<a
+                                        href="{{ asset('storage/Keuangan/bukti/' . $keuangan->bukti) }}" target="_blank"
+                                        class="col-sm-5 fw-bold">Lihat disini</a>
                                 </label>
-                            </div>
+                                </div>
+                                <div class="row">
+                                    <label for="kegiatan" class="col-sm-5 col-form-label fw-semibold text-dark">Status</label>
+                                    <div class="col">
+                                        <div class="form-check col-sm-2 col-form-label">
+                                            <input class="form-check-input" type="radio" name="status_pembayaran"
+                                                value="Diterima">
+                                            <label class="form-check-label">
+                                                Diterima
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-sm-2 col-form-label">
+                                            <input class="form-check-input" type="radio" name="status_pembayaran"
+                                                value="Ditolak">
+                                            <label class="form-check-label">
+                                                Ditolak
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-sm-2 col-form-label">
+                                            <input class="form-check-input" type="radio" name="status_pembayaran"
+                                                value="Proses">
+                                            <label class="form-check-label">
+                                                Diproses
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="row mb-3 mt-2">
+                                    <div class="col-12">
+                                        <input type="text"
+                                            class="col-md form-control @error('komentar') is-invalid @enderror"
+                                            placeholder="Masukkan Komentar" name="komentar" id="komentar"
+                                            value="{{ old('komentar') }}">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="">
+                                        <button class="btn btn-primary w-100 btn-block">Simpan</button>
+                                    </div>
+                                </div>
+
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-5">
+         
+
+            
+            <div class="col-xl-5 col-lg-5">
                 <div class="card shadow-sm mb-4">
                     <div class="card-body">
+
                         <body>
-                            <h5>How to disable downloading of the PDF document</h5>
-                            <iframe
-                                src="{{ asset('storage/Keuangan/bukti/' . $keuangan->berkas_pendukung) }}"
-                                width="100%" height="400px">
+                            <iframe src="{{ asset('storage/Keuangan/bukti/' . $keuangan->berkas_pendukung) }}"
+                                width="100%" height="512px">
                             </iframe>
-                          </body>
+                        </body>
                     </div>
                 </div>
             </div>

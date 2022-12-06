@@ -2,11 +2,16 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Saldo
+            </h3>
+        </div>
+        <p class="mb-4 text-center">Histori saldo pada setiap sekolah, klik <a href="/saldo/show">Export</a> untuk mengunduh histori saldo </p>
 
         <div class="row">
             <!-- Card Header - Dropdown -->
-            <div class="pl-4 py-3 d-flex flex-row align-items-center justify-content-between">
-                <h4 class="m-0 font-weight-bold text-primary">Histori Saldo</h4>
+            <div class="pl-4 py-3 d-flex flex-row align-items-center justify-content-end">
+                {{-- <h4 class="m-0 font-weight-bold text-primary">Histori Saldo</h4> --}}
                 <a href="/saldo/show" id="2" class="edit me-2">
                 <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf"></i>
                     Export

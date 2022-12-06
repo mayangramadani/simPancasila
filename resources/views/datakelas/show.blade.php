@@ -2,9 +2,14 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Daftar Siswa
+            </h3>
+        </div>
+        <p class="mb-4 text-center">Halaman Daftar Siswa, berikut daftar nama-nama siswa pada <span class="text-dark fw-bold"> {{$datakelas->nama_kelas}}</span></p>
 
         <!-- Page Heading -->
-        <h4 class="text-primary fw-bold">Daftar Siswa</h4>
+       
         <div class="d-sm-flex align-items-center justify-content-between">
             <nav>
                 <ol class="breadcrumb">
@@ -41,7 +46,7 @@
                                             <th class="sorting text-center text-light" tabindex="0"
                                                 aria-controls="example1" rowspan="1" colspan="1">Nama Lengkap</th>
                                             <th width="20%" class="sorting text-center text-light" tabindex="0"
-                                                aria-controls="example1" rowspan="1" colspan="1">Action</th>
+                                                aria-controls="example1" rowspan="1" colspan="1">Jenis kelamin</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,12 +54,9 @@
                                             @foreach ($AksesKelas as $ds)
                                                 <tr role="row" class="odd">
                                                     <td class="text-center">{{ $loop->iteration }}</td>
-                                                    <td class="text-center">{{ $ds->nis }}</td>
+                                                    <td class="text-center">{{ $ds->Siswa->nis }}</td>
                                                     <td class="text-center">{{ $ds->Siswa->nama_siswa }}</td>
-                                                    {{-- <td class="text-center">{{ $ds['nama_siswa'] }}</td> --}}
-                                                    <td>
-
-                                                    </td>
+                                                    <td class="text-center">{{ $ds->Siswa->jenis_kelamin }}</td>                                                  
                                                 </tr>
                                             @endforeach
                                         @endif

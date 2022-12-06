@@ -2,6 +2,13 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Daftar Kelas
+            </h3>
+        </div>
+        <p class="mb-4 text-center">Halaman Kelas, klik <a href="/sekolah">Sekolah</a> jika ingin kembali ke
+            halaman sekolah </p>
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -32,8 +39,7 @@
                             <label for="cemail" class="control-label text-dark fw-bold">Nama Kelas</label>
                             <input class="form-control mb-3" type="text" name="nama_kelas" placeholder="exp. Kelas VI.1">
                             <label for="cemail" class="control-label text-dark fw-bold">kuota</label>
-                            <input class="form-control mb-3" type="number" min="0" name="kuota"
-                                placeholder="--">
+                            <input class="form-control mb-3" type="number" min="0" name="kuota" placeholder="--">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -44,9 +50,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="py-3 d-flex flex-row align-items-center justify-content-between">
-                <h4 class="m-0 font-weight-bold text-primary">Daftar Kelas</h4>
-                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus"></i>
+            <div class="py-3 d-flex flex-row align-items-center justify-content-end">
+                {{-- <h4 class="m-0 font-weight-bold text-primary">Daftar Kelas</h4> --}}
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"><i class="fa fa-plus"></i>
                     Add Kelas
                 </button>
             </div>
@@ -59,21 +66,21 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="table-responsive">
-                                        <table id="table1" class="table-bordered" >
+                                        <table id="table1" class="table-bordered">
                                             <thead>
                                                 <tr class="box bg-primary" role="row">
                                                     <th width="5%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="No.: activate to sort column descending">No.</th>
-                                                    <th class="text-center text-light" tabindex="0" aria-controls="example1"
-                                                        rowspan="1" colspan="1"
-                                                        aria-label="Nama Sekolah: activate to sort column ascending">
-                                                        Tingkatan kelas</th>
-                                                    <th class="text-center text-light" tabindex="0" aria-controls="example1"
-                                                        rowspan="1" colspan="1"
+                                                    <th width="30%" class="text-center text-light" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Kelas/Rombel: activate to sort column ascending">
                                                         Kelas</th>
+                                                    <th width="25%" class="text-center text-light" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1"
+                                                        aria-label="Nama Sekolah: activate to sort column ascending">
+                                                        Tingkatan kelas</th>
                                                     <th width="20%" class="text-center text-light" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
                                                         aria-label="Action: activate to sort column ascending">Kuota Siswa
@@ -93,30 +100,35 @@
                                                     @endphp
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1 text-center">{{ $no }}</td>
-                                                        <td class="text-center">{{ $dk->TingkatanKelas->tingkatan_kelas }}</td>
                                                         <td class="text-center">{{ $dk->nama_kelas }}</td>
+                                                        <td class="text-center">{{ $dk->TingkatanKelas->tingkatan_kelas }}
+                                                        </td>
                                                         <td class="text-center">{{ $dk->kuota }}</td>
                                                         <td class="d-flex justify-content-center">
-                                                            <a href="/datakelas/{{ $dk->id }}/edit" id="2" title="Edit"
-                                                                class="edit me-2">
-                                                                <button class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-pencil-square"></i>               
+                                                            <a href="/datakelas/{{ $dk->id }}/edit" id="2"
+                                                                title="Edit" class="edit me-2">
+                                                                <button class="btn btn-outline-success btn-sm"
+                                                                    type="button"><i class="fa fa-pencil-square"></i>
                                                                 </button>
                                                             </a>
                                                             <form action="/datakelas/{{ $dk->id }}" method='post'
                                                                 class="me-2" title="Delete">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <button class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i>
-                                                                </button>                                                               
+                                                                <button class="btn btn-outline-danger btn-sm"
+                                                                    type="submit"><i class="fas fa-trash-alt"></i>
+                                                                </button>
                                                             </form>
                                                             <a href="/datakelas/{{ $dk->id }}/detail"
                                                                 id="2" class="detail me-2" title="Detail">
-                                                                <button class="btn btn-outline-info btn-sm" type="button"><i class="fa fa-plus"></i>
+                                                                <button class="btn btn-outline-info btn-sm"
+                                                                    type="button"><i class="fa fa-plus"></i>
                                                                 </button>
                                                             </a>
-                                                            <a href="/datakelas/{{ $dk->id }}/show"
-                                                                id="2" class="me-2" title="Show">
-                                                                <button class="btn btn-outline-primary btn-sm" type="button"><i class="fa fa-eye"></i>
+                                                            <a href="/datakelas/{{ $dk->id }}/show" id="2"
+                                                                class="me-2" title="Show">
+                                                                <button class="btn btn-outline-primary btn-sm"
+                                                                    type="button"><i class="fa fa-eye"></i>
                                                                 </button>
                                                             </a>
                                                         </td>

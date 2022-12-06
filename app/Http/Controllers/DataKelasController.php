@@ -93,9 +93,10 @@ class DataKelasController extends Controller
     public function show($id)
     {
         $AksesKelas = AksesKelas::where('kelas_id', $id)->where('tahun', Date("Y"))->get();
+        $datakelas = DataKelas::find($id);
         // $siswa = Siswa::where('datakelas_id', $datakelas->id)->get();
         // dd($siswa);
-        return view('datakelas.show', compact('AksesKelas'));
+        return view('datakelas.show', compact('AksesKelas', 'datakelas'));
     }
     public function download($id)
     {

@@ -2,6 +2,12 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
+ 
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Daftar Sekolah
+            </h3>
+        </div>
+        <p class="mb-3 text-center">Berikut daftar sekolah yang terdapat pada Yayasan Sinar Pancasila</p>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -38,7 +44,8 @@
         </div>
 
         <div class="row">
-            <div class="py-3 d-flex flex-row align-items-center justify-content-between"> <h5 class="m-0 font-weight-bold text-primary">Data Sekolah</h5>
+            <div class="mb-3 d-flex flex-row align-items-center justify-content-end"> 
+                {{-- <h5 class="m-0 font-weight-bold text-primary">Data Sekolah</h5> --}}
                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                     data-bs-target="#exampleModal"><i class="fa fa-plus"></i> 
                     Add Sekolah
@@ -105,10 +112,10 @@
                                                     <td class="text-center">
                                                         {{ 'Rp ' . number_format($s->spp, 0, '.', '.') }}</td>
 
-                                                    <td class="d-flex justify-content-center">
+                                                    <td class="d-flex py-4 justify-content-center">
                                                         <a href="/sekolah/{{ $s->id }}/edit" id="2"
                                                             class="edit me-1" title="Edit">
-                                                            <button class="btn btn-outline-success btn-sm mb-1"
+                                                            <button class="btn btn-outline-success btn mb-1"
                                                                 type="button"><i class="fa fa-pencil-square"></i>                    
                                                             </button>
                                                         </a>
@@ -116,13 +123,13 @@
                                                             class="me-1" title="Hapus">
                                                             @csrf
                                                             @method('delete')
-                                                            <button class="btn btn-outline-danger btn-sm"
+                                                            <button class="btn btn-outline-danger btn"
                                                                 type="submit"><i class="fas fa-trash-alt"></i>                                                        
                                                             </button>
                                                         </form>
                                                         <a href="/sekolah/{{ $s->id }}/detail" id="2"
                                                             class="" title="Detail">
-                                                            <button class="btn btn-outline-primary btn-sm"
+                                                            <button class="btn btn-outline-primary btn"
                                                                 type="button"><i class="fa fa-eye"></i>                                                          
                                                             </button>
                                                         </a>
