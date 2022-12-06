@@ -11,6 +11,8 @@
                 <div class="col-xl-4">
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                           
+
                             <img src="{{ asset('storage/Profil/' . Auth::user()->foto) }}" alt="Profile"
                                 class="rounded-circle">
                             <h2>{{ Auth::user()->name }}</h2>
@@ -33,15 +35,6 @@
                                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit
                                         Profile</button>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#profile-settings">Settings</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#profile-change-password">Change Password</button>
-                                </li> --}}
                             </ul>
                             <div class="tab-content pt-2">
                                 <div class="tab-pane fade show active profile-overview" id="profile-overview">

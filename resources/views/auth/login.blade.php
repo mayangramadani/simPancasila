@@ -14,7 +14,7 @@
 </head>
 <div class="wrapper">
     <div class="logo">
-        <img src="{!! asset('asset/img/logo.png') !!}" alt="">
+        <img src="{!! asset('asset/img/Logo.png') !!}" alt="">
     </div>
     <div class="text-center mt-4 name">
         SMP Sinar Pancasila

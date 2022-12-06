@@ -328,7 +328,7 @@
                                     data-bs-target="#exampleModal"><i class="fa fa-plus"></i>
                                     BKU
                                 </button>
-                                <a href="/datakeuangan/export-bku" id="2" class="edit me-2">
+                                <a href="/datakeuangan/export-bku" target="_blank" id="2" class="edit me-2">
                                     <button type="button" class="btn btn-danger me-2 "><i class="fa fa-file-pdf"></i>
                                         Export
                                     </button></a>

@@ -99,10 +99,13 @@
                                     aria-labelledby="dropdownMenuLink">
                                     <div class="dropdown-header">Dropdown Status:</div>
                                     <a class="dropdown-item" href="#" onclick="updateChartStatus()">Semua</a>
-                                    <a class="dropdown-item" href="#" onclick="updateChartStatus('Dibayar')">Dibayar</a>
+                                    <a class="dropdown-item" href="#"
+                                        onclick="updateChartStatus('Dibayar')">Dibayar</a>
                                     <a class="dropdown-item" href="#" onclick="updateChartStatus('Proses')">Proses</a>
-                                    <a class="dropdown-item" href="#" onclick="updateChartStatus('Belum Dibayar')">Belum Bayar</a>
-                                    <a class="dropdown-item" href="#" onclick="updateChartStatus('Ditolak')">Ditolak</a>
+                                    <a class="dropdown-item" href="#"
+                                        onclick="updateChartStatus('Belum Dibayar')">Belum Bayar</a>
+                                    <a class="dropdown-item" href="#"
+                                        onclick="updateChartStatus('Ditolak')">Ditolak</a>
                                     {{-- <a class="dropdown-item" href="#">Another action</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">Something else here</a> --}}
@@ -545,7 +548,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -604,7 +607,7 @@
                                 padding: 10,
                                 // Include a dollar sign in the ticks
                                 callback: function(value, index, values) {
-                                    return '$'+value;
+                                    return '$' + value;
                                 }
                             },
                             gridLines: {
@@ -643,13 +646,13 @@
                 }
             });
 
-           
+
             function updateChartStatus(status = null) {
                 var url = $(ctx).data("url");
                 if (status != null) {
-                    var url = url+"?status="+status;
+                    var url = url + "?status=" + status;
                 }
-                $.getJSON(url,function(data){
+                $.getJSON(url, function(data) {
                     myLineChart.data.labels = data["month"];
                     myLineChart.data.datasets[0].data = data["total"];
                     myLineChart.update();
@@ -660,4 +663,3 @@
         </script>
     @endpush
 @endsection
-
