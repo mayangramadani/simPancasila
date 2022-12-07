@@ -57,7 +57,7 @@
 
             <a class="sidebar-brand d-flex flex-column align-items-center justify-content-center p-1" href="/dashboard">
                 <div class="sidebar-brand-icon logo-brand">
-                    <img src="{!! asset('asset/img/Logo.png') !!}" alt="">
+                    <img src="{!! asset('asset/img/logo.png') !!}" alt="">
                 </div>
                 <h6 class="nav-link fw-bold text-white mb-0">Sistem Informasi</h6>
                 <h6 class="sidebar-brand-text fw-semibold text-white">Administrasi Sekolah</h6>
