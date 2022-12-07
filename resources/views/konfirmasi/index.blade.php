@@ -3,10 +3,6 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        <!-- Page Heading -->
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h5 class="m-0 font-weight-bold text-primary">Konfirmasi Pembayaran</h5>
-        </div> --}}
 
 
         <div class="row">
