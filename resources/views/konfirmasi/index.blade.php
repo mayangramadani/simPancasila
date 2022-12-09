@@ -172,7 +172,7 @@
                                                                 @endif
                                                             </td>
                                                             <td class="text-center"><img
-                                                                    src="  {{ asset('storage/Keuangan/bukti/' . $item->bukti) }}"
+                                                                    src="  {{ asset('storage/Pembayaran/bukti/' . $item->bukti) }}"
                                                                     height="80"></td>
                                                             <td
                                                                 class="d-flex justify-content-center

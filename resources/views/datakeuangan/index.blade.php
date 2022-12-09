@@ -287,6 +287,7 @@
                                                                         <img src="  {{ asset('storage/Keuangan/bukti/' . $dku->berkas_pendukung) }}"
                                                                             height="80">
                                                                     </td>
+                                                                    
                                                                     <td class="text-center">
                                                                         {{-- <a href="/datakeuangan/{{ $dku->id }}/edit"
                                                                             id="2" class="edit me-1">

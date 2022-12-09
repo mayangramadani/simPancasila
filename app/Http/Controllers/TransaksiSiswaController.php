@@ -42,12 +42,12 @@ class TransaksiSiswaController extends Controller
     {
         // dd($request->all());
 
-        if ($request->bukti_pembayaran != null) {
-            $file = $request->bukti_pembayaran;
+        if ($request->bukti != null) {
+            $file = $request->bukti;
             $extension = $file->extension();
             $date = date("his");
             $file_name1 = "Foto_$date.$extension";
-            $path = $request->file('bukti_pembayaran')->storeAs('public/Pembayaran/bukti', $file_name1);
+            $path = $request->file('bukti')->storeAs('public/Pembayaran/bukti', $file_name1);
         } else {
             $file_name1 = null;
         }

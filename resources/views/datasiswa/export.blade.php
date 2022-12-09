@@ -26,7 +26,7 @@
                             <div class="col-lg-3">
                                 <!-- col-lg-6 start here -->
                                 <div class="sidebar-brand-icon logo-brand">
-                                    <img src="{!! asset('asset/img/logo.png') !!}" alt="" width="100px">
+                                    <img src="{!! asset('asset/img/Logo.png') !!}" alt="" width="100px">
                                 </div>
                             </div>
                             <!-- col-lg-6 end here -->
@@ -69,7 +69,7 @@
                                                     <td class="text-center">{{ $loop->iteration }}</td>
                                                     <td>{{ $item->nama_siswa }}</td>
                                                     <td class="text-center">{{ $item->nis }}</td>
-                                                    <td class="text-center">{{ $item->nama_sekolah }}</td>
+                                                    <td class="text-center">{{ $item->Sekolah->nama_sekolah }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

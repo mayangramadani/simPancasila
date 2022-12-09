@@ -162,7 +162,7 @@ class KeuanganController extends Controller
             $extension = $file->extension();
             $date = date("his");
             $file_name1 = "Foto_$date.$extension";
-            $path = $request->file('berkas_pendukung')->storeAs('public/Pembayaran/bukti', $file_name1);
+            $path = $request->file('berkas_pendukung')->storeAs('public/Keuangan/bukti', $file_name1);
         } else {
             $file_name1 = null;
         }
