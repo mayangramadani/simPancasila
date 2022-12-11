@@ -25,7 +25,7 @@
                             <div class="col-lg-6">
                                 <!-- col-lg-6 start here -->
                                 <div class="sidebar-brand-icon logo-brand">
-                                    <img src="{!! asset('asset/img/logo.png') !!}" alt=""
+                                    <img src="{!! asset('asset/img/Logo.png') !!}" alt=""
                                         width="100px
                                     
                                     ">

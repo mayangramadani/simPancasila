@@ -26,7 +26,7 @@
                         <div class="col-lg-5 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
                             <div class="logo mb-3">
-                                <img src="{!! asset('asset/img/logo.png') !!}" alt="">
+                                <img src="{!! asset('asset/img/Logo.png') !!}" alt="">
                             </div>
                             {{-- <div class="text-center mb-3 name">
                                 SMP Sinar Pancasila
