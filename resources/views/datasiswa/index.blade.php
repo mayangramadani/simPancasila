@@ -28,7 +28,7 @@
                                 data-bs-target="#exampleModal"><i class="fa fa-file-excel"></i>
                                 Import
                             </button>
-                            <a href="/datasiswa/export" id="2" class="edit me-2" target="_blank">
+                            <a href="/datasiswa/export" id="2" class="edit" target="_blank">
                                 <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf" ></i>
                                     Export
                                 </button></a>

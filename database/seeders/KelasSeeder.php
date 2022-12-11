@@ -21,12 +21,22 @@ class KelasSeeder extends Seeder
             'kuota' => '40'
         ]);
         DataKelas::create([
-            'tingkatan_kelas_id' => '2',
-            'nama_kelas' => 'Kelas X.1',
+            'tingkatan_kelas_id' => '4',
+            'nama_kelas' => 'Kelas X Ipa',
             'kuota' => '35'
         ]);
         DataKelas::create([
-            'tingkatan_kelas_id' => '3',
+            'tingkatan_kelas_id' => '4',
+            'nama_kelas' => 'Kelas XI Ipa',
+            'kuota' => '32'
+        ]);
+        DataKelas::create([
+            'tingkatan_kelas_id' => '5',
+            'nama_kelas' => 'Kelas XI Ipa',
+            'kuota' => '32'
+        ]);
+        DataKelas::create([
+            'tingkatan_kelas_id' => '6',
             'nama_kelas' => 'Kelas XI.TKJ',
             'kuota' => '39'
         ]);

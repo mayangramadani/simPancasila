@@ -37,12 +37,12 @@ class TingkatanKelasSeeder extends Seeder
     ]);
         TingkatanKelas::create([
         'sekolah_id' => '2',
-        'tingkatan_kelas' => 'Kelas XI IPA',
+        'tingkatan_kelas' => 'Kelas XI',
         'deskripsi' => 'kelas 11'
     ]);
         TingkatanKelas::create([
         'sekolah_id' => '3',
-        'tingkatan_kelas' => 'Kelas XI Perkantoran',
+        'tingkatan_kelas' => 'Kelas XI',
         'deskripsi' => 'kelas 11'
     ]);
     }

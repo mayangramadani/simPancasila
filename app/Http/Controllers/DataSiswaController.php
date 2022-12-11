@@ -77,7 +77,8 @@ class DataSiswaController extends Controller
     public function edit($id)
     {
         $siswa = Siswa::find($id);
-        return view('datasiswa.edit', compact('siswa'));
+        $Provinsi = Province::all();
+        return view('datasiswa.edit', compact('siswa', 'Provinsi'));
     }
     public function update($id, Request $request)
 

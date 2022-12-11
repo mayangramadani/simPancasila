@@ -27,6 +27,7 @@ class SiswaSeeder extends Seeder
             'ayah' => 'Kuncoro',
             'ibu' => 'Susanti',
             'sekolah_id' => '1',
+            'foto' => 'Foto_041645.jpg',
             'users_id' => '5',
             'isActive' => '0'
         ]);
@@ -42,6 +43,7 @@ class SiswaSeeder extends Seeder
             'ayah' => 'Budi',
             'ibu' => 'Astuti',
             'sekolah_id' => '2',
+            'foto' => 'Foto_041645.jpg',
             'users_id' => '3',
             'isActive' => '1'
         ]);
@@ -57,6 +59,7 @@ class SiswaSeeder extends Seeder
             'ayah' => 'Budi',
             'ibu' => 'Astuti',
             'sekolah_id' => '3',
+            'foto' => 'Foto_041645.jpg',
             'users_id' => '4',
             'isActive' => '1'
         ]);

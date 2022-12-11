@@ -40,7 +40,8 @@
                             <div class="col-md-3">
                                 <label for="foto" class="col-form-label text-dark fw-semibold">Foto Siswa</label>
                                 <img id="blah"
-                                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                                src="{{ asset('storage/DataSiswa/Foto/' . $siswa->foto) }}"
+                                    {{-- src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" --}}
                                     alt="" width="100%" style="object-fit:cover;">
                             </div>
                             <div class="col-md-9">
@@ -132,26 +133,34 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-3 mb-3">
+                                    <div class="col-md-3 mb-3">
                                         <label for="namaLengkap"
                                             class="col-form-label text-dark fw-semibold">Kelurahan</label>
+                                            <input disabled value="{{ $siswa->kelurahan }}" type="text"
+                                            class="form-control form-control-md" id="keluarahan" name="kelurahan">
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="namaLengkap"
                                             class="col-form-label text-dark fw-semibold">Kecamatan</label>
+                                            <input disabled value="{{ $siswa->kecamatan }}" type="text"
+                                            class="form-control form-control-md" id="kecamatan" name="kecamatan">
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="namaLengkap"
                                             class="col-form-label text-dark fw-semibold">Kota/Kab</label>
+                                            <input disabled value="{{ $siswa->kota }}" type="text"
+                                            class="form-control form-control-md" id="kota" name="kota">
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="namaLengkap"
                                             class="col-form-label text-dark fw-semibold">Provinsi</label>
+                                            <input disabled value="{{ $siswa->provinsi }}" type="text"
+                                            class="form-control form-control-md" id="provinsi" name="provinsi">
 
-                                    </div> --}}
+                                    </div>
                                     <div class="col-md-12 my-3" style="position: relative">
                                         <div
                                             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom">

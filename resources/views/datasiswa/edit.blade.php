@@ -30,8 +30,10 @@
                                 <div class="col-md-3">
                                     <label for="foto" class="col-form-label text-dark fw-semibold">Foto Siswa</label>
                                     <img id="blah"
-                                        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                                        src="{{ asset('storage/DataSiswa/Foto/' . $siswa->foto) }}"
                                         alt="" width="100%" style="object-fit:cover;">
+                                        <input id="image-input" class="form-control form-control-md" type="file"
+                                        name="foto" onchange="readURL(this);">
                                 </div>
                                 <div class="col-md-9">
                                     <div class="row">
@@ -140,26 +142,63 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div class="col-md-3 mb-3">
+                                        <div class="col-md-3 mb-3">
                                         <label for="namaLengkap"
                                             class="col-form-label text-dark fw-semibold">Kelurahan</label>
+                                            <select name="kelurahan" id="provinsi" class="form-select form-select-md"
+                                                required="">
+                                                <option disabled="" selected="" value="">Pilih..
+                                                </option>
+                                                @foreach ($Provinsi as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="namaLengkap"
                                             class="col-form-label text-dark fw-semibold">Kecamatan</label>
+                                            <select name="kecamatan" id="provinsi" class="form-select form-select-md"
+                                                required="">
+                                                <option disabled="" selected="" value="">Pilih..
+                                                </option>
+                                                @foreach ($Provinsi as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="namaLengkap"
                                             class="col-form-label text-dark fw-semibold">Kota/Kab</label>
+                                            <select name="kota" id="provinsi" class="form-select form-select-md"
+                                            required="">
+                                            <option disabled="" selected="" value="">Pilih..
+                                            </option>
+                                            @foreach ($Provinsi as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
 
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="namaLengkap"
                                             class="col-form-label text-dark fw-semibold">Provinsi</label>
+                                            <select name="provinsi" id="provinsi" class="form-select form-select-md"
+                                                required="">
+                                                <option disabled="" selected="" value="">Pilih..
+                                                </option>
+                                                @foreach ($Provinsi as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
 
-                                    </div> --}}
+                                    </div>
                                         <div class="col-md-12 my-3" style="position: relative">
                                             <div
                                                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom">
