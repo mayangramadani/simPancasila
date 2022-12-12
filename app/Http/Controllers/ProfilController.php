@@ -21,7 +21,7 @@ class ProfilController extends Controller
             $date = date("his");
             $extension = $request->file('foto')->extension();
             $file_name = "profil_$date.$extension";
-            $path = $request->file('foto')->storeAs('public/profil', $file_name);
+            $path = $request->file('foto')->storeAs('public/Profil', $file_name);
             $profil->foto = $file_name;
         }
         $profil->name = $request->name;
@@ -31,6 +31,7 @@ class ProfilController extends Controller
             ['users_id' => Auth::user()->id],
             [
                 'alamat' => $request->alamat,
+                'foto' => $file_name,
                 'no_hp' => $request->no_hp,
             ]
         );

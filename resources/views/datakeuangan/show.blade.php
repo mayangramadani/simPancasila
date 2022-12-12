@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>Receipt page - Bootdey.com</title>
+    <title>Receipt page - RKAS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@
                     <div class="panel-body p30">
                         <div class="row">
                             <!-- Start .row -->
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <!-- col-lg-6 start here -->
                                 <div class="sidebar-brand-icon logo-brand">
                                     <img src="{!! asset('asset/img/Logo.png') !!}" alt=""
@@ -32,10 +32,10 @@
                                 </div>
                             </div>
                             <!-- col-lg-6 end here -->
-                            <div class="col-lg-6">
+                            <div class="col-lg-7">
                                 <!-- col-lg-6 start here -->
                                 <div class="invoice-from">
-                                    <ul class="list-unstyled text-right">
+                                    <ul class="list-unstyled text-center">
                                         <li>Yayasan Sinar Pancasila</li>
                                         <li>Jl. Telaga Sari No.13, RT.31, Telaga Sari, Kec. Balikpapan Kota, </li>
                                         <li>Kota Balikpapan, Kalimantan Timur 76112</li>

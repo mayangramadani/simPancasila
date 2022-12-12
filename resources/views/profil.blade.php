@@ -13,10 +13,9 @@
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                            
 
-                            <img src="{{ asset('storage/Profil/' . Auth::user()->foto) }}" alt="Profile"
+                            <img src="{{ asset('storage/Profil/' . Auth::user()->foto) }}" alt="Profile" width="200px"
                                 class="rounded-circle">
                             <h2>{{ Auth::user()->name }}</h2>
-                            <h3>{{ Auth::user()->role }}</h3>
                             <h3>{{ Auth::user()->email }}</h3>
                         </div>
                     </div>
@@ -38,28 +37,34 @@
                             </ul>
                             <div class="tab-content pt-2">
                                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                    <h5 class="card-title">Detail Profil</h5>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
-                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->name }}</div>
+                                    <div class="col-md-12 mb-4 mt-4" style="position: relative">
+                                        <div
+                                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom">
+                                        </div>
+                                        <p class="text-primary bg-white px-1 ml-3"
+                                            style="position: absolute; top:10px;">
+                                            Detail Profil</p>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Email</div>
-                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->email }}</div>
+                                    <div class="d-flex col-md-6 mb-3">
+                                        <label for="nis" class="form-control-label fw-semibold text-dark col-lg-5 col-md-8">Nama Lengkap
+                                        </label>
+                                        <input disabled value="{{ Auth::user()->name }}" type="text"
+                                            class="form-control form-control-md col-lg-9 col-md-8" id="nis" placeholder="Masukkan NIS"
+                                            name="nis">
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Alamat</div>
-                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->alamat }}</div>
+                                    <div class="d-flex col-md-6 mb-3">
+                                        <label for="nis" class="form-control-label fw-semibold text-dark col-lg-5 col-md-8">Email
+                                        </label>
+                                        <input disabled value="{{ Auth::user()->email }}" type="text"
+                                            class="form-control form-control-md col-lg-9 col-md-8" id="nis" placeholder="Masukkan NIS"
+                                            name="nis">
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Nomor Handphone</div>
-                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->no_hp }}</div>
-                                    </div>
+                                 
                                 </div>
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <form action="" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ url('profil/editprofile') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row mb-3">
                                             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto

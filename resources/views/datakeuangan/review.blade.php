@@ -74,7 +74,7 @@
                                 <label for="kegiatan"
                                     class="col-sm-5 col-form-label fw-semibold text-dark">Deskripsi</label>
                                 <div class="col d-flex align-items-center">
-                                    <span class="me-3">:</span><label for="kegiatan" name="nama_keuangan" class="mb-0"
+                                    <span class="me-3">:</span><label for="kegiatan" name="deskripsi" class="mb-0"
                                         readonly>
                                         {{ $keuangan->deskripsi }}</label>
                                 </div>

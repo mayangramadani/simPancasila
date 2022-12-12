@@ -108,6 +108,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="row">
                                 <div class="card-body">
                                     <div class="col-sm-12">
@@ -209,12 +210,7 @@
                                                             aria-sort="ascending"
                                                             aria-label="No.: activate to sort column descending">
                                                             No.</th>
-                                                        <th width="15%" class="text-center text-light" tabindex="0"
-                                                            aria-controls="example1" rowspan="1" colspan="1"
-                                                            aria-sort="ascending"
-                                                            aria-label="No.: activate to sort column descending">
-                                                            No. Transaksi</th>
-                                                        <th class="text-center text-light" tabindex="0" aria-contr
+                                                        <th width="46%" class="text-center text-light" tabindex="0" aria-contr
                                                             ols="example1" rowspan="1" colspan="1"
                                                             name="nama_siswa"
                                                             aria-label="Nama Pembayaran: activate to sort column ascending">
@@ -224,7 +220,7 @@
                                                             id="dengan-rupiah"
                                                             aria-label="xxx: activate to sort column ascending">
                                                             Nominal</th>
-                                                        <th width="16%" class="text-center text-light" tabindex="0"
+                                                        <th width="20%" class="text-center text-light" tabindex="0"
                                                             aria-controls="example1" rowspan="1" colspan="1"
                                                             aria-label="xxx: activate to sort column ascending">
                                                             Status Pembayaran</th>
@@ -239,7 +235,6 @@
                                                     @foreach ($history as $item)
                                                         <tr role="row" class="odd">
                                                             <td class="text-center">{{ $loop->iteration }}</td>
-                                                            <td class="text-center">{{ $item->no_transaksi }}</td>
                                                             <td class="text-center">{{ $item->User->name }}</td>
                                                             <td class="text-center">
                                                                 {{ 'Rp ' . number_format($item->jumlah, 0, '.', '.') }}
@@ -258,7 +253,7 @@
                                                                 @endif
                                                             </td>
                                                             <td class="text-center"><img
-                                                                    src="  {{ asset('storage/Keuangan/bukti/' . $item->bukti) }}"
+                                                                    src="  {{ asset('storage/Pembayaran/bukti/' . $item->bukti) }}"
                                                                     height="80"></td>
                                                         </tr>
                                                     @endforeach

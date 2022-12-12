@@ -125,20 +125,28 @@ class KeuanganController extends Controller
 
         if ($request->status_pembayaran == 'Diterima') {
             $cariSekolah = Saldo::where('sekolah_id', $keuangan->sekolah_id)->latest()->first();
+            // dd($cariSekolah);
+            try {
+                $uang = $this->convertRP($keuangan->jumlah);
+            } catch (\Throwable $th) {
+                $uang = $keuangan->jumlah;
+            }
             if ($cariSekolah) {
                 Saldo::Create([
                     'sekolah_id' => $keuangan->sekolah_id,
                     'debit' => 0,
-                    'kredit' =>  $this->convertRP($keuangan->jumlah),
+                    'kredit' =>  $uang,
                     'saldo' => $cariSekolah->saldo - $keuangan->jumlah
                 ]);
+            } else {
+                // dd($keuangan->jumlah);
+                Saldo::Create([
+                    'sekolah_id' => $keuangan->sekolah_id,
+                    'debit' => 0,
+                    'kredit' =>  $uang,
+                    'saldo' => -$keuangan->jumlah
+                ]);
             }
-            Saldo::Create([
-                'sekolah_id' => $keuangan->sekolah_id,
-                'debit' => 0,
-                'kredit' =>  $this->convertRP($keuangan->jumlah),
-                'saldo' => -$keuangan->jumlah
-            ]);
         }
 
         return redirect('/datakeuangan');
@@ -226,8 +234,8 @@ class KeuanganController extends Controller
         }
         $keuangan = $keuangan->orderBy('month', "asc")->get();
         $data = [];
-        
-        foreach($keuangan as $item){
+
+        foreach ($keuangan as $item) {
             $data["month"][] = Carbon::parse("1-$item->month")->isoFormat('MMM');
             $data["total"][] = $item->total;
         }

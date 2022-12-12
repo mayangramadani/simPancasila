@@ -6,10 +6,11 @@
             <h3 class="m-0 font-weight-bold text-primary mb-7">Daftar Siswa
             </h3>
         </div>
-        <p class="mb-4 text-center">Halaman Daftar Siswa, berikut daftar nama-nama siswa pada <span class="text-dark fw-bold"> {{$datakelas->nama_kelas}}</span></p>
+        <p class="mb-4 text-center">Halaman Daftar Siswa, berikut daftar nama-nama siswa pada <span class="text-dark fw-bold">
+                {{ $datakelas->nama_kelas }}</span></p>
 
         <!-- Page Heading -->
-       
+
         <div class="d-sm-flex align-items-center justify-content-between">
             <nav>
                 <ol class="breadcrumb">
@@ -17,7 +18,7 @@
                     <li class="breadcrumb-item active">Daftar Siswa</li>
                 </ol>
             </nav>
-            <a href="{{route('exportDataKelas',request()->route()->parameters)}}" id="2" class="edit me-2">
+            <a href="{{ route('exportDataKelas', request()->route()->parameters) }}" id="2" class="edit me-2">
                 <button class="btn btn-danger btn-sm" type="button"><i class="fa fa-download"></i>
                     Export
                 </button>
@@ -47,6 +48,8 @@
                                                 aria-controls="example1" rowspan="1" colspan="1">Nama Lengkap</th>
                                             <th width="20%" class="sorting text-center text-light" tabindex="0"
                                                 aria-controls="example1" rowspan="1" colspan="1">Jenis kelamin</th>
+                                            <th width="20%" class="sorting text-center text-light" tabindex="0"
+                                                aria-controls="example1" rowspan="1" colspan="1">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -56,7 +59,17 @@
                                                     <td class="text-center">{{ $loop->iteration }}</td>
                                                     <td class="text-center">{{ $ds->Siswa->nis }}</td>
                                                     <td class="text-center">{{ $ds->Siswa->nama_siswa }}</td>
-                                                    <td class="text-center">{{ $ds->Siswa->jenis_kelamin }}</td>                                                  
+                                                    <td class="text-center">{{ $ds->Siswa->jenis_kelamin }}</td>
+                                                    <td class="d-flex justify-content-center">
+                                                        <form action="/datakelas/{{ $ds->id }}" method='post'
+                                                            class="me-2" title="Delete">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button class="btn btn-outline-danger btn-sm" type="submit"><i
+                                                                    class="fas fa-trash-alt"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif

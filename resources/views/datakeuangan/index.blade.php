@@ -222,7 +222,7 @@
                                                                     tabindex="0" aria-controls="example1"
                                                                     rowspan="1" colspan="1" aria-sort="ascending">
                                                                     No.</th>
-                                                                <th width="15%" class="text-center text-light"
+                                                                <th width="20%" class="text-center text-light"
                                                                     tabindex="0" aria-controls="example1"
                                                                     rowspan="1" colspan="1">Nama
                                                                     Kegiatan</th>
@@ -244,7 +244,7 @@
                                                                     rowspan="1" colspan="1">Berkas
                                                                     Pendukung
                                                                 </th>
-                                                                <th width="20%" class="text-center text-light"
+                                                                <th width="10%" class="text-center text-light"
                                                                     tabindex="0" aria-controls="example1"
                                                                     rowspan="1" colspan="1">Aksi</th>
                                                             </tr>
@@ -283,9 +283,9 @@
                                                                                 diperiksa</span>
                                                                         @endif
                                                                     </td>
-                                                                    <td class="text-center">
-                                                                        <img src="  {{ asset('storage/Keuangan/bukti/' . $dku->berkas_pendukung) }}"
-                                                                            height="80">
+                                                                    <td class="text-center"><a
+                                                                        href="{{ asset('storage/Keuangan/bukti/' . $dku->berkas_pendukung) }}"
+                                                                        target="_blank" class="fw-bold">Lihat disini</a>
                                                                     </td>
                                                                     
                                                                     <td class="text-center">

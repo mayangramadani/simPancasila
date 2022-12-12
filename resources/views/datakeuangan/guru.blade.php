@@ -3,15 +3,12 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        <div class="row">
-            <div class="d-flex flex-row align-items-center justify-content-between mt-3 mb-3">
-                <h4 class="m-0 font-weight-bold text-dark">Rencana Kerja dan Anggaran Sekolah</h4>
-                {{-- <div class="d-flex">
-                    <div class="col-md text-end"> <a href="{{ route('rkas') }}"
-                            class="btn btn-primary ">RKAS</a>
-                    </div>
-                </div> --}}
-            </div>
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Histori RKAS
+            </h3>
+        </div>
+        <p class="mb-5 text-center">Untuk mengetahui status setiap kegiatan, dapat dilihat pada tabel berikut ini:</p>
+
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-7">
@@ -71,13 +68,12 @@
                                                                 <td class="text-center">
                                                                     {{ $dku->KategoriKeuangan->nama_keuangan }}
                                                                 </td>
-                                                                <td class="text-center">{{ $dku->jumlah }}
-                                                                    {{-- {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }} --}}
+                                                                <td class="text-center">
+                                                                    {{ 'Rp ' . number_format($dku->jumlah, 0, '.', '.') }}
                                                                 </td>
                                                                 <td class="text-center">{{ $dku->tanggal }}</td>
 
-                                                                {{-- <td class="text-center">{{ $dku->status_pembayaran }}</td> --}}
-
+                                                             
                                                                  <td class="text-center">
                                                                     @if ($dku->status_pembayaran == 'Ditolak')
                                                                         <span class="badge bg-danger">Ditolak</span>
@@ -92,12 +88,16 @@
                                                                         <span class="badge bg-dark">Belum
                                                                             diperiksa</span>
                                                                     @endif
+                                                                </td> 
+                                                                {{-- <td class="text-center">{{ $dku->berkas_pendukung }}
+                                                                </td> --}}
+                                                                <td class="text-center"><a
+                                                                    href="{{ asset('storage/Keuangan/bukti/' . $dku->berkas_pendukung) }}"
+                                                                    target="_blank" class="fw-bold">Lihat disini</a>
                                                                 </td>
-                                                                <td class="text-center">{{ $dku->berkas_pendukung }}
-                                                                </td>
-                                                                <td class="d-flex justify-content-center">
+                                                                <td class="d-flex justify-content-center" >
                                                                     <a href="/datakeuangan/{{ $dku->id }}/show"
-                                                                        id="2" class="detail me-2" title="Show">
+                                                                        id="2" class="detail me-2" title="Show" target="_blank">
                                                                         <button class="btn btn-outline-success btn-sm"
                                                                             type="button"><i
                                                                                 class="fa fa-eye"></i>

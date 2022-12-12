@@ -25,11 +25,11 @@
                                         class="fa fa-plus"></i>
                                     Add Siswa</button></a>
                             <button type="button" class="btn btn-warning me-2 btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"><i class="fa fa-file-excel"></i>
+                                data-bs-target="#exampleModal"><i class="fa fa-file-import"></i>
                                 Import
                             </button>
                             <a href="/datasiswa/export" id="2" class="edit" target="_blank">
-                                <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-file-pdf" ></i>
+                                <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-download"></i>
                                     Export
                                 </button></a>
 

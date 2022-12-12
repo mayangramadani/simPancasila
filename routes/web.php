@@ -195,6 +195,7 @@ Route::middleware(['auth'])->group(function () {
     //  Route::resource('Akun', UserController::class);
     Route::get('/activitylog', [ActivityLogController::class, 'index'])->name('Aktivitas');
     Route::get('/profil', [ProfilController::class, 'profile'])->name('Profile');
+    Route::post('/profil', [ProfilController::class, 'editprofile']);
 
     Route::get('/setting', [SettingController::class, 'index'])->name('Setting');
 

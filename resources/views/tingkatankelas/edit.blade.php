@@ -1,12 +1,69 @@
 @extends('layouts.main')
 @section('container')
     <!-- Begin Page Content -->
-    <div class="container-fluid">
 
-        <!-- Page Heading -->
-        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Edit tingkatan kelas</h1>
-        </div> --}}
+    <div class="container-fluid">
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Update Data Tingkatan Kelas
+            </h3>
+        </div>
+        <p class="mb-5 text-center">Silakan input form pada data yang ingin dirubah, klik <a href="/tingkatankelas">Tingkatan Kelas</a> jika
+            ingin melihat daftar Tingkatan Kelas </p>
+
+        <div class="row">
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-7">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="">
+                            <form action="/tingkatankelas/{{ $tingkatankelas->id }}" method="POST">
+                                @method('put')
+                                @csrf
+                                <div class="col-md-12 mb-5" style="position: relative">
+                                    <div
+                                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom">
+                                    </div>
+                                    <p class="text-primary bg-white px-1 ml-3" style="position: absolute; top:10px;">
+                                        Update Data</p>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label for="namasekolah" class="form-control-label fw-semibold text-dark">Nama
+                                        Sekolah
+                                    </label>
+                                    <input value="{{ $tingkatankelas->Sekolah->nama_sekolah }}" type="text"
+                                        class="form-control form-control-md" id="nama_sekolah"
+                                         name="nama_sekolah">
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="tingkatankelas"
+                                            class="form-control-label fw-semibold text-dark">Tingkatan Kelas <span class="fw-light"></span></label>
+                                        <input value="{{ $tingkatankelas->tingkatan_kelas }}" type="text"
+                                            class="form-control form-control-md" id="tingkatankelas"
+                                             name="tingkatankelas">
+                                    </div>
+                        
+                                </div>
+                                    <div class="col-md-8 mb-5">
+                                        <label for="deskripsi" class="col-form-label text-dark fw-semibold">Deskripsi</label>
+                                        <textarea rows="5" type="textarea" class="form-control form-control-md" id="deskripsi"
+                                            name="deskripsi" value>{{ $tingkatankelas->deskripsi }}</textarea>
+                                    </div>
+                                <div class="col-md-12">
+                                    <input class="btn btn-md btn-primary w-100 btn-block" type="submit" value="SIMPAN DATA"
+                                        name="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="container-fluid">
+
+        
 
         <div class="mb-3">
             <a href="/tingkatankelas">Kembali</a>
@@ -66,5 +123,5 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
 @endsection

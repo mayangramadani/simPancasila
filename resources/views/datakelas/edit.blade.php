@@ -2,6 +2,64 @@
 @section('container')
     <!-- Begin Page Content -->
     <div class="container-fluid">
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Update Data Data Kelas
+            </h3>
+        </div>
+        <p class="mb-5 text-center">Silakan input form pada data yang ingin dirubah, klik <a href="/tingkatankelas">Data Kelas</a> jika
+            ingin melihat daftar Data Kelas </p>
+
+        <div class="row">
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-7">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="">
+                            <form action="/datakelas/{{ $datakelas->id }}" method="POST">
+                                @method('put')
+                                @csrf
+                                <div class="col-md-12 mb-5" style="position: relative">
+                                    <div
+                                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom">
+                                    </div>
+                                    <p class="text-primary bg-white px-1 ml-3" style="position: absolute; top:10px;">
+                                        Update Data</p>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label for="tingkatankelas" class="form-control-label fw-semibold text-dark">Tingkatan Kelas
+                                    </label>
+                                    <input value="{{ $datakelas->TingkatanKelas->tingkatan_kelas }}" type="text"
+                                        class="form-control form-control-md" id="tingkatan_kelas"
+                                         name="tingkatan_kelas">
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="kelas"
+                                            class="form-control-label fw-semibold text-dark">Kelas <span class="fw-light"></span></label>
+                                        <input value="{{ $datakelas->nama_kelas }}" type="text"
+                                            class="form-control form-control-md" id="kelas"
+                                             name="nama_kelas">
+                                    </div>
+                        
+                                </div>
+                                    <div class="col-md-4 mb-5">
+                                        <label for="kuota" class="col-form-label text-dark fw-semibold">Kuota</label>
+                                        <input rows="5" type="number" class="form-control form-control-md" id="kuota"
+                                            name="kuota" value="{{ $datakelas->kuota }}">
+                                    </div>
+                                <div class="col-md-12">
+                                    <input class="btn btn-md btn-primary w-100 btn-block" type="submit" value="SIMPAN DATA"
+                                        name="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="container-fluid">
         <div class="mb-3 btn btn-outline-primary btn-sm">
             <a href="/datakelas/{{ $datakelas->id }}/detail">Kembali</a>
         </div>
@@ -53,54 +111,5 @@
                 </div>
             </div>
         </div>
-
-        {{-- <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Edit Data Kelas</h1>
-        </div>
-       
-        <div class="card-body">
-            <div class="p-3">
-                <div class="form-group  mt-4">
-                    <div class="col-lg-4">
-                        <form action="/datakelas/{{ $datakelas->id }}" method="POST">
-                            @method('put')
-                            @csrf
-                            <label for="cemail" class="control-label">Nama Sekolah</label>
-                            <select class="form-select form-select-lg mb-3 form-control" name="sekolah_id">
-                                @foreach ($sekolah as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
-                                @endforeach
-                            </select>
-
-                            <label for="cemail" class="control-label fw-bold text-primary">Nama Kelas</label>
-                            <input class="form-control mb-3" type="text" name="nama_kelas" placeholder="Nama Kelas"
-                                value="{{ $datakelas->nama_kelas }}">
-
-                            <label for="cemail" class="control-label">Nama Kelas</label>
-                            <input class="form-control mb-3" type="text" name="nama_kelas" placeholder="Nama Kelas"
-                                value="{{ $datakelas->nama_kelas }}">
-
-                            <label for="cemail" class="control-label">Tingkatan Kelas</label>
-                            <select class="form-select form-select-lg mb-3 form-control" name="tingkatan_kelas">
-                                <option value="Kelas 8" @if ($datakelas->tingkatan_kelas == 'Kelas 8') selected @endif>Kelas 8</option>
-                                <option value="Kelas 7" @if ($datakelas->tingkatan_kelas == 'Kelas 7') selected @endif>Kelas 7</option>
-                                <option value="Kelas 9" @if ($datakelas->tingkatan_kelas == 'Kelas 9') selected @endif>Kelas 9</option>
-                                <option value="Ekstrakurikuler" @if ($datakelas->tingkatan_kelas == 'Ekstrakurikuler') selected @endif>
-                                    Ekstrakurikuler
-                                </option>
-                                <option value="Bimbel" @if ($datakelas->tingkatan_kelas == 'Bimbel') selected @endif>Bimbel</option>
-                            </select>
-
-                            <label for="cemail" class="control-label">Kuota</label>
-                            <input class="form-control mb-3" type="number" name="kuota" min="0"
-                                placeholder="Kuota" value="{{ $datakelas->kuota }}">
-                            <input class="btn btn-primary" type="submit" value="Submit" name="submit">
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-    </div>
+    </div> --}}
 @endsection
