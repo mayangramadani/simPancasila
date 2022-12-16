@@ -48,4 +48,12 @@ class TransaksiPembayaranController extends Controller
             ->get();
         return $transaksipembayaran;
     }
+
+    public function getPembayaranBySiswa($id)
+    {
+
+        $transaksipembayaran = Keuangan::join('siswa', 'keuangan.users_id', 'siswa.users_id')->where('siswa.id', $id)
+            ->get();
+        return $transaksipembayaran;
+    }
 }

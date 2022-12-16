@@ -21,17 +21,19 @@
                 <div class="card shadow-sm mb-4">
                     <!-- Card header -->
                     <div class="card-body">
-                        <form class="validation" novalidate method="POST" action="{{ url('transaksi/add') }}" autocomplete="off">
+                        <form class="validation" novalidate method="POST" action="{{ url('transaksi/add') }}"
+                            autocomplete="off">
                             @csrf
                             <!--Make sure the form has the autocomplete function switched off:-->
-                                {{-- <div class="autocomplete mb-5" style="width:300px;">
+                            {{-- <div class="autocomplete mb-5" style="width:300px;">
                                     <input id="nama_siswa" type="text" name="nama_siswa" placeholder="Nama Siswa">
                                 </div> --}}
 
                             <div class="form-row">
                                 <div class="col-md-4 mb-3">
                                     <label class="form-control-label fw-semibold" for="nama_siswa">Nama Siswa *</label>
-                                    <select class="form-control selectpicker " id="selectpicker" data-live-search="true">
+                                    <select class="form-control nama_siswa selectpicker " id="selectcountry"
+                                        data-live-search="true">
                                         @foreach ($siswa as $ni)
                                             <option value="{{ $ni->id }}" data-tokens="{{ $ni->nama_siswa }}">
                                                 {{ $ni->nama_siswa }}</option>
@@ -50,10 +52,10 @@
                                         Pembayaran *</label>
                                     <select class="form-control" name="bulan_pembayaran" id="bulan_pembayaran" required>
                                         <option selected disabled>Pilih...</option>
-                                        @foreach ($transaksipembayaran->where('status_pembayaran', '!=', 'Proses')->where('status_pembayaran', '!=', 'Lunas') as $item)
+                                        {{-- @foreach ($transaksipembayaran->where('status_pembayaran', '!=', 'Proses')->where('status_pembayaran', '!=', 'Lunas') as $item)
                                             <option value="{{ $item->id }}">{{ $item->nama_keuangan }}
                                             </option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
                                 <div class="col-md-4 mb-3">
@@ -77,8 +79,7 @@
 
     @push('scripts')
         <script>
-            var countries = ["aaa","bhsadgah","jshdja","jhsajdhajd","hsdh","abcde","efghijklmn","opqrstu"
-            ];
+            var countries = ["aaa", "bhsadgah", "jshdja", "jhsajdhajd", "hsdh", "abcde", "efghijklmn", "opqrstu"];
             autocomplete(document.getElementById("nama_siswa"), countries);
 
             function autocomplete(inp, arr) {
@@ -167,7 +168,7 @@
             });
         </script>
         <script>
-            $('#select-country').change(function() {
+            $('#selectcountry').change(function() {
                 var id = $(this).val();
                 console.log('select-country', id)
                 if (id) {
@@ -179,6 +180,7 @@
                             console.log(res, 'ambil data');
                             if (res) {
                                 $("#bulan_pembayaran").empty();
+                                $("#dengan-rupiah").empty();
                                 // $("#kelas").val(res.nis);
                                 $.each(res, function(key, value) {
                                     $('#bulan_pembayaran').append('<option value="' + value.id +
@@ -196,6 +198,28 @@
             $('#bulan_pembayaran').change(function() {
                 var id = $(this).val();
                 console.log('bulan_pembayaran', id)
+                if (id) {
+                    $.ajax({
+                        type: "GET",
+                        url: "getPembayaran?id=" + id,
+                        dataType: 'JSON',
+                        success: function(res) {
+                            console.log(res);
+                            if (res) {
+                                $("#tingkatan_kelas").empty();
+                                $("#dengan-rupiah").val(res.jumlah);
+                            } else {
+                                $("#tingkatan_kelas").empty();
+                            }
+                        }
+                    });
+                } else {
+                    $("#kelurahan").empty();
+                }
+            });
+            $('#nama_siswa').change(function() {
+                var id = $(this).val();
+                console.log('nama_siswa e', id)
                 if (id) {
                     $.ajax({
                         type: "GET",

@@ -201,8 +201,10 @@ Route::middleware(['auth'])->group(function () {
 
     //LaporanKeuangan
     Route::get('/datalaporan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan');
+    Route::get('/datalaporan', [TransaksiPembayaranController::class, 'index'])->name('laporankeuangan');
 });
 Route::get('/getSiswaBayar/{id}', [TransaksiPembayaranController::class, 'getDataSiswa']);
+Route::get('/getPembayaranBySiswa/{id}', [TransaksiPembayaranController::class, 'getPembayaranBySiswa']);
 Route::get('chart-transaksi', [KeuanganController::class, 'chartTransaksi']);
 
 require __DIR__ . '/auth.php';

@@ -61,9 +61,9 @@
                                                 placeholder="Masukkan NIS" name="nis">
                                         </div>
                                         <div class="col-md-8 mb-3">
-                                            <label for="nis" class="form-control-label fw-semibold text-dark">Nama
+                                            <label class="form-control-label fw-semibold text-dark">Nama
                                                 Lengkap Siswa</label>
-                                            <input type="text" class="form-control form-control-md" id="nis"
+                                            <input type="text" class="form-control form-control-md" 
                                                 placeholder="Masukkan Nama Siswa" name="nama_siswa">
                                         </div>
                                         <div class="col-md-4 mb-3">
@@ -120,13 +120,13 @@
                                                     <label for="namaLengkap"
                                                         class="col-form-label text-dark fw-semibold">RT</label>
                                                     <input type="number" class="form-control form-control-md"
-                                                        id="namaLengkap" name="nama_siswa" placeholder="--">
+                                                        id="namaLengkap" name="rt" placeholder="--">
                                                 </div>
                                                 <div class="col-md-6 mb-2">
                                                     <label for="namaLengkap"
                                                         class="col-form-label text-dark fw-semibold">RW</label>
                                                     <input type="number" class="form-control form-control-md"
-                                                        id="namaLengkap" name="nama_siswa" placeholder="--">
+                                                        id="namaLengkap" name="rw" placeholder="--">
                                                 </div>
                                                 <div class="col-md-12">
                                                     <label for="noHP" class="col-form-label text-dark fw-semibold">No
@@ -208,6 +208,16 @@
                                                 Ibu</label>
                                             <input type="text" class="form-control form-control-md"
                                                 placeholder="Masukkan Nama Ibu" name="ibu">
+                                        </div>
+                                        <div class="col-md-6 mb-5">
+                                            <label for="ibu" class="col-form-label text-dark fw-semibold">Email</label>
+                                            <input type="text" class="form-control form-control-md"
+                                                placeholder="email" name="email">
+                                        </div>
+                                        <div class="col-md-6 mb-5">
+                                            <label for="ibu" class="col-form-label text-dark fw-semibold">Password</label>
+                                            <input type="text" class="form-control form-control-md"
+                                                placeholder="password" name="password">
                                         </div>
                                         <div class="col-md-12">
                                             <input class="btn btn-md btn-primary w-100 btn-block" type="submit"

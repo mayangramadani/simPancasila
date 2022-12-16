@@ -11,71 +11,71 @@
 
         <div class="row">
             <!-- Card Header - Dropdown -->
-           
-                <div class="row mt-4 pl-5">
-                    <div class="col-xl-2 col-md-6 mr-2">
-                        <div class="card border-left-success shadow-sm ">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-5">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                          Saldo (SMP)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            {{ $saldo->where('sekolah_id', '1')->where('jumlah')->count() }}
-                                        </div>
+
+            <div class="row mt-4 pl-5">
+                <div class="col-xl-2 col-md-6 mr-2">
+                    <div class="card border-left-success shadow-sm ">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-5">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Saldo (SMP)</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        {{ $smp->saldo ?? 0 }}
                                     </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-check text-gray-300"></i>
-                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-check text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 mr-2">
-                        <div class="card border-left-primary shadow-sm ">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-5">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Saldo (SMA)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            {{ $saldo->where('sekolah_id', '1')->where('jumlah')->count() }}
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-check text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 mr-2">
-                        <div class="card border-left-info shadow-sm ">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-5">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                            Saldo (SMK)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            {{ $saldo->where('sekolah_id', '1')->where('jumlah')->count() }}
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-check text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2 d-flex justify-content-end">
-                        <a href="/saldo/show" id="2" class="edit me-2">
-                            <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-download"></i>
-                                Export
-                            </button></a>
                     </div>
                 </div>
+                <div class="col-xl-2 col-md-6 mr-2">
+                    <div class="card border-left-primary shadow-sm ">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-5">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Saldo (SMA)</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        {{ $sma->saldo ?? 0 }}
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-check text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-6 mr-2">
+                    <div class="card border-left-info shadow-sm ">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-5">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                        Saldo (SMK)</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        {{ $smk->saldo ?? 0 }}
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-check text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2 d-flex justify-content-end">
+                    <a href="/saldo/show" id="2" class="edit me-2">
+                        <button type="button" class="btn btn-danger me-2 btn-sm"><i class="fa fa-download"></i>
+                            Export
+                        </button></a>
+                </div>
             </div>
-        
+        </div>
+
         <!-- Area Chart -->
         <div class="col-xl-12 col-lg-7">
             <div class="card shadow-sm mb-4">

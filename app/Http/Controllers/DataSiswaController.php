@@ -7,6 +7,7 @@ use App\Models\Keuangan;
 use App\Models\Province;
 use App\Models\Siswa;
 use App\Models\Sekolah;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -36,7 +37,12 @@ class DataSiswaController extends Controller
         // dd($extension);
         $file_name1 = "Foto_$date.$extension";
         $path = $request->file('foto')->storeAs('public/DataSiswa/Foto', $file_name1);
-
+        // dd($request->all());
+        $user = User::create([
+            'email' => $request->email,
+            'name' => $request->nama_siswa,
+            'password' => bcrypt($request->password)
+        ]);
         Siswa::create([
             'nis' => $request->nis,
             'nama_siswa' => $request->nama_siswa,
@@ -49,7 +55,11 @@ class DataSiswaController extends Controller
             'ayah' => $request->ayah,
             'ibu' => $request->ibu,
             'foto' => $file_name1,
-            'users_id' => Auth::user()->id,
+            'users_id' => $user->id,
+            'email' => $request->email,
+            'password' => $request->password,
+
+
         ]);
         return redirect('datasiswa');
     }
@@ -57,8 +67,9 @@ class DataSiswaController extends Controller
     {
         $siswa = Siswa::get();
         $sekolah = Sekolah::get();
+        $user = User::get();
         $Provinsi = Province::all();
-        return view('datasiswa.create', compact('siswa', 'sekolah', 'Provinsi'));
+        return view('datasiswa.create', compact('siswa', 'sekolah', 'Provinsi', 'user'));
     }
 
     public function getsiswa($id)

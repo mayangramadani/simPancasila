@@ -12,8 +12,12 @@ class SaldoController extends Controller
     public function index()
     {
         $saldo = Saldo::get();
+        $smp = Saldo::where('sekolah_id', 1)->latest()->first();
+        $sma = Saldo::where('sekolah_id', 2)->latest()->first();
+        $smk = Saldo::where('sekolah_id', 3)->latest()->first();
         $sekolah = Sekolah::all();
-        return view('saldo.index', compact('saldo', 'sekolah'));
+        // dd($smp);
+        return view('saldo.index', compact('saldo', 'smp', 'sma', 'smk', 'sekolah'));
     }
     public function getIndex()
     {
@@ -27,7 +31,7 @@ class SaldoController extends Controller
     }
     public function add(Request $request)
     {
-       
+
         saldo::create($request->except(['_token', 'submit']));
         return redirect('/saldo');
 
@@ -61,14 +65,14 @@ class SaldoController extends Controller
                 'sekolah_id' => $keuangan->sekolah_id,
                 'debit' => 0,
                 'kredit' => $keuangan->jumlah,
-                'saldo'=> $saldo->saldo - $keuangan->jumlah
+                'saldo' => $saldo->saldo - $keuangan->jumlah
             ]);
         }
         Saldo::Create([
             'sekolah_id' => $keuangan->sekolah_id,
             'debit' => 0,
             'kredit' => $keuangan->jumlah,
-            'saldo'=> -$keuangan->jumlah
+            'saldo' => -$keuangan->jumlah
         ]);
         return redirect('/saldo');
     }
@@ -79,5 +83,3 @@ class SaldoController extends Controller
         return view('saldo.show', compact('saldo'));
     }
 }
-
-
