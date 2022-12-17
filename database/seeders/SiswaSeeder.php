@@ -29,7 +29,7 @@ class SiswaSeeder extends Seeder
             'sekolah_id' => '1',
             'foto' => 'Foto_041645.jpg',
             'users_id' => '5',
-            'isActive' => '0'
+            'isActive' => '1'
         ]);
         Siswa::create([
             'nis' => '3235344',

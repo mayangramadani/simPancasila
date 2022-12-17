@@ -21,16 +21,16 @@
                         @csrf
                         <div class="modal-body">
                             <label for="cemail" class="control-label text-dark fw-bold">Nama Sekolah</label>
-                            <input class="form-control mb-3" type="text" name="nama_sekolah" placeholder="exp. SMP Pancasila">
+                            <input class="form-control mb-3" type="text" name="nama_sekolah" placeholder="ex. SMP Pancasila">
 
                             <label for="cemail" class="control-label text-dark fw-bold">Derajat</label>
-                            <input class="form-control mb-3" type="text" name="derajat" placeholder="exp. SMP/SMA/SMK/MA">
+                            <input class="form-control mb-3" type="text" name="derajat" placeholder="ex. SMP/SMA/SMK/MA">
 
                             <label for="cemail" class="control-label text-dark fw-bold">Lokasi</label>
                             <input class="form-control mb-3" type="text" name="lokasi" placeholder="Lokasi">
 
                             <label for="cemail" class="control-label text-dark fw-bold">SPP</label>
-                            <input class="form-control mb-3" type="text" name="spp" placeholder="exp. Rp 100.000"
+                            <input class="form-control mb-3" type="text" name="spp" placeholder="ex. Rp 100.000"
                                 id="dengan-rupiah">
 
                         </div>

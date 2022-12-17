@@ -35,7 +35,8 @@ class TransaksiPembayaranController extends Controller
                 'users_id' => $item->users_id,
                 'nama_keuangan' => "Bayar SPP Siswa - " . date("M Y"),
                 'sekolah_id' => $item->sekolah_id,
-                'jumlah' => $item->Sekolah->spp
+                'jumlah' => $this->convertRP($item->Sekolah->spp)
+      
             ]);
         }
         return back();

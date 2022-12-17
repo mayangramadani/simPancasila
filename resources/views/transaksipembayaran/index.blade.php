@@ -61,8 +61,8 @@
                                 <div class="col-md-4 mb-3">
                                     <label class="form-control-label fw-semibold" for="name">Jumlah
                                         Pembayaran *</label>
-                                    <input type="text" class="form-control" id="dengan-rupiah"
-                                        placeholder="Jumlah Pembayaran" name='jumlah_pembayaran' readonly>
+                                    <input type="text" class="form-control"  id="dengan-rupiah"
+                                        placeholder="Jumlah Pembayaran" name='jumlah' readonly>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="foto" class="form-control-label fw-semibold">Bukti</label>

@@ -11,7 +11,6 @@
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>
-
         .print {
             visibility: visible;
         }
@@ -28,7 +27,7 @@
                     <div class="panel-body p30">
                         <div class="row">
                             <!-- Start .row -->
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <!-- col-lg-6 start here -->
                                 <div class="sidebar-brand-icon logo-brand">
                                     <img src="{!! asset('asset/img/Logo.png') !!}" alt=""
@@ -38,10 +37,10 @@
                                 </div>
                             </div>
                             <!-- col-lg-6 end here -->
-                            <div class="col-lg-6">
+                            <div class="col-lg-7">
                                 <!-- col-lg-6 start here -->
                                 <div class="invoice-from">
-                                    <ul class="list-unstyled text-right">
+                                    <ul class="list-unstyled text-center">
                                         <li>Yayasan Sinar Pancasila</li>
                                         <li>Jl. Telaga Sari No.13, RT.31, Telaga Sari, Kec. Balikpapan Kota, </li>
                                         <li>Kota Balikpapan, Kalimantan Timur 76112</li>
@@ -76,7 +75,7 @@
                                 <div class="invoice-items">
                                     <div class="table-responsive" style="overflow: hidden; outline: none;"
                                         tabindex="0">
-                                        <table class="table table-bordered">
+                                        <table class="table table-bordered" > 
                                             <thead>
                                                 <tr>
                                                     <th width="4%" class="text-center">No.</th>
@@ -85,19 +84,20 @@
                                                     <th class="per19 text-center">Jumlah</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody >
                                                 @foreach ($saldo as $item)
-                                                <tr role="row" class="odd">
-                                                    <td></td>
-                                                    <td>{{ 'Rp ' . number_format($item->debit, 0, '.', '.') }}</td>
-                                                    <td>{{ 'Rp ' . number_format($item->kredit, 0, '.', '.') }}</td>
-                                                    <td class="text-center">
-                                                        {{ 'Rp ' . number_format($item->saldo, 0, '.', '.') }}</td>
+                                                   
+                                                    <tr role="row" class="odd" >
+                                                        <td ></td>
+                                                        <td>{{ 'Rp ' . number_format($item->debit, 0, '.', '.') }}</td>
+                                                        <td>{{ 'Rp ' . number_format($item->kredit, 0, '.', '.') }}</td>
+                                                        <td class="text-center">
+                                                            {{ 'Rp ' . number_format($item->saldo, 0, '.', '.') }}</td>
 
-                                                </tr>
+                                                    </tr>
                                                 @endforeach
                                             </tbody>
-                                            <tfoot>
+                                            {{-- <tfoot>
                                                 <tr>
                                                     <th class="text-center"></th>
                                                     <th colspan="2" class="text-right">Total Pemasukan:</th>
@@ -118,9 +118,9 @@
 
                                                     </th>
                                                 </tr>
-                                            </tfoot>
+                                            </tfoot> --}}
                                         </table>
-                                        
+
                                     </div>
                                 </div>
                                 {{-- <div class="invoice-footer mt25">

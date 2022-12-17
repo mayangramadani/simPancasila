@@ -57,7 +57,7 @@ class SaldoController extends Controller
     }
     public function update($id, Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $saldo = Saldo::find($id);
         $saldo->update($request->except(['_token', 'submit']));
         if ($saldo) {
