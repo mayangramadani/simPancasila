@@ -111,6 +111,7 @@
                                                     {{-- <td>{{ $s->spp }}</td> --}}
                                                     <td class="text-center">
                                                         {{ 'Rp ' . number_format($s->spp, 0, '.', '.') }}</td>
+                                                        
 
                                                     <td class="d-flex py-4 justify-content-center">
                                                         <a href="/sekolah/{{ $s->id }}/edit" id="2"

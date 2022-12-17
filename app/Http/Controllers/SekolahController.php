@@ -14,6 +14,7 @@ class SekolahController extends Controller
         $sekolah = Sekolah::get();
         return view('sekolah.index', compact('sekolah'));
     }
+   
 
 
     public function add(Request $request)

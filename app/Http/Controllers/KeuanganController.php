@@ -49,6 +49,7 @@ class KeuanganController extends Controller
             'deskripsi' => $request->deskripsi,
             'users_id' => Auth::user()->id,
             'bukti' => $file_name1,
+            'status_pembayaran' => 'Diterima',
             'berkas_pendukung' => $file_name1,
 
         ]);

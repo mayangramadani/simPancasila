@@ -28,8 +28,8 @@
                                     <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
                                 @endforeach
                             </select>
-                            <label for="cemail" class="control-label text-dark fw-bold">Tingkatan Kelas</label>
-                            <select class="form-select form-select-lg mb-3 form-control" id="tingkatan_kelas"
+                            <label class="control-label text-dark fw-bold">Tingkatan Kelas</label>
+                            <select class="form-select form-select-lg mb-3 form-control"
                                 name="tingkatan_kelas">
                                 @foreach ($tingkatankelas as $item)
                                     <option value="{{ $item->id }}">{{ $item->tingkatan_kelas }}</option>

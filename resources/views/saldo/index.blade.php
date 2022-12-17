@@ -21,7 +21,7 @@
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                         Saldo (SMP)</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                        {{ 'Rp ' . number_format($smp->saldo, 0, '.', '.') }}
+                                        {{ 'Rp ' . number_format($smp->saldo ?? 0, 0, '.', '.') }}
                                         {{-- {{ $smp->saldo ?? 0 }} --}}
                                     </div>
                                 </div>
@@ -40,7 +40,7 @@
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         Saldo (SMA)</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                        {{ 'Rp ' . number_format($sma->saldo, 0, '.', '.') }}
+                                        {{ 'Rp ' . number_format($sma->saldo ?? 0, 0, '.', '.') }}
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -58,7 +58,7 @@
                                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                         Saldo (SMK)</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                        {{ 'Rp ' . number_format($smk->saldo, 0, '.', '.') }}
+                                        {{ 'Rp ' . number_format($smk->saldo ?? 0, 0, '.', '.') }}
                                     </div>
                                 </div>
                                 <div class="col-auto">

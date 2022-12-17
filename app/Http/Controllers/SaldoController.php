@@ -39,7 +39,7 @@ class SaldoController extends Controller
             'sekolah_id' => $request->sekolah_id,
             'debit' => $this->convertRP($request->debit),
             'kredit' => $this->convertRP($request->kredit),
-            'saldo' => $this->convertRP($request->saldo),
+            'saldo' => $this->convertRP($request->saldo ),
         ]);
         return redirect('/saldo');
     }

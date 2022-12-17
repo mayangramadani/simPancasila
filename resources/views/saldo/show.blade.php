@@ -88,7 +88,7 @@
                                                 @foreach ($saldo as $item)
                                                    
                                                     <tr role="row" class="odd" >
-                                                        <td ></td>
+                                                        <td class="text-center">{{ $loop->iteration }}</td>
                                                         <td>{{ 'Rp ' . number_format($item->debit, 0, '.', '.') }}</td>
                                                         <td>{{ 'Rp ' . number_format($item->kredit, 0, '.', '.') }}</td>
                                                         <td class="text-center">
