@@ -39,10 +39,10 @@
                                                     aria-controls="example1" rowspan="1" colspan="1" name="sekolah"
                                                     aria-label="Derajat: activate to sort column ascending">
                                                     Sekolah</th>
-                                                <th width="10%" class="text-center text-light" tabindex="0"
+                                                {{-- <th width="10%" class="text-center text-light" tabindex="0"
                                                     aria-controls="example1" rowspan="1" colspan="1" name="status"
                                                     aria-label="spp: activate to sort column ascending">Status
-                                                </th>
+                                                </th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -59,13 +59,13 @@
                                                     <td class="text-center">{{ $s->nis }}</td>
                                                     <td class="text-center">{{ $s->Sekolah->nama_sekolah }}</td>
                                                     {{-- <td class="text-center">{{$s->isActive}}</td>   --}}
-                                                    <td class="text-center">
+                                                    {{-- <td class="text-center">
                                                         @if ($s->isActive)
                                                             <span class="badge bg-success">Aktif</span>
                                                         @else
                                                             <span class="badge bg-danger">Non Aktif</span>
                                                         @endif
-                                                    </td>
+                                                    </td> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

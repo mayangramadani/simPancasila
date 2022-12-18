@@ -136,7 +136,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3 mb-3">
+                                        {{-- <div class="col-md-3 mb-3">
                                             <label for="namaLengkap"
                                                 class="col-form-label text-dark fw-semibold">Kelurahan</label>
                                             <select name="kelurahan" id="provinsi" class="form-select form-select-md"
@@ -187,7 +187,7 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-12 my-3" style="position: relative">
                                             <div
                                                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom">
