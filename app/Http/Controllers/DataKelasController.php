@@ -34,6 +34,7 @@ class DataKelasController extends Controller
     }
     public function add(Request $request)
     {
+        // dd($request->all());
         DataKelas::create($request->except(['_token', 'submit']));
         return redirect('/datakelas')->with('success', 'Data Berhasil Terkirim');
 

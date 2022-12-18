@@ -30,7 +30,7 @@
                             </select>
                             <label class="control-label text-dark fw-bold">Tingkatan Kelas</label>
                             <select class="form-select form-select-lg mb-3 form-control"
-                                name="tingkatan_kelas">
+                                name="tingkatan_kelas" id="tingkatan_kelas">
                                 @foreach ($tingkatankelas as $item)
                                     <option value="{{ $item->id }}">{{ $item->tingkatan_kelas }}</option>
                                 @endforeach
@@ -101,7 +101,7 @@
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1 text-center">{{ $no }}</td>
                                                         <td class="text-center">{{ $dk->nama_kelas }}</td>
-                                                        <td class="text-center">{{ $dk->TingkatanKelas->tingkatan_kelas }}
+                                                        <td class="text-center">{{ $dk->TingkatanKelas->tingkatan_kelas}}
                                                         </td>
                                                         <td class="text-center">{{ $dk->kuota }}</td>
                                                         <td class="d-flex justify-content-center">

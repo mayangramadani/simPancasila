@@ -4,9 +4,11 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-3 pl-3">
-            <h4 class="mb-0 text-primary fw-bold">Transaksi Siswa</h4>
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Transaksi Siswa
+            </h3>
         </div>
+        <p class="mb-3 text-center">Berikut formulir pembayaran siswa, untuk melihat petunjuk silahkan ke halaman <a href="/dashboard">Dashboard</a></p>
 
         <div class="row">
 

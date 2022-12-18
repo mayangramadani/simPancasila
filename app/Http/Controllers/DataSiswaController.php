@@ -58,6 +58,7 @@ class DataSiswaController extends Controller
             'users_id' => $user->id,
             'email' => $request->email,
             'password' => $request->password,
+            'isActive' => '1'
 
 
         ]);

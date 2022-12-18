@@ -24,6 +24,7 @@ class SiswaImport implements ToModel
         ]);
         $siswa = new Siswa([
             'kelas_id' => 1,
+            'isActive' => 1,
             'sekolah_id' => 1,
             'users_id' => $user->id,
             'nis' => $row[0],

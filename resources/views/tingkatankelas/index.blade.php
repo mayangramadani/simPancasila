@@ -24,7 +24,7 @@
                             </select>
                             <label for="cemail" class="control-label text-dark fw-bold">Tingkatan Kelas</label>
                             <input class="form-control mb-3" type="text" name="tingkatan_kelas"
-                                placeholder="exp. Kelas 7">
+                                placeholder="ex. Kelas 7">
 
                             <label for="cemail" class="control-label text-dark fw-bold">Deskripsi</label>
                             <input class="form-control mb-3" type="text" name="deskripsi" placeholder="deskripsi">

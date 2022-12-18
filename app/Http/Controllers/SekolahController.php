@@ -15,10 +15,9 @@ class SekolahController extends Controller
         return view('sekolah.index', compact('sekolah'));
     }
    
-
-
     public function add(Request $request)
     {
+        dd($request->all());
         Sekolah::create($request->except(['_token', 'submit']));
         return redirect('/sekolah')->with('success', 'Data Berhasil Terkirim');
 
@@ -29,7 +28,6 @@ class SekolahController extends Controller
             'spp' => $this->convertRP($request->spp),
             // 'spp' => $request->spp,
             
-
         ]);
         return redirect('sekolah');
     }

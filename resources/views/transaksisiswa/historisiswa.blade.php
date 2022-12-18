@@ -4,9 +4,12 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between py-2">
-            <h4 class="pl-3 text-primary fw-bold">Histori Pembayaran Siswa</h4>
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Histori Pembayaran Siswa
+            </h3>
         </div>
+        <p class="mb-3 text-center">Silahkan ke halaman <a href="/transaksisiswa">Transaksi Pembayaran</a> untuk melakukan pembayaran</p>
+>
 
         <div class="row">
             <!-- Area Chart -->
