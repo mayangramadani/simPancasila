@@ -35,11 +35,8 @@ class DataKelasController extends Controller
     public function add(Request $request)
     {
         // dd($request->all());
-        DataKelas::create($request->except(['_token', 'submit']));
-        return redirect('/datakelas')->with('success', 'Data Berhasil Terkirim');
-
         DataKelas::create([
-            'tingkatan_kelas_id' => $request->tingkatan_kelas_id,
+            'tingkatan_kelas_id' => $request->tingkatan_kelas,
             'nama_kelas' => $request->nama_kelas,
             'kuota' => $request->kuota,
 
@@ -68,9 +65,11 @@ class DataKelasController extends Controller
     public function detail($id)
     {
         // $siswa = Siswa::find(Auth::user()->id);
-        $datakelas = DataKelas::find($id);
+        $datakelas = DataKelas::select('data_kelas.*','tingkatan_kelas.sekolah_id')->join('tingkatan_kelas', 'tingkatan_kelas.id', 'data_kelas.tingkatan_kelas_id')
+            ->where('data_kelas.id', $id)->first();
+        // dd($datakelas);
         // $akseskelas = AksesKelas::where('kelas_id', '!=', $id)->where('siswa_id', '!=', $siswa->id)->get();
-        $siswa = Siswa::all();
+        $siswa = Siswa::where('sekolah_id',$datakelas->sekolah_id)->get();
         // dd($siswa);
         $dataku = null;
         foreach ($siswa as $item) {
@@ -103,6 +102,6 @@ class DataKelasController extends Controller
     {
         $kelas = DataKelas::find($id);
         $datakelas = AksesKelas::where('kelas_id', $id)->where('tahun', Date("Y"))->get();
-        return view('datakelas.download', compact('datakelas','kelas'));
+        return view('datakelas.download', compact('datakelas', 'kelas'));
     }
 }

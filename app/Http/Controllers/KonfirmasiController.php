@@ -45,7 +45,7 @@ class   KonfirmasiController extends Controller
                         'sekolah_id' => $konfirmasi->sekolah_id,
                         'debit' => $konfirmasi->jumlah,
                         'kredit' => 0,
-                        'saldo' => -$konfirmasi->jumlah
+                        'saldo' => $konfirmasi->jumlah
                     ]);
                 }
             }

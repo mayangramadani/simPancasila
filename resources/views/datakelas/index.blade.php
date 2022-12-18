@@ -17,7 +17,7 @@
                         <h4 class="modal-title text-primary fw-bold" id="exampleModalLabel">Tambah kelas</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="/datakelas/add" method="POST">
+                    <form action="{{url('datakelas/add')}}" method="POST">
                         @csrf
                         <div class="modal-body">
                             <label for="cemail" class="control-label text-dark fw-bold">Sekolah</label>

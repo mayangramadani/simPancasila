@@ -4,14 +4,20 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="pl-3 py-3 d-flex flex-row align-items-center justify-content-between">
-            <h4 class="m-0 font-weight-bold text-primary">Transaksi Pembayaran</h1>
-                <form action="{{ route('bayar') }}" method="post">
-                    @csrf
-                    <button type="submit" class="btn btn-primary btn-sm">
-                        Buka Pembayaran
-                    </button>
-                </form>
+        <div class="d-flex flex-row align-items-center justify-content-center py-3">
+            <h3 class="m-0 font-weight-bold text-primary mb-7">Transaksi Pembayaran
+            </h3>
+        </div>
+        <p class="mb-3 text-center">Silahkan ke halaman <a href="/dashboard">Dashboard</a> untuk melihat petunjuk pembayaran</p>
+        
+        {{-- <h4 class="m-0 font-weight-bold text-primary">Transaksi Pembayaran</h1> --}}
+        <div class="d-flex justify-content-end mb-3 ">
+            <form action="{{ route('bayar') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-primary btn-sm">
+                    Buka Pembayaran
+                </button>
+            </form>
         </div>
 
         <div class="row">
@@ -21,7 +27,7 @@
                 <div class="card shadow-sm mb-4">
                     <!-- Card header -->
                     <div class="card-body">
-                        <form class="validation" novalidate method="POST" action="{{ url('transaksi/add') }}"
+                        <form class="validation" novalidate method="POST" action="{{ url('transaksipembayaran/add') }}"
                             autocomplete="off">
                             @csrf
                             <!--Make sure the form has the autocomplete function switched off:-->
@@ -61,7 +67,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label class="form-control-label fw-semibold" for="name">Jumlah
                                         Pembayaran *</label>
-                                    <input type="text" class="form-control"  id="dengan-rupiah"
+                                    <input type="text" class="form-control" id="dengan-rupiah"
                                         placeholder="Jumlah Pembayaran" name='jumlah' readonly>
                                 </div>
                                 <div class="col-md-4 mb-3">

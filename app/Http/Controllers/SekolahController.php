@@ -17,9 +17,9 @@ class SekolahController extends Controller
    
     public function add(Request $request)
     {
-        dd($request->all());
-        Sekolah::create($request->except(['_token', 'submit']));
-        return redirect('/sekolah')->with('success', 'Data Berhasil Terkirim');
+        // // dd($request->all());
+        // Sekolah::create($request->except(['_token', 'submit']));
+        // return redirect('/sekolah')->with('success', 'Data Berhasil Terkirim');
 
         Sekolah::create([
             'nama_sekolah' => $request->nama_sekolah,

@@ -69,7 +69,7 @@
                                                         <td class="text-center">{{ $ts->tanggal }}</td>
                                                         {{-- <td class="text-center">{{ $ts->bukti }}</td> --}}
                                                         <td class="text-center">
-                                                            <img src="  {{ asset('storage/Keuangan/bukti/' . $ts->bukti) }}"
+                                                            <img src="  {{ asset('storage/Pembayaran/bukti/' . $ts->bukti) }}"
                                                                 height="80">
                                                         </td>
                                                         <td class="text-center">

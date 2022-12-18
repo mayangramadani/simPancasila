@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Models\Sekolah;
 use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -22,10 +23,10 @@ class SiswaImport implements ToModel
             'name'     => $row[1],
             'password'     => bcrypt($row[0]),
         ]);
+        $sekolah = Sekolah::where('nama_sekolah','LIKE', '%'.$row[11].'%')->first();
         $siswa = new Siswa([
-            'kelas_id' => 1,
+            // 'sekolah_id' => $sekolah->id,
             'isActive' => 1,
-            'sekolah_id' => 1,
             'users_id' => $user->id,
             'nis' => $row[0],
             'nama_siswa' => $row[1],
@@ -38,7 +39,7 @@ class SiswaImport implements ToModel
             'foto' => $row[8],
             'ayah' => $row[9],
             'ibu' => $row[10],
-            
+
         ]);
         return $siswa;
     }

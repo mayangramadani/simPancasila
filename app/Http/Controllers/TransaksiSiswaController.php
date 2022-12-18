@@ -52,7 +52,6 @@ class TransaksiSiswaController extends Controller
             $file_name1 = null;
         }
         // dd(Carbon::now());
-        
         $keuangan = Keuangan::find($request->bulan_pembayaran);
         // dd($keuangan);
         $keuangan->tanggal = Carbon::now();

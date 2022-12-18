@@ -157,6 +157,8 @@ Route::middleware(['auth'])->group(function () {
     // Transaksi Pembayaran
     Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/transaksipembayaran', [TransaksiPembayaranController::class, 'index'])->name('transaksipembayaran');
+        Route::post('/transaksipembayaran/add', [TransaksiPembayaranController::class, 'add']);
+        Route::put('/transaksipembayaran/{id}', [TransaksiPembayaranController::class, 'update']);
         Route::post('/bayar', [TransaksiPembayaranController::class, 'bayar'])->name('bayar');
     });
     // Transaksi Siswa
