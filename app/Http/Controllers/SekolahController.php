@@ -29,7 +29,7 @@ class SekolahController extends Controller
             // 'spp' => $request->spp,
             
         ]);
-        return redirect('sekolah');
+        return redirect('sekolah')->with('success', 'Data Berhasil Terkirim');
     }
     public function hapus($id)
     {
